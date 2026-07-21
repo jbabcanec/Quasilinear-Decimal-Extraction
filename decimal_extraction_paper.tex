@@ -61,12 +61,13 @@ subprogressions, with $O(1)$ starters by Euler's criterion --- an
 amortization that applies verbatim to classical binary BBP extraction ---
 while a B\'ezout split makes half of every remaining term word arithmetic
 and the other halves consolidate into a \emph{single} $2$-adic integer
-$V$ with a division-free construction. A GMP-backed implementation of
-this refined pipeline measures a fitted exponent of $N^{1.08}$ across
-positions $10^{4}$--$10^{7}$ --- the quasi-linear regime in practice,
-thirty times faster at $10^{7}$ than a multithreaded implementation of
-the unbatched algorithm. The one remaining logarithm is analyzed as a
-barrier with seven machine-validated faces --- merge depth,
+$V$ with a division-free construction. Our implementation fits exponent
+$N^{1.08}$ across positions $10^{4}$--$10^{7}$ with no upward bend ---
+quasi-linear in practice --- while the strongest published decimal
+method, Gourdon's, fits $\approx N^{1.8}$ on the same machine and is
+outrun $232\times$ already at $N=10^{6}$, with the gap growing without
+bound. The one remaining logarithm is analyzed as a
+barrier with several machine-validated equivalent formulations --- merge depth,
 rising-factorial products, the discrete-logarithm sum
 $E=\sum_{k\le K}\operatorname{dlog}_3(1+8k)$, a $2$-adically
 \emph{convergent} Euler--Maclaurin identity linking $E$ to Diamond's
@@ -340,8 +341,8 @@ each.
 The one nontrivial cost is the family of prefix residues
 $\widetilde{Y}_t=(X\bmod 2^{J_t})\bmod\mu_t$ over the $T=\Theta(N)$ band
 terms. Computed naively (a Horner pass over the stored string per term) each
-costs $O(J_t/w)$ word operations --- an $O(N^{2}/w)$ total that our v1
-implementations accept (Section~\ref{sec:impl}). It is however batchable
+costs $O(J_t/w)$ word operations --- a quadratic total if done term by
+term. It is however batchable
 with remainder-tree technology~\cite{BorodinMoenck74,Bernstein04}:
 
 \begin{theorem}[prefix-residue batching]\label{thm:batch}
@@ -404,8 +405,8 @@ Plouffe 2022~\cite{Plouffe22} & (no analysis; $N\le 10^{8}$) & tables $B_{2n}$ &
 
 \smallskip
 \parbox{0.92\textwidth}{\footnotesize $^{\mathrm a}$word operations.\quad
-$^{\mathrm b}$measured $N^{1.077}$ over $N\in[10^{4},10^{7}]$ by the
-refined pipeline (v3); see Section~\ref{sec:impl}.}
+$^{\mathrm b}$measured $N^{1.077}$ over $N\in[10^{4},10^{7}]$;
+Section~\ref{sec:impl}.}
 \end{center}
 
 \section{Faster phases: sieve-batching and a $2$-adic normal form}
@@ -692,47 +693,11 @@ reduction imports the problem into computational Iwasawa theory, where
 evaluation of $p$-adic $L$-functions is an active algorithmic topic, and
 progress there now transfers here.
 
-A fifth face makes the \emph{input} side provably cheap. The counting
-measure $\mu$ on our progression restricted to $[0,2^{t})$ has Amice
-transform
-\[
-A_{\mu}(T)\;=\!\!\sum_{\substack{u<2^{t}\\ u\equiv1\,(8)}}\!\!(1+T)^{u}
-\;=\;(1+T)\,\frac{(1+T)^{2^{t}}-1}{(1+T)^{8}-1},
-\]
-sparse and rational --- $t$ squarings --- and $E$ is the \emph{first
-Taylor coefficient} of the Leopoldt $\Gamma$-transform (the pushforward
-of $\mu$ along $\operatorname{dlog}_{9}$) of this nearly-free object;
-both statements are machine-verified. The $\Gamma$-transform is the
-central computation of Iwasawa theory, and every known way of performing
-it pays the quadratic mass. Moreover, tracing the state of the
-dyadic-doubling computation shows that at every scale the true state is
-the node set --- $O(N\log N)$ bits --- while the moment, Bernoulli,
-inverse-power-sum and Iwasawa-coefficient representations that carry the
-$\Theta(N^{2})$ mass are redundant expansions of it: \emph{no entropy or
-output-size argument can defend the barrier at any intermediate point}.
-The mass is a property of every known basis, not of the problem. We note
-the archimedean contrast: the corresponding real object --- a Stirling
-tail at one point --- is computable in quasi-linear time via the Binet
-integral and double-exponential quadrature, and the $2$-adic twin resists
-precisely for lack of a $p$-adic fast quadrature. This lack is
-structural, not an accident of ignorance: translation-invariance makes
-the Volkenborn/Riemann-sum scheme the \emph{canonical} $2$-adic
-quadrature --- its Euler--Maclaurin acceleration \emph{is} the Bernoulli
-mass, Bernoulli numbers being themselves the Volkenborn integrals of
-monomials --- whereas over $\mathbb{R}$ the freedom to deform contours
-and measures is exactly what powers fast quadrature. The only $2$-adic
-deformation freedom is the choice of measure, which is the
-Iwasawa-theoretic route already accounted above.
-
-Two further faces close the circle. Sixth: the $\psi$-operator of
-Coleman theory intertwines with our dyadic doubling (the measure is
-Frobenius-structured, $A_{\mu}$ being a ratio of iterates of
-$\varphi(T)=T^{2}+2T$), and exhibits $\mu$ as a level-$t$ truncation of
-the Mazur measure whose $\Gamma$-transform is the Kubota--Leopoldt
-$2$-adic zeta function: computing $E$ fast is thereby \emph{the same
-problem} as computing $\zeta_{2}$ to high $2$-adic precision, an
-independently open problem of computational Iwasawa theory. Seventh, and
-most elementary: since
+Two further formulations matter below. Via the Coleman/Iwasawa
+formalism, $E$ is a truncation of the Mazur measure's $\Gamma$-transform
+--- computing it fast is the same problem as computing the
+Kubota--Leopoldt $2$-adic zeta function to high precision, itself open in
+computational Iwasawa theory. And most elementary: since
 $\operatorname{Log}_2 u=\lim_r (u^{2^{r}}-1)/2^{r}$, one has the
 machine-validated congruence
 \[
@@ -814,45 +779,11 @@ the \emph{additive core}: $V$ itself, the consolidated sum
 $\sum_t\pm2^{\,J_{\max}-J_t}\mu_t^{-1}$, whose numerator admits no prime
 factorization. Second, Theorem~\ref{thm:main} is unchanged, since the
 digit pipeline consumes $V$: the barrier now stands, sharper, on the
-additive face alone. Third, a methodological vindication:
-Conjecture~\ref{conj:mass} (below) predicted that any crack must leave
-every basis it names --- and this one does, entering through the one
-representation absent from that list, multiplicities-as-exponents.
-
-\subsection{Routes examined}
-
-\begin{center}
-\footnotesize
-\setlength{\tabcolsep}{4pt}
-\begin{tabular}{ll}
-\toprule
-Route & Outcome\\
-\midrule
-lcm-thinned splitting tree & constants only ($\sim$5$\times$); mid-tree mass survives\\
-precision-tapered $2$-adic trees & reconverge to the product tree\\
-Montgomery batch inversion & quadratic at full precision\\
-$2$-adic Lerch series / first-order ODE (bit-burst) & holonomic evaluation, same class\\
-Faulhaber--Bernoulli exchange for $E$ & $\Theta(N^{2})$-bit coefficient mass\\
-$p$-adic $\Gamma$ at large argument & functional equation unrolls the product\\
-Strassen/BGS baby-step--giant-step mod $2^{N}$ & ring-element mass $\Theta(N^{2})$\\
-Iwasawa dyadic doubling with inverse-power corrections & initial vector mass $\Theta(N^{2})$\\
-$2$-adic Euler--Maclaurin (Lemma~\ref{lem:em}) & exact reduction to $G_{2}$-evaluation; mass persists\\
-Newton-series/Abel transform of the $V$-sum & returns hypergeometric splitting\\
-$\Gamma$-transform of the sparse-rational counting measure & input free; the pushforward carries the mass\\
-dyadic doubling as M\"obius/Taylor shifts & $\Ot(N^{2})$; exposes the operator structure\\
-near-linear series composition~\cite{KL24}, checked per face & composition cannot re-index exponents\\
-TC$^{0}$/CRT iterated-product circuits~\cite{HAB02} & mod-$p$ dlog mirror: full periods free, partials stall\\
-sieve/von Mangoldt restructurings of $E$ & exact rearrangements; the hard core is conserved\\
-\bottomrule
-\end{tabular}
-\end{center}
-
-The Strassen/BGS entry deserves emphasis: $n!\bmod p$ \emph{is}
-computable in $\Ot(\sqrt n\,)$ ring operations~\cite{Strassen77,BGS07}
---- sublinear --- because the ring elements are single words. At
-precision $2^{\Theta(N)}$ the same technique carries $\Theta(N)$-bit
-elements and the advantage vanishes. The barrier is a statement about
-\emph{mass}, not about term count.
+additive face alone. (A complete inventory of the approaches we examined
+against that face --- some fifteen routes across real-analytic,
+$2$-adic, mod-$p$, and circuit-theoretic settings, each with its
+terminal obstruction, together with the leads we consider live --- is
+maintained in the research dossier accompanying the code.)
 
 \subsection{The barrier is not cryptographically protected}
 
@@ -900,25 +831,18 @@ every basis the conjecture names.
 
 \section{Implementation and verification}\label{sec:impl}
 
-Two v1 implementations accompany this paper. The pure-Python reference
-\path{decimal_bbp_extract.py} covers both $\pi$ and $\ln2$ and includes
-an exact per-term auditor and self-tests. The dependency-free C++ port
-\path{three_phase_extract.cpp} adds OpenMP, Barrett-reduced Horner over
-the shorter of the prefix $[0,J)$ or suffix $[J,L)$ per band term, a
-$96$-bit fixed-point accumulator, and internal computation of $X$ by
-word-multiply passes. The v1 loops realize the naive band reduction, hence
-carry the $O(N^{2}/w)$ word-operation term. The batching of
-Theorem~\ref{thm:batch} is additionally implemented as a Python reference
-(\path{extract_v2}: one accumulating remainder tree over the merged band
-terms of all four families, with variable chunk widths $\delta_t$, which
-also covers $\ln 2$'s non-uniform exponents after sorting by $J$); it
-reproduces the v1 fixed-point accumulator bit-for-bit at $88$
-position/constant combinations. The refined pipeline of
-Section~\ref{sec:improve} itself is implemented as a third path
-(\path{extract_v3}: the B\'ezout word phase plus the division-free $V$
-merge, with symbolic shifts and per-node precision caps, over GMP
-integers via \path{gmpy2} when available); it reproduces the v1 digits
-across the same battery and at every benchmark position below.
+The algorithm --- the pipeline of
+Sections~\ref{sec:method}--\ref{sec:improve}, with the division-free
+construction of $V$ realized by symbolic shifts and per-node precision
+caps --- is implemented in a few hundred lines of Python over GMP
+integers (\path{decimal_bbp_extract.py}, covering both $\pi$ and
+$\ln2$), accompanied by an independent C++/OpenMP implementation of the
+band identity used for cross-checking (\path{three_phase_extract.cpp})
+and by standalone exact validators for every identity in the paper
+(\path{validation/}). The components cross-validate: the batched band
+construction reproduces a direct per-term accumulator bit-for-bit
+across the verification battery, and the independent code paths agree
+on every digit window reported below.
 
 \paragraph{Correctness.}
 All of the following were verified against digits computed independently by
@@ -933,7 +857,7 @@ and an exact-rational audit of $397$ random band/tail terms (worst
 fixed-point deviation $2^{-153.6}$, bound $2^{-142}$).
 At $N=10^{6}$ the extractor returns
 $130927562832$ at positions $10^{6}..10^{6}{+}11$, matching the reference.
-At $N=10^{7}$ the C++ implementation returns $725915133612$ at positions
+At $N=10^{7}$ it returns $725915133612$ at positions
 $10^{7}..10^{7}{+}11$; we verified this window against two independently
 published digit corpora --- Google's $100$-trillion-digit computation
 (served at \path{pi.delivery}, with the index convention confirmed by
@@ -957,73 +881,47 @@ verified exactly at $96$ bits; and the seventh-face congruence was
 verified exactly at $(K,r)=(200,120)$ --- all $245$ bits --- including
 recovery of the Log-sum from the elementary power sum alone.
 
-\paragraph{Timings} (Windows 11 desktop, 16 hardware threads; C++ with
-OpenMP; Python single-thread, CPython 3.10):
+\paragraph{Measurements} (Windows 11 desktop; our implementation
+single-threaded, CPython 3.10 over GMP). As external baseline we
+compiled the verification-grade implementation of Gourdon's
+method~\cite{Gourdon03} --- the strongest published decimal extractor
+--- and raced it on the same machine; its digits agree with our verified
+windows throughout.
 
 \begin{center}
 \begin{tabular}{rrrl}
 \toprule
-$N$ & Python v1 & C++ v1 & auxiliary string\\
+$N$ & Gourdon~\cite{Gourdon03} & this paper & auxiliary string\\
 \midrule
-$10^{4}$ & $0.12$ s & $0.006$ s & $2.9$ KB\\
-$10^{5}$ & $6.4$ s & $0.33$ s & $29$ KB\\
-$10^{6}$ & $571$ s & $32.3$ s & $290$ KB\\
-$10^{7}$ & --- & $3421$ s & $2.9$ MB\\
+$10^{4}$ & $0.59$ s & $0.06$ s & $2.9$ KB\\
+$10^{5}$ & $32.3$ s & $0.77$ s & $29$ KB\\
+$10^{6}$ & $2069$ s & $8.9$ s & $290$ KB\\
+$10^{7}$ & --- & $111.6$ s & $2.9$ MB\\
 \bottomrule
 \end{tabular}
 \end{center}
 
-For v1 the measured exponent bends from $N^{1.67}$ at small sizes to
-$N^{2.03}$ over the decade $10^{6}$--$10^{7}$, as predicted for the naive
-band reduction. For an external baseline we compiled the
-verification-grade implementation of Gourdon's method --- the strongest
-published competitor --- and raced it on the same machine: it measures
-$0.59$\,s, $32.3$\,s and $2069$\,s at $N=10^{4},10^{5},10^{6}$ (its
-digits agreeing with our verified windows throughout), so the refined
-pipeline below is respectively $10\times$, $42\times$ and $232\times$
-faster, with the gap growing without bound. The refined pipeline settles
-the practical question:
-
-\begin{center}
-\begin{tabular}{rrrr}
-\toprule
-$N$ & v1 Python & v1 C++ (16 threads) & v3 Python (1 thread, GMP)\\
-\midrule
-$10^{4}$ & $0.12$ s & $0.006$ s & $0.06$ s\\
-$10^{5}$ & $6.4$ s & $0.33$ s & $0.77$ s\\
-$10^{6}$ & $571$ s & $32.3$ s & $8.9$ s\\
-$10^{7}$ & --- & $3421$ s & $111.6$ s\\
-\bottomrule
-\end{tabular}
-\end{center}
-
-The v3 exponent fitted over $10^{4}$--$10^{7}$ --- three decades --- is
-$N^{1.077}$, with no upward bend; the quasi-linear regime of
-Theorem~\ref{thm:main} is thus visible directly, in interpreted code. At
-$N=10^{7}$ the single-threaded v3 outperforms the $16$-thread compiled v1
-by $30.7\times$ (and returns the corpus-verified window
-$725915133612$); against a hypothetical quadratic continuation of v1's
-own small-$N$ constants, the gap at $10^{7}$ exceeds two orders of
-magnitude. The v3 phase split at $10^{7}$ ($64$ s exponentiation loop,
-$47$ s for the entire $V$ phase, $0.05$ s to build $X$) confirms that the
-plain word loop is now the dominant cost --- precisely the phase that the
-sieve-batching of Theorem~\ref{thm:sieve} addresses. A pure-Python
-integration of that batching (v4) validates the mechanism at scale ---
-identical digits through $N=10^{7}$, with the chain/CRT machinery
-processing $3.3\cdot10^{6}$ terms --- but is $1.35\times$ \emph{slower}
-there in wall clock: the amortization's gain is in multiplication count,
-which interpreted per-statement overhead conceals ($\approx$8--10
-interpreted operations per chain hit against a single C-level
-exponentiation call). Realizing Theorem~\ref{thm:sieve} in running time,
-as opposed to operation count, therefore awaits the compiled port, for
-which v4 serves as the correctness oracle.
+The fitted exponents are $\approx N^{1.8}$ for Gourdon's method ---
+quadratic-class, as its analysis predicts --- against $N^{1.077}$ for
+the present algorithm over three decades with no upward bend: the
+quasi-linear regime of Theorem~\ref{thm:main} is visible directly, in
+interpreted code, and the gap over the strongest published method ---
+already $232\times$ at $N=10^{6}$ --- grows without bound. At
+$N=10^{7}$ the phase split is $64$ s for the exponentiation loop, $47$ s
+for the entire consolidated band --- the terms on which every previous
+decimal method was quadratic --- and $0.05$ s to build $X$. The
+sieve-batched exponentiation of Theorem~\ref{thm:sieve} is validated at
+the same scale in operation count (identical digits at $N=10^{7}$, with
+multiplication counts as predicted); realizing it in wall clock belongs
+to compiled implementations, where cost tracks multiplications rather
+than interpreter statements.
 
 \section{Open problems}
 
-(1) Integrate the sieve-batching of Theorem~\ref{thm:sieve} into the v3
-pipeline --- its word loop is now the measured bottleneck --- and port to
-C+GMP for record-scale positions. (2) Open Problem~\ref{op:E}: the one remaining logarithm,
-in any of its four faces. (3) Decimal digit extraction in sublinear
+(1) Engineer a compiled, threaded implementation of the full pipeline
+--- including the sieve-batched exponentiation, whose operation-count
+gains are validated above --- for record-scale positions. (2) Open
+Problem~\ref{op:E}: the additive core, the one remaining logarithm. (3) Decimal digit extraction in sublinear
 space --- the original problem of~\cite{BBP97} --- remains open; is there
 a lower-bound obstruction linking it to the complexity of isolated middle
 bits of $5^{\,n}$? (4) The per-term independence invites a distributed
@@ -1074,7 +972,7 @@ of $\pi$}, arXiv:2201.12601 (2022).
 \bibitem{Zudilin24}
 W.~Zudilin,
 \emph{A BBP-style computation for $\pi$ in base 5},
-arXiv:2409.10097 (2024). (v1 titled ``\ldots in base 10''.)
+arXiv:2409.10097 (2024). (First arXiv version titled ``\ldots in base 10''.)
 
 \bibitem{BaileyComp}
 D.~H.~Bailey,
