@@ -1,0 +1,585 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage[margin=1.1in]{geometry}
+
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\title{Guillera's Series for $1/\pi^2$: \\
+A Critical Analysis for Decimal Digit Extraction}
+
+\author{Joseph Babcanec\\Benedict College\\\texttt{joseph.babcanec@benedict.edu}}
+
+\date{March 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We analyze the feasibility of replacing the Chudnovsky series in the Hybrid Chudnovsky--Newton digit extractor (Algorithm~2 of our prior work) with one of Guillera's series for $1/\pi^2$. The research log conjectured that Guillera's fastest series gives ``${\sim}29$ digits per term,'' yielding a ${\sim}2\times$ speedup. We show this claim is incorrect on both counts. A careful identification of the actual Guillera formulas reveals that the fastest proved series for $1/\pi^2$ converges at approximately $3.01$ decimal digits per term---far slower than the Chudnovsky series at $14.18$ digits per term. Moreover, even in a hypothetical scenario where a Guillera-type formula matched Chudnovsky's convergence rate, the extra Newton phase required to recover $\pi$ from $1/\pi^2$ (inverse square root at $3M(n)$ per step vs.\ simple inversion at $2M(n)$ per step) would make the Guillera hybrid $33\%$ \emph{slower}, not faster. We provide complete derivations of three candidate inversion routes, prove quadratic convergence for each, compute operation counts, and carry out a detailed complexity comparison. The Chudnovsky hybrid remains optimal among all known hypergeometric approaches.
+\end{abstract}
+
+\noindent\textbf{MSC 2020:} 11Y60, 33C20 \hfill \textbf{Keywords:} Guillera series, $1/\pi^2$, digit extraction, Newton iteration
+
+%----------------------------------------------------------------------
+\section{Guillera's Series: Identification and Exact Coefficients}
+\label{sec:identification}
+%----------------------------------------------------------------------
+
+\subsection{Background and motivation}
+
+In the research log accompanying our hybrid Chudnovsky--Newton digit extractor, we noted:
+
+\begin{quote}
+``Guillera's fastest series gives ${\sim}29$ digits per term for $1/\pi^2$. This would require two inversions (square root + inversion). The CRT decomposition carries over since $M_k = (6k)!/((3k)!(k!)^3)$ appears in Guillera's formula too. Base changes from $640320^3$ to $4608$ (smaller, cleaner). Could give ${\sim}2\times$ additional speedup over our hybrid.''
+\end{quote}
+
+We now show that \textbf{every claim in this passage is incorrect}: the convergence rate, the factorial structure, the base, and the speedup estimate. The source of the error was a conflation of the Chudnovsky series structure (a ${}_3F_2$ hypergeometric series for $1/\pi$ using the factorial ratio $(6k)!/((3k)!(k!)^3)$, connected to class-number-1 imaginary quadratic fields) with the Guillera series structure (a ${}_5F_4$ hypergeometric series for $1/\pi^2$ using fifth powers of Pochhammer symbols, connected to Calabi--Yau differential equations).
+
+\subsection{The actual Guillera formulas}
+
+Jes\'us Guillera discovered his series for $1/\pi^2$ in 2002--2003 \cite{guillera2003}. They are \emph{not} Ramanujan--Sato type series (which are ${}_3F_2$ series for $1/\pi$), but rather ${}_5F_4$ hypergeometric series. The four principal formulas, using standard Pochhammer symbol notation $(a)_k = a(a+1)\cdots(a+k-1)$, are:
+
+\medskip
+
+\noindent\textbf{Formula G1} (Guillera 2002, proved by Guillera via WZ):
+\begin{equation}\label{eq:G1}
+\frac{128}{\pi^2} = \sum_{k=0}^{\infty} \left(-\frac{1}{1024}\right)^k \frac{(\tfrac{1}{2})_k^5}{(1)_k^5} \left(820k^2 + 180k + 13\right).
+\end{equation}
+Convergence ratio: $|z| = 1/1024$. Digits per term: $\log_{10}(1024) \approx \mathbf{3.01}$.
+
+\medskip
+
+\noindent\textbf{Formula G2} (Guillera 2002, proved by Guillera via WZ):
+\begin{equation}\label{eq:G2}
+\frac{8}{\pi^2} = \sum_{k=0}^{\infty} \left(-\frac{1}{4}\right)^k \frac{(\tfrac{1}{2})_k^5}{(1)_k^5} \left(20k^2 + 8k + 1\right).
+\end{equation}
+Convergence ratio: $|z| = 1/4$. Digits per term: $\log_{10}(4) \approx \mathbf{0.60}$.
+
+\medskip
+
+\noindent\textbf{Formula G3} (Guillera 2002, proved by Guillera via WZ):
+\begin{equation}\label{eq:G3}
+\frac{32}{\pi^2} = \sum_{k=0}^{\infty} \left(\frac{1}{16}\right)^k \frac{(\tfrac{1}{4})_k(\tfrac{1}{2})_k^3(\tfrac{3}{4})_k}{(1)_k^5} \left(120k^2 + 34k + 3\right).
+\end{equation}
+Convergence ratio: $|z| = 1/16$. Digits per term: $\log_{10}(16) \approx \mathbf{1.20}$.
+
+\medskip
+
+\noindent\textbf{Formula G4} (Guillera 2011, proved by Zudilin):
+\begin{equation}\label{eq:G4}
+\frac{48}{\pi^2} = \sum_{k=0}^{\infty} \left(\frac{27}{64}\right)^k \frac{(\tfrac{1}{3})_k(\tfrac{1}{2})_k^3(\tfrac{2}{3})_k}{(1)_k^5} \left(74k^2 + 27k + 3\right).
+\end{equation}
+Convergence ratio: $|z| = 27/64$. Digits per term: $\log_{10}(64/27) \approx \mathbf{0.37}$.
+
+\medskip
+
+These are \textbf{all} the proved Guillera-type formulas for $1/\pi^2$ as of 2026. Formula G1 is the fastest, at approximately $3.01$ digits per term.
+
+\subsection{Why the convergence rates are what they are}
+
+For a ${}_5F_4$ series $\sum c_k z^k$ with Pochhammer parameters approaching 1, the ratio of consecutive terms satisfies
+\[
+\frac{c_{k+1}}{c_k} \to z \quad \text{as } k \to \infty.
+\]
+More precisely, for formula G1 with $(1/2)_k^5 / (1)_k^5$:
+\[
+\frac{(1/2)_{k+1}}{(1)_{k+1}} \cdot \frac{(1)_k}{(1/2)_k} = \frac{k+1/2}{k+1} \to 1,
+\]
+so the fifth power contributes a factor approaching $1^5 = 1$, and the geometric decay is controlled entirely by $z = -1/1024$. This confirms $|a_{k+1}/a_k| \to 1/1024$, giving $\log_{10}(1024) \approx 3.01$ digits of precision per term.
+
+\subsection{Comparison with the Chudnovsky series}
+
+The Chudnovsky series for $1/\pi$ is:
+\begin{equation}\label{eq:chud}
+\frac{1}{\pi} = \frac{12}{C^{3/2}} \sum_{k=0}^{\infty} (-1)^k \frac{(6k)!}{(3k)!(k!)^3} \cdot \frac{L_k}{C^{3k}}, \quad C = 640320, \quad L_k = 13591409 + 545140134\,k.
+\end{equation}
+The factorial ratio $M_k = (6k)!/((3k)!(k!)^3)$ grows as (by Stirling):
+\begin{equation}\label{eq:Mk-growth}
+M_k \sim \frac{\sqrt{2}}{(2\pi)^{3/2}} \cdot \frac{1728^k}{k^{3/2}}.
+\end{equation}
+(Derivation in Appendix~\ref{sec:stirling}.) The convergence rate per term is:
+\[
+\log_{10}\!\left(\frac{C^3}{1728}\right) = \log_{10}\!\left(\frac{640320^3}{1728}\right) = 3\log_{10}\!\left(\frac{640320}{12}\right) = 3\log_{10}(53360) \approx 14.18 \text{ digits/term}.
+\]
+
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Series} & \textbf{Computes} & \textbf{Digits/term} & \textbf{Type} \\
+\midrule
+Chudnovsky & $1/\pi$ & 14.18 & ${}_3F_2$, Ramanujan--Sato \\
+Guillera G1 & $1/\pi^2$ & 3.01 & ${}_5F_4$ \\
+Guillera G3 & $1/\pi^2$ & 1.20 & ${}_5F_4$ \\
+Guillera G2 & $1/\pi^2$ & 0.60 & ${}_5F_4$ \\
+Guillera G4 & $1/\pi^2$ & 0.37 & ${}_5F_4$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{The Chudnovsky series converges $4.7\times$ faster per term than the fastest Guillera formula.}
+
+\subsection{Why there is no fast Guillera formula with $M_k = (6k)!/((3k)!(k!)^3)$}
+
+The factorial ratio $M_k = (6k)!/((3k)!(k!)^3)$ arises in Ramanujan--Sato type series, which are ${}_3F_2$ hypergeometric series related to modular forms on $\Gamma_0(N)$ for small~$N$. These series compute $1/\pi$, not $1/\pi^2$. The Chudnovsky formula corresponds to the unique class-number-1 discriminant $d = -163$ (the largest Heegner number), which produces the maximal base $C = 640320$ and the fastest convergence rate in this family.
+
+Guillera's series for $1/\pi^2$ belong to a \emph{different} mathematical family: ${}_5F_4$ hypergeometric series related to Calabi--Yau differential equations. These use Pochhammer products like $(\tfrac{1}{2})_k^5 / (1)_k^5$, not the factorial ratio $(6k)!/((3k)!(k!)^3)$. There is no ``$1/\pi^2$ analogue'' of the Chudnovsky series with the same factorial structure and a faster convergence rate. The research log's claim that ``$M_k = (6k)!/((3k)!(k!)^3)$ appears in Guillera's formula too'' is false.
+
+\subsection{Source of the ``${\sim}29$ digits per term'' error}
+
+The most likely origin of this erroneous claim is a misreading of the following (correct) observation: the Chudnovsky series provides ${\sim}14.18$ digits per term for $1/\pi$, and $1/\pi^2 = (1/\pi)^2$, so one might naively expect that ``squaring'' the series would ``double'' the convergence rate to ${\sim}28.36$ digits per term. This reasoning is fallacious: convergence rate is a property of the \emph{series}, not of the quantity being computed. Squaring a power series does not double its radius of convergence or its per-term digit yield. The Cauchy product of two copies of the Chudnovsky series would indeed give a series for $1/\pi^2$, but its convergence rate would remain ${\sim}14.18$ digits per term (with doubled computational cost per term due to the convolution).
+
+%----------------------------------------------------------------------
+\section{Double Inversion: From $1/\pi^2$ to $\pi$}
+\label{sec:double-inversion}
+%----------------------------------------------------------------------
+
+Despite the negative conclusion above, the double-inversion problem is mathematically interesting and may arise in other contexts. We analyze three routes from an approximation $S \approx 1/\pi^2$ to $\pi$.
+
+\subsection{Route A: Newton reciprocal, then Newton square root}
+
+\noindent\textbf{Phase A1:} From $S \approx 1/\pi^2$, compute $\pi^2 = 1/S$ via Newton's method for $f(y) = 1/y - S$:
+\begin{equation}\label{eq:newtonA1}
+y_{j+1} = y_j(2 - S \cdot y_j).
+\end{equation}
+
+\noindent\textbf{Phase A2:} From $\pi^2$, compute $\pi = \sqrt{\pi^2}$ via Heron's method:
+\begin{equation}\label{eq:newtonA2}
+z_{j+1} = \frac{1}{2}\left(z_j + \frac{\pi^2}{z_j}\right).
+\end{equation}
+
+\begin{lemma}[Convergence of Route A]\label{lem:routeA}
+Both phases converge quadratically.
+
+\noindent\textbf{Phase A1:} Let $e_j = y_j - \pi^2$. Then
+\begin{equation}\label{eq:A1-error}
+e_{j+1} = -\frac{e_j^2}{\pi^2}.
+\end{equation}
+
+\noindent\textbf{Phase A2:} Let $\epsilon_j = z_j - \pi$. Then
+\begin{equation}\label{eq:A2-error}
+\epsilon_{j+1} = \frac{\epsilon_j^2}{2(\pi + \epsilon_j)}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+\textbf{Phase A1.} Write $y_j = \pi^2 + e_j$ and $S = 1/\pi^2$:
+\begin{align*}
+y_{j+1} &= (\pi^2 + e_j)\!\left(2 - \frac{\pi^2 + e_j}{\pi^2}\right) = (\pi^2 + e_j)\!\left(1 - \frac{e_j}{\pi^2}\right) = \pi^2 - \frac{e_j^2}{\pi^2}.
+\end{align*}
+
+\textbf{Phase A2.} Write $z_j = \pi + \epsilon_j$ and $y = \pi^2$:
+\begin{align*}
+z_{j+1} &= \frac{1}{2}\!\left(\pi + \epsilon_j + \frac{\pi^2}{\pi + \epsilon_j}\right) = \frac{(\pi + \epsilon_j)^2 + \pi^2}{2(\pi + \epsilon_j)} = \frac{2\pi^2 + 2\pi\epsilon_j + \epsilon_j^2}{2(\pi + \epsilon_j)} = \pi + \frac{\epsilon_j^2}{2(\pi + \epsilon_j)}.
+\end{align*}
+Both errors satisfy $|e_{j+1}| = O(e_j^2)$, confirming quadratic convergence. \qedhere
+\end{proof}
+
+\noindent\textbf{Operation count per Newton step:}
+\begin{itemize}
+\item Phase A1: $S \cdot y_j$ costs $M(n)$; $y_j \cdot (2 - Sy_j)$ costs $M(n)$. Total: $2M(n)$.
+\item Phase A2 (Heron): requires $\pi^2/z_j$, which is a division costing $\sim 3M(n)$ if implemented via Newton reciprocal plus multiplication. Total: $\sim 3M(n)$.
+\end{itemize}
+\textbf{Route A total: $5M(n)$ per combined Newton step.}
+
+\subsection{Route B: Direct Newton for $\pi = 1/\sqrt{S}$}
+
+From $S = 1/\pi^2$, we want $\pi = S^{-1/2}$. Newton's method for $f(w) = 1/w^2 - S$:
+\begin{equation}\label{eq:routeB}
+w_{j+1} = \frac{w_j}{2}(3 - S \cdot w_j^2).
+\end{equation}
+
+\begin{lemma}[Convergence of Route B]\label{lem:routeB}
+Let $\epsilon_j = w_j - \pi$. Then
+\begin{equation}\label{eq:routeB-error}
+\epsilon_{j+1} = -\frac{\epsilon_j^2(3\pi + \epsilon_j)}{2\pi^2}.
+\end{equation}
+For small $\epsilon_j$, $|\epsilon_{j+1}| \approx \frac{3}{2\pi}\,\epsilon_j^2$.
+\end{lemma}
+
+\begin{proof}
+Write $w_j = \pi + \epsilon_j$ and $S = 1/\pi^2$:
+\begin{align*}
+w_{j+1} &= \frac{(\pi + \epsilon_j)}{2}\!\left(3 - \frac{(\pi + \epsilon_j)^2}{\pi^2}\right) \\
+         &= \frac{(\pi + \epsilon_j)}{2}\!\left(3 - 1 - \frac{2\epsilon_j}{\pi} - \frac{\epsilon_j^2}{\pi^2}\right) \\
+         &= (\pi + \epsilon_j)\!\left(1 - \frac{\epsilon_j}{\pi} - \frac{\epsilon_j^2}{2\pi^2}\right) \\
+         &= \pi + \epsilon_j - \epsilon_j - \frac{\epsilon_j^2}{2\pi} - \frac{\epsilon_j^2}{\pi} - \frac{\epsilon_j^3}{2\pi^2} \\
+         &= \pi - \frac{3\epsilon_j^2}{2\pi} - \frac{\epsilon_j^3}{2\pi^2}. \qedhere
+\end{align*}
+\end{proof}
+
+\noindent\textbf{Operation count per Newton step (Route B):}
+\begin{itemize}
+\item $w_j^2$: one multiplication, $M(n)$.
+\item $S \cdot w_j^2$: one multiplication, $M(n)$.
+\item $3 - S w_j^2$: one subtraction, $O(n)$.
+\item $w_j \cdot (3 - Sw_j^2)$: one multiplication, $M(n)$.
+\item Division by 2: bit shift, $O(n)$.
+\end{itemize}
+\textbf{Route B total: $3M(n)$ per Newton step.}
+
+\subsection{Route C: Newton square root, then Newton inversion}
+
+\noindent\textbf{Phase C1:} From $S = 1/\pi^2$, compute $\sqrt{S} = 1/\pi$ via Heron's method (cost $\sim 3M(n)$).
+
+\noindent\textbf{Phase C2:} From $1/\pi$, compute $\pi$ via Newton inversion $y_{j+1} = y_j(2 - (1/\pi) \cdot y_j)$ (cost $2M(n)$).
+
+\textbf{Route C total: $5M(n)$ per combined Newton step} (same as Route A).
+
+\subsection{Comparison of routes}
+
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Route} & \textbf{$M(n)$ per step} & \textbf{Leading error constant} & \textbf{Newton phases} \\
+\midrule
+A: reciprocal $\to$ sqrt & $2 + 3 = 5$ & $1/\pi^2,\; 1/(2\pi)$ & 2 sequential \\
+B: direct $1/\sqrt{S}$ & $3$ & $3/(2\pi) \approx 0.477$ & 1 unified \\
+C: sqrt $\to$ reciprocal & $3 + 2 = 5$ & $1/(2\pi),\; 1/\pi$ & 2 sequential \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{proposition}[Optimal inversion route]\label{prop:optimal-route}
+Route B is optimal. It requires only $3M(n)$ per Newton step, versus $5M(n)$ for Routes A and C. All three routes achieve quadratic convergence with the same number of steps $S = \lceil \log_2(N/p_0) \rceil + 1$.
+\end{proposition}
+
+\begin{proof}
+Route B combines the reciprocal and square-root operations into a single Newton iteration for $w = S^{-1/2}$, saving $2M(n)$ per step. The larger convergence constant ($3/(2\pi) \approx 0.477$ vs.\ smaller constants in individual phases) does not affect the number of doubling steps needed, since all routes double precision per step. The cost difference is purely in the per-step multiplication count. \qedhere
+\end{proof}
+
+\begin{remark}
+Route B is the inverse-square-root iteration, the same one used in hardware implementations (e.g., the well-known Quake III ``fast inverse square root''). Applied here to arbitrary-precision arithmetic, it computes $\pi = 1/\sqrt{1/\pi^2}$ directly.
+\end{remark}
+
+%----------------------------------------------------------------------
+\section{Precise Convergence Analysis for Route B}
+\label{sec:convergence-detail}
+%----------------------------------------------------------------------
+
+\begin{theorem}[Full convergence of Route B]\label{thm:routeB-precise}
+Let $S = 1/\pi^2$ and $w_0 > 0$ with $|w_0 - \pi| < \pi$. Define $w_{j+1} = w_j(3 - Sw_j^2)/2$. Then:
+\begin{enumerate}
+\item[(a)] $(w_j)$ converges to $\pi$.
+\item[(b)] $\epsilon_{j+1} = -\epsilon_j^2(3\pi + \epsilon_j)/(2\pi^2)$ where $\epsilon_j = w_j - \pi$.
+\item[(c)] For $|\epsilon_j| < \pi/3$: $|\epsilon_{j+1}| < (2/\pi)\,\epsilon_j^2$.
+\item[(d)] If $|\epsilon_0| < 10^{-p_0}$, then $|\epsilon_j| < 10^{-p_0 \cdot 2^j}$ for all $j \geq 1$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Parts (a) and (b) follow from Lemma~\ref{lem:routeB}. For (c): when $|\epsilon_j| < \pi/3$, we have $|3\pi + \epsilon_j| < 10\pi/3$, so
+\[
+|\epsilon_{j+1}| < \frac{\epsilon_j^2 \cdot 10\pi/3}{2\pi^2} = \frac{5\epsilon_j^2}{3\pi} < \frac{2\epsilon_j^2}{\pi}.
+\]
+For (d): with $c = 2/\pi < 1$ and $|\epsilon_0| < 10^{-p_0}$:
+\[
+|\epsilon_j| < c^{2^j - 1} \cdot 10^{-p_0 \cdot 2^j} < 10^{-p_0 \cdot 2^j},
+\]
+since $c < 1$ implies $c^{2^j - 1} < 1$. The number of correct digits doubles at each step. \qedhere
+\end{proof}
+
+%----------------------------------------------------------------------
+\section{Variable-Precision Schedule}
+\label{sec:schedule}
+%----------------------------------------------------------------------
+
+\subsection{Chudnovsky hybrid (baseline)}
+
+Starting precision: $p_0^C \approx 14$ digits (one Chudnovsky term). Newton steps: $S_C = \lceil \log_2(N/14) \rceil + 1$. Cost per step: $2M(P_j)$.
+
+\subsection{Guillera hybrid (using G1, the fastest)}
+
+Starting precision: $p_0^G \approx 3$ digits (one Guillera G1 term). Newton steps: $S_G = \lceil \log_2(N/3) \rceil + 1$. Cost per step: $3M(P_j)$.
+
+Note that $p_0^G < p_0^C$, so more Newton steps are needed for Guillera.
+
+\subsection{Step count comparison for $N = 1000$}
+
+\begin{center}
+\begin{tabular}{ccccc}
+\toprule
+& \multicolumn{2}{c}{\textbf{Chudnovsky}} & \multicolumn{2}{c}{\textbf{Guillera G1}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5}
+Step $j$ & Precision & Terms & Precision & Terms \\
+\midrule
+0 & 14 & 1 & 3 & 1 \\
+1 & 28 & 2 & 6 & 2 \\
+2 & 56 & 4 & 12 & 4 \\
+3 & 112 & 8 & 24 & 8 \\
+4 & 224 & 16 & 48 & 16 \\
+5 & 448 & 32 & 96 & 32 \\
+6 & 896 & 64 & 192 & 64 \\
+7 & 1005 & 71 & 384 & 128 \\
+8 & & & 768 & 256 \\
+9 & & & 1005 & 334 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Chudnovsky: 7 Newton steps at $2M$ each.\\
+Guillera G1: 9 Newton steps at $3M$ each.
+
+The Guillera hybrid requires \emph{more} Newton steps (because $p_0$ is smaller) \emph{and} each step is more expensive (3 multiplications vs.\ 2).
+
+%----------------------------------------------------------------------
+\section{Complexity Comparison}
+\label{sec:complexity}
+%----------------------------------------------------------------------
+
+\subsection{Total Newton phase cost}
+
+For a variable-precision Newton iteration starting at $p_0$ digits, ending at $N$ digits, with $c$ multiplications per step and schoolbook multiplication $M(n) = \Theta(n^2)$:
+\begin{equation}\label{eq:newton-total}
+T_{\text{Newton}} = c \sum_{j=1}^{S} M(p_0 \cdot 2^j) = c \sum_{j=1}^{S} (p_0 \cdot 2^j)^2 = c \, p_0^2 \sum_{j=1}^{S} 4^j = c \, p_0^2 \cdot \frac{4(4^S - 1)}{3}.
+\end{equation}
+Since $p_0 \cdot 2^S \approx N$, we have $p_0^2 \cdot 4^S \approx N^2$, so:
+\begin{equation}\label{eq:newton-asymp}
+T_{\text{Newton}} \approx \frac{4c}{3}\, N^2.
+\end{equation}
+
+\begin{proposition}[Newton cost independence of $p_0$]\label{prop:newton-cost}
+The total Newton phase cost depends on the per-step multiplication count $c$ but \textbf{not} on the starting precision $p_0$ (to leading order). This is because the geometric sum $\sum 4^j$ is dominated by its last term.
+\end{proposition}
+
+This is a crucial observation: even though Guillera G1 starts from fewer digits ($p_0 = 3$ vs.\ $14$), requiring more Newton steps, the extra early steps are cheap and contribute negligibly to the total.
+
+\noindent\textbf{Chudnovsky Newton cost:}
+\[
+T_N^C \approx \frac{4 \cdot 2}{3}\,N^2 = \frac{8}{3}\,N^2 \approx 2.67\, N^2.
+\]
+
+\noindent\textbf{Guillera Newton cost:}
+\[
+T_N^G \approx \frac{4 \cdot 3}{3}\,N^2 = 4\,N^2.
+\]
+
+\subsection{Total series evaluation cost}
+
+At each Newton step $j$, the series must be evaluated to $P_j$ digits of precision using binary splitting. The binary splitting cost for $T$ terms of a hypergeometric series at precision $P$ is $O(M(P) \log T)$ in the standard analysis.
+
+For Chudnovsky at step $j$: $T_j = \lceil P_j / 14.18 \rceil$ terms.\\
+For Guillera G1 at step $j$: $T_j = \lceil P_j / 3.01 \rceil$ terms --- approximately $4.7\times$ more terms.
+
+However, since binary splitting reduces the evaluation to a single large-number division at cost $O(M(P_j))$, and the variable-precision sum is dominated by the final step, both methods have series cost $\approx (4/3)\,N^2$ to leading order with schoolbook multiplication, with Guillera having a modestly larger constant due to the $\log T$ factor.
+
+More precisely, the series cost ratio is:
+\[
+\frac{T_{\text{series}}^G}{T_{\text{series}}^C} \approx \frac{\log(N/3.01)}{\log(N/14.18)} \approx 1 + \frac{\log(14.18/3.01)}{\log(N/14.18)},
+\]
+which approaches 1 as $N \to \infty$. For $N = 1000$, this ratio is approximately $1.37$.
+
+\subsection{Total cost comparison}
+
+\begin{align}
+T_{\text{Chudnovsky}}(N) &\approx \frac{8}{3}N^2 + \frac{4}{3}N^2 = 4\,N^2, \label{eq:TC}\\
+T_{\text{Guillera}}(N) &\approx 4\,N^2 + \frac{4}{3}\,N^2 \cdot 1.37 \approx 4\,N^2 + 1.83\,N^2 = 5.83\,N^2. \label{eq:TG}
+\end{align}
+
+\begin{theorem}[Guillera is slower]\label{thm:slower}
+Using the fastest proved Guillera formula (G1, 3.01 digits/term), the Guillera hybrid digit extractor is approximately
+\[
+\frac{T_{\text{Guillera}}}{T_{\text{Chudnovsky}}} \approx \frac{5.83}{4} \approx 1.46
+\]
+times slower than the Chudnovsky hybrid. The slowdown comes from two sources:
+\begin{enumerate}
+\item The Newton inverse-square-root iteration costs $3M(n)$ per step vs.\ $2M(n)$ for simple inversion ($50\%$ overhead in the Newton phase).
+\item The series converges $4.7\times$ slower, requiring more terms per binary-splitting evaluation (modest overhead in the series phase).
+\end{enumerate}
+\end{theorem}
+
+\subsection{Hypothetical analysis: what if a faster Guillera formula existed?}
+
+Suppose hypothetically that a Guillera formula for $1/\pi^2$ existed with the same convergence rate as Chudnovsky ($\delta = 14.18$ digits/term). Then the series costs would be identical, and the comparison reduces to Newton costs alone:
+\[
+\frac{T_{\text{Guillera}}^{\text{hyp}}}{T_{\text{Chudnovsky}}} = \frac{4N^2 + (4/3)N^2}{(8/3)N^2 + (4/3)N^2} = \frac{16/3}{4} = \frac{4}{3} \approx 1.33.
+\]
+Even in this best-case hypothetical, the Guillera hybrid is \textbf{still $33\%$ slower} due to the inherent cost of the inverse-square-root Newton iteration.
+
+\subsection{Can the inverse-square-root iteration be done in $2M(n)$?}
+
+No. The iteration $w_{j+1} = w_j(3 - Sw_j^2)/2$ requires:
+\begin{enumerate}
+\item Computing $w_j^2$: this is a squaring, which costs $M(n)$ (or $\sim 0.7\,M(n)$ for algorithms that exploit $a = b$ in multiplication).
+\item Computing $S \cdot w_j^2$: one multiplication, $M(n)$.
+\item Computing $w_j \cdot (3 - Sw_j^2)$: one multiplication, $M(n)$.
+\end{enumerate}
+Steps 1--3 are all essential; none can be eliminated without breaking the iteration. Even with asymmetric multiplication (Karatsuba, FFT), squaring is at best $\sim 0.7M(n)$, reducing the total to $\sim 2.7M(n)$---still more than $2M(n)$.
+
+\subsection{What convergence rate would break even?}
+
+For a Guillera formula with convergence rate $\delta_G$ to match the Chudnovsky hybrid, we need the series-phase savings to exactly compensate the Newton-phase overhead. The break-even condition is:
+\[
+\frac{4}{3}N^2 \cdot \frac{\log(N/\delta_G)}{\log(N/14.18)} + 4N^2 = 4N^2.
+\]
+This gives $\delta_G = \infty$: even with \emph{infinitely fast} series convergence (zero series cost), the Newton phase alone costs $4N^2$, which equals the \emph{entire} Chudnovsky cost of $4N^2$. So a Guillera hybrid can never strictly beat a Chudnovsky hybrid.
+
+%----------------------------------------------------------------------
+\section{CRT Decomposition Analysis}
+\label{sec:crt}
+%----------------------------------------------------------------------
+
+\subsection{Structure of Guillera coefficients}
+
+The Guillera formulas use Pochhammer products, not the factorial ratio $M_k = (6k)!/((3k)!(k!)^3)$. For G1:
+\[
+\frac{(\tfrac{1}{2})_k^5}{(1)_k^5} = \frac{(\tfrac{1}{2})_k^5}{(k!)^5} = \left(\frac{(2k)!}{4^k \cdot k!}\right)^5 \cdot \frac{1}{(k!)^5} = \frac{(2k)!^5}{4^{5k} \cdot (k!)^{10}}.
+\]
+This can also be written as $\binom{2k}{k}^5 / 4^{5k}$, where $\binom{2k}{k}$ is the central binomial coefficient. Combined with $z^k = (-1/1024)^k = (-1)^k / 2^{10k}$:
+\[
+\frac{(\tfrac{1}{2})_k^5}{(1)_k^5} \cdot z^k = (-1)^k \frac{(2k)!^5}{2^{10k} \cdot 2^{10k} \cdot (k!)^{10}} = (-1)^k \frac{\binom{2k}{k}^5}{2^{10k}}.
+\]
+
+\subsection{CRT decomposition for Guillera}
+
+The CRT decomposition from our prior work was designed for the Chudnovsky factorial ratio $M_k = (6k)!/((3k)!(k!)^3)$, where the recurrence $M_{k+1}/M_k = R(k)$ has denominators involving $(3k+1)(3k+2)(3k+3)(k+1)^3$.
+
+For the Guillera coefficient $F_k = \binom{2k}{k}^5$, the recurrence is:
+\[
+\frac{F_{k+1}}{F_k} = \frac{\binom{2k+2}{k+1}^5}{\binom{2k}{k}^5} = \left(\frac{(2k+2)!/(k+1)!^2}{(2k)!/k!^2}\right)^5 = \left(\frac{(2k+1)(2k+2)}{(k+1)^2}\right)^5 = \left(\frac{2(2k+1)}{k+1}\right)^5.
+\]
+The denominator is $(k+1)^5$. The ``bad primes'' for CRT are those dividing $(j+1)$ for some $j < k$, i.e., all primes $p \leq k$. The linear term (quadratic polynomial) $P(k) = 820k^2 + 180k + 13$ must be analyzed modulo these primes.
+
+\begin{proposition}[CRT viability for Guillera]
+The CRT decomposition is viable for the Guillera coefficients $F_k \bmod P(k)$, with:
+\begin{enumerate}
+\item Clean part: all primes $p > k$ dividing $P(k)$, where modular recurrence works.
+\item Bad part: product of primes $p \leq k$ dividing $P(k)$, computed via direct binomial evaluation.
+\end{enumerate}
+The bad part is larger than in the Chudnovsky case (since all primes $\leq k$ are potentially bad, vs.\ only primes dividing specific denominator factors for Chudnovsky), but remains manageable: $D_k = O(k^{1+\epsilon})$ in bit-length.
+\end{proposition}
+
+\subsection{Quadratic vs.\ linear modular term}
+
+In Chudnovsky, $L_k = 13591409 + 545140134k$ is linear, so $L_k \equiv 0 \pmod{p}$ has exactly one solution mod $p$. For Guillera, $P(k) = 820k^2 + 180k + 13$ is quadratic, so $P(k) \equiv 0 \pmod{p}$ has at most 2 solutions mod $p$. This at most doubles the conflict frequency, with negligible impact on overall complexity.
+
+%----------------------------------------------------------------------
+\section{Alternating Signs and Binary Splitting}
+\label{sec:alternating}
+%----------------------------------------------------------------------
+
+\subsection{All proved Guillera formulas are alternating}
+
+Formulas G1 and G2 have $z < 0$ (alternating signs). Formula G3 has $z = 1/16 > 0$ (non-alternating). Formula G4 has $z = 27/64 > 0$ (non-alternating). However, the non-alternating formulas G3 and G4 have the \emph{slowest} convergence rates (1.20 and 0.37 digits/term respectively).
+
+The fastest formula G1 is alternating ($z = -1/1024$). This is not coincidental: the alternating-sign structure is connected to the analytic continuation of the ${}_5F_4$ function, and the formulas with $z < 0$ converge faster because they evaluate the hypergeometric function at a point further from the radius of convergence on the negative real axis.
+
+\subsection{Does alternation cause problems for binary splitting?}
+
+No. Binary splitting handles signs in the standard way: the Pochhammer ratio $(k+1/2)/(k+1)$ at each step is positive, and the sign $(-1)^k$ is tracked as $\text{sign}(z)^k$. All intermediate quantities in the binary splitting recursion are exact integers (possibly negative), and the final rational approximation is computed by a single division. This is identical to how the Chudnovsky series handles its $(-1)^k$ factor.
+
+\subsection{Is there a non-alternating Guillera formula fast enough for digit extraction?}
+
+Among proved formulas: no. The fastest non-alternating formula (G3) achieves only 1.20 digits/term, which is $11.8\times$ slower than Chudnovsky. A non-alternating formula would enable direct modular extraction (BBP-style) without binary splitting, but no such formula with competitive convergence exists.
+
+This parallels the situation for $1/\pi$: the Chudnovsky series is also alternating, and no non-alternating Ramanujan-type formula with competitive convergence is known. The fundamental reason is that the fastest-converging formulas arise from evaluating modular functions at specific CM points, and these evaluations inherently produce alternating series.
+
+%----------------------------------------------------------------------
+\section{Net Assessment and Conclusions}
+\label{sec:conclusion}
+%----------------------------------------------------------------------
+
+\subsection{Summary of findings}
+
+\begin{enumerate}
+\item \textbf{The ``${\sim}29$ digits per term'' claim is false.} The fastest proved Guillera formula for $1/\pi^2$ achieves $3.01$ digits/term, which is $4.7\times$ slower than Chudnovsky's $14.18$ digits/term.
+
+\item \textbf{The factorial ratio $(6k)!/((3k)!(k!)^3)$ does not appear in Guillera's formulas.} Guillera's series use Pochhammer products like $(\tfrac{1}{2})_k^5 / (1)_k^5$, which are central-binomial-coefficient structures, not the Ramanujan--Sato factorial ratio.
+
+\item \textbf{The ``base changes to 4608'' claim is false.} The base for G1 is $1024 = 2^{10}$, not $4608$.
+
+\item \textbf{Even with matching convergence rates, Guillera would be slower.} The inverse-square-root Newton iteration costs $3M(n)$ per step vs.\ $2M(n)$ for simple inversion, a $50\%$ overhead that cannot be compensated by any improvement in series convergence.
+
+\item \textbf{The optimal inversion route is Route B} (direct $w_{j+1} = w_j(3 - Sw_j^2)/2$), saving $2M(n)$ per step over the two-phase alternatives (Routes A and C).
+
+\item \textbf{All fast Guillera formulas are alternating.} The non-alternating variants (G3, G4) converge too slowly for practical digit extraction.
+
+\item \textbf{The CRT decomposition carries over in modified form.} The Pochhammer recurrence for $\binom{2k}{k}^5$ has denominator $(k+1)^5$, creating a denser set of bad primes than the Chudnovsky case, but the decomposition remains viable.
+
+\item \textbf{The Chudnovsky hybrid remains optimal} among all known hypergeometric series approaches for $\pi$ digit extraction.
+\end{enumerate}
+
+\subsection{Corrected research log entry}
+
+The entry in Section 4.2 of the research log should read:
+
+\begin{quote}
+The fastest \emph{proved} Guillera formula for $1/\pi^2$ (formula G1, 2002) achieves approximately $3.01$ digits per term via the ${}_5F_4$ hypergeometric function with Pochhammer structure $(\tfrac{1}{2})_k^5 / (1)_k^5$ and geometric ratio $z = -1/1024$. This is $4.7\times$ slower per term than Chudnovsky's $14.18$ digits per term. Moreover, recovering $\pi$ from $1/\pi^2$ requires a Newton inverse-square-root iteration at $3M(n)$ per step, which is $50\%$ more expensive than the simple Newton inversion ($2M(n)$) used to recover $\pi$ from $1/\pi$ in the Chudnovsky hybrid. A complete complexity analysis shows the Guillera hybrid would be approximately $1.46\times$ \emph{slower} than the Chudnovsky hybrid, not faster. The Chudnovsky hybrid remains optimal.
+\end{quote}
+
+\subsection{Remaining open directions}
+
+The analysis above closes the Guillera direction but suggests two productive alternatives:
+
+\begin{enumerate}
+\item \textbf{Higher-discriminant Ramanujan--Sato formulas for $1/\pi$.} The Chudnovsky series uses discriminant $d = -163$, the largest Heegner number. There are exactly 9 Heegner numbers ($-1, -2, -3, -7, -11, -19, -43, -67, -163$), and $d = -163$ yields the maximum convergence rate. No faster Ramanujan-type series for $1/\pi$ can exist within this family---the Chudnovsky formula is already optimal.
+
+\item \textbf{Reducing the Newton inversion cost.} The hybrid's bottleneck is the Newton phase at $2M(n)$ per step. Any method that avoids inversion entirely (computing $\pi$ directly rather than $1/\pi$) would eliminate this cost. However, as noted in our research log (Section~4.3), all known direct-$\pi$ series involve irrational prefactors, which destroy modular arithmetic.
+\end{enumerate}
+
+%----------------------------------------------------------------------
+\appendix
+\section{Stirling Verification for $M_k = (6k)!/((3k)!(k!)^3)$}
+\label{sec:stirling}
+%----------------------------------------------------------------------
+
+By Stirling's formula:
+\begin{align*}
+(6k)! &\sim \sqrt{12\pi k} \cdot (6k/e)^{6k}, \\
+(3k)! &\sim \sqrt{6\pi k} \cdot (3k/e)^{3k}, \\
+(k!)^3 &\sim (2\pi k)^{3/2} \cdot (k/e)^{3k}.
+\end{align*}
+Therefore:
+\begin{align*}
+M_k &\sim \frac{\sqrt{12\pi k} \cdot 6^{6k} k^{6k} e^{-6k}}{\sqrt{6\pi k} \cdot 3^{3k} k^{3k} e^{-3k} \cdot (2\pi k)^{3/2} \cdot k^{3k} e^{-3k}} = \frac{\sqrt{2}}{(2\pi k)^{3/2}} \cdot \frac{6^{6k}}{3^{3k}}.
+\end{align*}
+Since $6^6/3^3 = 46656/27 = 1728$:
+\[
+\boxed{M_k \sim \frac{\sqrt{2}}{(2\pi)^{3/2}} \cdot \frac{1728^k}{k^{3/2}}.}
+\]
+
+The Chudnovsky series term decays as:
+\[
+|a_k| \sim \frac{1728^k}{C^{3k}} \cdot k \cdot \text{const} = \frac{k}{(C^3/1728)^k} \cdot \text{const}.
+\]
+With $C^3/1728 = 640320^3/1728 = 53360^3$:
+\[
+\text{digits/term} = \log_{10}(53360^3) = 3\log_{10}(53360) \approx 3 \times 4.727 = 14.18.
+\]
+
+\begin{thebibliography}{99}
+
+\bibitem{guillera2003}
+J.~Guillera, About a new kind of Ramanujan-type series, \emph{Experiment.\ Math.}\ \textbf{12} (2003), 507--510.
+
+\bibitem{guillera2006}
+J.~Guillera, Generators of some Ramanujan formulas, \emph{Ramanujan J.}\ \textbf{11} (2006), 41--48.
+
+\bibitem{guillera2008}
+J.~Guillera, Hypergeometric identities for 10 extended Ramanujan-type series, \emph{Ramanujan J.}\ \textbf{15} (2008), 219--234.
+
+\bibitem{guillera2011}
+J.~Guillera, A new Ramanujan-like series for $1/\pi^2$, \emph{Ramanujan J.}\ \textbf{26} (2011), 369--374.
+
+\bibitem{guillera2012}
+G.~Almkvist and J.~Guillera, Ramanujan-like series for $1/\pi^2$ and string theory, \emph{Experiment.\ Math.}\ \textbf{21} (2012), 223--234.
+
+\bibitem{zudilin2003}
+W.~Zudilin, Quadratic transformations and Guillera's formulas for $1/\pi^2$, \emph{Math.\ Notes}\ \textbf{81} (2007), 297--301.
+
+\bibitem{campbell2025}
+J.~M.~Campbell, Three-parameter generalizations of formulas due to Guillera, arXiv:2502.15249, 2025.
+
+\end{thebibliography}
+
+\end{document}

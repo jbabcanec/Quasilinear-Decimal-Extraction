@@ -1,9 +1,24 @@
-add.pdf
+# LaTeX build artifacts
 *.aux
 *.log
 *.out
+*.fls
+*.fdb_latexmk
 *.synctex.gz
+
+# Python
 __pycache__/
-.claude/
+
+# compiled binaries (build locally; sources are in the repo)
+*.exe
 machin_digit_extract
+gourdon_win
+legacy/gourdon_digit_extract
+legacy/gourdon_digit_extract_mpfr
+legacy/machin_digit_extract
+
+# local/session files
+.claude/
+add.pdf
 context.txt
+x5_*.bin

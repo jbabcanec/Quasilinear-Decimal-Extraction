@@ -27,7 +27,7 @@
 \maketitle
 
 \begin{abstract}
-We present a new algorithm for computing arbitrary decimal digits of $\pi$ without computing all preceding digits. Unlike Plouffe's 2022 method based on Euler--Bernoulli number asymptotics, our approach derives directly from Machin's classical arctangent formula. We introduce two techniques: series splitting, which transforms alternating arctangent series into non-alternating BBP-compatible components amenable to modular arithmetic, and a borrow-tracking lemma that enables combining fractional parts under subtraction without computing integer parts. The algorithm is implemented and verified for positions up to 10,000. This work demonstrates that classical Machin-type formulas, previously thought unsuitable for digit extraction, can be adapted for this purpose through systematic series decomposition.
+We present an algorithm for computing an arbitrary decimal digit of $\pi$ without computing all preceding digits, based on Machin's classical arctangent formula. The method combines two ingredients: a series-splitting step that replaces alternating arctangent series by a difference of two non-alternating series suitable for BBP-style modular fractional-part extraction, and a borrow-tracking lemma that permits recombining fractional parts under subtraction without computing integer parts. We give a complete implementation and verify correctness experimentally for positions up to 10{,}000. We do not claim improved asymptotic complexity over the best known decimal digit-extraction methods; rather, we provide a transparent Machin-based construction illustrating how modular arithmetic can be applied to selected components of a Machin-type formula.
 \end{abstract}
 
 \noindent\textbf{MSC 2020:} 11Y60, 11A63 \hfill \textbf{Keywords:} BBP formula, digit extraction, Machin's formula
@@ -48,17 +48,17 @@ combined with fraction decomposition techniques. His more recent 2022 work~\cite
 \[
 \pi^n = \left( \frac{2(-1)^{n+1}(2n)!}{2^{2n} B_{2n}(1-2^{-n})(1-3^{-n})(1-5^{-n})(1-7^{-n})} \right)^{1/(2n)}
 \]
-where $B_{2n}$ denotes the Bernoulli numbers. This method enables extraction up to approximately the $10^8$-th decimal digit, though it remains fundamentally limited by the computational cost of evaluating large Euler numbers $E_{2n}$ and does not constitute true digit extraction in the BBP sense, as it still requires substantial intermediate computation.
+where $B_{2n}$ denotes the Bernoulli numbers. We cite this as an example of a non-BBP approach; we do not attempt a detailed performance comparison here, and we emphasize that it relies on the computation of large special numbers and intermediate high-precision quantities rather than modular fractional-part extraction from a rapidly convergent BBP-type series.
 
 In this paper, we present an alternative approach based on Machin's formula~\cite{machin1706},
 \begin{equation}\label{eq:machin}
 \pi = 16 \arctan\frac{1}{5} - 4 \arctan\frac{1}{239},
 \end{equation}
-which dates to 1706 and has been used extensively for high-precision computation of $\pi$ due to its rapid convergence. Our key insight is that the factor $1/5$ appearing in the first arctangent provides a natural base-5 structure. Combined with the elementary factorization $10 = 2 \times 5$, this observation enables decimal digit extraction through a hybrid base-2/base-5 approach that circumvents the apparent impossibility of finding a native base-10 BBP formula.
+which dates to 1706 and has been used extensively for high-precision computation of $\pi$ due to its rapid convergence. Our key observation is that the factor $1/5$ appearing in the first arctangent provides a natural base-$5$ structure. Combined with the factorization $10 = 2 \times 5$, this allows one to compute $\{5^{N-1}\pi\}$ efficiently from modular fractional parts for certain components, and then recover $\{10^{N-1}\pi\}$ via a base-conversion step. This base conversion requires care and ultimately limits the overall asymptotic complexity in our current approach.
 
 The main technical contributions of this work are as follows. First, we develop a series-splitting technique (Theorem~\ref{thm:split}) that decomposes the alternating arctangent series into non-alternating components suitable for BBP-style modular arithmetic. Second, we prove a borrow-tracking lemma (Lemma~\ref{lem:borrow}) showing that the fractional part $\{A - B - C\}$ can be computed exactly from the individual fractional parts $\{A\}$, $\{B\}$, and $\{C\}$ alone, without any knowledge of the integer parts. Third, we provide a complete implementation that extracts decimal digits at arbitrary positions, verified against known values up to position 10,000.
 
-The decomposition $\arctan(1/5) = P_1/5 - Q_1/125$ into non-alternating BBP-compatible series appears to be new. While the borrow-tracking lemma is elementary, its application to digit extraction in this context is novel. Most significantly, this work provides the first demonstration that Machin-type formulas can be adapted for decimal digit extraction, contrary to the conventional wisdom that such formulas are unsuitable due to their alternating arctangent structure.
+The decomposition $\arctan(1/5) = P_1/5 - Q_1/125$ follows from a simple parity split of the Taylor series; while the underlying identity is elementary, we record it explicitly in a form suitable for modular fractional-part extraction and show how to combine it with borrow tracking in an end-to-end digit-extraction procedure. Our contribution is thus methodological: it documents a practical pipeline for applying BBP-style modular arithmetic to components of a Machin-type formula and handling the subtractions without tracking integer parts.
 
 \section{Preliminaries}
 
@@ -435,15 +435,15 @@ Plouffe's 1996 method~\cite{plouffe1996} uses the identity
 \]
 together with properties of central binomial coefficients and fraction decomposition. The complexity of $O(n^3 \log^3 n)$ arises from the need to compute binomial coefficients and perform extensive fraction manipulations.
 
-His 2022 method~\cite{plouffe2022} based on Bernoulli and Euler number asymptotics is mathematically elegant but faces severe practical limitations. Computing Bernoulli numbers $B_{2n}$ requires $O(n^2)$ arithmetic operations with rapidly growing intermediate values---$B_{2n}$ has $O(n \log n)$ digits. The largest precomputed Bernoulli numbers reach indices around $2 \times 10^8$, which limits practical digit extraction to roughly the $10^8$-th position. Moreover, as noted by Yee~\cite{ycruncher} in discussions about implementing Plouffe's method in the y-cruncher software, this approach ``still requires computing a lot of digits and extracting out a small portion near the end,'' meaning it does not achieve true BBP-style digit extraction where one jumps directly to position $N$ with $O(N \text{ polylog } N)$ work.
+His 2022 method~\cite{plouffe2022} based on Bernoulli and Euler number asymptotics is mathematically elegant but is structurally different from BBP-style digit extraction: it relies on the computation of large special numbers and intermediate high-precision quantities rather than modular evaluation of a rapidly convergent series in which the output base is naturally aligned with the geometric factor. We do not attempt to compare practical performance in this paper.
 
 \subsection{Advantages of Our Approach}
 
-Our method offers several advantages over Plouffe's approaches. It requires no precomputed tables of special numbers---everything is computed on the fly using only integer modular exponentiation and standard arbitrary-precision arithmetic. It achieves true digit extraction for the $P_1$ and $Q_1$ components, with the BBP-style $O(N \log^2 N)$ complexity for these parts. The series splitting and borrow-tracking techniques are general and may find applications to other mathematical constants expressible in terms of arctangent or similar series.
+Our method offers several advantages as a constructive alternative based on a classical arctangent identity. It requires no precomputed tables of special numbers: the modular components use only modular exponentiation and rational arithmetic. It achieves BBP-style modular fractional-part extraction for the $P_1$ and $Q_1$ components, and the borrow-tracking technique cleanly handles subtraction at the fractional-part level. The series-splitting and borrow-tracking techniques are general and may be applicable to other constants expressible via alternating series.
 
-The main limitation is the $O(N^2)$ overall complexity due to the $\arctan(1/239)$ term and base conversion. However, this still compares favorably to Plouffe's $O(n^3 \log^3 n)$ from 1996, and unlike his 2022 method, ours has no practical upper limit imposed by precomputation requirements.
+The main limitation is the $O(N^2)$ overall complexity (in our current implementation/cost model) due to the base conversion step and the handling of the $\arctan(1/239)$ term. We do not claim improved asymptotics over the best known decimal digit-extraction methods (e.g.\ those based on alternating-series acceleration). Nevertheless, our approach provides a transparent Machin-based route to digit extraction that avoids reliance on large precomputed special-number tables.
 
-In practice, our C++ implementation with OpenMP parallelization (8 threads) verifies all digits from position 1 to 1000 in approximately 5 seconds, and extracts the 10,000th digit in under 5 seconds. For comparison, Plouffe's 2022 method, while theoretically capable of reaching position $10^8$, requires precomputed tables of Bernoulli numbers that took years of distributed computation to generate. Our method requires no such precomputation.
+In practice, our C++ implementation with OpenMP parallelization (8 threads) verifies all digits from position 1 to 1000 in approximately 5 seconds, and extracts the 10{,}000th digit in under 5 seconds on modern hardware. We emphasize that our method requires no precomputed tables of Bernoulli or Euler numbers.
 
 \subsection{Summary of Decimal Digit Extraction Methods}
 
@@ -456,13 +456,13 @@ Table~\ref{tab:comparison} summarizes the known methods for extracting decimal d
 \textbf{Method} & \textbf{Year} & \textbf{Complexity} & \textbf{Memory} & \textbf{Limitations} \\
 \hline
 Plouffe~\cite{plouffe1996} & 1996 & $O(N^3 \log^3 N)$ & $O(\log N)$ & Slow \\
-Bellard~\cite{bellard1997} & 1997 & $O(N^2)$ & $O(\log N)$ & Unpublished \\
-Gourdon~\cite{gourdon2003} & 2003 & $O\!\left(\frac{N^2 \log\log N}{\log^2 N}\right)$ & $O(\log^2 N)$ & Current SOTA \\
-Plouffe~\cite{plouffe2022} & 2022 & ${\sim}O(N^2)$ & $O(\log N)$ & Ceiling ${\sim}10^8$ \\
-Ours & 2026 & $O(N^2)$ & $O(\log N)$ & No ceiling \\
+Bellard~\cite{bellard1997} & 1997 & $O(N^2)$ & $O(\log N)$ & Technical report / implementation dependent \\
+Gourdon~\cite{gourdon2003} & 2003 & $O\!\left(\frac{N^2 \log\log N}{\log^2 N}\right)$ & $O(\log^2 N)$ & Best-known asymptotic in this family \\
+Plouffe~\cite{plouffe2022} & 2022 & ${\sim}O(N^2)$ & $O(\log N)$ & Different (special-number/asymptotic) approach \\
+Ours & 2026 & $O(N^2)$ & $O(\log N)$ & Base conversion / other term handling dominates \\
 \hline
 \end{tabular}
-\caption{Comparison of decimal digit extraction methods for $\pi$. Complexity refers to time to extract the $N$-th digit. Gourdon's method achieves the best asymptotic complexity but requires more memory. Plouffe's 2022 method is limited by Euler--Bernoulli precomputation. Our method has no practical upper limit.}
+\caption{Comparison of decimal digit extraction methods for $\pi$. Complexity refers to time to extract the $N$-th digit (under the respective authors' cost models). Gourdon's method achieves the best asymptotic complexity among low-memory modular approaches based on alternating-series acceleration. Plouffe's 2022 method is of a different type (special-number/asymptotic). Our method is a Machin-based construction in which the base conversion and remaining terms dominate the overall cost.}
 \label{tab:comparison}
 \end{table}
 
@@ -470,7 +470,7 @@ Ours & 2026 & $O(N^2)$ & $O(\log N)$ & No ceiling \\
 
 We have presented a new method for extracting decimal digits of $\pi$ based on Machin's classical formula. The key innovations are series splitting, which eliminates the alternating signs that would otherwise prevent the application of modular arithmetic, and borrow tracking, which enables the combination of fractional parts under subtraction without computing or storing any integer parts.
 
-The algorithm has been implemented in both Python and C++ (with OpenMP parallelization) and verified correct for all 1000 decimal digits in approximately 5 seconds, with the 10,000th digit extracted in under 5 seconds on modern hardware. While the overall complexity of $O(N^2)$ does not match the optimal $O(N \log^2 N)$ of hexadecimal BBP, the method establishes that Machin-type formulas can be adapted for decimal digit extraction, contrary to the conventional wisdom that such formulas are unsuitable for this purpose due to their alternating arctangent structure.
+The algorithm has been implemented in both Python and C++ (with OpenMP parallelization) and verified correct for all 1000 decimal digits in approximately 5 seconds, with the 10{,}000th digit extracted in under 5 seconds on modern hardware. While the overall complexity of $O(N^2)$ does not match the optimal $O(N \log^2 N)$ of hexadecimal BBP, the method provides a clear Machin-based construction in which modular arithmetic applies directly to significant components after series splitting, and subtraction can be handled using only fractional parts via borrow tracking.
 
 The techniques developed here---particularly the systematic decomposition of alternating series and the borrow-tracking lemma---may find applications to other mathematical constants that admit representations in terms of arctangent series or similar slowly-converging alternating sums. The broader lesson is that classical formulas from centuries past, when combined with modern algorithmic insights, can yield computational capabilities that were not anticipated by their original discoverers.
 
@@ -495,16 +495,13 @@ S.~Plouffe, A formula for the $n$th decimal digit or binary of $\pi$ and powers 
 J.~Machin, The ratio of the radius to the circumference, \emph{Philos.\ Trans.\ Roy.\ Soc.\ London}, 1706.
 
 \bibitem{bellard1997}
-F.~Bellard, A new formula to compute the $n$-th binary digit of pi, Technical report, 1997.
+F.~Bellard, Computation of the $n$'th digit of $\pi$ in any base in $O(n^2)$, Technical note / web article (1997), \url{https://bellard.org/pi/pi_n2/pi_n2.html}.
 
 \bibitem{gourdon2003}
-X.~Gourdon and P.~Sebah, N-th digit computation, Technical report, numbers.computation.free.fr, 2003.
+X.~Gourdon, Computation of the $n$-th decimal digit of $\pi$ with low memory, preprint (2003), \url{https://plouffe.fr/simon/articles/nthdecimaldigit.pdf}.
 
 \bibitem{pidigits}
 Various authors, Tables of digits of $\pi$, \url{https://www.angio.net/pi/digits.html}
-
-\bibitem{ycruncher}
-A.~Yee, Discussion of Plouffe's decimal digit-extraction algorithm, GitHub issue, y-cruncher repository, 2022.
 
 \end{thebibliography}
 
