@@ -33,54 +33,29 @@
 \maketitle
 
 \begin{abstract}
-The Bailey--Borwein--Plouffe (BBP) formula computes isolated binary or
-hexadecimal digits of $\pi$ without computing earlier digits, but no
-analogous decimal formula exists: Borwein, Borwein and Galway proved that
-$\pi$ admits no Machin-type BBP arctangent formula in any base that is not
-a power of $2$, and every published decimal digit-extraction algorithm
-runs in essentially quadratic time or worse. We show that the $N$-th decimal digit of
-$\pi$ can nevertheless be computed from the ordinary hexadecimal BBP
-formula in quasi-linear time --- $O(N\log^{3}N)$ bit operations --- at the
-price of $\Theta(N)$ bits of auxiliary space, chiefly the read-only binary
-expansion of the single integer $5^{\,N-1}$: after multiplying the BBP
-series termwise by $10^{N-1}$, every term takes the form
-$\pm2^{E}5^{\,N-1}/\mu$ with $\mu$ odd; terms with $E\ge0$ reduce to
-word-size modular exponentiation, while the $\Theta(N)$ terms with $E<0$
-satisfy an exact identity that expresses their fractional parts through
-residues and bit-windows of the \emph{shared} integer $5^{\,N-1}$,
-batchable with accumulating remainder trees. The method applies verbatim
-to every constant with a BBP formula in a base $2^{r}$ (e.g.\ $\ln2$),
-yields the digits of $\pi$ in \emph{any} base $B$ in $\Ot(N)$ time, and
-resolves the obstruction described by Zudilin (arXiv:2409.10097), whose
-base-5 (originally base-10) attempt fails precisely on the $E<0$ terms.
-Implementations in Python and C++ are verified at decimal positions
-through $10^{7}$ against independent computations and public digit
-corpora. We then reduce every phase but one to $O(N\log\log N)$ word
-operations: sieving the modulus progressions turns all modular
-exponentiations into geometric progressions along prime-indexed
-subprogressions, with $O(1)$ starters by Euler's criterion --- an
-amortization that applies verbatim to classical binary BBP extraction ---
-while a B\'ezout split makes half of every remaining term word arithmetic
-and the other halves consolidate into a \emph{single} $2$-adic integer
-$V$ with a division-free construction. Our implementation fits exponent
-$N^{1.077}$ across positions $10^{4}$--$10^{7}$ with no upward bend ---
-quasi-linear in practice --- while the strongest published decimal
-method, Gourdon's, fits $\approx N^{1.8}$ on the same machine and is
-outrun $232\times$ already at $N=10^{6}$, with the asymptotic gap widening
-without bound. The one remaining logarithm is analyzed as a
-barrier with several machine-validated equivalent formulations --- merge depth,
-rising-factorial products, the discrete-logarithm sum
-$E=\sum_{k\le K}\operatorname{dlog}_3(1+8k)$, a $2$-adically
-\emph{convergent} Euler--Maclaurin identity linking $E$ to Diamond's
-$2$-adic log-gamma function, and an elementary huge-exponent power sum
---- and a classical factorization technique of Borwein then splits them:
-the products, discrete-logarithm sums, power sums, and log-gamma values
-all fall to $O(N\log^{2}N)$ (machine-validated), while the digit
-pipeline's additive core --- one consolidated sum of scaled $2$-adic
-inverses --- remains at the product-tree bound and is isolated as the
-precise open problem. No factoring-hardness argument protects it. We
-state the conjectural $N\log N$ floor precisely, together with the
-sublinear-time and polylogarithmic-space questions that remain open.
+The Bailey--Borwein--Plouffe (BBP) formula computes an isolated hexadecimal
+digit of $\pi$ without the earlier digits, but no decimal analogue exists:
+Borwein, Borwein and Galway proved that $\pi$ has no Machin-type BBP formula
+in a base that is not a power of $2$, and every published decimal algorithm
+runs in essentially quadratic time. We compute the $N$-th decimal digit of
+$\pi$ from the ordinary hexadecimal BBP formula in quasi-linear time, in
+$O(N\log^{3}N)$ bit operations and $\Theta(N)$ bits of space. That space is
+essentially the binary expansion of one integer, $5^{\,N-1}$, shared by all
+terms: after the series is multiplied by $10^{N-1}$, an exact identity
+recovers each term's fractional part from residues and bit-windows of the
+shared integer. The method works for any base-$2^{r}$ BBP constant, such as
+$\ln 2$, gives digits in any base, and repairs the base-5 obstruction of
+Zudilin (arXiv:2409.10097). Python and C++ implementations are verified
+against public digit corpora through position $10^{7}$, at a measured
+exponent of $N^{1.077}$ against $N^{1.8}$ for the strongest published method;
+to our knowledge this is the first implemented and verified subquadratic
+decimal extractor. It sits one logarithmic factor above the $O(N\log^{2}N)$
+cost of computing all $N$ digits by the arithmetic--geometric mean. We
+isolate that factor as a single open problem, the computation of a
+consolidated $2$-adic integer $V$: its multiplicative part falls to
+$O(N\log^{2}N)$ by a classical factorization technique, while the additive
+part, equivalent to an isolated harmonic number modulo $2^{N}$, has no known
+fast algorithm.
 \end{abstract}
 
 \section{Introduction}
@@ -111,14 +86,14 @@ coefficients are Bernoulli (or Euler) numbers; it requires precomputed tables
 of those numbers and is thereby capped near position $10^{8}$, the current
 extent of Bernoulli computations. Most recently
 Zudilin~\cite{Zudilin24} attempted a BBP-style computation of $\pi$ in base
-$5$ --- the first arXiv version was titled ``\ldots in base 10'' --- via a
+$5$ (the first arXiv version was titled ``\ldots in base 10'') via a
 Salikhov-type representation over $\mathbb{Z}[i]$, and identified an
 ``obvious flaw'': his per-term modular identity fails exactly on the terms in
 which the power of $5$ in the numerator is exhausted, and no truncation
 avoids them. He left the repair as an open question; the note has no
 published successor.
 
-This paper repairs that flaw --- not for Zudilin's Gaussian series
+This paper repairs that flaw, not for Zudilin's Gaussian series
 specifically, but for the ordinary formula~\eqref{eq:bbp} and, with it, every
 binary BBP constant. The price is memory: we abandon the $O(\log N)$-space
 regime of BBP and store the binary expansion of the single integer
@@ -133,7 +108,7 @@ digits) can be computed, without computing any earlier digit, in
 O\bigl(\M(N) \;+\; \M(N\log N)\log N \;+\; N\log^{2}N\log\log N\bigr)
 \;\subseteq\; O\bigl(N\log^{3}N\bigr)
 \]
-bit operations, using $\Theta(N)$ bits of space --- the read-only binary
+bit operations, using $\Theta(N)$ bits of space: the read-only binary
 expansion of $5^{\,N-1}$, shared by all terms, together with $O(N)$ bits of
 working space (Proposition~\ref{prop:forest}). A space-minimal variant computes
 the same digit using only $O(\log^{2} N)$ bits of writable space beyond the
@@ -148,14 +123,14 @@ $\ln 2$; and with ``decimal'' replaced by ``base $B$'' for arbitrary $B\ge 2$
 algorithm of~\cite{Bellard97} in time at the stated memory cost.
 Section~\ref{sec:improve} then sharpens the algorithm structurally: all
 phases except one collapse to $O(N\log\log N)$ word operations, and the
-surviving phase --- the construction of a single $2$-adic integer --- is
+surviving phase, the construction of a single $2$-adic integer, is
 analyzed as a barrier in Section~\ref{sec:barrier}.
 
 \paragraph{What is, and is not, being claimed.}
 By the Gauss--Legendre/AGM iteration of Brent and
 Salamin~\cite{Brent76,Salamin76}, computing \emph{all} $N$ digits of $\pi$
-already takes $O(\mathsf{M}(N)\log N)=O(N\log^{2}N)$ bit operations---and
-softly linear time by binary splitting of the Chudnovsky series---both in
+already takes $O(\mathsf{M}(N)\log N)=O(N\log^{2}N)$ bit operations, and
+softly linear time by binary splitting of the Chudnovsky series, both in
 $\Theta(N)$ bits of memory; quasi-linear cost per isolated digit is therefore
 not by itself a new capability, and the natural benchmark for any extraction
 algorithm is \emph{parity with full computation}: matching the
@@ -163,8 +138,8 @@ $O(N\log^{2}N)$ of the AGM while retaining the extraction semantics (no
 earlier digits produced, a read-only shared string, word-level parallelism).
 Our Theorem~\ref{thm:main} sits one logarithmic factor above that benchmark.
 Separately, the canonical open
-problem posed in~\cite{BBP97} --- decimal digit extraction in polylogarithmic
-(or even sublinear) space --- remains open and is \emph{not} resolved here,
+problem posed in~\cite{BBP97}, decimal digit extraction in polylogarithmic
+(or even sublinear) space, remains open and is \emph{not} resolved here,
 since our space is $\Theta(N)$ bits. The contributions are:
 (i) the first digit-extraction algorithm for decimal $\pi$ based on a BBP
 formula, with per-term independence: after the one shared precomputation the
@@ -174,7 +149,7 @@ only word-size results, in the style of distributed binary-BBP projects;
 extractor of complexity $N^{1+o(1)}$ (softly linear) in any model
 (Section~\ref{sec:impl});
 (iii) the resolution of the specific obstruction of~\cite{Zudilin24};
-(iv) an auxiliary object --- one power of $5$ computed on the fly --- rather
+(iv) an auxiliary object (one power of $5$ computed on the fly) rather
 than tables that must be precomputed by other means, in contrast
 to~\cite{Plouffe22};
 (v) the sieve-batched exponentiation of Section~\ref{sec:improve}, which
@@ -204,8 +179,8 @@ $1$; alternating or negative coefficients pose no obstacle.
 \subsection{Normal form}
 
 Multiply \eqref{eq:bbp} termwise by $10^{\,n}=2^{\,n}5^{\,n}$ and absorb all
-powers of two --- the numerators $4,2,1,1$ and the even parts of
-$8k+4=4(2k+1)$ and $8k+6=2(4k+3)$ --- into a single exponent. With
+powers of two (the numerators $4,2,1,1$ and the even parts of
+$8k+4=4(2k+1)$ and $8k+6=2(4k+3)$) into a single exponent. With
 $A:=n-4k$:
 
 \begin{lemma}[normal form]\label{lem:normal}
@@ -239,7 +214,7 @@ Here $2^{E}X$ is a nonnegative integer, so
 =\frac{\bigl(2^{E}\bmod \mu\bigr)\bigl(5^{\,n}\bmod \mu\bigr)\bmod \mu}{\mu},
 \]
 computable with two modular exponentiations modulo the word-size integer
-$\mu$ --- exactly as in classical BBP. There are $\Theta(N)$ such terms
+$\mu$, exactly as in classical BBP. There are $\Theta(N)$ such terms
 ($E\ge0$ holds for $k\lesssim n/4$ in each family).
 
 \subsection{Phase 2: band terms ($E<0$, $J:=-E< L$)}
@@ -247,8 +222,8 @@ $\mu$ --- exactly as in classical BBP. There are $\Theta(N)$ such terms
 These are the terms on which every previous decimal approach loses: the
 numerator is no longer an integer, the natural modulus $\mu 2^{J}$ grows
 exponentially along the family, and per-term reduction of $X$ modulo
-$\mu2^J$ costs $\Theta(\M(N))$, giving $\Theta(N)$-many big operations ---
-the quadratic wall, and precisely the failure identified
+$\mu2^J$ costs $\Theta(\M(N))$, giving $\Theta(N)$-many big operations. This
+is the quadratic wall, and precisely the failure identified
 in~\cite[\S3]{Zudilin24}. The wall disappears because \emph{all band terms
 share the same numerator $X$}:
 
@@ -325,7 +300,7 @@ $T$ terms.
 \begin{remark}[certification]\label{rem:guard}
 As with all BBP-type extraction, the digit window is read off the top of the
 accumulator and is provably correct unless $\frc{10^{\,n}\pi}$ lies within
-the total error $\varepsilon$ of a carry boundary of the window --- i.e.\
+the total error $\varepsilon$ of a carry boundary of the window, i.e.\
 unless the digits following the window form a run of $9$s or $0$s of length
 $\approx(\log_{10}\varepsilon^{-1})-w$. The algorithm detects this condition
 in the output and re-runs with doubled $G$; under the standard heuristic that
@@ -341,8 +316,8 @@ of binary BBP makes the same tradeoff.)
 \subsection{Precomputation and per-term costs}
 
 $X=5^{\,n}$ is computed by repeated squaring in $O(\M(N))$ bit operations
---- the $O(\log N)$ squarings act on geometrically growing operands, so the
-cost telescopes --- and stored as $\approx 0.2902N$ bytes. The $O(N)$ modular
+(the $O(\log N)$ squarings act on geometrically growing operands, so the
+cost telescopes) and stored as $\approx 0.2902N$ bytes. The $O(N)$ modular
 exponentiations (Phases 1--2) cost $O(\log N)$ multiplications of
 $O(\log N)$-bit words each: $O(N\log N)$ word operations, i.e.\
 $O(N\log^{2}N\log\log N)$ bit operations; window reads are $O(1)$ words
@@ -353,7 +328,7 @@ each.
 The one nontrivial cost is the family of prefix residues
 $\widetilde{Y}_t=(X\bmod 2^{J_t})\bmod\mu_t$ over the $T=\Theta(N)$ band
 terms. Computed naively (a Horner pass over the stored string per term) each
-costs $O(J_t/w)$ word operations --- a quadratic total if done term by
+costs $O(J_t/w)$ word operations, a quadratic total if done term by
 term. It is however batchable
 with remainder-tree technology~\cite{BorodinMoenck74,Bernstein04}:
 
@@ -409,7 +384,7 @@ follows by summing the phase costs: the accumulating tree dominates, the
 modular exponentiations contribute $O(N\log^{2}N\log\log N)$ bits, and
 everything else is smaller. In the word RAM the totals are
 $O(N\log^{2}N)$ word operations for the tree and $O(N\log N)$ for the
-exponentiations --- and Section~\ref{sec:improve} reduces the latter, and
+exponentiations, and Section~\ref{sec:improve} reduces the latter, and
 every other non-tree cost, to $O(N\log\log N)$.
 
 \subsection{Comparison}
@@ -495,8 +470,8 @@ number of (term, prime-power) incidences is
 $\sum_{k\le K}\Omega'(\mu(k))=O(K\log\log K)$ by Mertens; prime powers
 with $e\ge2$ have $O(\sum_q K/q^{2})=O(K)$ incidences and afford honest
 exponentiations for their rare starters. Fixed-exponent residues are
-computed once per \emph{distinct} prime power --- there are
-$O(K/\log K)$ of them, at $O(\log N)$ each --- and every term's residue is
+computed once per \emph{distinct} prime power (there are
+$O(K/\log K)$ of them, at $O(\log N)$ each), and every term's residue is
 assembled from its $O(\log\log K)$ cached prime-power components by CRT
 at $O(1)$ multiplications per incidence.
 \end{proof}
@@ -504,8 +479,8 @@ at $O(1)$ multiplications per incidence.
 \begin{remark}[application to binary BBP]
 The classical BBP loop computes $16^{\,d-k}\bmod(8k+j)$ per term by
 square-and-multiply, and has since 1997. The structure required by
-Theorem~\ref{thm:sieve} --- fixed base, exponent linear in $k$, modulus on
-an arithmetic progression in $k$ --- is exactly the structure of that
+Theorem~\ref{thm:sieve} (fixed base, exponent linear in $k$, modulus on
+an arithmetic progression in $k$) is exactly the structure of that
 loop, so the same sieve-batching applies to hexadecimal/binary digit
 extraction of $\pi$ and to every BBP-type computation. We are not aware
 of a prior appearance of this amortization. Our validation run
@@ -558,23 +533,19 @@ changes the value by an integer multiple of $X$.
 \end{proof}
 
 \paragraph{The refined algorithm.}
-The extractor is thereby restructured as:
-\begin{enumerate}
-\item \textbf{Sieve phase} (Theorem~\ref{thm:sieve}): factorizations,
-chains, caches --- $O(N\log\log N)$ word operations.
-\item \textbf{Word phase}: all easy terms and all odd halves of band
-terms accumulate in fixed point --- $O(N\log\log N)$ word operations.
-\item \textbf{$V$ phase}: build $V$ by a balanced merge of
-$(\text{numerator},\text{denominator-product})$ pairs \emph{modulo powers
-of two}: node arithmetic is truncated multiplication only, and one final
-Newton--Hensel inversion mod $2^{J_{\max}}$ recovers $V$ --- cost
-$O(\M(N\log N)\log N)$, division-free. (The exact-sum form
-$X\cdot(A/B)$ with $A/B=\sum_t\pm1/(\mu_t2^{J_t})$ built by binary
-splitting is an equivalent second variant with the same asymptotics.)
-\item \textbf{Finish}: one product $XV\bmod 2^{J_{\max}}$, one window
-read, digit output --- $O(\M(N))$.
-\end{enumerate}
-Every logarithm in Theorem~\ref{thm:main} now lives in step 3.
+The extractor now runs in four phases. The sieve phase
+(Theorem~\ref{thm:sieve}) produces the factorizations, chains, and caches in
+$O(N\log\log N)$ word operations. The word phase accumulates all easy terms
+and the odd halves of the band terms in fixed point, again in
+$O(N\log\log N)$ word operations. The $V$ phase builds $V$ by a balanced
+merge of numerator/denominator-product pairs modulo powers of two, using
+truncated multiplication at each node and one Newton--Hensel inversion mod
+$2^{J_{\max}}$ at the end; it costs $O(\M(N\log N)\log N)$ and is
+division-free. (An equivalent variant instead builds the exact sum
+$X\cdot(A/B)$, with $A/B=\sum_t\pm1/(\mu_t2^{J_t})$, by binary splitting, at
+the same asymptotic cost.) The final phase forms one product
+$XV\bmod 2^{J_{\max}}$, reads one window, and outputs the digit, in
+$O(\M(N))$. Every logarithm in Theorem~\ref{thm:main} lives in the $V$ phase.
 
 \section{Generalizations}\label{sec:general}
 
@@ -614,7 +585,7 @@ $\pm2^{E}Q^{\,n}/\mu$ and the argument is unchanged with $X=Q^{\,n}$.
 \end{proof}
 
 In particular the base-$5$ digits of $\pi$ are computable in quasi-linear
-time with a shared string $X=5^{\,N-1}$ --- in that case \emph{every} term
+time with a shared string $X=5^{\,N-1}$: in that case \emph{every} term
 with $k\ge1$ is a band or tail term. This answers the question left open
 in~\cite{Zudilin24} affirmatively at $\Theta(N)$-bit space: the terms on
 which his identity~(3) fails (denominator $5^{2n+1-d+k}m$) are exactly our
@@ -641,23 +612,23 @@ product-tree bound. This section characterizes the obstruction.
 
 No unconditional lower bound is available at any level: proving even
 $\Omega(N)$ for the digit itself would require ruling out closed forms for
-the digits of $\pi$, far beyond current techniques --- an obstacle shared
+the digits of $\pi$, far beyond current techniques, an obstacle shared
 with binary BBP. Within the framework, $\Omega(N)$ is forced structurally:
 $\Theta(N)$ terms each contribute at $O(1)$ magnitude modulo $1$, and the
 $u$-windows jointly tile $\Theta(N)$ bits of $X$. The natural conjectural
 floor is $N\log N$: every known route to the string of $X=5^{\,N-1}$ costs
-$\Theta(\M(N))$, and $\M(N)=\Theta(N\log N)$ is believed optimal --- the
+$\Theta(\M(N))$, and $\M(N)=\Theta(N\log N)$ is believed optimal: the
 upper bound is Harvey--van der Hoeven~\cite{HvdH21}, and a matching lower
 bound is known only conditionally, on a network-coding
 conjecture~\cite{AFKL19}; no reduction from multiplication to fixed-base
 powering is known, so even that conditional bound does not formally
 transfer. Sublinear time would require abandoning the series paradigm
-altogether, since every term matters at full weight modulo $1$ --- and
+altogether, since every term matters at full weight modulo $1$, and
 three decades of work on binary BBP have not produced $o(N)$ extraction in
 any base. Everything between the proven $O(N\log^{3}N)$ and the
 conjectural $N\log N$ floor is the subject of what follows.
 
-\subsection{Equivalent faces}
+\subsection{Equivalent formulations}
 
 The denominator product entering the $V$ phase is, per family, a
 rising-factorial-type product: e.g.
@@ -667,26 +638,26 @@ modulo $2^{\Theta(N)}$ below the product-tree bound
 $\M(n\log n)\log n$ is an instance of the classical factorial barrier.
 Borwein's factorization shaves the \emph{product} to $\M(n\log n)\log\log n$
 (Theorem~\ref{thm:crack}); but for a single term of a general holonomic
-sequence --- which is what $V$ is --- no method below the product tree is
+sequence, which is what $V$ is, no method below the product tree is
 known, despite long attention~\cite{Borwein85,Strassen77,BGS07}.
 
-A second face: $(\Z/2^{m}\Z)^{*}=\langle-1\rangle\times\langle3\rangle$,
+A second formulation: $(\Z/2^{m}\Z)^{*}=\langle-1\rangle\times\langle3\rangle$,
 so $\prod_{k\le K}(1+8k)\equiv\pm 3^{E}\pmod{2^{m}}$ where
 \[
 E=\sum_{k\le K}\operatorname{dlog}_3(1+8k)\ \bmod\ 2^{\,m-2},
 \qquad m=\Theta(N).
 \]
 Computing the \emph{single integer} $E$ is thus a distillation of the
-multiplicative side of the barrier --- and it falls
+multiplicative side of the barrier, and it falls
 (Theorem~\ref{thm:crack} below). Expanding
 $\operatorname{dlog}_3(1+8k)=\log_2(1+8k)/\log_2 3$ through the $2$-adic
 logarithm turns $E$ into $\sum_j c_j S_j(K)$ with power sums
 $S_j(K)=\sum_{k\le K}k^{j}$; Faulhaber's formula then prices the exchange
 in Bernoulli numbers, and the coefficient mass of every arrangement we
-tried is $\Theta(N^{2})$ bits. Third face: merge depth --- summing $T$
-inhomogeneous word-size rationals below $\M(\text{total})\log T$.
+tried is $\Theta(N^{2})$ bits. A third formulation is the merge depth itself:
+summing $T$ inhomogeneous word-size rationals below $\M(\text{total})\log T$.
 
-A fourth face is analytic, and rests on the observation that
+A fourth formulation is analytic, and rests on the observation that
 Euler--Maclaurin summation, divergent-asymptotic over $\mathbb{R}$, is
 \emph{exactly convergent} over $\Z_2$ for our summand.
 
@@ -707,8 +678,8 @@ bits.)
 
 Since the correction series is, up to elementary factors, the Stirling
 tail $\sum_i B_{2i}\,w^{2i-1}/\bigl(2i(2i-1)\bigr)$ evaluated at
-$w=8/(1+8K)$ (valuation $3$), the lemma says: $E$ --- hence
-$\prod_{k\le K}(1+8k)\bmod 2^{m}$, hence the barrier --- \emph{is} a
+$w=8/(1+8K)$ (valuation $3$), the lemma says that $E$ (hence
+$\prod_{k\le K}(1+8k)\bmod 2^{m}$, hence the barrier) \emph{is} a
 single-point evaluation of Diamond's $2$-adic log-gamma
 function~\cite{Diamond77} in its domain of convergent asymptotics, plus
 elementary terms; and conversely, such evaluations at arguments
@@ -718,14 +689,14 @@ recursion instead reproduces partial $2$-adic Hurwitz zeta values at
 positive integers, confirming the same equivalence from the Iwasawa side
 (cf.~\cite{Washington}). Every known evaluation strategy for these
 $p$-adic special functions pays the tapered-Bernoulli mass
-$\Theta(N^{2})$ bits or falls back to the product tree --- but the
+$\Theta(N^{2})$ bits or falls back to the product tree, but the
 reduction imports the problem into computational Iwasawa theory, where
 evaluation of $p$-adic $L$-functions is an active algorithmic topic, and
 progress there now transfers here.
 
 Two further formulations matter below. Via the Coleman/Iwasawa
-formalism, $E$ is a truncation of the Mazur measure's $\Gamma$-transform
---- computing it fast is the same problem as computing the
+formalism, $E$ is a truncation of the Mazur measure's $\Gamma$-transform;
+computing it fast is the same problem as computing the
 Kubota--Leopoldt $2$-adic zeta function to high precision, itself open in
 computational Iwasawa theory. And most elementary: since
 $\operatorname{Log}_2 u=\lim_r (u^{2^{r}}-1)/2^{r}$, one has the
@@ -745,9 +716,9 @@ $\Ot(N)$ time.}
 The recurring Bernoulli mass has a classical cause: the generating
 function $x/(e^{x}-1)$ has infinitely many poles ($2\pi ik$, the poles of
 $\zeta$), hence is \emph{not holonomic}, so the Bernoulli sequence
-satisfies no polynomial recurrence --- and every fast point-evaluation
-technology for series (binary splitting of $P$-recurrences, bit-burst
---- including its $2$-adic version, which achieves quasi-linear precision
+satisfies no polynomial recurrence, and every fast point-evaluation
+technology for series (binary splitting of $P$-recurrences, bit-burst,
+including its $2$-adic version, which achieves quasi-linear precision
 for exactly the holonomic class~\cite{CMTV21}) requires such a
 recurrence; moreover no bit-burst analogue for the full differentially
 algebraic class can exist, since every polynomial-time-computable real is
@@ -760,22 +731,22 @@ end-run}. Nor can the formula be shopped away: a series whose
 denominators were purely geometric would sum to a rational number, so
 transcendence forces the polynomial factor in every BBP-type
 denominator, which forces moduli sweeping arithmetic progressions, which
-forces the faces above. Two further resources are accounted for: quantum
+forces the formulations above. Two further resources are accounted for: quantum
 period-finding offers nothing, since the per-element task (one $2$-adic
 discrete logarithm) is already classically easy and exact summation to
 $2^{-\Theta(N)}$ defeats amplitude-estimation; and the mass is
-parallelizable in low depth --- iterated multiplication and division modulo
-$2^{m}$ lie in \textsc{dlogtime}-uniform $\mathsf{TC}^{0}$~\cite{HAB02} --- so
+parallelizable in low depth (iterated multiplication and division modulo
+$2^{m}$ lie in \textsc{dlogtime}-uniform $\mathsf{TC}^{0}$~\cite{HAB02}), so
 at scale it is a cost in work, not in wall-clock time.
 \end{remark}
 
-\subsection{A crack: the multiplicative faces fall}
+\subsection{A crack: the multiplicative formulations fall}
 
-\begin{theorem}[sub-product-tree evaluation of the multiplicative faces]
+\begin{theorem}[sub-product-tree evaluation of the multiplicative formulations]
 \label{thm:crack}
-$\prod_{k\le K}(8k+1)\bmod 2^{m}$ --- and hence $E$, the power sums
+$\prod_{k\le K}(8k+1)\bmod 2^{m}$ (and hence $E$, the power sums
 $\sum_{k\le K}(1+8k)^{2^{r}}\bmod 2^{2r}$, and the log-gamma values of
-Lemma~\ref{lem:em} --- are computable in
+Lemma~\ref{lem:em}) are computable in
 $O(\M(N)\log N)=O(N\log^{2}N)$ bit operations.
 \end{theorem}
 
@@ -795,32 +766,30 @@ $\Theta(N)$; total $O(\M(N)\log N)$) and one squaring mod $2^{m}$
 $E=\operatorname{Log}_2(\prod)/\operatorname{Log}_2 9$, the $2$-adic
 logarithm being quasi-linear in precision~\cite{CMTV21}.
 Machine-validated at six sizes through $K=3\cdot10^{6}$: exact agreement
-with the direct product, with the measured time ratio growing
-monotonically in the factored method's favor --- the log-factor
-signature.
+with the direct product, and the measured time ratio grows
+monotonically in the factored method's favor.
 \end{proof}
 
-Three consequences. First, these faces are \emph{not} constructively
-equivalent: they split into a multiplicative cluster --- products, $E$,
-power sums, log-gamma/truncated Kubota--Leopoldt values, now all
-$O(N\log^{2}N)$, which in particular is, to our knowledge, the first
+Three consequences. First, these formulations are \emph{not} constructively
+equivalent: they split into a multiplicative cluster (products, $E$, power
+sums, and log-gamma/truncated Kubota--Leopoldt values, now all
+$O(N\log^{2}N)$) and the \emph{additive core} $V$ itself, the consolidated
+sum $\sum_t\pm2^{\,J_{\max}-J_t}\mu_t^{-1}$, whose numerator admits no prime
+factorization. The log-gamma evaluation is, to our knowledge, the first
 single-prime \emph{sub-product-tree} evaluation of Diamond's $2$-adic
-log-gamma at the arguments $8/(1+8K)$ (Morita's $\Gamma_p$ is implemented in
+log-gamma at the arguments $8/(1+8K)$. (Morita's $\Gamma_p$ is implemented in
 PARI/GP, Magma and SageMath, PARI/GP's \texttt{lngamma} computes Diamond's
 function for $|x|_2>1$, and $\Gamma_p$ is computable in average polynomial
 time over all $p\le X$~\cite{CKR20,CKR24}; new here is the sub-product-tree
-cost at a single prime, specialized to these arguments) --- and
-the \emph{additive core}: $V$ itself, the consolidated sum
-$\sum_t\pm2^{\,J_{\max}-J_t}\mu_t^{-1}$, whose numerator admits no prime
-factorization. Second, Theorem~\ref{thm:main} is unchanged, since the
+cost at a single prime, specialized to these arguments.) Second, Theorem~\ref{thm:main} is unchanged, since the
 digit pipeline consumes $V$: the barrier now stands, sharper, on the
-additive face alone. (A complete inventory of the approaches we examined
-against that face --- some fifteen routes across real-analytic,
+additive core alone. (A complete inventory of the approaches we examined
+against it, some fifteen routes across real-analytic,
 $2$-adic, mod-$p$, and circuit-theoretic settings, each with its
-terminal obstruction, together with the leads we consider live --- is
-maintained in the research dossier accompanying the code.)
+terminal obstruction, together with the leads we consider live, is
+available from the author.)
 
-\subsection{The additive core, undressed}
+\subsection{The additive core as an isolated harmonic number}
 
 \begin{proposition}[the additive core is an isolated harmonic number]
 \label{prop:atom}
@@ -832,7 +801,7 @@ $\Pi'(0)=\sum_k\prod_{j\ne k}(8j+1)$, and
 \ \equiv\ \tfrac18\Bigl(\psi_2\!\bigl(K+1+\tfrac18\bigr)
 -\psi_2\!\bigl(\tfrac18\bigr)\Bigr)\pmod{2^{m}},
 \]
-a $2$-adic digamma value --- equivalently the $x^{1}$-coefficient of a product
+a $2$-adic digamma value: equivalently the $x^{1}$-coefficient of a product
 of $\Theta(N)$ linear forms, and, via $n!\,H_n=|s(n+1,2)|$, an unsigned
 Stirling number of the first kind. Thus, up to the weights, the additive core
 is an isolated harmonic number modulo $2^{m}$. (Verified exactly in the
@@ -843,15 +812,15 @@ The product $\Pi(0)$ is \emph{smooth}, so Borwein's factorization applies
 (Theorem~\ref{thm:crack}); its logarithmic derivative $\Pi'(0)$ is a generic
 integer carrying a large prime factor (already $961$ bits at $K=200$):
 \emph{differentiation destroys the factorization the crack runs on}, which is
-precisely why the multiplicative faces fall while the additive core does not.
-The undressed problem is well charted and open. For an isolated harmonic number
+precisely why the multiplicative formulations fall while the additive core
+does not. This problem is well studied and open. For an isolated harmonic number
 modulo a prime power, binary splitting~\cite{BZ10} is the best known method; the
 factorial's one-logarithm shave is not known to transfer to the sum (posed as
 open in~\cite{Johansson09}); and the single-prime cost of $(p-1)!\bmod p^{2}$ is
 $\widetilde{O}(\sqrt p)$~\cite{CGH14}, beating which is open and tied to the
 absence of polynomial-time point counting~\cite{Harvey14}. The one machine that
-carries \emph{both} a product and its sum of partial products --- a $p$-adic
-$\Gamma$ value and, as we observe, its logarithmic derivative --- is the
+carries \emph{both} a product and its sum of partial products (a $p$-adic
+$\Gamma$ value and, as we observe, its logarithmic derivative) is the
 accumulating remainder tree of Costa--Kedlaya--Roe~\cite{CKR20,CKR24}, but only
 amortized over all primes $p\le X$; whether that amortization can be traded for
 single-argument precision at the fixed prime $2$ is Open Problem~\ref{op:E}.
@@ -862,11 +831,11 @@ side of the tame/wild divide. Quadratic exponential sums are polynomial-time
 (Gauss sums), whereas specific degree-$\ge3$ families are $\#\mathrm{P}$-hard
 even at a fixed prime power~\cite{CCLL10}; single Kloosterman sums have no known
 efficient classical evaluation~\cite{Bruin18}; and partial Kloosterman sums
-converge in law to random processes --- pseudorandom --- even to high
-prime-power moduli~\cite{KS16,MZ23}. This is evidence, not proof, but it is the
-right neighborhood, and suggests that completeness, rather than the
-field-versus-ring distinction, is what renders the complete multiplicative sums
-tame.
+converge in law to random processes, even to high
+prime-power moduli~\cite{KS16,MZ23}. This is evidence rather than proof. It
+places the additive core among problems for which no fast algorithm is known,
+and suggests that completeness, rather than the field-versus-ring distinction,
+is what makes the complete multiplicative sums tame.
 
 \subsection{The barrier is not cryptographically protected}
 
@@ -882,9 +851,9 @@ attackable formulation and state it as the target:
 \begin{openproblem}\label{op:E}
 Compute the additive core
 $V=\sum_t \pm\,2^{\,J_{\max}-J_t}\bigl(\mu_t^{-1}\bmod 2^{J_{\max}}\bigr)
-\bmod 2^{J_{\max}}$ --- equivalently its numerator
-$\sum_t \pm\,2^{\,J_{\max}-J_t}\prod_{s\ne t}\mu_s \bmod 2^{J_{\max}}$
---- in $O(\M(N)\log N)$ bit operations. Via the pipeline of
+\bmod 2^{J_{\max}}$ (equivalently its numerator
+$\sum_t \pm\,2^{\,J_{\max}-J_t}\prod_{s\ne t}\mu_s \bmod 2^{J_{\max}}$),
+in $O(\M(N)\log N)$ bit operations. Via the pipeline of
 Section~\ref{sec:improve} this immediately yields decimal (and binary)
 digit extraction of $\pi$ in $O(N\log^{2}N)$. The denominator product is
 computable within that budget (Theorem~\ref{thm:crack}); the \emph{sum}
@@ -896,11 +865,11 @@ argument protects it.
 Every algorithm computing the additive core $V$ of
 Open Problem~\ref{op:E} by ring operations over $\Z/2^{O(N)}$ whose
 intermediate values are coefficient arrays in the bases occurring in
-this section --- moments, Bernoulli/Iwasawa coefficients, inverse-power
-sums, symmetric functions, or per-prime residue systems --- reads or
+this section (moments, Bernoulli/Iwasawa coefficients, inverse-power
+sums, symmetric functions, or per-prime residue systems) reads or
 writes $\Omega(N^{2}/\log^{O(1)}N)$ bits in total. (The original form of
 this conjecture also covered $E$; Theorem~\ref{thm:crack} resolved that
-case exactly as the conjecture's guidance predicted --- by an
+case exactly as the conjecture's guidance predicted, by an
 unlisted representation.)
 \end{conjecture}
 
@@ -924,8 +893,8 @@ from the Frobenius side, as the valuation of the classical Dwork residual
 $f_{s+1}(x)f_{s-1}(x^{2})-f_s(x)f_s(x^{2})$ for
 $f={}_2F_1(\tfrac18,1;\tfrac98;x)$; it means Dwork/Frobenius descent supplies
 only $\Theta(\log N)$ $2$-adic digits at the depth $s=\Theta(\log N)$ that $N$
-terms require, and the one amplifier --- an excellent Frobenius lift to modulus
-$p^{2s}$ --- requires $p$ odd~\cite{BV23}, hence is vacuous at $p=2$.
+terms require, and the one amplifier, an excellent Frobenius lift to modulus
+$p^{2s}$, requires $p$ odd~\cite{BV23}, hence is vacuous at $p=2$.
 (b) \emph{Depth-doubling (AGM/Landen) iterations.} The duplication law of
 the underlying Lerch-type sum,
 $\Phi(z,1,a)=\tfrac12\Phi(z^{2},1,\tfrac a2)+\tfrac z2\Phi(z^{2},1,\tfrac{a+1}2)$,
@@ -946,16 +915,16 @@ their pairwise products, and their exponentials finds no integer relation
 between height $O(1)$ (where the known functional equation is recovered
 exactly) and the noise floor. Any resolution of
 Open Problem~\ref{op:E} must therefore be non-algebraic in the truncation
-scale --- consistent with Conjecture~\ref{conj:mass}, whose failure, if it
+scale, consistent with Conjecture~\ref{conj:mass}, whose failure, if it
 fails, will not be by a scale-recursion.
 \end{remark}
 
 \section{Implementation and verification}\label{sec:impl}
 
-The algorithm --- the pipeline of
+The algorithm (the pipeline of
 Sections~\ref{sec:method}--\ref{sec:improve}, with the division-free
 construction of $V$ realized by symbolic shifts and per-node precision
-caps --- is implemented in a few hundred lines of Python over GMP
+caps) is implemented in a few hundred lines of Python over GMP
 integers (\path{decimal_bbp_extract.py}, covering both $\pi$ and
 $\ln2$), accompanied by an independent C++/OpenMP implementation of the
 band identity used for cross-checking (\path{three_phase_extract.cpp})
@@ -980,7 +949,7 @@ At $N=10^{6}$ the extractor returns
 $130927562832$ at positions $10^{6}..10^{6}{+}11$, matching the reference.
 At $N=10^{7}$ it returns $725915133612$ at positions
 $10^{7}..10^{7}{+}11$; we verified this window against two independently
-published digit corpora --- Google's $100$-trillion-digit computation
+published digit corpora: Google's $100$-trillion-digit computation
 (served at \path{pi.delivery}, with the index convention confirmed by
 probing the leading digits) and the $200$-million-digit corpus at
 \path{angio.net}, whose substring search locates the window at exactly
@@ -999,13 +968,13 @@ termwise dyadic sum; Lemma~\ref{lem:em} was verified exactly at
 $(K,m)=(100,160)$ and $(257,224)$; the Mazur-measure ($\Gamma$-transform)
 form and the extraction $E=\operatorname{Log}(\prod u)/\operatorname{Log}9$
 were verified exactly at $96$ bits; and the power-sum congruence was
-verified exactly at $(K,r)=(200,120)$ --- all $245$ bits --- including
+verified exactly at $(K,r)=(200,120)$ (all $245$ bits), including
 recovery of the Log-sum from the elementary power sum alone.
 
 \paragraph{Measurements} (Windows 11 desktop; our implementation
 single-threaded, CPython 3.10 over GMP). As external baseline we compiled a
-straightforward implementation of Gourdon's method~\cite{Gourdon03} --- the
-strongest published decimal extractor --- faithful to the published algorithm
+straightforward implementation of Gourdon's method~\cite{Gourdon03}, the
+strongest published decimal extractor, faithful to the published algorithm
 but not micro-optimized, and raced it on the same machine; its digits agree
 with our verified windows throughout. The constant-factor gap below is
 therefore only indicative; the claim rests on the \emph{asymptotic} separation,
@@ -1025,15 +994,15 @@ $10^{7}$ & --- & $111.6$ s & $2.9$ MB\\
 \end{tabular}
 \end{center}
 
-The fitted exponents are $\approx N^{1.8}$ for Gourdon's method ---
-quadratic-class, as its analysis predicts --- against $N^{1.077}$ for
+The fitted exponents are $\approx N^{1.8}$ for Gourdon's method
+(quadratic-class, as its analysis predicts) against $N^{1.077}$ for
 the present algorithm over three decades with no upward bend: the
 quasi-linear regime of Theorem~\ref{thm:main} is visible directly, in
-interpreted code, and the gap over the strongest published method ---
-already $232\times$ at $N=10^{6}$ --- grows without bound. At
+interpreted code, and the gap over the strongest published method,
+already $232\times$ at $N=10^{6}$, grows without bound. At
 $N=10^{7}$ the phase split is $64$ s for the exponentiation loop, $47$ s
-for the entire consolidated band --- the terms on which every previous
-decimal method was quadratic --- and $0.05$ s to build $X$. The
+for the entire consolidated band (the terms on which every previous
+decimal method was quadratic) and $0.05$ s to build $X$. The
 sieve-batched exponentiation of Theorem~\ref{thm:sieve} is validated at
 the same scale in operation count (identical digits at $N=10^{7}$, with
 multiplication counts as predicted); realizing it in wall clock belongs
@@ -1043,10 +1012,10 @@ than interpreter statements.
 \section{Open problems}
 
 (1) Engineer a compiled, threaded implementation of the full pipeline
---- including the sieve-batched exponentiation, whose operation-count
-gains are validated above --- for record-scale positions. (2) Open
+(including the sieve-batched exponentiation, whose operation-count
+gains are validated above) for record-scale positions. (2) Open
 Problem~\ref{op:E}: the additive core, the one remaining logarithm. (3) Decimal digit extraction in sublinear
-space --- the original problem of~\cite{BBP97} --- remains open; is there
+space, the original problem of~\cite{BBP97}, remains open; is there
 a lower-bound obstruction linking it to the complexity of isolated middle
 bits of $5^{\,n}$? (4) The per-term independence invites a distributed
 record attempt: verifying isolated \emph{decimal} positions of record

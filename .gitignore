@@ -22,3 +22,9 @@ legacy/machin_digit_extract
 add.pdf
 context.txt
 x5_*.bin
+
+# private working notes and build products (kept locally, not published)
+notes/
+refs/
+arxiv_submission/
+*.tar.gz
