@@ -126,7 +126,7 @@ phases except one collapse to $O(N\log\log N)$ word operations, and the
 surviving phase, the construction of a single $2$-adic integer, is
 analyzed as a barrier in Section~\ref{sec:barrier}.
 
-\paragraph{What is, and is not, being claimed.}
+\subsection*{What is, and is not, claimed}
 By the Gauss--Legendre/AGM iteration of Brent and
 Salamin~\cite{Brent76,Salamin76}, computing \emph{all} $N$ digits of $\pi$
 already takes $O(\mathsf{M}(N)\log N)=O(N\log^{2}N)$ bit operations, and
@@ -532,7 +532,7 @@ $2^{-J_{\max}}$ gives the claim; replacing $V$ by $V\bmod 2^{J_{\max}}$
 changes the value by an integer multiple of $X$.
 \end{proof}
 
-\paragraph{The refined algorithm.}
+\subsection*{The refined algorithm}
 The extractor now runs in four phases. The sieve phase
 (Theorem~\ref{thm:sieve}) produces the factorizations, chains, and caches in
 $O(N\log\log N)$ word operations. The word phase accumulates all easy terms
@@ -882,34 +882,38 @@ guidance: a resolution of Open Problem~\ref{op:E} must operate outside
 every basis the conjecture names.
 
 \begin{remark}[structural exclusions]\label{rem:exclusions}
-Beyond the basis-by-basis evidence, four idea-\emph{classes} for
+Beyond the basis-by-basis evidence, four broad strategies for
 Open Problem~\ref{op:E} can be excluded outright.
-(a) \emph{Formula shopping.} For every BBP family with denominators
+
+The first is formula shopping. For every BBP family with denominators
 $dt+1$ ($d=4,\dots,16$) the truncation-defect of the associated Dwork-type
 ratio obeys the same law, $\min_j v_2 = s + v_2(d) - 1$ at truncation depth
-$2^{s}$: changing the formula shifts a constant, never the slope, so no
+$2^{s}$, so changing the formula shifts a constant but never the slope, and no
 base-$2^{r}$ formula makes the additive core easier. We verified this law
 from the Frobenius side, as the valuation of the classical Dwork residual
 $f_{s+1}(x)f_{s-1}(x^{2})-f_s(x)f_s(x^{2})$ for
 $f={}_2F_1(\tfrac18,1;\tfrac98;x)$; it means Dwork/Frobenius descent supplies
 only $\Theta(\log N)$ $2$-adic digits at the depth $s=\Theta(\log N)$ that $N$
 terms require, and the one amplifier, an excellent Frobenius lift to modulus
-$p^{2s}$, requires $p$ odd~\cite{BV23}, hence is vacuous at $p=2$.
-(b) \emph{Depth-doubling (AGM/Landen) iterations.} The duplication law of
-the underlying Lerch-type sum,
+$p^{2s}$, requires $p$ odd~\cite{BV23} and so is vacuous at $p=2$.
+
+The second is depth-doubling by AGM- or Landen-type iteration. The
+duplication law of the underlying Lerch-type sum,
 $\Phi(z,1,a)=\tfrac12\Phi(z^{2},1,\tfrac a2)+\tfrac z2\Phi(z^{2},1,\tfrac{a+1}2)$,
-is exact and truncation-compatible but \emph{parameter-branching}: $\log N$
+is exact and truncation-compatible but branches in its parameter: $\log N$
 doublings hold $N$ parameters, reproducing the product tree. The classical
 logarithm admits an AGM because its transformation fixes a single
-parameter; the truncated object branches.
-(c) \emph{Incomplete reciprocity.} The real-analytic incomplete
+parameter, whereas the truncated object branches.
+
+The third is incomplete reciprocity. The real-analytic incomplete
 Landsberg--Schaar/theta reciprocity carries an unavoidable transcendental
 (Fresnel) remainder~\cite{FK09}; a $2$-adic analogue would need an
 algebraic remainder in $\Z/2^{m}$, and a noise-floor-calibrated
 lattice-reduction search (linear and quadratic-character $\zeta_{8}$-duals,
 two parameter points, planted-relation controls recovered at height $O(1)$)
 finds the candidate space empty below the random-lattice threshold.
-(d) \emph{Algebraic cross-scale relations in general.} The same
+
+The fourth is algebraic cross-scale relations in general. The same
 calibrated search over truncated logarithms at five dyadic depths,
 their pairwise products, and their exponentials finds no integer relation
 between height $O(1)$ (where the known functional equation is recovered
@@ -934,7 +938,7 @@ construction reproduces a direct per-term accumulator bit-for-bit
 across the verification battery, and the independent code paths agree
 on every digit window reported below.
 
-\paragraph{Correctness.}
+\subsection*{Correctness}
 All of the following were verified against digits computed independently by
 integer Chudnovsky binary splitting (and, for $\ln 2$, by binary splitting
 of $2\,\mathrm{artanh}(1/3)$):
@@ -955,7 +959,7 @@ probing the leading digits) and the $200$-million-digit corpus at
 \path{angio.net}, whose substring search locates the window at exactly
 position $10^{7}$ after the decimal point.
 
-\paragraph{Identity-level validations.}
+\subsection*{Identity-level validations}
 The mechanisms of Sections \ref{sec:improve}--\ref{sec:barrier} are backed
 by exact machine checks: the chain/CRT mechanism of
 Theorem~\ref{thm:sieve} reproduces $2^{\,4k}\bmod(8k+1)$ for all
@@ -971,8 +975,9 @@ were verified exactly at $96$ bits; and the power-sum congruence was
 verified exactly at $(K,r)=(200,120)$ (all $245$ bits), including
 recovery of the Log-sum from the elementary power sum alone.
 
-\paragraph{Measurements} (Windows 11 desktop; our implementation
-single-threaded, CPython 3.10 over GMP). As external baseline we compiled a
+\subsection*{Measurements}
+These timings are from a Windows 11 desktop, our implementation
+single-threaded on CPython 3.10 over GMP. As external baseline we compiled a
 straightforward implementation of Gourdon's method~\cite{Gourdon03}, the
 strongest published decimal extractor, faithful to the published algorithm
 but not micro-optimized, and raced it on the same machine; its digits agree
@@ -1011,16 +1016,14 @@ than interpreter statements.
 
 \section{Open problems}
 
-(1) Engineer a compiled, threaded implementation of the full pipeline
-(including the sieve-batched exponentiation, whose operation-count
-gains are validated above) for record-scale positions. (2) Open
-Problem~\ref{op:E}: the additive core, the one remaining logarithm. (3) Decimal digit extraction in sublinear
+(1) Open
+Problem~\ref{op:E}: the additive core, the one remaining logarithm. (2) Decimal digit extraction in sublinear
 space, the original problem of~\cite{BBP97}, remains open; is there
 a lower-bound obstruction linking it to the complexity of isolated middle
-bits of $5^{\,n}$? (4) The per-term independence invites a distributed
+bits of $5^{\,n}$? (3) The per-term independence invites a distributed
 record attempt: verifying isolated \emph{decimal} positions of record
 computations of $\pi$ (a practical need noted by record holders) requires
-exactly this primitive. (5) Zudilin's Gaussian-integer series can
+exactly this primitive. (4) Zudilin's Gaussian-integer series can
 presumably be treated by the same band identity over $\mathbb{Z}[i]$ with
 a shared string for $(1{-}2i)^{\,d}$; carrying this out would give a
 second, structurally different quasi-linear base-5 extractor.
@@ -1029,7 +1032,8 @@ second, structurally different quasi-linear base-5 extractor.
 The author thanks the maintainers of the computational records and surveys
 cited here.
 
-\paragraph{Use of AI assistance.} Computational experiments, the literature
+\subsection*{Use of AI assistance}
+Computational experiments, the literature
 survey, and manuscript preparation were carried out with assistance from an AI
 system (Anthropic Claude). All mathematical identities were independently
 machine-validated by the exact-arithmetic scripts in the accompanying
