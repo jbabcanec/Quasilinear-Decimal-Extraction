@@ -837,6 +837,66 @@ places the additive core among problems for which no fast algorithm is known,
 and suggests that completeness, rather than the field-versus-ring distinction,
 is what makes the complete multiplicative sums tame.
 
+\subsection{The additive core as a counting problem}
+
+A last formulation removes the $2$-adic language and exposes what is being
+computed. Read $a_t=\mu_t^{-1}$ as a binary fraction in $(0,1)$, and for
+$0\le d<N$ let
+\[
+B(d)=\#\{\,t\le T:\ \text{bit $d$ of $a_t$ is }1\,\}
+    =\#\{\,t\le T:\ 2^{d}\bmod\mu_t\in(\mu_t/2,\mu_t)\,\},
+\]
+the number of ones in column $d$ of the $T\times N$ matrix of reciprocal
+expansions. The fractional sum $S(d)=\sum_t\{2^{d}a_t\}$ satisfies the exact
+recursion $S(d+1)=2S(d)-B(d)$, hence
+$2^{D}S(0)=S(D)+\sum_{d<D}2^{\,D-1-d}B(d)$ with $0\le S(D)<T$, so the column
+counts $B(d)$ determine the binary expansion of $\sum_t a_t$ through a single
+carry pass of linear cost. We verified this reduction in the accompanying code,
+together with the fact that the carries are local: each output bit depends only
+on a window of $O(\log T)$ consecutive columns, so there is no global carry
+structure and the entire cost is the counts. Each $B(d)$ is an incomplete
+count of the doubling orbit in an interval, of the kind whose fast exact
+evaluation is not known; computing all of them below $T\cdot N$ is the barrier
+in its most elementary form, namely to sum $N$ periodic binary strings of
+incommensurate periods column by column and read the totals.
+
+\subsection{The orbit matrix and rigidity}\label{sec:rigidity}
+
+This formulation places the obstruction against a recognized problem. Let
+$M\in\{0,1\}^{N\times T}$ be the orbit matrix $M[d,t]=\text{bit $d$ of }a_t$, so
+the column counts are the entries of $M^{\top}\mathbf 1$. A fast algorithm for
+them in the linear model would follow from a decomposition $M=L+S$ with $L$ of
+low rank and $S$ sparse; conversely, ruling such decompositions out is an
+instance of proving $M$ rigid in the sense of Valiant~\cite{Valiant77}. This is
+the obstruction that has resisted proof for every explicit matrix: the
+structured candidates once expected to be rigid, in particular the Fourier and
+circulant matrices, proved not to be~\cite{DvirLiu}, and no explicit matrix is
+known to be rigid in the range that superlinear lower bounds require.
+
+The orbit matrix is a candidate of a different type. Its rows are related by the
+doubling map, but through the nonlinear top-half threshold rather than the linear
+recurrence that makes the Fourier matrix collapse. We record the following
+properties, each measured in the accompanying code. The pairwise row correlations
+are governed by the reciprocal sums $\sum_{t\le T}e(A/\mu_t)$, which show
+square-root cancellation, so the rows are near-orthogonal and $M$ has full rank;
+random square submatrices are of near-full rank as well, and the joint
+distribution of the orbit at separated depths equidistributes to third and
+fourth order. Under these hypotheses the classical weak rigidity bounds of
+Friedman and of Shokrollahi--Spielman--Stemann~\cite{Friedman93} apply and give
+$\mathcal R_M(r)=\Omega\!\bigl((N^{2}/r)\log(N/r)\bigr)$. The residual structure,
+a mild correlation between adjacent rows, is confined to a band of width
+$O(\log N)$ and carries negligible spectral weight, so it yields no
+decomposition. Whether $M$ is rigid in the stronger range $r=\varepsilon N$ that
+a circuit lower bound would need is open, as it is for all explicit matrices;
+settling it would require $r$-fold equidistribution of the doubling orbit across
+the modulus family, an analytic question this problem raises in clean form.
+
+The two bounds therefore meet recognized walls on both sides. Above, the
+$N\log N$ floor is the conjectured optimality of multiplication~\cite{AFKL19};
+below, a superlinear lower bound is an instance of matrix rigidity. The single
+logarithmic factor separating the present extraction from parity with
+computation lies between them.
+
 \subsection{The barrier is not cryptographically protected}
 
 Fast factorials modulo an \emph{arbitrary} integer $m$ would factor $m$
@@ -973,7 +1033,13 @@ $(K,m)=(100,160)$ and $(257,224)$; the Mazur-measure ($\Gamma$-transform)
 form and the extraction $E=\operatorname{Log}(\prod u)/\operatorname{Log}9$
 were verified exactly at $96$ bits; and the power-sum congruence was
 verified exactly at $(K,r)=(200,120)$ (all $245$ bits), including
-recovery of the Log-sum from the elementary power sum alone.
+recovery of the Log-sum from the elementary power sum alone. The
+counting reformulation of Section~\ref{sec:rigidity} (the recursion
+$S(d+1)=2S(d)-B(d)$, the locality of the carries, and the reconstruction
+of the expansion from the column counts) and the reported properties of
+the orbit matrix (full and near-full submatrix rank, the square-root
+cancellation of $\sum_t e(A/\mu_t)$, and third- and fourth-order
+equidistribution of the orbit) were checked in the same repository.
 
 \subsection*{Measurements}
 These timings are from a Windows 11 desktop, our implementation
@@ -1129,6 +1195,21 @@ Ann.\ of Math.\ \textbf{193} (2021), 563--617.
 P.~Afshani, C.~B.~Freksen, L.~Kamma, K.~G.~Larsen,
 \emph{Lower bounds for multiplication via network coding},
 in: ICALP 2019, LIPIcs \textbf{132}, 10:1--10:12.
+
+\bibitem{Valiant77}
+L.~G.~Valiant,
+\emph{Graph-theoretic arguments in low-level complexity},
+in: MFCS 1977, LNCS \textbf{53} (1977), 162--176.
+
+\bibitem{DvirLiu}
+Z.~Dvir, A.~Liu,
+\emph{Fourier and circulant matrices are not rigid},
+Theory Comput.\ \textbf{16} (2020), 1--48.
+
+\bibitem{Friedman93}
+J.~Friedman,
+\emph{A note on matrix rigidity},
+Combinatorica \textbf{13} (1993), 235--239.
 
 \bibitem{ZZ15}
 D.~Zeilberger, W.~Zudilin,
