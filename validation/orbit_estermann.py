@@ -24,6 +24,18 @@ the analytic frontier. THAT is the precise new open question the orbit matrix
 contributes to rigidity theory: does the doubling orbit r-fold equidistribute
 across the modulus family 8t+1? (analytic NT with a complexity payoff).
 Strong rigidity (Valiant) remains open, as for every explicit candidate.
+
+CORRECTION (2026-07-28, protocol; see notes/rank_lemma.md and
+estermann_range.py): "full rank provable via known ANT" was an overclaim.
+Known technology (van der Corput / exponent pairs / Vinogradov) bounds E(A)
+only at POLYNOMIAL height A <= T^{O(1)}; the matrix's rows live at height
+2^d, d up to N, where E(k 2^d) is the Fourier transform of the column data
+itself -- so the pairwise claim at deep rows IS the open equidistribution
+question, already at r = 1. Provable yield, correctly fenced: rank(M) >=
+c log T unconditionally (Theorem A, rank_lemma.md). Measured yield: sqrt
+cancellation at every height through 2^4000 (estermann_range.py). The open
+question collapses to ONE axis (Question E: height-uniform cancellation),
+which delivers pairwise AND r-fold for r << log T simultaneously.
 """
 import numpy as np
 
