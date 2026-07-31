@@ -1,6 +1,19 @@
 #!/usr/bin/env python3
 """sqrt2_extract.py -- the start-over calibration (2026-07-28).
 
+*** CORRECTED 2026-07-31 (see validation/depth_jump.py). The conclusion below
+*** that extraction costs "a log MORE than full computation" is WRONG, and the
+*** phrase "the extraction tax" should not be used for sqrt2. It is an artifact
+*** of choosing a MODEXP (10^N mod q), where the reduction pins every one of
+*** the log N squarings at full size. Computing the exact power 10^N instead
+*** TELESCOPES (operand sizes halve going backwards), so the whole depth-N jump
+*** is O(M(N)) = N log N: one multiply and one division after it. Measured
+*** operand-mass ratio modexp/exact-power = 2.0, 3.0, 4.5, 6.0 at
+*** N = 1e4, 1e6, 1e9, 1e12 -- a clean log. So sqrt2 extraction is at PARITY
+*** with its own computation (Newton, N log N), NOT one log above it. pi is
+*** the only constant measured so far with a genuine extraction gap.
+*** The code below is correct; only its complexity conclusion was wrong.
+
 Question (Joseph): what if we abandon BBP entirely? Control experiment: digit
 extraction for sqrt(2), the maximally structured non-BBP constant (periodic
 continued fraction, single-convergent approximation, zero series involved).
