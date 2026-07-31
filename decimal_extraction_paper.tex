@@ -46,7 +46,7 @@ recovers each term's fractional part from residues and bit-windows of the
 shared integer. The method works for any base-$2^{r}$ BBP constant, such as
 $\ln 2$, gives digits in any base, and repairs the base-5 obstruction of
 Zudilin (arXiv:2409.10097). Python and C++ implementations are verified
-against public digit corpora through position $10^{7}$, at a measured
+against public digit corpora through position $10^{8}$, at a measured
 exponent of $N^{1.077}$ against $N^{1.8}$ for the strongest published method;
 to our knowledge this is the first implemented and verified subquadratic
 decimal extractor. It sits one logarithmic factor above the $O(N\log^{2}N)$
@@ -420,7 +420,7 @@ Plouffe 2022~\cite{Plouffe22} & (no analysis; $N\le 10^{8}$) & value of $B_{2n}$
 
 \smallskip
 \parbox{0.92\textwidth}{\footnotesize $^{\mathrm a}$word operations.\quad
-$^{\mathrm b}$measured $N^{1.077}$ over $N\in[10^{4},10^{7}]$;
+$^{\mathrm b}$measured $N^{1.077}$ over $N\in[10^{4},10^{7}]$ (interpreted) and $N^{1.13}$ over $N\in[10^{6},10^{8}]$ (compiled);
 Section~\ref{sec:impl}.}
 \end{center}
 
@@ -1121,6 +1121,10 @@ published digit corpora: Google's $100$-trillion-digit computation
 probing the leading digits) and the $200$-million-digit corpus at
 \path{angio.net}, whose substring search locates the window at exactly
 position $10^{7}$ after the decimal point.
+At $N=10^{8}$ the compiled engine returns $221505880957$ at positions
+$10^{8}..10^{8}{+}11$, which agrees digit for digit with the same
+$100$-trillion-digit corpus, queried at the same offset convention that
+reproduces the $10^{7}$ window.
 
 \subsection*{Identity-level validations}
 The mechanisms of Sections \ref{sec:improve}--\ref{sec:barrier} are backed
@@ -1156,32 +1160,42 @@ which follows from the analyses ($N^{2}/\mathrm{polylog}$ for Gourdon versus
 $N^{1+o(1)}$ here) and is independent of implementation quality.
 
 \begin{center}
-\begin{tabular}{rrrl}
+\begin{tabular}{rrrrl}
 \toprule
-$N$ & Gourdon~\cite{Gourdon03} & this paper & auxiliary string\\
+$N$ & Gourdon~\cite{Gourdon03} & this paper (Python) & (C++) & auxiliary string\\
 \midrule
-$10^{4}$ & $0.59$ s & $0.06$ s & $2.9$ KB\\
-$10^{5}$ & $32.3$ s & $0.77$ s & $29$ KB\\
-$10^{6}$ & $2069$ s & $8.9$ s & $290$ KB\\
-$10^{7}$ & --- & $111.6$ s & $2.9$ MB\\
+$10^{4}$ & $0.59$ s & $0.06$ s & --- & $2.9$ KB\\
+$10^{5}$ & $32.3$ s & $0.77$ s & --- & $29$ KB\\
+$10^{6}$ & $2069$ s & $8.9$ s & $4.4$ s & $290$ KB\\
+$10^{7}$ & --- & $111.6$ s & $61.6$ s & $2.9$ MB\\
+$10^{8}$ & --- & --- & $831$ s & $29$ MB\\
 \bottomrule
 \end{tabular}
 \end{center}
 
-The fitted exponents are $\approx N^{1.8}$ for Gourdon's method
-(quadratic-class, as its analysis predicts) against $N^{1.077}$ for
-the present algorithm over three decades with no upward bend: the
-quasi-linear regime of Theorem~\ref{thm:main} is visible directly, in
-interpreted code, and the gap over the strongest published method,
-already $232\times$ at $N=10^{6}$, grows without bound. At
-$N=10^{7}$ the phase split is $64$ s for the exponentiation loop, $47$ s
-for the entire consolidated band (the terms on which every previous
-decimal method was quadratic) and $0.05$ s to build $X$. The
-sieve-batched exponentiation of Theorem~\ref{thm:sieve} is validated at
-the same scale in operation count (identical digits at $N=10^{7}$, with
-multiplication counts as predicted); realizing it in wall clock belongs
-to compiled implementations, where cost tracks multiplications rather
-than interpreter statements.
+The fitted exponents are $\approx N^{1.8}$ for Gourdon's method, in the
+quadratic class its analysis predicts, against $N^{1.077}$ for the
+present algorithm over three decades with no upward bend. The
+quasi-linear regime of Theorem~\ref{thm:main} is therefore visible
+directly, in interpreted code, and the gap over the strongest published
+method is already $232\times$ at $N=10^{6}$.
+
+The compiled engine reaches $N=10^{8}$ in $831$ s on one core and fits
+$N^{1.13}$ over $N\in[10^{6},10^{8}]$. Against the curves, that run is
+within $6\%$ of $n\log^{2}n$ extrapolated from $N=10^{6}$ and $20\%$
+under $n\log^{3}n$, so the third logarithm of Theorem~\ref{thm:main} is
+not yet visible in wall clock at this scale. The phase split is where it
+shows. Per decade from $10^{7}$ to $10^{8}$ the word phase grows by
+$11.6\times$ ($25.0$ s to $289.4$ s) and the $V$ merge by $14.8\times$
+($36.5$ s to $540.3$ s): the merge is the phase carrying the extra
+factor, exactly as Section~\ref{sec:barrier} locates it. Building $X$
+costs $0.71$ s at $N=10^{8}$ and is never material.
+
+The sieve-batched exponentiation of Theorem~\ref{thm:sieve} is validated
+at the same scale in operation count, giving identical digits at
+$N=10^{7}$ with multiplication counts as predicted. Realizing it in wall
+clock belongs to compiled implementations, where cost tracks
+multiplications rather than interpreter statements.
 
 \section{Open problems}
 
