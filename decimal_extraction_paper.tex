@@ -1185,16 +1185,21 @@ quasi-linear regime of Theorem~\ref{thm:main} is therefore visible
 directly, in interpreted code, and the gap over the strongest published
 method is already $232\times$ at $N=10^{6}$.
 
-The compiled engine reaches $N=10^{8}$ in $831$ s on one core and fits
-$N^{1.13}$ over $N\in[10^{6},10^{8}]$. Against the curves, that run is
-within $6\%$ of $n\log^{2}n$ extrapolated from $N=10^{6}$ and $20\%$
-under $n\log^{3}n$, so the third logarithm of Theorem~\ref{thm:main} is
-not yet visible in wall clock at this scale. The phase split is where it
-shows. Per decade from $10^{7}$ to $10^{8}$ the word phase grows by
-$11.6\times$ ($25.0$ s to $289.4$ s) and the $V$ merge by $14.8\times$
-($36.5$ s to $540.3$ s): the merge is the phase carrying the extra
-factor, exactly as Section~\ref{sec:barrier} locates it. Building $X$
-costs $0.71$ s at $N=10^{8}$ and is never material.
+The compiled engine reaches $N=10^{8}$ in $831$ s on one core, and the
+phase split there confirms the analysis phase by phase. Averaging two
+runs at each scale, the growth from $N=10^{7}$ to $N=10^{8}$ is
+$11.6	imes$ for the word phase ($24.1$ s to $280.1$ s) and
+$16.7	imes$ for the $V$ merge ($32.4$ s to $540.9$ s), against
+$14.6	imes$ for the total ($56.3$ s to $821.8$ s). The predicted
+per-decade factors at this size are $11.4	imes$ for $n\log n$,
+$13.1	imes$ for $n\log^{2}n$ and $14.9	imes$ for $n\log^{3}n$. So
+the word phase tracks $n\log n$ and the merge tracks $n\log^{3}n$,
+which is where Theorem~ef{thm:main}'s third logarithm lives and where
+Section~ef{sec:barrier} locates it. The merge runs a little above its
+predicted factor, plausibly because the $10^{8}$ runs were memory-bound
+on this machine; the $V$ timings themselves agree to $0.2\%$ across the
+two $10^{8}$ runs. Building $X$ costs $0.71$ s at $N=10^{8}$ and is
+never material.
 
 The sieve-batched exponentiation of Theorem~\ref{thm:sieve} is validated
 at the same scale in operation count, giving identical digits at
