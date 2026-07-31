@@ -68,8 +68,8 @@ def main():
     checks = [
         ("0.2902 bytes per digit of 5^n", 0.2902, math.log2(5) / 8, 1e-4),
         ("3.32 N terms  = 4(K+1), K ~ n log2(10)/4", 3.32, math.log2(10), 5e-3),
-        ("N^1.077 interpreted exponent plausible", 1.077,
-         math.log(111.6 / 0.06) / math.log(10 ** 7 / 10 ** 4), 0.02),
+        ("N^1.072 interpreted exponent (re-measured 2026-07-31)", 1.072,
+         math.log(116.19 / 0.07) / math.log(10 ** 7 / 10 ** 4), 0.02),
     ]
     for name, stated, actual, tol in checks:
         allok &= check(name, abs(stated - actual) <= tol,
