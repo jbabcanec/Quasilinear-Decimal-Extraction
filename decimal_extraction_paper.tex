@@ -138,7 +138,8 @@ analyzed as a barrier in Section~\ref{sec:barrier}.
 By the Gauss--Legendre/AGM iteration of Brent and
 Salamin~\cite{Brent76,Salamin76}, computing \emph{all} $N$ digits of $\pi$
 already takes $O(\mathsf{M}(N)\log N)=O(N\log^{2}N)$ bit operations, and
-softly linear time by binary splitting of the Chudnovsky series, both in
+$O(\mathsf{M}(N\log N)\log N)=O(N\log^{3}N)$ by binary splitting of the
+Chudnovsky series, both in
 $\Theta(N)$ bits of memory; quasi-linear cost per isolated digit is therefore
 not by itself a new capability, and the natural benchmark for any extraction
 algorithm is \emph{parity with full computation}: matching the
@@ -215,7 +216,7 @@ $8k+4=2^{2}(2k+1)$, $8k+6=2(4k+3)$.
 Terms decay like $16^{-k}$, so positions $N$ through $N+O(1)$ are determined
 by the terms with $k\le K$, where
 $K=\lceil (n\log_2 10 + G + c)/4\rceil$ for a $G$-bit accumulator
-(Section~\ref{sec:error}); in total $4(K+1)\approx 3.33\,N$ terms. Each term
+(Section~\ref{sec:error}); in total $4(K+1)\approx 3.32\,N$ terms. Each term
 falls into one of three regimes.
 
 \subsection{Phase 1: easy terms ($E\ge 0$)}
@@ -648,22 +649,25 @@ rising-factorial-type product: e.g.
 $\prod_{k\le K}(8k+1)=8^{\,K+1}(1/8)^{\overline{K+1}}$. Computing such
 products (or $V$, which every known merge scheme routes through them)
 modulo $2^{\Theta(N)}$ below the product-tree bound
-$\M(n\log n)\log n$ is an instance of the classical factorial barrier.
-Borwein's factorization shaves the \emph{product} to $\M(n\log n)\log\log n$
+$\M(N\log N)\log N$ is an instance of the classical factorial barrier.
+Borwein's factorization shaves the \emph{product} to $\M(N)\log N$
 (Theorem~\ref{thm:crack}); but for a single term of a general holonomic
 sequence, which is what $V$ is, no method below the product tree is
 known, despite long attention~\cite{Borwein85,Strassen77,BGS07}.
 
 A second formulation: $(\Z/2^{m}\Z)^{*}=\langle-1\rangle\times\langle3\rangle$,
-so $\prod_{k\le K}(1+8k)\equiv\pm 3^{E}\pmod{2^{m}}$ where
+and the units congruent to $1$ modulo $8$ form the subgroup
+$\langle 9\rangle=\langle 3^{2}\rangle$ of order $2^{\,m-3}$. Every factor
+$1+8k$ lies in it, so no sign is needed and
+$\prod_{k\le K}(1+8k)\equiv 9^{E}\pmod{2^{m}}$ where
 \[
-E=\sum_{k\le K}\operatorname{dlog}_3(1+8k)\ \bmod\ 2^{\,m-2},
+E=\sum_{k\le K}\operatorname{dlog}_9(1+8k)\ \bmod\ 2^{\,m-3},
 \qquad m=\Theta(N).
 \]
 Computing the \emph{single integer} $E$ is thus a distillation of the
 multiplicative side of the barrier, and it falls
 (Theorem~\ref{thm:crack} below). Expanding
-$\operatorname{dlog}_3(1+8k)=\operatorname{Log}_2(1+8k)/\operatorname{Log}_2 3$
+$\operatorname{dlog}_9(1+8k)=\operatorname{Log}_2(1+8k)/\operatorname{Log}_2 9$
 through the $2$-adic
 logarithm turns $E$ into $\sum_j c_j S_j(K)$ with power sums
 $S_j(K)=\sum_{k\le K}k^{j}$; Faulhaber's formula then prices the exchange
@@ -777,12 +781,12 @@ arithmetic progression, $O(1)$ per prime power after a sieve of cost
 $O(N\log\log N)$. The distinct-prime mass is
 $\sum_{p\le 8K}\lg p=\Theta(N)$ bits: the factored representation
 compresses the $\Theta(N\log N)$-bit term list to $\Theta(N)$ bits, with
-multiplicities riding as exponents. Assemble $\prod p^{e_p}\bmod 2^{m}$
+multiplicities riding as exponents. Assemble $\prod_{p\le 8K} p^{e_p}\bmod 2^{m}$
 by exponent-bit scheduling: per bit level, one truncated product tree
 over the participating primes (level masses decay geometrically from
 $\Theta(N)$; total $O(\M(N)\log N)$) and one squaring mod $2^{m}$
 ($O(\log N)$ squarings in all). Finally
-$E=\operatorname{Log}_2\bigl(\prod_{k\le K}(8k+1)\bigr)/\operatorname{Log}_2 3$,
+$E=\operatorname{Log}_2\bigl(\prod_{k\le K}(8k+1)\bigr)/\operatorname{Log}_2 9$,
 the $2$-adic logarithm being quasi-linear in precision~\cite{CMTV21}.
 Machine-validated at six sizes through $K=3\cdot10^{6}$: exact agreement
 with the direct product, and the measured time ratio grows
@@ -865,7 +869,7 @@ B(d)=\#\{\,t\le T:\ \text{bit $d$ of $a_t$ is }1\,\}
     =\#\{\,t\le T:\ 2^{d}\bmod\mu_t\in(\mu_t/2,\mu_t)\,\},
 \]
 the number of ones in column $d$ of the $T\times N$ matrix of reciprocal
-expansions. The fractional sum $S(d)=\sum_t\{2^{d}a_t\}$ obeys the exact
+expansions, one row per term and one column per bit depth. The fractional sum $S(d)=\sum_t\{2^{d}a_t\}$ obeys the exact
 recursion $S(d+1)=2S(d)-B(d)$, so
 $2^{D}S(0)=S(D)+\sum_{d<D}2^{\,D-1-d}B(d)$ with $0\le S(D)<T$. The
 column counts therefore determine the binary expansion of $\sum_t a_t$
@@ -883,8 +887,10 @@ periods column by column, and read the totals.
 \subsection{The orbit matrix and rigidity}\label{sec:rigidity}
 
 This formulation places the obstruction against a recognized problem. Let
-$M\in\{0,1\}^{N\times T}$ be the orbit matrix $M[d,t]=\text{bit $d$ of }a_t$, so
-the column counts are the entries of $M^{\top}\mathbf 1$. A fast algorithm for
+$M\in\{0,1\}^{T\times N}$ be the orbit matrix $M[t,d]=\text{bit $d$ of }a_t$,
+one row per term and one column per bit depth as above, so the column
+counts $B(d)$ are the entries of the matrix--vector product
+$M^{\top}\mathbf 1$. A fast algorithm for
 them in the linear model would follow from a decomposition $M=L+S$ with $L$ of
 low rank and $S$ sparse; conversely, ruling such decompositions out is an
 instance of proving $M$ rigid in the sense of Valiant~\cite{Valiant77}. This is
@@ -902,7 +908,7 @@ square-root cancellation, so the rows are near-orthogonal and $M$ has full rank;
 random square submatrices are of near-full rank as well, and the joint
 distribution of the orbit at separated depths equidistributes to third and
 fourth order. Under these hypotheses the classical weak rigidity bounds of
-Friedman and of Shokrollahi--Spielman--Stemann~\cite{Friedman93} apply and give
+Friedman~\cite{Friedman93} and of Shokrollahi--Spielman--Stemann~\cite{SSS97} apply and give
 $\mathcal R_M(r)=\Omega\!\bigl((N^{2}/r)\log(N/r)\bigr)$. The residual structure,
 a mild correlation between adjacent rows, is confined to a band of width
 $O(\log N)$ and carries negligible spectral weight, so it yields no
@@ -925,7 +931,7 @@ $\gcd(k!\bmod m,\,m)$), which is often cited as evidence that factorials
 must be hard. That shield does not cover our instance: the modulus is the
 fixed prime power $2^{\Theta(N)}$, where the gcd argument is vacuous. To
 our knowledge nothing but the absence of an idea protects
-$\prod(8k+1)\bmod 2^{\Theta(N)}$, $E$, or $V$. We consider this the most
+$\prod_{k\le K}(8k+1)\bmod 2^{\Theta(N)}$, $E$, or $V$. We consider this the most
 attackable formulation and state it as the target:
 
 \begin{openproblem}\label{op:E}
@@ -1143,7 +1149,7 @@ size); Lemma~\ref{lem:bezout} was verified exactly on $300$ random band
 terms; Lemma~\ref{lem:consolidate} was verified exactly against the
 termwise dyadic sum; Lemma~\ref{lem:em} was verified exactly at
 $(K,m)=(100,160)$ and $(257,224)$; the Mazur-measure ($\Gamma$-transform)
-form and the extraction $E=\operatorname{Log}(\prod u)/\operatorname{Log}9$
+form and the extraction $E=\operatorname{Log}_2\bigl(\prod_{k\le K}(8k+1)\bigr)/\operatorname{Log}_2 9$
 were verified exactly at $96$ bits; and the power-sum congruence was
 verified exactly at $(K,r)=(200,120)$ (all $245$ bits), including
 recovery of the Log-sum from the elementary power sum alone. The
@@ -1338,6 +1344,11 @@ Theory Comput.\ \textbf{16} (2020), 1--48.
 J.~Friedman,
 \emph{A note on matrix rigidity},
 Combinatorica \textbf{13} (1993), 235--239.
+
+\bibitem{SSS97}
+M.~A.~Shokrollahi, D.~A.~Spielman, V.~Stemann,
+\emph{A remark on matrix rigidity},
+Inform.\ Process.\ Lett.\ \textbf{64} (1997), 283--285.
 
 \bibitem{ZZ15}
 D.~Zeilberger, W.~Zudilin,
