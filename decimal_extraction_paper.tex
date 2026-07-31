@@ -663,7 +663,8 @@ E=\sum_{k\le K}\operatorname{dlog}_3(1+8k)\ \bmod\ 2^{\,m-2},
 Computing the \emph{single integer} $E$ is thus a distillation of the
 multiplicative side of the barrier, and it falls
 (Theorem~\ref{thm:crack} below). Expanding
-$\operatorname{dlog}_3(1+8k)=\log_2(1+8k)/\log_2 3$ through the $2$-adic
+$\operatorname{dlog}_3(1+8k)=\operatorname{Log}_2(1+8k)/\operatorname{Log}_2 3$
+through the $2$-adic
 logarithm turns $E$ into $\sum_j c_j S_j(K)$ with power sums
 $S_j(K)=\sum_{k\le K}k^{j}$; Faulhaber's formula then prices the exchange
 in Bernoulli numbers, and the coefficient mass of every arrangement we
@@ -781,8 +782,8 @@ by exponent-bit scheduling: per bit level, one truncated product tree
 over the participating primes (level masses decay geometrically from
 $\Theta(N)$; total $O(\M(N)\log N)$) and one squaring mod $2^{m}$
 ($O(\log N)$ squarings in all). Finally
-$E=\operatorname{Log}_2(\prod)/\operatorname{Log}_2 9$, the $2$-adic
-logarithm being quasi-linear in precision~\cite{CMTV21}.
+$E=\operatorname{Log}_2\bigl(\prod_{k\le K}(8k+1)\bigr)/\operatorname{Log}_2 3$,
+the $2$-adic logarithm being quasi-linear in precision~\cite{CMTV21}.
 Machine-validated at six sizes through $K=3\cdot10^{6}$: exact agreement
 with the direct product, and the measured time ratio grows
 monotonically in the factored method's favor.
