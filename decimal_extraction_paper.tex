@@ -1122,9 +1122,14 @@ probing the leading digits) and the $200$-million-digit corpus at
 \path{angio.net}, whose substring search locates the window at exactly
 position $10^{7}$ after the decimal point.
 At $N=10^{8}$ the compiled engine returns $221505880957$ at positions
-$10^{8}..10^{8}{+}11$, which agrees digit for digit with the same
-$100$-trillion-digit corpus, queried at the same offset convention that
-reproduces the $10^{7}$ window.
+$10^{8}..10^{8}{+}11$, agreeing digit for digit with the same
+$100$-trillion-digit corpus at the offset convention that reproduces the
+$10^{7}$ window. A second run at $N=10^{8}{+}6$ returns $880957832796$,
+which also matches the corpus and overlaps the first window in six
+digits. The two runs share no intermediate data: the shared string
+$X=5^{\,N-1}$, the band membership and the term list all differ with
+$N$, so the agreement is an internal consistency check as well as an
+external one.
 
 \subsection*{Identity-level validations}
 The mechanisms of Sections \ref{sec:improve}--\ref{sec:barrier} are backed
