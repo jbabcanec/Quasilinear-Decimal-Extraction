@@ -2,8 +2,9 @@
 
 Compute the N-th **decimal** digit of π **without computing any earlier digit**, in
 quasi-linear time: O(N log³N) bit operations, measured at N^1.077 across positions
-10⁴–10⁷. To our knowledge this is the first implemented and verified subquadratic
-decimal digit-extraction algorithm.
+10⁴–10⁷. To our knowledge this is the first implemented and verified decimal
+digit-extraction algorithm of quasi-linear complexity, N^(1+o(1)); the strongest
+previous method (Gourdon 2003) is quadratic up to polylogarithmic factors.
 
 Every published decimal extractor before this (Plouffe 1996, Bellard 1997, Gourdon
 2003, Plouffe 2022) runs in essentially quadratic time. The method multiplies the
