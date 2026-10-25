@@ -1,0 +1,19 @@
+{
+  "N": 1000000,
+  "digits": "130927562832",
+  "independent_MPFR_match": true,
+  "stats": {
+    "N": 1000000,
+    "Jmax": 2322125,
+    "terms": 2322125,
+    "block_length": 31250,
+    "blocks": 76,
+    "real_terms": 1258432,
+    "lcm_leaf_bits": 22897354,
+    "real_product_bits": 31541264,
+    "forests": 27,
+    "maximum_pending_bits": 3018312,
+    "elapsed_seconds": 30.004796699999133,
+    "engine": "weighted-block-crt"
+  }
+}

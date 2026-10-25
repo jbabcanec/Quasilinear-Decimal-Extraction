@@ -1,0 +1,63 @@
+{
+  "engine": "v5",
+  "N": 10000000,
+  "pre": 0.070125,
+  "word": 28.733574,
+  "vphase": 39.673814,
+  "total": 68.477513,
+  "original_terms": 23219479,
+  "transformed_terms": 12991858,
+  "digits": "725915133612",
+  "wall_seconds": 68.68600230000447,
+  "peak_working_set_bytes": 75808768,
+  "source_sha256": "03ed6c4f570c39945346348def37fab5459b67a00e13185b606915e60378c494",
+  "verification": "Matches previously independently checked MPFR window",
+  "projected_positions_not_measured": [
+    {
+      "N": 100000000,
+      "phase_model_minutes": 15.356677733722064,
+      "total_n_log3_model_minutes": 17.08806276851424,
+      "linear_memory_model_GiB": 0.706024169921875
+    },
+    {
+      "N": 200000000,
+      "phase_model_minutes": 33.4395875284372,
+      "total_n_log3_model_minutes": 38.1811332810855,
+      "linear_memory_model_GiB": 1.41204833984375
+    },
+    {
+      "N": 250000000,
+      "phase_model_minutes": 42.94245316856177,
+      "total_n_log3_model_minutes": 49.417546774450535,
+      "linear_memory_model_GiB": 1.7650604248046875
+    },
+    {
+      "N": 300000000,
+      "phase_model_minutes": 52.67189347708066,
+      "total_n_log3_model_minutes": 60.99430823034213,
+      "linear_memory_model_GiB": 2.118072509765625
+    },
+    {
+      "N": 500000000,
+      "phase_model_minutes": 93.27893792564876,
+      "total_n_log3_model_minutes": 109.84906733604832,
+      "linear_memory_model_GiB": 3.530120849609375
+    },
+    {
+      "N": 1000000000,
+      "phase_model_minutes": 202.2577340379008,
+      "total_n_log3_model_minutes": 243.3046437157592,
+      "linear_memory_model_GiB": 7.06024169921875
+    }
+  ],
+  "projection_scope": "Fixed-guard v5 C++ engine, unchanged machine load assumed; not a runtime guarantee. Phase model scales word work by N log N and core by N log^3 N. Reference verification time is additional.",
+  "one_hour_recommended_target": 250000000,
+  "abi_probe": {
+    "gmp": "6.3.0",
+    "compiler": "16.1.0",
+    "bitcnt_bits": 32,
+    "unsigned_long_bits": 32,
+    "doubling_2_to_31_yields": 0
+  },
+  "unfixed_static_limit": "The Newton precision doubling can wrap when the requested precision exceeds 2^31 bits, corresponding approximately to N=924870780. The wrapper input limit is not a guarantee of safe operation. A billion-position run needs a counter fix first."
+}

@@ -1,0 +1,76 @@
+{
+  "method": "Sequential runs, alternating engine order; process peak working set sampled every 10 ms.",
+  "python": "3.11.4 (tags/v3.11.4:d2340ef, Jun  7 2023, 05:45:37) [MSC v.1934 64 bit (AMD64)]",
+  "gmp": "GMP 6.3.0",
+  "mpfr": "MPFR 4.2.2",
+  "compiler_flags": "-O3 -march=native -std=c++17",
+  "source_sha256": {
+    "decimal_extract_v3.cpp": "0778ff3861675ac28ec4d473c9bfd565b4460023372b360d5c8a88b8ccc406e4",
+    "decimal_extract_v5.cpp": "03ed6c4f570c39945346348def37fab5459b67a00e13185b606915e60378c494"
+  },
+  "runs": [
+    {
+      "pre": 0.01,
+      "word": 2.61,
+      "vphase": 3.39,
+      "total": 6.01,
+      "engine": "v3",
+      "N": 1000000,
+      "digits": "130927562832",
+      "wall_seconds": 6.0357928999874275,
+      "peak_working_set_bytes": 107253760,
+      "repeat": 0
+    },
+    {
+      "engine": "v5",
+      "N": 1000000,
+      "pre": 0.006647,
+      "word": 2.785268,
+      "vphase": 2.772473,
+      "total": 5.564388,
+      "original_terms": 2322125,
+      "transformed_terms": 1299292,
+      "digits": "130927562832",
+      "wall_seconds": 5.592583699995885,
+      "peak_working_set_bytes": 14188544,
+      "repeat": 0
+    },
+    {
+      "pre": 0.08,
+      "word": 30.99,
+      "vphase": 56.41,
+      "total": 87.47999999999999,
+      "engine": "v3",
+      "N": 10000000,
+      "digits": "725915133612",
+      "wall_seconds": 87.55377280000539,
+      "peak_working_set_bytes": 814141440,
+      "repeat": 0
+    },
+    {
+      "engine": "v5",
+      "N": 10000000,
+      "pre": 0.077648,
+      "word": 30.103999,
+      "vphase": 39.834456,
+      "total": 70.016103,
+      "original_terms": 23219479,
+      "transformed_terms": 12991858,
+      "digits": "725915133612",
+      "wall_seconds": 70.0431760000065,
+      "peak_working_set_bytes": 78872576,
+      "repeat": 0
+    }
+  ],
+  "references": {
+    "1000000": {
+      "digits": "130927562832",
+      "method": "MPFR const_pi with explicit floor, at two guard precisions"
+    },
+    "10000000": {
+      "digits": "725915133612",
+      "method": "MPFR const_pi with explicit floor, at two guard precisions"
+    }
+  },
+  "verified": true
+}

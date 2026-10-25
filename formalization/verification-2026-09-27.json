@@ -1,0 +1,42 @@
+{
+  "verified_utc": "2026-09-27T05:22:26.5508147Z",
+  "lean_version": "Lean (version 4.33.0, x86_64-w64-windows-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+  "mathlib_revision": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "dependency_revisions": {
+    "mathlib": "db584cd6d46c92f209a44c0f1c829460d327499d",
+    "plausible": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+    "LeanSearchClient": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+    "importGraph": "16f02aa7642864af59f1ff0e384a015994db9118",
+    "proofwidgets": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+    "aesop": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+    "Qq": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+    "batteries": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+    "Cli": "6130a47896ce867c6a4a55373441e59e565bad0f"
+  },
+  "build_exit_code": 0,
+  "axiom_audit_exit_code": 0,
+  "axiom_audit": [
+    "AXIOM AUDIT PASS: 182 theorems; 258 declarations. Allowed: propext, Classical.choice, Quot.sound."
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "scope": "Formal components only. The complete extractor and its machine bit-complexity theorem remain unproved; see README.md.",
+  "source_sha256": {
+    "lean-toolchain": "302cd63c54178885b89e669f33b38f12f4dd7ae7e5cac537b3203e3768d8fb2b",
+    "lakefile.toml": "3d07bd548a7cd59658a0ab91df58581f61127b358a0a24e51c7efb4cda36bbc5",
+    "lake-manifest.json": "42ccae4c7e579d93e4af4db285de397bafe9562abf1abf884fce4691996fa080",
+    "BBP.lean": "453fb80e88536193912a904396e595424423c7123504bd8a6f0a4fd6456a4cd1",
+    "Audit.lean": "042e585dc308b31753c04901eeeb3d44d805676f33391933a623cc0bed890572",
+    "verify.ps1": "7918b771ddaa3138fd4c30c327009bd15dff98994235d326d2d64cff7095e331",
+    "BBP/Block.lean": "c8bed53a84155c452eb757863f1b46656c1ac7df58d3602da1a28f1b162cc9aa",
+    "BBP/Certificate.lean": "4fd26b50a41840718b59dc0d273d7130f1ef1783f8ddded80b5c7f0e0b9b0478",
+    "BBP/CostBalance.lean": "3e2ef68ca36d2da0b7444a7957d86c8faed75536c572c8d889c9090cd65a20d8",
+    "BBP/Guard.lean": "0755bb50d1bfa2c2edb3100b75afaa4352414d89a9b26f25131ce168cf420e7f",
+    "BBP/Pipeline.lean": "9167ccbc0ff1d91b5d0189d0689b88bdf83ccd9e407d3ae47dc5d721231b710d",
+    "BBP/Reconstruction.lean": "f1fd0ca5e14b135faead91887c7a34c84100020d6ad59bccfa86e1aeb1f6be69",
+    "BBP/Series.lean": "105ae3a17bef8c2c356448fe287781b6cba066cabcdfc11952ba53ee439b1181"
+  }
+}

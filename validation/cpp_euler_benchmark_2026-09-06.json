@@ -1,0 +1,123 @@
+{
+  "method": "Sequential runs, alternating engine order; process peak working set sampled every 10 ms.",
+  "python": "3.11.4 (tags/v3.11.4:d2340ef, Jun  7 2023, 05:45:37) [MSC v.1934 64 bit (AMD64)]",
+  "gmp": "GMP 6.3.0",
+  "mpfr": "MPFR 4.2.2",
+  "runs": [
+    {
+      "pre": 0.01,
+      "word": 2.7,
+      "vphase": 3.55,
+      "total": 6.26,
+      "engine": "v3",
+      "N": 1000000,
+      "digits": "130927562832",
+      "wall_seconds": 6.285403600006248,
+      "peak_working_set_bytes": 107261952,
+      "repeat": 0
+    },
+    {
+      "engine": "v5",
+      "N": 1000000,
+      "pre": 0.006946,
+      "word": 2.836653,
+      "vphase": 3.005959,
+      "total": 5.849558,
+      "original_terms": 2322125,
+      "transformed_terms": 1299292,
+      "digits": "130927562832",
+      "wall_seconds": 5.873450700004469,
+      "peak_working_set_bytes": 13926400,
+      "repeat": 0
+    },
+    {
+      "engine": "v5",
+      "N": 1000000,
+      "pre": 0.006894,
+      "word": 2.773744,
+      "vphase": 3.115169,
+      "total": 5.895806,
+      "original_terms": 2322125,
+      "transformed_terms": 1299292,
+      "digits": "130927562832",
+      "wall_seconds": 5.914926600002218,
+      "peak_working_set_bytes": 14090240,
+      "repeat": 1
+    },
+    {
+      "pre": 0.01,
+      "word": 2.82,
+      "vphase": 3.47,
+      "total": 6.3,
+      "engine": "v3",
+      "N": 1000000,
+      "digits": "130927562832",
+      "wall_seconds": 6.3316099000076065,
+      "peak_working_set_bytes": 107261952,
+      "repeat": 1
+    },
+    {
+      "pre": 0.07,
+      "word": 31.97,
+      "vphase": 57.14,
+      "total": 89.18,
+      "engine": "v3",
+      "N": 10000000,
+      "digits": "725915133612",
+      "wall_seconds": 89.25197250000201,
+      "peak_working_set_bytes": 814133248,
+      "repeat": 0
+    },
+    {
+      "engine": "v5",
+      "N": 10000000,
+      "pre": 0.075155,
+      "word": 30.530344,
+      "vphase": 45.800271,
+      "total": 76.40577,
+      "original_terms": 23219479,
+      "transformed_terms": 12991858,
+      "digits": "725915133612",
+      "wall_seconds": 76.43647620000411,
+      "peak_working_set_bytes": 76771328,
+      "repeat": 0
+    },
+    {
+      "engine": "v5",
+      "N": 10000000,
+      "pre": 0.078485,
+      "word": 30.241829,
+      "vphase": 45.804693,
+      "total": 76.125006,
+      "original_terms": 23219479,
+      "transformed_terms": 12991858,
+      "digits": "725915133612",
+      "wall_seconds": 76.15538120000565,
+      "peak_working_set_bytes": 76615680,
+      "repeat": 1
+    },
+    {
+      "pre": 0.08,
+      "word": 30.16,
+      "vphase": 54.78,
+      "total": 85.02,
+      "engine": "v3",
+      "N": 10000000,
+      "digits": "725915133612",
+      "wall_seconds": 85.05991989999893,
+      "peak_working_set_bytes": 814137344,
+      "repeat": 1
+    }
+  ],
+  "references": {
+    "1000000": {
+      "digits": "130927562832",
+      "method": "MPFR const_pi with explicit floor, at two guard precisions"
+    },
+    "10000000": {
+      "digits": "725915133612",
+      "method": "MPFR const_pi with explicit floor, at two guard precisions"
+    }
+  },
+  "verified": true
+}

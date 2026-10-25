@@ -1,0 +1,15 @@
+Title: Weighted block reconstruction for certified decimal extraction of $\pi$
+Authors: Joseph Bab\v{c}anec
+Author name (Unicode): Joseph Babčanec
+Affiliation: Department of Mathematics, Benedict College, Columbia, SC, USA
+Email: joseph.babcanec@benedict.edu
+Date: September 2026
+Suggested primary category: math.NT
+Possible cross-list: cs.DS
+Comments: 20 pages; 3 performance tables and 1 complexity table; supplementary code and benchmark data
+Journal reference: leave blank (unpublished manuscript)
+DOI: leave blank
+License: select in the submission portal
+
+Abstract:
+We give a deterministic algorithm for a fixed-width decimal window of $\pi$ starting at position $N$, using $O(N\log^{5/2}N)$ bit operations. The construction shifts the binary Bailey--Borwein--Plouffe formula and computes its fractional part without constructing the preceding decimal digits. Its main ingredient evaluates the resulting exponentially weighted sum of inverses modulo a power of two. Blocks of length $N/2^{\sqrt{\log_2 N}}$ have short least common denominators; prime-power partial fractions recover each block modulo the integers, and a rapidly convergent real series recovers its integer correction exactly. Balancing the two reconstruction costs gives the exponent $5/2$. Exact aggregation of the remaining rational terms, an explicit integer stopping test, and the known inequality $\mu(\pi)<8$ give certified decimal output within the same worst-case bound. Stored arithmetic data occupy $O(N)$ bits, in addition to the workspace of the arithmetic primitives. Numerical experiments compare the weighted reconstruction with direct binary splitting, 2-adic Euler summation, historical decimal extractors, and a certified implementation based on Machin's formula. The smaller weighted-block bound does not give the fastest measured implementation.

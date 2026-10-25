@@ -1,0 +1,21 @@
+{
+  "bellard": {
+    "url": "https://bellard.org/pi/pi1.c",
+    "retrieved_utc_date": "2026-09-07",
+    "sha256": "da875ae63345f824d65c5f8cc195d768bd76dde3ff516dc29433c5893349d708",
+    "modifications": "None; compiled with author's HAS_LONG_LONG option.",
+    "archive_policy": "Original source is fetched by the reproduction script, not redistributed in the source ZIP."
+  },
+  "gourdon": {
+    "paper": "https://plouffe.fr/simon/articles/nthdecimaldigit.pdf",
+    "local_original": "legacy/gourdon_digit_extract.cpp",
+    "local_original_sha256": "53f7597be25a0ca0b4ba84a850ab18968463820595d729d3ab4e88f2972a875c",
+    "adapter_sha256": "9fdcd79dbcf95a0ed82e248c1ecebd9a6127900ca0a6f1c79786c0c4a37b6d5b",
+    "adaptations": [
+      "Kept the modular helpers, Algorithm 2, parameter choice, and fixed64 extraction.",
+      "Removed unrelated CVZ variants, reference calculations, and repeated extraction.",
+      "Printed nine digits by exact fixed-point scaling, instead of one digit.",
+      "Kept the original default n0=12 and cached-prime sieve."
+    ]
+  }
+}

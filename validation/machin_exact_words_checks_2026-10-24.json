@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "whole_fraction_cases": 130,
+  "large_guard_projection_checks": 520,
+  "deep_p0_cancellation_components": 24,
+  "maximum_whole_sum_endpoint": 1195,
+  "maximum_projection_guard": 4096,
+  "scope": "Exact word fractions only; not an integrated adaptive extractor or timing claim",
+  "source_sha256": "6d90795651116559910cae4e6510c7457fa46f32283456a7f9cd800ec424c8d1"
+}

@@ -1,0 +1,111 @@
+{
+  "verified_at_utc": "2026-09-07T16:04:08.4720578Z",
+  "pages": 20,
+  "performance_tables": 3,
+  "complexity_tables": 1,
+  "source_sha256": "31d46940aeffc7aee8eb7a93d3efc04b3f08fc88a724aca6134e22bc2d9c8168",
+  "pdf_sha256": "3fe2b49113c905719ee01dba89001396d3e8f4b31dbd5ea4e2066faa270992f5",
+  "archive_sha256": "bd66c10a5b09039a80183f1067bde045576e515bf2cebca4db43739d35dea496",
+  "source_archive_files": 33,
+  "isolated_build": {
+    "only_archive_contents_required": true,
+    "directory": "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\tmp\\pdfs\\consolidated_34c7e7214e7747d7bf531323acf56c91\\isolated",
+    "shell_escape": false,
+    "warnings": [],
+    "passes": 3
+  },
+  "source_checks": {
+    "all_cross_references_resolve": true,
+    "unique_labels": 77,
+    "development_paths_absent": true,
+    "all_performance_rows_match_reports": true,
+    "main_theorem_and_proof_preserved": true,
+    "cited_bibliography_entries": 12
+  },
+  "pdf_checks": {
+    "all_pages_have_text": true,
+    "font_count": 29,
+    "type3_fonts": false,
+    "page_numbers_verified": true,
+    "all_fonts_embedded": true
+  },
+  "benchmark_checks": {
+    "external_source_not_locally_available": {},
+    "historical_datasets_reused_without_new_timing": true,
+    "new_runs": 27,
+    "source_hashes": {
+      "validation/baselines/gourdon_window.cpp": "9fdcd79dbcf95a0ed82e248c1ecebd9a6127900ca0a6f1c79786c0c4a37b6d5b",
+      "validation/benchmark_weighted_cpp.py": "0b8a03fdab72fbfd72456ce2fc00f4da604005f46422c30b893eee3b66374ac3",
+      "decimal_extract_v3.cpp": "0778ff3861675ac28ec4d473c9bfd565b4460023372b360d5c8a88b8ccc406e4",
+      "decimal_extract_weighted.cpp": "ac0f427dadb482cb3ad18a4698a129d59779cfcefb1536b8c2476d88f4d1191b",
+      "validation/weighted_block_crt.py": "f5ddd0310fd9d252303ca3681b03036c72b6b5c2e5c31f8b26738ba05c740ad5",
+      "decimal_extract_shared_residues.cpp": "b2e9cee99a04158d22ef32f838c12af9a53e379c39deb7001482bbe85225f03a",
+      "decimal_extract_v5.py": "9453bdb2f05f3a4254a2b14ca4a915857c437c8efe9707a37396eb99cf0509cb",
+      "validation/benchmark_machin.ps1": "f7bbaf33b60b082238d711a362d745067aab579790fa7a6a6f0c40c3a2913481",
+      "validation/compare_cpp_euler.py": "42c81ef9bc65f508ada06b798f92a8be78ec594143a35e42004bfa90469c74b9",
+      "validation/baselines/mpfr_prefix.cpp": "9998173b7a16bf2c728412d3bb05b934143cfb4361f9678a00a1b10f0c97b900",
+      "decimal_bbp_extract.py": "864b43d3d2c8c7857df4b802981cb935513e6eabb92dd382f899606633b746a8",
+      "decimal_extract_v5.cpp": "03ed6c4f570c39945346348def37fab5459b67a00e13185b606915e60378c494",
+      "validation/harmonic_prime_crt.py": "651fe0d5d2dfec97e8e4db76fb370a6f968b5a4371125daa8087e04ac6d34d5b",
+      "validation/mpfr_window_interval.cpp": "6bab1b2677888dd70f12a0ca3f0b653326bab2b3b8c0b6efd64a274cc3c36142",
+      "validation/baselines/bellard_pi1.c": "da875ae63345f824d65c5f8cc195d768bd76dde3ff516dc29433c5893349d708",
+      "decimal_extract_machin.cpp": "9d052e30b3c034b1568f87f25e7ea8b75b407b13597f409710f0628831d1eda5",
+      "validation/compare_external.py": "dd7dda55377faad7560793e748ca32e3ab1ce01677e4d9210c1711a95aaa4cd7"
+    }
+  },
+  "visual_review": {
+    "render_directory": "tmp/pdfs/consolidated_final_render",
+    "completed": true,
+    "reviewed_at_utc": "2026-09-07T16:06:17.8898435Z",
+    "pages_reviewed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "method": "All pages inspected in five contact sheets; title, comparison tables, new derivation, and final page inspected in detail.",
+    "dpi": 120,
+    "pdf_sha256": "3fe2b49113c905719ee01dba89001396d3e8f4b31dbd5ea4e2066faa270992f5",
+    "findings": "No clipping, overlapping text, missing glyphs, or unintended nearly empty pages observed."
+  },
+  "scope": "Editorial and reproduction verification. No new independent proof audit, benchmark run, external speed record, or arXiv submission.",
+  "packaged_native_checks": {
+    "machin_digits": "938095257201",
+    "position": 1000,
+    "certified_modes_passed": true,
+    "machin_selftest": {
+      "prime_core_checks": 108,
+      "status": "PASS",
+      "residue_checks": 2445
+    },
+    "certified_euler_digits": "938095257201",
+    "built_from_isolated_archive": true,
+    "purpose": "Package smoke validation, not a new performance benchmark.",
+    "forced_guard": 1,
+    "independent_mpfr_interval_digits": "938095257201"
+  },
+  "archive_preservation": {
+    "changed_existing_files": [
+      "decimal_extraction_paper.tex",
+      "anc/README.md"
+    ],
+    "unchanged_historical_payloads": 26,
+    "added_files": 5
+  }
+}

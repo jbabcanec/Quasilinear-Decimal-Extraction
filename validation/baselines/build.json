@@ -1,0 +1,48 @@
+{
+  "commands": [
+    [
+      "C:\\msys64\\ucrt64\\bin\\gcc.EXE",
+      "-O3",
+      "-march=native",
+      "-std=c17",
+      "-DHAS_LONG_LONG",
+      "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\baselines\\bellard_pi1.c",
+      "-lm",
+      "-o",
+      "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\baselines\\bellard_pi1.exe"
+    ],
+    [
+      "C:\\msys64\\ucrt64\\bin\\g++.EXE",
+      "-O3",
+      "-march=native",
+      "-std=c++17",
+      "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\baselines\\gourdon_window.cpp",
+      "-o",
+      "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\baselines\\gourdon_window.exe"
+    ],
+    [
+      "C:\\msys64\\ucrt64\\bin\\g++.EXE",
+      "-O3",
+      "-march=native",
+      "-std=c++17",
+      "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\baselines\\mpfr_prefix.cpp",
+      "-lmpfr",
+      "-lgmp",
+      "-o",
+      "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\baselines\\mpfr_prefix.exe"
+    ],
+    [
+      "C:\\msys64\\ucrt64\\bin\\g++.EXE",
+      "-O3",
+      "-march=native",
+      "-std=c++17",
+      "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\decimal_extract_v5.cpp",
+      "-lgmpxx",
+      "-lgmp",
+      "-o",
+      "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\extract_v5.exe"
+    ]
+  ],
+  "gcc": "gcc.EXE (Rev5, Built by MSYS2 project) 16.1.0",
+  "g++": "g++.EXE (Rev5, Built by MSYS2 project) 16.1.0"
+}

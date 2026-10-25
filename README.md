@@ -1,73 +1,132 @@
-# Quasi-linear decimal digit extraction for π
+# Decimal extraction of pi
 
-Compute the N-th **decimal** digit of π **without computing any earlier digit**, in
-quasi-linear time: O(N log³N) bit operations, measured at N^1.077 across positions
-10⁴–10⁷. To our knowledge this is the first implemented and verified subquadratic
-decimal digit-extraction algorithm.
+Research on computing a fixed-width base-10 window of pi without computing
+its preceding digits. Position 1 is the first digit after the decimal point.
 
-Every published decimal extractor before this (Plouffe 1996, Bellard 1997, Gourdon
-2003, Plouffe 2022) runs in essentially quadratic time. The method multiplies the
-classic *binary* BBP formula termwise by 10^{N−1} and handles the terms that defeated
-prior attempts (including Zudilin's 2024 note, arXiv:2409.10097) through one shared,
-read-only object: the binary expansion of 5^{N−1}, about 0.29·N bytes.
+The manuscript, **Weighted block reconstruction for certified decimal
+extraction of pi**, presents an O(N log^(5/2) N) bit-complexity construction.
+The new weighted Machin implementation combines that reconstruction idea
+with Machin's smaller prime-power cores and an integer output certificate.
+Its core has a separate O(N log^(5/2) N) derivation, and it now beats the
+earlier log-cubed Machin implementation in matched local tests. The bound
+applies to a pass with G = O(log N); a complete worst-case bound for the
+native adaptive guard retries is still outstanding. No external speed
+record is established.
 
-## Results
+The 24 October optimized weighted prototype is about three times faster
+than the original. In matched local tests it beats the optimized certified
+Euler control by about 8% at one million and 11% at ten million. Machin
+remains faster than that BBP-based version. That program certifies successful fixed-guard outputs;
+it is not the complete adaptive implementation of the theorem. See the
+[new benchmark and build instructions](validation/README.md#weighted-optimization-24-october-2026).
 
-Single-threaded Python over GMP, default engine:
+The latest [weighted Machin comparison](validation/README.md#weighted-machin-24-october-2026)
+uses exact LCM assembly and nested Newton inversion. Matched three-run
+medians at ten million were 23.018 s for the previous weighted
+program, 17.983 s for the new version, and 24.750 s for the
+faster of the original and improved log-cubed controls. The new version
+takes 21.9% less time than the previous weighted program and
+27.3% less than the faster log-cubed control in this batch. All 36
+timed outputs passed independent directed-rounding MPFR checks.
+The [LCM derivation](validation/weighted_machin_lcm_derivation_2026-10-24.md)
+preserves the one-pass log^(5/2) bound and linear stored data; it does not
+establish log^2. Earlier source snapshots and benchmark reports are preserved.
 
-| N | time | note |
-|---|---|---|
-| 10⁴ | 0.06 s | |
-| 10⁶ | 8.9 s | |
-| 10⁷ | 111.6 s | digits `725915133612`, verified against public corpora |
+The [parallel weighted build](validation/README.md#parallel-weighted-machin-and-direct-reconstruction-24-october-2026)
+now runs the two independent prime cores and word ranges concurrently. In
+the latest matched three-run batch, eight threads took 10.114 s at ten
+million, compared with 16.615 s for weighted serial and 23.895 s for the
+improved log-cubed control. All 24 timed windows passed MPFR verification.
+This is a wall-time improvement with the existing log^(5/2) work bound.
+The new exact direct-H reconstruction removes recursive corrections but
+was slower (24.840 s); it remains experimental and establishes no log^2 bound.
 
-The fitted exponent is N^1.077 over three decades with no upward bend. Digits are
-verified against an independent Chudnovsky computation (through 10⁶) and against the
-pi.delivery and angio.net record corpora (at 10⁷).
+See [RESEARCH_STATUS.md](RESEARCH_STATUS.md) for the current claims,
+limitations, and the practical success criterion recorded on 7 September 2026.
 
-## Quickstart
+The [Lean formalization](formalization/README.md), added 27 September 2026,
+checks reconstruction, certification, and cost-balancing components. The
+complete extractor and its bit-complexity theorem are not yet formally verified.
 
-```bash
-pip install gmpy2          # optional but recommended (GMP integers)
+## Paper
 
-# the millionth decimal digit of pi (the v3 engine is the default)
-python decimal_bbp_extract.py --pos 1000000
+- [Manuscript PDF](decimal_extraction_paper.pdf) and [LaTeX source](decimal_extraction_paper.tex)
+- [Source package](output/arxiv/decimal_extraction_source.zip)
+- [Submission notes](output/arxiv/SUBMISSION.md) and [metadata](output/arxiv/metadata.txt)
+- [Build verification](output/arxiv/verification.json)
 
-# ln 2 also works; engines v1/v2/v3/v4 are selectable
-python decimal_bbp_extract.py --const ln2 --pos 100000
+The paper contains mathematical definitions, proofs, complexity comparisons,
+and measured performance. File mappings and commands belong in the
+[reproduction guide](validation/README.md). Nothing has been submitted to arXiv.
 
-# verification and benchmarks
-python decimal_bbp_extract.py --selftest   # digits vs an independent Chudnovsky reference
-python decimal_bbp_extract.py --v3-check   # the division-free pipeline vs the reference
-python decimal_bbp_extract.py --beatquad   # scaling benchmark
+## Native extraction
+
+Build with a C++17 compiler and GMP. Python and MPFR are not needed by this
+extractor. On the Windows workstation used for the measurements:
+
+```powershell
+$env:PATH = 'C:/msys64/ucrt64/bin;' + $env:PATH
+g++ -O3 -march=native -std=c++17 decimal_extract_weighted_machin.cpp -lgmpxx -lgmp -o extract_weighted_machin.exe
+./extract_weighted_machin.exe --selftest
+./extract_weighted_machin.exe 1000000 --timing
 ```
 
-## Contents
+For the faster multicore build on this workstation:
 
-- **`decimal_extraction_paper.tex` / `.pdf`** — the paper: the algorithm, the
-  O(N log³N) theorem, the sieve-batched exponentiation and 2-adic normal form, the
-  generalizations (any base-2^r BBP constant, any output base), and an analysis of the
-  one remaining logarithmic factor as an open problem.
-- **`decimal_bbp_extract.py`** — the reference implementation, with four engines
-  (v1 naive band reduction; v2 accumulating-remainder-tree batching; v3 the
-  division-free 2-adic pipeline, used by default; v4 sieve-batched word phase), plus
-  self-tests against integer-Chudnovsky references and scaling benchmarks.
-- **`three_phase_extract.cpp`** — a dependency-free C++/OpenMP implementation of the
-  band identity, used as an independent cross-check.
-- **`validation/`** — standalone exact-arithmetic validators for every identity in
-  the paper.
-- **`legacy/`** — earlier approaches that this work supersedes.
+```powershell
+g++ -O3 -march=native -std=c++17 -pthread decimal_extract_weighted_machin_parallel.cpp -lgmpxx -lgmp -o extract_weighted_machin_parallel.exe
+./extract_weighted_machin_parallel.exe 1000000 --threads=8 --timing
+```
 
-## The open problem
+The parallel program defaults to at most eight logical threads;
+`--threads=1` uses its original serial path. Its `total` timing is elapsed
+wall time. Per-phase times sum overlapping workers and should not be added
+to estimate elapsed time.
 
-The algorithm is one logarithmic factor above the O(N log²N) cost of computing all N
-digits by the arithmetic–geometric mean. Section 6 of the paper isolates that factor
-as a single problem: computing a consolidated 2-adic integer V, equivalent to an
-isolated harmonic number modulo 2^N. The multiplicative part of V is computable in
-O(N log²N); the additive part has no known fast algorithm. Solving it would give
-decimal digit extraction in O(N log²N).
+The last command returns `130927562832`. The executable returns twelve
+digits only after its integer interval test passes. The new source is
+self-contained. It defaults to 192 guard bits and retries an insufficient
+guard; `--guard=N` changes the starting precision. `--block=N` is an
+experimental partition override, outside the default-schedule cost claim.
+The program enforces input and precision limits and reports an error if
+it cannot certify a result. The previous `decimal_extract_machin.cpp`
+remains available, including its `--euler` comparison mode.
 
-## Reference
+## Measurements
 
-J. Babčanec, *Extracting decimal digits of π in quasi-linear time from binary BBP
-formulas*, 2026.
+The 7 September Machin batch used sequential fresh processes, rotating method order,
+three runs per method and position, and independent MPFR interval checks
+outside the timers. Median wall times for Machin and certified Euler were:
+
+- Position 100,000: 0.108 and 0.231 seconds.
+- Position 1,000,000: 1.256 and 2.756 seconds.
+- Position 10,000,000: 19.086 and 38.195 seconds.
+
+At ten million, peak working sets were 138.1 MiB and 75.1 MiB respectively.
+All 27 timed outputs, including the archived fixed-guard Euler control,
+passed the independent checks. The [raw report](validation/machin_benchmark_2026-09-07.json)
+records individual samples, guards, source hashes, and validation results.
+These measurements establish a local implementation comparison through
+ten million. They do not establish a crossover for weighted blocks or Lucas,
+an extrapolation to larger positions, or a world record.
+
+## Research and reproduction
+
+- [Current research status](RESEARCH_STATUS.md): proof, program, and performance claims.
+- [Reproduction guide](validation/README.md): source mappings, builds, datasets, and controls.
+- [Chronological research log](OPEN_PROBLEM_E_ATTACK_LOG.md): retained experiments and corrections.
+- `notes/`: local proof drafts, audits, and manuscript backups; excluded from the source package.
+- `legacy/`: earlier implementations retained for reference.
+- `tmp/`: disposable build and rendering output; excluded from version control.
+- `output/pdf/` and `output/arxiv/`: current deliverables.
+
+Rebuild the manuscript and source package with:
+
+```powershell
+pwsh -File validation/package_manuscript.ps1
+```
+
+This command compiles an isolated copy of the submission sources and checks
+the package. PDF visual inspection is recorded separately after rendering.
+The previous manuscript, README, package, and audit are preserved locally in
+`notes/manuscript_backups/before_consolidation_2026-09-07/`.

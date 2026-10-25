@@ -1,0 +1,252 @@
+{
+  "checked_utc": "2026-10-25T00:23:39.800418+00:00",
+  "arithmetic": {
+    "status": "PASS",
+    "modular_product_cases": 20000,
+    "word_inverse_cases": 16249,
+    "joint_power_cases": 2000,
+    "power_of_two_inverse_cases": 168,
+    "radix_cases": 20,
+    "exact_block_cases": 32,
+    "word_accumulator_cases": 36,
+    "exact_core_cases": 20
+  },
+  "native_selftest": {
+    "selftest": "PASS",
+    "exact_rational_blocks": 300,
+    "full_core_cases": 120
+  },
+  "core_checks": [
+    {
+      "N": 1000000,
+      "bits": 2322125,
+      "exact_match": true,
+      "residue_sha256": "8ac31eb003bafd4a7c3eae41ea22efd7391b6c424afdba96a485462194cb1533"
+    }
+  ],
+  "digit_checks": [
+    {
+      "N": 1,
+      "digits": "141592653589",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 2,
+      "digits": "415926535897",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 3,
+      "digits": "159265358979",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 4,
+      "digits": "592653589793",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 5,
+      "digits": "926535897932",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 6,
+      "digits": "265358979323",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 7,
+      "digits": "653589793238",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 8,
+      "digits": "535897932384",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 9,
+      "digits": "358979323846",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 10,
+      "digits": "589793238462",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 11,
+      "digits": "897932384626",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 12,
+      "digits": "979323846264",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 13,
+      "digits": "793238462643",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 14,
+      "digits": "932384626433",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 15,
+      "digits": "323846264338",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 16,
+      "digits": "238462643383",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 17,
+      "digits": "384626433832",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 18,
+      "digits": "846264338327",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 19,
+      "digits": "462643383279",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 20,
+      "digits": "626433832795",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 21,
+      "digits": "264338327950",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 22,
+      "digits": "643383279502",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 23,
+      "digits": "433832795028",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 24,
+      "digits": "338327950288",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 25,
+      "digits": "383279502884",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 26,
+      "digits": "832795028841",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 27,
+      "digits": "327950288419",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 28,
+      "digits": "279502884197",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 29,
+      "digits": "795028841971",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 30,
+      "digits": "950288419716",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 31,
+      "digits": "502884197169",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 32,
+      "digits": "028841971693",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 33,
+      "digits": "288419716939",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 34,
+      "digits": "884197169399",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 35,
+      "digits": "841971693993",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 36,
+      "digits": "419716939937",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 37,
+      "digits": "197169399375",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 38,
+      "digits": "971693993751",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 39,
+      "digits": "716939937510",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 40,
+      "digits": "169399375105",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 100,
+      "digits": "982148086513",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 997,
+      "digits": "198938095257",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 10000,
+      "digits": "856672279661",
+      "MPFR_interval_match": true
+    }
+  ],
+  "verified": true,
+  "low_guard_rejected_without_output": true,
+  "larger_guard_recovered": true,
+  "source_sha256": {
+    "decimal_extract_weighted_optimized.cpp": "5efcba3ca6780b929bc4d668278cc4e51b57f8161a8a1c159915e48c8a1cc98d",
+    "decimal_extract_weighted_words.hpp": "33c1d6fc48b82c05b8a3303f46396859e29701c66ad00e2173a9046c63f35c1c",
+    "validation/weighted_optimized_arithmetic_checks.cpp": "7f0e8ac2e919e10135542dfa586dd4e24bb9dbd58d7c3c2aee9fa91c30687dde"
+  }
+}

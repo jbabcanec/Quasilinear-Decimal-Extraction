@@ -1,0 +1,98 @@
+{
+  "purpose": "Benchmark controls only; root sources preserved",
+  "compiler": "g++.exe (Rev5, Built by MSYS2 project) 16.1.0",
+  "flags": [
+    "-O3",
+    "-march=native",
+    "-std=c++17"
+  ],
+  "certified_euler_extra_define": "COMMON_EULER_DEFAULT=1",
+  "sha256": {
+    "decimal_extract_shared_residues.cpp": "b2e9cee99a04158d22ef32f838c12af9a53e379c39deb7001482bbe85225f03a",
+    "decimal_extract_machin.cpp": "9d052e30b3c034b1568f87f25e7ea8b75b407b13597f409710f0628831d1eda5",
+    "decimal_extract_weighted_words.hpp": "5602a166ee3d6c52601d4592f647b950b7a5e2868253e8bef9ec256d971aee2f",
+    "tmp\\weighted_controls_common\\decimal_extract_shared_residues.cpp": "86f2106f399ad29bb7dc3ec177b6cf8390a1effb9fa72b3ac4ad51a2436d32fa",
+    "tmp\\weighted_controls_common\\decimal_extract_machin.cpp": "becca57e4eb4b1aeec85a5bfa31391d2d8293350bd0df265d792737e7bef977f",
+    "tmp\\weighted_controls_common\\extract_euler_common.exe": "f52d7ffbc64c00c88b7054eb7a7c8f037c51b701847a7e0c5812f167ad8b2633",
+    "tmp\\weighted_controls_common\\extract_machin_common.exe": "cb7b194a0ee059a9d4190e7bdfd187e109050b889b44db4d480c7979a2e68535",
+    "tmp\\weighted_controls_common\\extract_euler_certified_common.exe": "da87bf8b2b1fb23d5357b27a5ca32666854230d29705b7fd51c8daa1f8ccf8d4"
+  },
+  "checks": [
+    {
+      "engine": "extract_euler_common.exe",
+      "N": 1,
+      "digits": "141592653589",
+      "MPFR_interval_match": true
+    },
+    {
+      "engine": "extract_machin_common.exe",
+      "N": 1,
+      "digits": "141592653589",
+      "MPFR_interval_match": true
+    },
+    {
+      "engine": "extract_euler_certified_common.exe",
+      "N": 1,
+      "digits": "141592653589",
+      "MPFR_interval_match": true
+    },
+    {
+      "engine": "extract_euler_common.exe",
+      "N": 997,
+      "digits": "198938095257",
+      "MPFR_interval_match": true
+    },
+    {
+      "engine": "extract_machin_common.exe",
+      "N": 997,
+      "digits": "198938095257",
+      "MPFR_interval_match": true
+    },
+    {
+      "engine": "extract_euler_certified_common.exe",
+      "N": 997,
+      "digits": "198938095257",
+      "MPFR_interval_match": true
+    },
+    {
+      "engine": "extract_euler_common.exe",
+      "N": 10000,
+      "digits": "856672279661",
+      "MPFR_interval_match": true
+    },
+    {
+      "engine": "extract_machin_common.exe",
+      "N": 10000,
+      "digits": "856672279661",
+      "MPFR_interval_match": true
+    },
+    {
+      "engine": "extract_euler_certified_common.exe",
+      "N": 10000,
+      "digits": "856672279661",
+      "MPFR_interval_match": true
+    },
+    {
+      "engine": "extract_machin_common.exe",
+      "N": 997,
+      "initial_guard": 8,
+      "final_guard": 64,
+      "passes": 4,
+      "certified": true,
+      "digits": "198938095257"
+    },
+    {
+      "engine": "extract_euler_certified_common.exe",
+      "N": 997,
+      "initial_guard": 8,
+      "final_guard": 64,
+      "passes": 4,
+      "certified": true,
+      "digits": "198938095257"
+    }
+  ],
+  "maximum_N": 500000000,
+  "maximum_reachable_guard": 200000000,
+  "header_maximum_modulus_proven_upper_bound": 3722000013,
+  "verified": true
+}

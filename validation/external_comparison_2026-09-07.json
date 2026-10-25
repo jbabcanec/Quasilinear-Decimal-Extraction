@@ -1,0 +1,772 @@
+{
+  "started_utc": "2026-09-07T04:04:09.044946+00:00",
+  "method": "Fresh processes, sequential runs, rotating engine order. Wall time includes startup and output; peak process working set sampled every 1 ms. Reference calculations excluded. No warm-up runs.",
+  "comparison_width": 9,
+  "precision": {
+    "bellard": "Original double accumulator, n+20 truncation parameter, nine digits",
+    "gourdon": "64-bit fractional accumulator, default n0=12, nine digits",
+    "v5": "G=192, twelve digits (all retained and verified)",
+    "weighted": "G=192, twelve digits (all retained and verified)",
+    "mpfr_prefix": "Prefix through N+8, 192 additional bits, nine digits"
+  },
+  "hardware": {
+    "processor": "AMD Ryzen 7 5700",
+    "physical_cores": 8,
+    "logical_processors": 16,
+    "physical_memory_bytes": 34137075712
+  },
+  "os": "Windows-10-10.0.26200-SP0",
+  "python": "3.11.4 (tags/v3.11.4:d2340ef, Jun  7 2023, 05:45:37) [MSC v.1934 64 bit (AMD64)]",
+  "gmpy2": "2.3.1",
+  "gmp": "GMP 6.3.0",
+  "mpfr": "MPFR 4.2.2",
+  "compiler": {
+    "commands": [
+      [
+        "C:\\msys64\\ucrt64\\bin\\gcc.EXE",
+        "-O3",
+        "-march=native",
+        "-std=c17",
+        "-DHAS_LONG_LONG",
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\baselines\\bellard_pi1.c",
+        "-lm",
+        "-o",
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\baselines\\bellard_pi1.exe"
+      ],
+      [
+        "C:\\msys64\\ucrt64\\bin\\g++.EXE",
+        "-O3",
+        "-march=native",
+        "-std=c++17",
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\baselines\\gourdon_window.cpp",
+        "-o",
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\baselines\\gourdon_window.exe"
+      ],
+      [
+        "C:\\msys64\\ucrt64\\bin\\g++.EXE",
+        "-O3",
+        "-march=native",
+        "-std=c++17",
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\baselines\\mpfr_prefix.cpp",
+        "-lmpfr",
+        "-lgmp",
+        "-o",
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\baselines\\mpfr_prefix.exe"
+      ],
+      [
+        "C:\\msys64\\ucrt64\\bin\\g++.EXE",
+        "-O3",
+        "-march=native",
+        "-std=c++17",
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\decimal_extract_v5.cpp",
+        "-lgmpxx",
+        "-lgmp",
+        "-o",
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\extract_v5.exe"
+      ]
+    ],
+    "gcc": "gcc.EXE (Rev5, Built by MSYS2 project) 16.1.0",
+    "g++": "g++.EXE (Rev5, Built by MSYS2 project) 16.1.0"
+  },
+  "provenance": {
+    "bellard": {
+      "url": "https://bellard.org/pi/pi1.c",
+      "retrieved_utc_date": "2026-09-07",
+      "sha256": "da875ae63345f824d65c5f8cc195d768bd76dde3ff516dc29433c5893349d708",
+      "modifications": "None; compiled with author's HAS_LONG_LONG option.",
+      "archive_policy": "Original source is fetched by the reproduction script, not redistributed in the source ZIP."
+    },
+    "gourdon": {
+      "paper": "https://plouffe.fr/simon/articles/nthdecimaldigit.pdf",
+      "local_original": "legacy/gourdon_digit_extract.cpp",
+      "local_original_sha256": "53f7597be25a0ca0b4ba84a850ab18968463820595d729d3ab4e88f2972a875c",
+      "adapter_sha256": "9fdcd79dbcf95a0ed82e248c1ecebd9a6127900ca0a6f1c79786c0c4a37b6d5b",
+      "adaptations": [
+        "Kept the modular helpers, Algorithm 2, parameter choice, and fixed64 extraction.",
+        "Removed unrelated CVZ variants, reference calculations, and repeated extraction.",
+        "Printed nine digits by exact fixed-point scaling, instead of one digit.",
+        "Kept the original default n0=12 and cached-prime sieve."
+      ]
+    }
+  },
+  "source_sha256": {
+    "decimal_extract_v5.cpp": "03ed6c4f570c39945346348def37fab5459b67a00e13185b606915e60378c494",
+    "validation/weighted_block_crt.py": "f5ddd0310fd9d252303ca3681b03036c72b6b5c2e5c31f8b26738ba05c740ad5",
+    "validation/harmonic_prime_crt.py": "651fe0d5d2dfec97e8e4db76fb370a6f968b5a4371125daa8087e04ac6d34d5b",
+    "decimal_extract_v5.py": "9453bdb2f05f3a4254a2b14ca4a915857c437c8efe9707a37396eb99cf0509cb",
+    "decimal_bbp_extract.py": "864b43d3d2c8c7857df4b802981cb935513e6eabb92dd382f899606633b746a8",
+    "validation/compare_cpp_euler.py": "42c81ef9bc65f508ada06b798f92a8be78ec594143a35e42004bfa90469c74b9",
+    "validation/compare_external.py": "dd7dda55377faad7560793e748ca32e3ab1ce01677e4d9210c1711a95aaa4cd7",
+    "validation/baselines/bellard_pi1.c": "da875ae63345f824d65c5f8cc195d768bd76dde3ff516dc29433c5893349d708",
+    "validation/baselines/gourdon_window.cpp": "9fdcd79dbcf95a0ed82e248c1ecebd9a6127900ca0a6f1c79786c0c4a37b6d5b",
+    "validation/baselines/mpfr_prefix.cpp": "9998173b7a16bf2c728412d3bb05b934143cfb4361f9678a00a1b10f0c97b900"
+  },
+  "runs": [
+    {
+      "engine": "bellard",
+      "N": 10000,
+      "wall_seconds": 1.5819838000024902,
+      "peak_working_set_bytes": 4354048,
+      "command": [
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\baselines\\bellard_pi1.exe",
+        "10000"
+      ],
+      "digits": "856672279",
+      "computed_width": 9,
+      "repeat": 0
+    },
+    {
+      "engine": "gourdon",
+      "N": 10000,
+      "wall_seconds": 0.4187039999960689,
+      "peak_working_set_bytes": 5603328,
+      "command": [
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\baselines\\gourdon_window.exe",
+        "10000"
+      ],
+      "digits": "856672279",
+      "computed_width": 9,
+      "repeat": 0
+    },
+    {
+      "engine": "v5",
+      "N": 10000,
+      "wall_seconds": 0.10693819999869447,
+      "peak_working_set_bytes": 6045696,
+      "command": [
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\extract_v5.exe",
+        "10000",
+        "--timing"
+      ],
+      "engine_stats": {
+        "engine": "v5-euler-cpp",
+        "N": 10000,
+        "pre": 8e-05,
+        "word": 0.022819,
+        "vphase": 0.016347,
+        "total": 0.039247,
+        "original_terms": 23416,
+        "transformed_terms": 13106
+      },
+      "digits": "856672279661",
+      "computed_width": 12,
+      "repeat": 0
+    },
+    {
+      "engine": "weighted",
+      "N": 10000,
+      "wall_seconds": 0.9640471000020625,
+      "peak_working_set_bytes": 22339584,
+      "command": [
+        "C:\\Users\\josep\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "-B",
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\weighted_block_crt.py",
+        "--pos",
+        "10000"
+      ],
+      "engine_stats": {
+        "N": 10000,
+        "Jmax": 23415,
+        "terms": 23416,
+        "block_length": 625,
+        "blocks": 40,
+        "real_terms": 14912,
+        "lcm_leaf_bits": 209984,
+        "real_product_bits": 273670,
+        "forests": 20,
+        "maximum_pending_bits": 34222,
+        "elapsed_seconds": 0.31411669999943115,
+        "engine": "weighted-block-crt"
+      },
+      "digits": "856672279661",
+      "computed_width": 12,
+      "repeat": 0
+    },
+    {
+      "engine": "mpfr_prefix",
+      "N": 10000,
+      "wall_seconds": 0.026889000000664964,
+      "peak_working_set_bytes": 6094848,
+      "command": [
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\baselines\\mpfr_prefix.exe",
+        "10000"
+      ],
+      "digits": "856672279",
+      "computed_width": 9,
+      "repeat": 0
+    },
+    {
+      "engine": "gourdon",
+      "N": 10000,
+      "wall_seconds": 0.38713849999476224,
+      "peak_working_set_bytes": 5603328,
+      "command": [
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\baselines\\gourdon_window.exe",
+        "10000"
+      ],
+      "digits": "856672279",
+      "computed_width": 9,
+      "repeat": 1
+    },
+    {
+      "engine": "v5",
+      "N": 10000,
+      "wall_seconds": 0.05069259999436326,
+      "peak_working_set_bytes": 5779456,
+      "command": [
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\extract_v5.exe",
+        "10000",
+        "--timing"
+      ],
+      "engine_stats": {
+        "engine": "v5-euler-cpp",
+        "N": 10000,
+        "pre": 4.9e-05,
+        "word": 0.020747,
+        "vphase": 0.010665,
+        "total": 0.031461,
+        "original_terms": 23416,
+        "transformed_terms": 13106
+      },
+      "digits": "856672279661",
+      "computed_width": 12,
+      "repeat": 1
+    },
+    {
+      "engine": "weighted",
+      "N": 10000,
+      "wall_seconds": 0.6489017999992939,
+      "peak_working_set_bytes": 22351872,
+      "command": [
+        "C:\\Users\\josep\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "-B",
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\weighted_block_crt.py",
+        "--pos",
+        "10000"
+      ],
+      "engine_stats": {
+        "N": 10000,
+        "Jmax": 23415,
+        "terms": 23416,
+        "block_length": 625,
+        "blocks": 40,
+        "real_terms": 14912,
+        "lcm_leaf_bits": 209984,
+        "real_product_bits": 273670,
+        "forests": 20,
+        "maximum_pending_bits": 34222,
+        "elapsed_seconds": 0.2307751000043936,
+        "engine": "weighted-block-crt"
+      },
+      "digits": "856672279661",
+      "computed_width": 12,
+      "repeat": 1
+    },
+    {
+      "engine": "mpfr_prefix",
+      "N": 10000,
+      "wall_seconds": 0.02179440000327304,
+      "peak_working_set_bytes": 6111232,
+      "command": [
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\baselines\\mpfr_prefix.exe",
+        "10000"
+      ],
+      "digits": "856672279",
+      "computed_width": 9,
+      "repeat": 1
+    },
+    {
+      "engine": "bellard",
+      "N": 10000,
+      "wall_seconds": 1.377207700003055,
+      "peak_working_set_bytes": 4358144,
+      "command": [
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\baselines\\bellard_pi1.exe",
+        "10000"
+      ],
+      "digits": "856672279",
+      "computed_width": 9,
+      "repeat": 1
+    },
+    {
+      "engine": "v5",
+      "N": 10000,
+      "wall_seconds": 0.0646444000012707,
+      "peak_working_set_bytes": 6033408,
+      "command": [
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\extract_v5.exe",
+        "10000",
+        "--timing"
+      ],
+      "engine_stats": {
+        "engine": "v5-euler-cpp",
+        "N": 10000,
+        "pre": 6.5e-05,
+        "word": 0.024374,
+        "vphase": 0.014518,
+        "total": 0.038957,
+        "original_terms": 23416,
+        "transformed_terms": 13106
+      },
+      "digits": "856672279661",
+      "computed_width": 12,
+      "repeat": 2
+    },
+    {
+      "engine": "weighted",
+      "N": 10000,
+      "wall_seconds": 0.6355190000031143,
+      "peak_working_set_bytes": 22253568,
+      "command": [
+        "C:\\Users\\josep\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "-B",
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\weighted_block_crt.py",
+        "--pos",
+        "10000"
+      ],
+      "engine_stats": {
+        "N": 10000,
+        "Jmax": 23415,
+        "terms": 23416,
+        "block_length": 625,
+        "blocks": 40,
+        "real_terms": 14912,
+        "lcm_leaf_bits": 209984,
+        "real_product_bits": 273670,
+        "forests": 20,
+        "maximum_pending_bits": 34222,
+        "elapsed_seconds": 0.19498049998946954,
+        "engine": "weighted-block-crt"
+      },
+      "digits": "856672279661",
+      "computed_width": 12,
+      "repeat": 2
+    },
+    {
+      "engine": "mpfr_prefix",
+      "N": 10000,
+      "wall_seconds": 0.01657330000307411,
+      "peak_working_set_bytes": 6094848,
+      "command": [
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\baselines\\mpfr_prefix.exe",
+        "10000"
+      ],
+      "digits": "856672279",
+      "computed_width": 9,
+      "repeat": 2
+    },
+    {
+      "engine": "bellard",
+      "N": 10000,
+      "wall_seconds": 1.5410446000023512,
+      "peak_working_set_bytes": 4120576,
+      "command": [
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\baselines\\bellard_pi1.exe",
+        "10000"
+      ],
+      "digits": "856672279",
+      "computed_width": 9,
+      "repeat": 2
+    },
+    {
+      "engine": "gourdon",
+      "N": 10000,
+      "wall_seconds": 0.4485287999996217,
+      "peak_working_set_bytes": 5595136,
+      "command": [
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\baselines\\gourdon_window.exe",
+        "10000"
+      ],
+      "digits": "856672279",
+      "computed_width": 9,
+      "repeat": 2
+    },
+    {
+      "engine": "bellard",
+      "N": 100000,
+      "wall_seconds": 121.30860640000901,
+      "peak_working_set_bytes": 4116480,
+      "command": [
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\baselines\\bellard_pi1.exe",
+        "100000"
+      ],
+      "digits": "641260024",
+      "computed_width": 9,
+      "repeat": 0
+    },
+    {
+      "engine": "gourdon",
+      "N": 100000,
+      "wall_seconds": 19.39999559998978,
+      "peak_working_set_bytes": 5378048,
+      "command": [
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\baselines\\gourdon_window.exe",
+        "100000"
+      ],
+      "digits": "641260024",
+      "computed_width": 9,
+      "repeat": 0
+    },
+    {
+      "engine": "v5",
+      "N": 100000,
+      "wall_seconds": 0.39493100000254344,
+      "peak_working_set_bytes": 6463488,
+      "command": [
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\extract_v5.exe",
+        "100000",
+        "--timing"
+      ],
+      "engine_stats": {
+        "engine": "v5-euler-cpp",
+        "N": 100000,
+        "pre": 0.00029,
+        "word": 0.219292,
+        "vphase": 0.153336,
+        "total": 0.372917,
+        "original_terms": 232391,
+        "transformed_terms": 130034
+      },
+      "digits": "641260024379",
+      "computed_width": 12,
+      "repeat": 0
+    },
+    {
+      "engine": "weighted",
+      "N": 100000,
+      "wall_seconds": 2.4745908999902895,
+      "peak_working_set_bytes": 24723456,
+      "command": [
+        "C:\\Users\\josep\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "-B",
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\weighted_block_crt.py",
+        "--pos",
+        "100000"
+      ],
+      "engine_stats": {
+        "N": 100000,
+        "Jmax": 232390,
+        "terms": 232391,
+        "block_length": 3125,
+        "blocks": 76,
+        "real_terms": 126087,
+        "lcm_leaf_bits": 2305113,
+        "real_product_bits": 2740035,
+        "forests": 27,
+        "maximum_pending_bits": 301517,
+        "elapsed_seconds": 2.1618608999997377,
+        "engine": "weighted-block-crt"
+      },
+      "digits": "641260024379",
+      "computed_width": 12,
+      "repeat": 0
+    },
+    {
+      "engine": "mpfr_prefix",
+      "N": 100000,
+      "wall_seconds": 0.06658109999261796,
+      "peak_working_set_bytes": 6340608,
+      "command": [
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\baselines\\mpfr_prefix.exe",
+        "100000"
+      ],
+      "digits": "641260024",
+      "computed_width": 9,
+      "repeat": 0
+    },
+    {
+      "engine": "gourdon",
+      "N": 100000,
+      "wall_seconds": 19.62356279999949,
+      "peak_working_set_bytes": 5627904,
+      "command": [
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\baselines\\gourdon_window.exe",
+        "100000"
+      ],
+      "digits": "641260024",
+      "computed_width": 9,
+      "repeat": 1
+    },
+    {
+      "engine": "v5",
+      "N": 100000,
+      "wall_seconds": 0.3818180999951437,
+      "peak_working_set_bytes": 6500352,
+      "command": [
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\extract_v5.exe",
+        "100000",
+        "--timing"
+      ],
+      "engine_stats": {
+        "engine": "v5-euler-cpp",
+        "N": 100000,
+        "pre": 0.00028,
+        "word": 0.216126,
+        "vphase": 0.148423,
+        "total": 0.364829,
+        "original_terms": 232391,
+        "transformed_terms": 130034
+      },
+      "digits": "641260024379",
+      "computed_width": 12,
+      "repeat": 1
+    },
+    {
+      "engine": "weighted",
+      "N": 100000,
+      "wall_seconds": 2.559119500001543,
+      "peak_working_set_bytes": 24641536,
+      "command": [
+        "C:\\Users\\josep\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "-B",
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\weighted_block_crt.py",
+        "--pos",
+        "100000"
+      ],
+      "engine_stats": {
+        "N": 100000,
+        "Jmax": 232390,
+        "terms": 232391,
+        "block_length": 3125,
+        "blocks": 76,
+        "real_terms": 126087,
+        "lcm_leaf_bits": 2305113,
+        "real_product_bits": 2740035,
+        "forests": 27,
+        "maximum_pending_bits": 301517,
+        "elapsed_seconds": 2.2338519000040833,
+        "engine": "weighted-block-crt"
+      },
+      "digits": "641260024379",
+      "computed_width": 12,
+      "repeat": 1
+    },
+    {
+      "engine": "mpfr_prefix",
+      "N": 100000,
+      "wall_seconds": 0.06779130001086742,
+      "peak_working_set_bytes": 6336512,
+      "command": [
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\baselines\\mpfr_prefix.exe",
+        "100000"
+      ],
+      "digits": "641260024",
+      "computed_width": 9,
+      "repeat": 1
+    },
+    {
+      "engine": "bellard",
+      "N": 100000,
+      "wall_seconds": 115.01217739999993,
+      "peak_working_set_bytes": 4358144,
+      "command": [
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\baselines\\bellard_pi1.exe",
+        "100000"
+      ],
+      "digits": "641260024",
+      "computed_width": 9,
+      "repeat": 1
+    },
+    {
+      "engine": "v5",
+      "N": 100000,
+      "wall_seconds": 0.38437210000120103,
+      "peak_working_set_bytes": 6508544,
+      "command": [
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\extract_v5.exe",
+        "100000",
+        "--timing"
+      ],
+      "engine_stats": {
+        "engine": "v5-euler-cpp",
+        "N": 100000,
+        "pre": 0.000307,
+        "word": 0.214838,
+        "vphase": 0.154047,
+        "total": 0.369191,
+        "original_terms": 232391,
+        "transformed_terms": 130034
+      },
+      "digits": "641260024379",
+      "computed_width": 12,
+      "repeat": 2
+    },
+    {
+      "engine": "weighted",
+      "N": 100000,
+      "wall_seconds": 2.4201297000108752,
+      "peak_working_set_bytes": 24707072,
+      "command": [
+        "C:\\Users\\josep\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "-B",
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\weighted_block_crt.py",
+        "--pos",
+        "100000"
+      ],
+      "engine_stats": {
+        "N": 100000,
+        "Jmax": 232390,
+        "terms": 232391,
+        "block_length": 3125,
+        "blocks": 76,
+        "real_terms": 126087,
+        "lcm_leaf_bits": 2305113,
+        "real_product_bits": 2740035,
+        "forests": 27,
+        "maximum_pending_bits": 301517,
+        "elapsed_seconds": 2.1214723000011873,
+        "engine": "weighted-block-crt"
+      },
+      "digits": "641260024379",
+      "computed_width": 12,
+      "repeat": 2
+    },
+    {
+      "engine": "mpfr_prefix",
+      "N": 100000,
+      "wall_seconds": 0.06336519999604207,
+      "peak_working_set_bytes": 6344704,
+      "command": [
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\baselines\\mpfr_prefix.exe",
+        "100000"
+      ],
+      "digits": "641260024",
+      "computed_width": 9,
+      "repeat": 2
+    },
+    {
+      "engine": "bellard",
+      "N": 100000,
+      "wall_seconds": 112.3898712000082,
+      "peak_working_set_bytes": 3903488,
+      "command": [
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\baselines\\bellard_pi1.exe",
+        "100000"
+      ],
+      "digits": "641260024",
+      "computed_width": 9,
+      "repeat": 2
+    },
+    {
+      "engine": "gourdon",
+      "N": 100000,
+      "wall_seconds": 19.75875470000028,
+      "peak_working_set_bytes": 5636096,
+      "command": [
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\baselines\\gourdon_window.exe",
+        "100000"
+      ],
+      "digits": "641260024",
+      "computed_width": 9,
+      "repeat": 2
+    }
+  ],
+  "references": {
+    "10000": "856672279661",
+    "100000": "641260024379"
+  },
+  "summary": [
+    {
+      "engine": "bellard",
+      "N": 10000,
+      "repetitions": 3,
+      "computed_width": 9,
+      "wall_median": 1.5410446000023512,
+      "wall_min": 1.377207700003055,
+      "wall_max": 1.5819838000024902,
+      "peak_bytes_max": 4358144
+    },
+    {
+      "engine": "gourdon",
+      "N": 10000,
+      "repetitions": 3,
+      "computed_width": 9,
+      "wall_median": 0.4187039999960689,
+      "wall_min": 0.38713849999476224,
+      "wall_max": 0.4485287999996217,
+      "peak_bytes_max": 5603328
+    },
+    {
+      "engine": "v5",
+      "N": 10000,
+      "repetitions": 3,
+      "computed_width": 12,
+      "wall_median": 0.0646444000012707,
+      "wall_min": 0.05069259999436326,
+      "wall_max": 0.10693819999869447,
+      "peak_bytes_max": 6045696
+    },
+    {
+      "engine": "weighted",
+      "N": 10000,
+      "repetitions": 3,
+      "computed_width": 12,
+      "wall_median": 0.6489017999992939,
+      "wall_min": 0.6355190000031143,
+      "wall_max": 0.9640471000020625,
+      "peak_bytes_max": 22351872
+    },
+    {
+      "engine": "mpfr_prefix",
+      "N": 10000,
+      "repetitions": 3,
+      "computed_width": 9,
+      "wall_median": 0.02179440000327304,
+      "wall_min": 0.01657330000307411,
+      "wall_max": 0.026889000000664964,
+      "peak_bytes_max": 6111232
+    },
+    {
+      "engine": "bellard",
+      "N": 100000,
+      "repetitions": 3,
+      "computed_width": 9,
+      "wall_median": 115.01217739999993,
+      "wall_min": 112.3898712000082,
+      "wall_max": 121.30860640000901,
+      "peak_bytes_max": 4358144
+    },
+    {
+      "engine": "gourdon",
+      "N": 100000,
+      "repetitions": 3,
+      "computed_width": 9,
+      "wall_median": 19.62356279999949,
+      "wall_min": 19.39999559998978,
+      "wall_max": 19.75875470000028,
+      "peak_bytes_max": 5636096
+    },
+    {
+      "engine": "v5",
+      "N": 100000,
+      "repetitions": 3,
+      "computed_width": 12,
+      "wall_median": 0.38437210000120103,
+      "wall_min": 0.3818180999951437,
+      "wall_max": 0.39493100000254344,
+      "peak_bytes_max": 6508544
+    },
+    {
+      "engine": "weighted",
+      "N": 100000,
+      "repetitions": 3,
+      "computed_width": 12,
+      "wall_median": 2.4745908999902895,
+      "wall_min": 2.4201297000108752,
+      "wall_max": 2.559119500001543,
+      "peak_bytes_max": 24723456
+    },
+    {
+      "engine": "mpfr_prefix",
+      "N": 100000,
+      "repetitions": 3,
+      "computed_width": 9,
+      "wall_median": 0.06658109999261796,
+      "wall_min": 0.06336519999604207,
+      "wall_max": 0.06779130001086742,
+      "peak_bytes_max": 6344704
+    }
+  ],
+  "verified": true,
+  "completed_utc": "2026-09-07T04:11:13.875110+00:00"
+}

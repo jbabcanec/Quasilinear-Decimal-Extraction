@@ -1,0 +1,268 @@
+{
+  "source_sha256": "ac0f427dadb482cb3ad18a4698a129d59779cfcefb1536b8c2476d88f4d1191b",
+  "native_selftest": {
+    "selftest": "PASS",
+    "exact_rational_blocks": 300,
+    "full_core_cases": 120
+  },
+  "core_checks": [
+    {
+      "N": 100,
+      "bits": 429,
+      "exact_match": true,
+      "reference": "Separate 2-adic Euler construction, Python/GMP"
+    },
+    {
+      "N": 997,
+      "bits": 2512,
+      "exact_match": true,
+      "reference": "Separate 2-adic Euler construction, Python/GMP"
+    },
+    {
+      "N": 10000,
+      "bits": 23415,
+      "exact_match": true,
+      "reference": "Separate 2-adic Euler construction, Python/GMP"
+    },
+    {
+      "N": 100000,
+      "bits": 232390,
+      "exact_match": true,
+      "reference": "Separate 2-adic Euler construction, Python/GMP"
+    },
+    {
+      "N": 1000000,
+      "bits": 2322125,
+      "exact_match": true,
+      "reference": "Separate 2-adic Euler construction, Python/GMP"
+    }
+  ],
+  "digit_checks": [
+    {
+      "N": 1,
+      "digits": "141592653589",
+      "MPFR_match": true
+    },
+    {
+      "N": 2,
+      "digits": "415926535897",
+      "MPFR_match": true
+    },
+    {
+      "N": 3,
+      "digits": "159265358979",
+      "MPFR_match": true
+    },
+    {
+      "N": 4,
+      "digits": "592653589793",
+      "MPFR_match": true
+    },
+    {
+      "N": 5,
+      "digits": "926535897932",
+      "MPFR_match": true
+    },
+    {
+      "N": 6,
+      "digits": "265358979323",
+      "MPFR_match": true
+    },
+    {
+      "N": 7,
+      "digits": "653589793238",
+      "MPFR_match": true
+    },
+    {
+      "N": 8,
+      "digits": "535897932384",
+      "MPFR_match": true
+    },
+    {
+      "N": 9,
+      "digits": "358979323846",
+      "MPFR_match": true
+    },
+    {
+      "N": 10,
+      "digits": "589793238462",
+      "MPFR_match": true
+    },
+    {
+      "N": 11,
+      "digits": "897932384626",
+      "MPFR_match": true
+    },
+    {
+      "N": 12,
+      "digits": "979323846264",
+      "MPFR_match": true
+    },
+    {
+      "N": 13,
+      "digits": "793238462643",
+      "MPFR_match": true
+    },
+    {
+      "N": 14,
+      "digits": "932384626433",
+      "MPFR_match": true
+    },
+    {
+      "N": 15,
+      "digits": "323846264338",
+      "MPFR_match": true
+    },
+    {
+      "N": 16,
+      "digits": "238462643383",
+      "MPFR_match": true
+    },
+    {
+      "N": 17,
+      "digits": "384626433832",
+      "MPFR_match": true
+    },
+    {
+      "N": 18,
+      "digits": "846264338327",
+      "MPFR_match": true
+    },
+    {
+      "N": 19,
+      "digits": "462643383279",
+      "MPFR_match": true
+    },
+    {
+      "N": 20,
+      "digits": "626433832795",
+      "MPFR_match": true
+    },
+    {
+      "N": 21,
+      "digits": "264338327950",
+      "MPFR_match": true
+    },
+    {
+      "N": 22,
+      "digits": "643383279502",
+      "MPFR_match": true
+    },
+    {
+      "N": 23,
+      "digits": "433832795028",
+      "MPFR_match": true
+    },
+    {
+      "N": 24,
+      "digits": "338327950288",
+      "MPFR_match": true
+    },
+    {
+      "N": 25,
+      "digits": "383279502884",
+      "MPFR_match": true
+    },
+    {
+      "N": 26,
+      "digits": "832795028841",
+      "MPFR_match": true
+    },
+    {
+      "N": 27,
+      "digits": "327950288419",
+      "MPFR_match": true
+    },
+    {
+      "N": 28,
+      "digits": "279502884197",
+      "MPFR_match": true
+    },
+    {
+      "N": 29,
+      "digits": "795028841971",
+      "MPFR_match": true
+    },
+    {
+      "N": 30,
+      "digits": "950288419716",
+      "MPFR_match": true
+    },
+    {
+      "N": 31,
+      "digits": "502884197169",
+      "MPFR_match": true
+    },
+    {
+      "N": 32,
+      "digits": "028841971693",
+      "MPFR_match": true
+    },
+    {
+      "N": 33,
+      "digits": "288419716939",
+      "MPFR_match": true
+    },
+    {
+      "N": 34,
+      "digits": "884197169399",
+      "MPFR_match": true
+    },
+    {
+      "N": 35,
+      "digits": "841971693993",
+      "MPFR_match": true
+    },
+    {
+      "N": 36,
+      "digits": "419716939937",
+      "MPFR_match": true
+    },
+    {
+      "N": 37,
+      "digits": "197169399375",
+      "MPFR_match": true
+    },
+    {
+      "N": 38,
+      "digits": "971693993751",
+      "MPFR_match": true
+    },
+    {
+      "N": 39,
+      "digits": "716939937510",
+      "MPFR_match": true
+    },
+    {
+      "N": 40,
+      "digits": "169399375105",
+      "MPFR_match": true
+    },
+    {
+      "N": 100,
+      "digits": "982148086513",
+      "MPFR_match": true
+    },
+    {
+      "N": 997,
+      "digits": "198938095257",
+      "MPFR_match": true
+    },
+    {
+      "N": 10000,
+      "digits": "856672279661",
+      "MPFR_match": true
+    },
+    {
+      "N": 100000,
+      "digits": "641260024379",
+      "MPFR_match": true
+    },
+    {
+      "N": 1000000,
+      "digits": "130927562832",
+      "MPFR_match": true
+    }
+  ],
+  "verified": true
+}

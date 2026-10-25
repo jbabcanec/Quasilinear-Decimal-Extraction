@@ -1,0 +1,134 @@
+[
+  {
+    "source": "validation/supplementary_README.md",
+    "archive": "anc/README.md"
+  },
+  {
+    "source": "decimal_bbp_extract.py",
+    "archive": "anc/decimal_bbp_extract.py"
+  },
+  {
+    "source": "decimal_extract_v3.cpp",
+    "archive": "anc/decimal_extract_v3.cpp"
+  },
+  {
+    "source": "decimal_extract_v5.cpp",
+    "archive": "anc/decimal_extract_v5.cpp"
+  },
+  {
+    "source": "decimal_extract_v5.py",
+    "archive": "anc/decimal_extract_v5.py"
+  },
+  {
+    "source": "decimal_extract_weighted.cpp",
+    "archive": "anc/decimal_extract_weighted.cpp"
+  },
+  {
+    "source": "validation/reference_requirements.txt",
+    "archive": "anc/requirements.txt"
+  },
+  {
+    "source": "validation/reference_selftest_output.json",
+    "archive": "anc/selftest_output.json"
+  },
+  {
+    "source": "validation/baselines/README.md",
+    "archive": "anc/validation/baselines/README.md"
+  },
+  {
+    "source": "validation/baselines/adapter_checks.json",
+    "archive": "anc/validation/baselines/adapter_checks.json"
+  },
+  {
+    "source": "validation/baselines/build.json",
+    "archive": "anc/validation/baselines/build.json"
+  },
+  {
+    "source": "validation/baselines/gourdon_window.cpp",
+    "archive": "anc/validation/baselines/gourdon_window.cpp"
+  },
+  {
+    "source": "validation/baselines/mpfr_prefix.cpp",
+    "archive": "anc/validation/baselines/mpfr_prefix.cpp"
+  },
+  {
+    "source": "validation/baselines/provenance.json",
+    "archive": "anc/validation/baselines/provenance.json"
+  },
+  {
+    "source": "validation/benchmark_weighted_blocks.py",
+    "archive": "anc/validation/benchmark_weighted_blocks.py"
+  },
+  {
+    "source": "validation/benchmark_weighted_cpp.py",
+    "archive": "anc/validation/benchmark_weighted_cpp.py"
+  },
+  {
+    "source": "validation/compare_cpp_euler.py",
+    "archive": "anc/validation/compare_cpp_euler.py"
+  },
+  {
+    "source": "validation/compare_external.py",
+    "archive": "anc/validation/compare_external.py"
+  },
+  {
+    "source": "validation/cpp_euler_final_benchmark_2026-09-06.json",
+    "archive": "anc/validation/cpp_euler_final_benchmark_2026-09-06.json"
+  },
+  {
+    "source": "validation/external_comparison_2026-09-07.json",
+    "archive": "anc/validation/external_comparison_2026-09-07.json"
+  },
+  {
+    "source": "validation/harmonic_prime_crt.py",
+    "archive": "anc/validation/harmonic_prime_crt.py"
+  },
+  {
+    "source": "validation/validate_weighted_cpp.py",
+    "archive": "anc/validation/validate_weighted_cpp.py"
+  },
+  {
+    "source": "validation/weighted_block_crt.py",
+    "archive": "anc/validation/weighted_block_crt.py"
+  },
+  {
+    "source": "validation/weighted_block_crt_million_2026-09-06.json",
+    "archive": "anc/validation/weighted_block_crt_million_2026-09-06.json"
+  },
+  {
+    "source": "validation/weighted_block_performance_2026-09-06.json",
+    "archive": "anc/validation/weighted_block_performance_2026-09-06.json"
+  },
+  {
+    "source": "validation/weighted_cpp_checks_2026-09-07.json",
+    "archive": "anc/validation/weighted_cpp_checks_2026-09-07.json"
+  },
+  {
+    "source": "validation/weighted_cpp_performance_2026-09-07.json",
+    "archive": "anc/validation/weighted_cpp_performance_2026-09-07.json"
+  },
+  {
+    "source": "decimal_extraction_paper.tex",
+    "archive": "decimal_extraction_paper.tex"
+  },
+  {
+    "source": "decimal_extract_machin.cpp",
+    "archive": "anc/decimal_extract_machin.cpp"
+  },
+  {
+    "source": "decimal_extract_shared_residues.cpp",
+    "archive": "anc/decimal_extract_shared_residues.cpp"
+  },
+  {
+    "source": "validation/mpfr_window_interval.cpp",
+    "archive": "anc/validation/mpfr_window_interval.cpp"
+  },
+  {
+    "source": "validation/benchmark_machin.ps1",
+    "archive": "anc/validation/benchmark_machin.ps1"
+  },
+  {
+    "source": "validation/machin_benchmark_2026-09-07.json",
+    "archive": "anc/validation/machin_benchmark_2026-09-07.json"
+  }
+]

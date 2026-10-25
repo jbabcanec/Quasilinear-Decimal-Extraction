@@ -1,0 +1,91 @@
+{
+  "status": "PASS",
+  "archived_utc": "2026-10-25T03:37:22.7321665Z",
+  "evidence": "Actual stdout captured from the earlier successful native test run in this session; no test was rerun to create this archive.",
+  "source_hash_note": "Hashes were read when archiving. After compilation and validation, only the parallel source build-command comment was corrected to name the parallel file and -pthread; no executable behavior changed. The checker source and both executables were unchanged.",
+  "compile_flags": [
+    "-O3",
+    "-march=native",
+    "-std=c++17",
+    "-pthread"
+  ],
+  "libraries": [
+    "-lgmpxx",
+    "-lgmp"
+  ],
+  "compiler": "C:/msys64/ucrt64/bin/g++.exe",
+  "files": {
+    "decimal_extract_weighted_machin_parallel.cpp": {
+      "sha256": "4D96391297FF7CC84748BDCE5C14CA665D14542724D738DA004450F097A6283B",
+      "last_write_utc": "2026-10-25T03:30:54.0607030Z"
+    },
+    "validation/weighted_machin_parallel_checks.cpp": {
+      "sha256": "A245F6F92607BED1FF4DE5C728E0B62FB5A6E9D87D46282C60039B1F69DBD3B6",
+      "last_write_utc": "2026-10-25T03:30:12.4813768Z"
+    },
+    "tmp/reconstruction_next/weighted_parallel.exe": {
+      "sha256": "93CE5DADD862CCBD3E9CE5412F10EBC47293D96DE98AEB641F11F99BFBB65E47",
+      "last_write_utc": "2026-10-25T03:29:37.6741829Z"
+    },
+    "tmp/reconstruction_next/weighted_parallel_checks.exe": {
+      "sha256": "A0C6D9434E0136A02A6C7739A715D6D3707A767476DEEF834B109914FBCD3AA4",
+      "last_write_utc": "2026-10-25T03:30:20.7947644Z"
+    }
+  },
+  "runs": [
+    {
+      "command": [
+        "tmp/reconstruction_next/weighted_parallel_checks.exe"
+      ],
+      "exit_code": 0,
+      "records": [
+        {
+          "parallel_checks": "PASS",
+          "exact_attempts": 147,
+          "adaptive_certificates": 4,
+          "hardware_threads": 16
+        }
+      ]
+    },
+    {
+      "command": [
+        "tmp/reconstruction_next/weighted_parallel.exe",
+        "--selftest"
+      ],
+      "exit_code": 0,
+      "records": [
+        {
+          "selftest": "PASS",
+          "residue_checks": 2445,
+          "prime_core_checks": 108
+        },
+        {
+          "weighted_selftest": "PASS",
+          "exact_blocks": 180,
+          "reference_core_cases": 216
+        },
+        {
+          "lcm_invariants": "PASS",
+          "denominators": 5489,
+          "exact_merges": 2489,
+          "zero_coefficients": 98
+        }
+      ]
+    },
+    {
+      "command": [
+        "tmp/reconstruction_next/weighted_parallel.exe",
+        "--core-check",
+        "9977"
+      ],
+      "exit_code": 0,
+      "records": [
+        {
+          "core_check": "PASS",
+          "K": 9977,
+          "cases": 18
+        }
+      ]
+    }
+  ]
+}

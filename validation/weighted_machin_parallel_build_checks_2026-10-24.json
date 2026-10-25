@@ -1,0 +1,366 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-25T03:38:51.5185592Z",
+  "compiler": "C:\\msys64\\ucrt64\\bin\\g++.exe",
+  "compiler_sha256": "798A6EB495B30CF771DC759B5508D269ECB0DDDAC739719E8B30FE0AC0744B69",
+  "compiler_version": [
+    "g++.exe (Rev5, Built by MSYS2 project) 16.1.0",
+    "Copyright (C) 2026 Free Software Foundation, Inc.",
+    "This is free software; see the source for copying conditions.  There is NO",
+    "warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+    ""
+  ],
+  "compiler_target": [
+    "x86_64-w64-mingw32"
+  ],
+  "common_compile_flags": [
+    "-O3",
+    "-march=native",
+    "-std=c++17",
+    "-pthread"
+  ],
+  "initial_guard": 192,
+  "parallel_threads": 8,
+  "managed_processor_count": 16,
+  "processor_identifier": "AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD",
+  "powershell_version": "7.6.5",
+  "operating_system": "Microsoft Windows NT 10.0.26300.0",
+  "runtime_directory": "C:\\msys64\\ucrt64\\bin",
+  "runtime_sha256": {
+    "C:\\msys64\\ucrt64\\bin\\libgmp-10.dll": "C2567CCF3F410C3411BA7CD4B7BA14F393A0E70A1D0C0593297DF6706B5FBA96",
+    "C:\\msys64\\ucrt64\\bin\\libgmpxx-4.dll": "B563FEECD50808924F93C9C2CB495BAFA3B8AC50F5C9CA55F9F730AFA002886C",
+    "C:\\msys64\\ucrt64\\bin\\libmpfr-6.dll": "B881BEB5ED7E3413283AB94F24AB25CD47ED27127774867AE105642FF2FC2E47",
+    "C:\\msys64\\ucrt64\\bin\\libwinpthread-1.dll": "C7844629395E7813508FC9BB58C068CA9240A04D6D8529DB0A75B6EFC53590E7",
+    "C:\\msys64\\ucrt64\\bin\\libgcc_s_seh-1.dll": "FF139CFE956709283F7B70A06AF8BC8BB9D1C3BEF60EC1BC8D363C91351CFEB2",
+    "C:\\msys64\\ucrt64\\bin\\libstdc++-6.dll": "D9A58184F6BB27936EF03C3A3286950E4AA61C66A9F74DFA94A532B1433B368D"
+  },
+  "source_sha256": {
+    "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\decimal_extract_weighted_machin_pre_reconstruction_2026-10-24.cpp": "7F84ECC227EFF3CC012C0300FD06045591CB4C097986AD0B4BD071D52902C5B2",
+    "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\decimal_extract_weighted_machin_parallel.cpp": "4D96391297FF7CC84748BDCE5C14CA665D14542724D738DA004450F097A6283B",
+    "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\decimal_extract_machin_improved_2026-10-24.cpp": "1B9D1985A41313160F6216B8410201A29624437F03E669301DEAC7DB0324974A",
+    "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\decimal_extract_weighted_machin_lucas.cpp": "BF30D4A01230DD37EBE688AE138A5D72EABA0855B1D11DD4E8FB085063D96583",
+    "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\machin_lucas_common.hpp": "E5BCE6B256017EB0EE33A2F671A408942692AF443DC9A9317B55E0828168AEB3",
+    "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\machin_lucas_coefficients.hpp": "EEE5B5EDCA8CEE022ED4BC0040E41E4A2CDC10004AC1AE7413B3B78165EDA84E",
+    "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\machin_lucas_reconstruction.hpp": "E3B9FF49878CF67FFA41793A487817A80F9311974B65E562303810468241470D",
+    "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\machin_lucas_adic.hpp": "8E81E07C8D04312375D267EF754BCF5E5FB5F1E22AFFAA56D6ED507E3277BD77",
+    "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\weighted_controls_common\\decimal_extract_shared_residues.cpp": "3053597083ED35185950C52015B6931EB0CFCD6939854A0027EDADEB34BAB90F",
+    "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\decimal_extract_weighted_words.hpp": "33C1D6FC48B82C05B8A3303F46396859E29701C66AD00E2173A9046C63F35C1C",
+    "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\weighted_machin_parallel_checks.cpp": "A245F6F92607BED1FF4DE5C728E0B62FB5A6E9D87D46282C60039B1F69DBD3B6",
+    "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\machin_lucas_checks.cpp": "7D821239AC2E77AAB94757D38E6960BEF34EABB7D83046288FB99D338D983D69",
+    "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\machin_lucas_adic_checks.cpp": "B53D41385260A3B4D33D7EE77738A7FF0F7E857E49C291AD2826D2ABC62DB8F6",
+    "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\mpfr_window_interval.cpp": "6BAB1B2677888DD70F12A0CA3F0B653326BAB2B3B8C0B6EFD64A274CC3C36142",
+    "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\benchmark_weighted_optimization.py": "9BC1B18D4490DFF26CADB03F85CA17C27B9FA2E3273B4734A8DD0DA47E6F5C4E",
+    "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\run_weighted_machin_parallel.ps1": "A1C05572F9E6520FE4586F2B526B332C3A5FF44863F18B53DFDF39475A572594"
+  },
+  "builds": [
+    {
+      "name": "weighted_serial",
+      "source": "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\decimal_extract_weighted_machin_pre_reconstruction_2026-10-24.cpp",
+      "command": [
+        "C:\\msys64\\ucrt64\\bin\\g++.exe",
+        "-O3",
+        "-march=native",
+        "-std=c++17",
+        "-pthread",
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\decimal_extract_weighted_machin_pre_reconstruction_2026-10-24.cpp",
+        "-lgmpxx",
+        "-lgmp",
+        "-o",
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\tmp\\weighted_machin_parallel\\7e22d44468384bfca57a07da413c943a\\weighted_serial.exe"
+      ],
+      "executable": "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\tmp\\weighted_machin_parallel\\7e22d44468384bfca57a07da413c943a\\weighted_serial.exe",
+      "sha256": "AFC1DDD2CD4CD29D5431F4C3CBD92E3C77D4F9CAECB4DD2B39757694152E3603"
+    },
+    {
+      "name": "weighted_parallel",
+      "source": "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\decimal_extract_weighted_machin_parallel.cpp",
+      "command": [
+        "C:\\msys64\\ucrt64\\bin\\g++.exe",
+        "-O3",
+        "-march=native",
+        "-std=c++17",
+        "-pthread",
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\decimal_extract_weighted_machin_parallel.cpp",
+        "-lgmpxx",
+        "-lgmp",
+        "-o",
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\tmp\\weighted_machin_parallel\\7e22d44468384bfca57a07da413c943a\\weighted_parallel.exe"
+      ],
+      "executable": "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\tmp\\weighted_machin_parallel\\7e22d44468384bfca57a07da413c943a\\weighted_parallel.exe",
+      "sha256": "6E0146B39F91AC44F68917EDD84C96C19D78650214F3487676C432118B78824A"
+    },
+    {
+      "name": "machin_improved",
+      "source": "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\decimal_extract_machin_improved_2026-10-24.cpp",
+      "command": [
+        "C:\\msys64\\ucrt64\\bin\\g++.exe",
+        "-O3",
+        "-march=native",
+        "-std=c++17",
+        "-pthread",
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\decimal_extract_machin_improved_2026-10-24.cpp",
+        "-lgmpxx",
+        "-lgmp",
+        "-o",
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\tmp\\weighted_machin_parallel\\7e22d44468384bfca57a07da413c943a\\machin_improved.exe"
+      ],
+      "executable": "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\tmp\\weighted_machin_parallel\\7e22d44468384bfca57a07da413c943a\\machin_improved.exe",
+      "sha256": "0CB07A1F153257001BE6539E2A7B51A8999CB66A6B9A61323F6AFB8B869B6041"
+    },
+    {
+      "name": "lucas_direct_H",
+      "source": "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\decimal_extract_weighted_machin_lucas.cpp",
+      "command": [
+        "C:\\msys64\\ucrt64\\bin\\g++.exe",
+        "-O3",
+        "-march=native",
+        "-std=c++17",
+        "-pthread",
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\decimal_extract_weighted_machin_lucas.cpp",
+        "-lgmpxx",
+        "-lgmp",
+        "-o",
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\tmp\\weighted_machin_parallel\\7e22d44468384bfca57a07da413c943a\\lucas_direct_H.exe"
+      ],
+      "executable": "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\tmp\\weighted_machin_parallel\\7e22d44468384bfca57a07da413c943a\\lucas_direct_H.exe",
+      "sha256": "DAF237AA7A72E6E8E010236FF8981A5433C8534992F861E40AC27B3A47311821"
+    },
+    {
+      "name": "parallel_checks",
+      "source": "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\weighted_machin_parallel_checks.cpp",
+      "command": [
+        "C:\\msys64\\ucrt64\\bin\\g++.exe",
+        "-O3",
+        "-march=native",
+        "-std=c++17",
+        "-pthread",
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\weighted_machin_parallel_checks.cpp",
+        "-lgmpxx",
+        "-lgmp",
+        "-o",
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\tmp\\weighted_machin_parallel\\7e22d44468384bfca57a07da413c943a\\parallel_checks.exe"
+      ],
+      "executable": "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\tmp\\weighted_machin_parallel\\7e22d44468384bfca57a07da413c943a\\parallel_checks.exe",
+      "sha256": "9392582BB121C62951C1B3F98433689CD3C63AF7E860B006FBFDC184685E83C9"
+    },
+    {
+      "name": "lucas_checks",
+      "source": "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\machin_lucas_checks.cpp",
+      "command": [
+        "C:\\msys64\\ucrt64\\bin\\g++.exe",
+        "-O3",
+        "-march=native",
+        "-std=c++17",
+        "-pthread",
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\machin_lucas_checks.cpp",
+        "-lgmpxx",
+        "-lgmp",
+        "-o",
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\tmp\\weighted_machin_parallel\\7e22d44468384bfca57a07da413c943a\\lucas_checks.exe"
+      ],
+      "executable": "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\tmp\\weighted_machin_parallel\\7e22d44468384bfca57a07da413c943a\\lucas_checks.exe",
+      "sha256": "78F74F1FAACAE93390127C46B3C9A38F179FEF8CFDD0FD64B02A5276512D2A6A"
+    },
+    {
+      "name": "adic_checks",
+      "source": "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\machin_lucas_adic_checks.cpp",
+      "command": [
+        "C:\\msys64\\ucrt64\\bin\\g++.exe",
+        "-O3",
+        "-march=native",
+        "-std=c++17",
+        "-pthread",
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\machin_lucas_adic_checks.cpp",
+        "-lgmpxx",
+        "-lgmp",
+        "-o",
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\tmp\\weighted_machin_parallel\\7e22d44468384bfca57a07da413c943a\\adic_checks.exe"
+      ],
+      "executable": "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\tmp\\weighted_machin_parallel\\7e22d44468384bfca57a07da413c943a\\adic_checks.exe",
+      "sha256": "713833F3361CC753DEFEB5AD609865403E296FBB111A11B66CC39B6702DC95B5"
+    },
+    {
+      "name": "mpfr_window_interval",
+      "source": "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\mpfr_window_interval.cpp",
+      "command": [
+        "C:\\msys64\\ucrt64\\bin\\g++.exe",
+        "-O3",
+        "-march=native",
+        "-std=c++17",
+        "-pthread",
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\mpfr_window_interval.cpp",
+        "-lmpfr",
+        "-lgmpxx",
+        "-lgmp",
+        "-o",
+        "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\tmp\\weighted_machin_parallel\\7e22d44468384bfca57a07da413c943a\\mpfr_window_interval.exe"
+      ],
+      "executable": "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\tmp\\weighted_machin_parallel\\7e22d44468384bfca57a07da413c943a\\mpfr_window_interval.exe",
+      "sha256": "DA32B4FCC74C08972E2955CCD1FBABF518919ACBE87DB4282201881E256EF046"
+    }
+  ],
+  "exact_checks": [
+    {
+      "test": "weighted_serial selftest",
+      "result": {
+        "selftest": "PASS",
+        "residue_checks": 2445,
+        "prime_core_checks": 108
+      }
+    },
+    {
+      "test": "weighted_serial selftest",
+      "result": {
+        "weighted_selftest": "PASS",
+        "exact_blocks": 180,
+        "reference_core_cases": 216
+      }
+    },
+    {
+      "test": "weighted_serial selftest",
+      "result": {
+        "lcm_invariants": "PASS",
+        "denominators": 5489,
+        "exact_merges": 2489,
+        "zero_coefficients": 98
+      }
+    },
+    {
+      "test": "weighted_parallel selftest",
+      "result": {
+        "selftest": "PASS",
+        "residue_checks": 2445,
+        "prime_core_checks": 108
+      }
+    },
+    {
+      "test": "weighted_parallel selftest",
+      "result": {
+        "weighted_selftest": "PASS",
+        "exact_blocks": 180,
+        "reference_core_cases": 216
+      }
+    },
+    {
+      "test": "weighted_parallel selftest",
+      "result": {
+        "lcm_invariants": "PASS",
+        "denominators": 5489,
+        "exact_merges": 2489,
+        "zero_coefficients": 98
+      }
+    },
+    {
+      "test": "machin_improved selftest",
+      "result": {
+        "selftest": "PASS",
+        "residue_checks": 2445,
+        "prime_core_checks": 108
+      }
+    },
+    {
+      "test": "lucas_direct_H selftest",
+      "result": {
+        "selftest": "PASS",
+        "residue_checks": 2445,
+        "prime_core_checks": 108
+      }
+    },
+    {
+      "test": "lucas_direct_H selftest",
+      "result": {
+        "weighted_selftest": "PASS",
+        "exact_blocks": 180,
+        "reference_core_cases": 216
+      }
+    },
+    {
+      "test": "lucas_direct_H selftest",
+      "result": {
+        "lcm_invariants": "PASS",
+        "denominators": 6309,
+        "exact_merges": 2899,
+        "zero_coefficients": 84
+      }
+    },
+    {
+      "test": "weighted_serial core-check",
+      "result": {
+        "core_check": "PASS",
+        "K": 10000,
+        "cases": 18
+      }
+    },
+    {
+      "test": "weighted_parallel core-check",
+      "result": {
+        "core_check": "PASS",
+        "K": 10000,
+        "cases": 18
+      }
+    },
+    {
+      "test": "lucas_direct_H core-check",
+      "result": {
+        "core_check": "PASS",
+        "K": 10000,
+        "cases": 18
+      }
+    },
+    {
+      "test": "parallel_checks",
+      "result": {
+        "parallel_checks": "PASS",
+        "exact_attempts": 147,
+        "adaptive_certificates": 4,
+        "hardware_threads": 16
+      }
+    },
+    {
+      "test": "lucas_checks",
+      "result": {
+        "status": "PASS",
+        "exact_coefficient_cases": 12699,
+        "backwards_fixed_prime_row_cases": 2241,
+        "ordinary_query_cases": 3738,
+        "sparse_query_cases": 7266,
+        "shared_leaf_query_cases": 3084,
+        "exact_weighted_prefix_cases": 12288,
+        "exact_reconstructed_H_cases": 378,
+        "forced_recursive_H_cases": 252,
+        "direct_primary_H_cases": 126,
+        "recursive_levels": 99,
+        "ordinary_batches": 87,
+        "sparse_batches": 284,
+        "nonunit_divisions": 916,
+        "prime_bases": [
+          3,
+          5,
+          239
+        ],
+        "maximum_r": 257
+      }
+    },
+    {
+      "test": "adic_checks",
+      "result": {
+        "status": "PASS",
+        "exact_primary_component_cases": 594,
+        "integral_cases": 32,
+        "raw_denominator_cancellation_cases": 350,
+        "high_input_valuation_cases": 162,
+        "maximum_reduced_denominator_valuation": 2002,
+        "maximum_input_denominator_valuation": 6,
+        "fixed_prime": 13,
+        "machin_primes": [
+          5,
+          239
+        ],
+        "a": 2,
+        "maximum_r": 500
+      }
+    }
+  ],
+  "phase_timing_note": "Parallel phase fields sum overlapping worker elapsed times. Compare total or process wall time, not phase sums.",
+  "complexity_note": "Fixed-thread parallelism preserves the serial O(N log^(5/2) N) one-pass work and O(N) stored-data bounds; no lower exponent is claimed."
+}

@@ -1,0 +1,7 @@
+{
+  "selftest": "PASS",
+  "exact_weighted_blocks": 300,
+  "lcm_divisibility_cases": 1680,
+  "complete_V_positions": 44,
+  "independent_digit_positions": 44
+}

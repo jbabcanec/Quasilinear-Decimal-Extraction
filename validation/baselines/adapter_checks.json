@@ -1,0 +1,81 @@
+{
+  "verified": true,
+  "reference": "MPFR, explicit floor, two guard precisions",
+  "checks": [
+    {
+      "N": 100,
+      "engine": "bellard",
+      "digits": "982148086"
+    },
+    {
+      "N": 100,
+      "engine": "gourdon",
+      "digits": "982148086"
+    },
+    {
+      "N": 100,
+      "engine": "mpfr_prefix",
+      "digits": "982148086"
+    },
+    {
+      "N": 137,
+      "engine": "bellard",
+      "digits": "317253594"
+    },
+    {
+      "N": 137,
+      "engine": "gourdon",
+      "digits": "317253594"
+    },
+    {
+      "N": 137,
+      "engine": "mpfr_prefix",
+      "digits": "317253594"
+    },
+    {
+      "N": 1000,
+      "engine": "bellard",
+      "digits": "938095257"
+    },
+    {
+      "N": 1000,
+      "engine": "gourdon",
+      "digits": "938095257"
+    },
+    {
+      "N": 1000,
+      "engine": "mpfr_prefix",
+      "digits": "938095257"
+    },
+    {
+      "N": 2718,
+      "engine": "bellard",
+      "digits": "782105114"
+    },
+    {
+      "N": 2718,
+      "engine": "gourdon",
+      "digits": "782105114"
+    },
+    {
+      "N": 2718,
+      "engine": "mpfr_prefix",
+      "digits": "782105114"
+    },
+    {
+      "N": 9999,
+      "engine": "bellard",
+      "digits": "785667227"
+    },
+    {
+      "N": 9999,
+      "engine": "gourdon",
+      "digits": "785667227"
+    },
+    {
+      "N": 9999,
+      "engine": "mpfr_prefix",
+      "digits": "785667227"
+    }
+  ]
+}

@@ -1,0 +1,729 @@
+{
+  "status": "PASS",
+  "started_utc": "2026-10-25T03:36:47.602257+00:00",
+  "file_sha256_before": {
+    "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\tmp\\reconstruction_next\\weighted_parallel.exe": "93ce5dadd862ccbd3e9ce5412f10ebc47293d96de98aeb641f11f99bfbb65e47",
+    "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\tmp\\weighted_machin_lcm_final\\mpfr_window_interval.exe": "12f621424ec6cacd88ab76c4f3a851df292c6034f5dadb0f58dba1aaeb158431",
+    "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\tmp\\weighted_machin_arithmetic_checks_final.exe": "a759ffa4a4e1c6682ed9f4a57bff3d3e6d1a0ed94de05c9406ad296b043ffd2a",
+    "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\tmp\\weighted_machin_position_core_checks.exe": "a9213dd060dcc493005bb583dc27e5944e3c7335ecf23ab644a29464f9bfb5d5",
+    "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\decimal_extract_weighted_machin.cpp": "7f84ecc227eff3cc012c0300fd06045591cb4c097986ad0b4bd071d52902c5b2",
+    "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\validate_weighted_machin.py": "973ee18a368c293d7ce391f6f872dfa45bdbb3c3ce0035a02b3bbd61e649b21f",
+    "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\weighted_machin_arithmetic_checks.cpp": "9a77892d44df3b958885a3dffa2a449ec896750dab7f3881b507cb52865e10f0",
+    "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\weighted_machin_position_core_checks.cpp": "5d21d6ddc76ef9eb63166a588166a799459cffb904e10f1b0fb14c3902cce51d"
+  },
+  "native_checks": [
+    {
+      "executable": "tmp\\reconstruction_next\\weighted_parallel.exe",
+      "results": [
+        {
+          "selftest": "PASS",
+          "residue_checks": 2445,
+          "prime_core_checks": 108
+        },
+        {
+          "weighted_selftest": "PASS",
+          "exact_blocks": 180,
+          "reference_core_cases": 216
+        },
+        {
+          "lcm_invariants": "PASS",
+          "denominators": 5489,
+          "exact_merges": 2489,
+          "zero_coefficients": 98
+        }
+      ]
+    },
+    {
+      "executable": "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\tmp\\weighted_machin_arithmetic_checks_final.exe",
+      "results": [
+        {
+          "status": "PASS",
+          "prime_power_inverse_cases": 612,
+          "exact_signed_block_cases": 72,
+          "signed_scale_cases": 540,
+          "prime_bases": [
+            3,
+            5,
+            239
+          ],
+          "maximum_inverse_exponent": 1025,
+          "maximum_denominator": 4294967295
+        }
+      ]
+    },
+    {
+      "executable": "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\tmp\\weighted_machin_position_core_checks.exe",
+      "results": [
+        {
+          "status": "PASS",
+          "complete_position_cores": 14,
+          "maximum_position": 1000000,
+          "largest_modulus_bits": 3322133
+        }
+      ]
+    }
+  ],
+  "windows": [
+    {
+      "N": 1,
+      "digits": "141592653589",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 2,
+      "digits": "415926535897",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 3,
+      "digits": "159265358979",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 4,
+      "digits": "592653589793",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 5,
+      "digits": "926535897932",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 6,
+      "digits": "265358979323",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 7,
+      "digits": "653589793238",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 8,
+      "digits": "535897932384",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 9,
+      "digits": "358979323846",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 10,
+      "digits": "589793238462",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 11,
+      "digits": "897932384626",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 12,
+      "digits": "979323846264",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 13,
+      "digits": "793238462643",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 14,
+      "digits": "932384626433",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 15,
+      "digits": "323846264338",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 16,
+      "digits": "238462643383",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 17,
+      "digits": "384626433832",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 18,
+      "digits": "846264338327",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 19,
+      "digits": "462643383279",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 20,
+      "digits": "626433832795",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 21,
+      "digits": "264338327950",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 22,
+      "digits": "643383279502",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 23,
+      "digits": "433832795028",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 24,
+      "digits": "338327950288",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 25,
+      "digits": "383279502884",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 26,
+      "digits": "832795028841",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 27,
+      "digits": "327950288419",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 28,
+      "digits": "279502884197",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 29,
+      "digits": "795028841971",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 30,
+      "digits": "950288419716",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 31,
+      "digits": "502884197169",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 32,
+      "digits": "028841971693",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 33,
+      "digits": "288419716939",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 34,
+      "digits": "884197169399",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 35,
+      "digits": "841971693993",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 36,
+      "digits": "419716939937",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 37,
+      "digits": "197169399375",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 38,
+      "digits": "971693993751",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 39,
+      "digits": "716939937510",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 40,
+      "digits": "169399375105",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 100,
+      "digits": "982148086513",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 997,
+      "digits": "198938095257",
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 10000,
+      "digits": "856672279661",
+      "MPFR_interval_match": true
+    }
+  ],
+  "guard_retries": [
+    {
+      "initial_guard": 1,
+      "stats": {
+        "engine": "weighted-machin-parallel",
+        "N": 997,
+        "certified": true,
+        "hardware_threads": 16,
+        "terms": 6498,
+        "core_terms": 3026,
+        "passes": 7,
+        "guard": 64,
+        "word_errors": 6449,
+        "core_errors": 14,
+        "pre": 0.0001276,
+        "word": 0.001591,
+        "core": 0.0028409,
+        "core5": 0.0012519,
+        "core239": 0.001589,
+        "total": 0.0048722,
+        "block_length": 0,
+        "threads": 8,
+        "worker_jobs": 234,
+        "parallel_wall": 0.0046677,
+        "factor": 0.0003408,
+        "coefficients": 0.0002999,
+        "real": 0.000998,
+        "rational": 0.000104,
+        "assembly": 0.0009354,
+        "blocks": 112,
+        "real_terms": 1907,
+        "forests": 14,
+        "maximum_pending_bits": 213931
+      }
+    },
+    {
+      "initial_guard": 8,
+      "stats": {
+        "engine": "weighted-machin-parallel",
+        "N": 997,
+        "certified": true,
+        "hardware_threads": 16,
+        "terms": 3726,
+        "core_terms": 1742,
+        "passes": 4,
+        "guard": 64,
+        "word_errors": 3698,
+        "core_errors": 8,
+        "pre": 0.0001008,
+        "word": 0.0008364,
+        "core": 0.0015164,
+        "core5": 0.0006787,
+        "core239": 0.0008377,
+        "total": 0.0032399,
+        "block_length": 0,
+        "threads": 8,
+        "worker_jobs": 135,
+        "parallel_wall": 0.0030976,
+        "factor": 0.0002201,
+        "coefficients": 0.0001635,
+        "real": 0.0005089,
+        "rational": 5.55e-05,
+        "assembly": 0.000462,
+        "blocks": 64,
+        "real_terms": 1097,
+        "forests": 8,
+        "maximum_pending_bits": 122407
+      }
+    },
+    {
+      "initial_guard": 16,
+      "stats": {
+        "engine": "weighted-machin-parallel",
+        "N": 997,
+        "certified": true,
+        "hardware_threads": 16,
+        "terms": 2801,
+        "core_terms": 1313,
+        "passes": 3,
+        "guard": 64,
+        "word_errors": 2780,
+        "core_errors": 6,
+        "pre": 9.59e-05,
+        "word": 0.0005872,
+        "core": 0.0010494,
+        "core5": 0.0004581,
+        "core239": 0.0005913,
+        "total": 0.0024275,
+        "block_length": 0,
+        "threads": 8,
+        "worker_jobs": 102,
+        "parallel_wall": 0.0023017,
+        "factor": 0.000155,
+        "coefficients": 0.0001203,
+        "real": 0.0003574,
+        "rational": 3.54e-05,
+        "assembly": 0.0003103,
+        "blocks": 48,
+        "real_terms": 826,
+        "forests": 6,
+        "maximum_pending_bits": 91899
+      }
+    }
+  ],
+  "block_overrides": [
+    {
+      "N": 997,
+      "block": 1,
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 997,
+      "block": 7,
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 997,
+      "block": 128,
+      "MPFR_interval_match": true
+    },
+    {
+      "N": 997,
+      "block": 1024,
+      "MPFR_interval_match": true
+    }
+  ],
+  "rejected_arguments": [
+    {
+      "arguments": [
+        "0"
+      ],
+      "stderr": "error: position outside 1..500000000"
+    },
+    {
+      "arguments": [
+        "-1"
+      ],
+      "stderr": "error: position outside 1..500000000"
+    },
+    {
+      "arguments": [
+        "10",
+        "--guard=0"
+      ],
+      "stderr": "error: guard outside 1..100000000"
+    },
+    {
+      "arguments": [
+        "10",
+        "--block=0"
+      ],
+      "stderr": "error: block outside 1..500000000"
+    },
+    {
+      "arguments": [
+        "10",
+        "--block=-1"
+      ],
+      "stderr": "error: block outside 1..500000000"
+    },
+    {
+      "arguments": [
+        "10",
+        "--euler"
+      ],
+      "stderr": "error: unknown option"
+    },
+    {
+      "arguments": [
+        "--core-check",
+        "500000001"
+      ],
+      "stderr": "error: core K outside 0..500000000"
+    }
+  ],
+  "file_sha256_after": {
+    "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\tmp\\reconstruction_next\\weighted_parallel.exe": "93ce5dadd862ccbd3e9ce5412f10ebc47293d96de98aeb641f11f99bfbb65e47",
+    "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\tmp\\weighted_machin_lcm_final\\mpfr_window_interval.exe": "12f621424ec6cacd88ab76c4f3a851df292c6034f5dadb0f58dba1aaeb158431",
+    "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\tmp\\weighted_machin_arithmetic_checks_final.exe": "a759ffa4a4e1c6682ed9f4a57bff3d3e6d1a0ed94de05c9406ad296b043ffd2a",
+    "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\tmp\\weighted_machin_position_core_checks.exe": "a9213dd060dcc493005bb583dc27e5944e3c7335ecf23ab644a29464f9bfb5d5",
+    "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\decimal_extract_weighted_machin.cpp": "7f84ecc227eff3cc012c0300fd06045591cb4c097986ad0b4bd071d52902c5b2",
+    "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\validate_weighted_machin.py": "973ee18a368c293d7ce391f6f872dfa45bdbb3c3ce0035a02b3bbd61e649b21f",
+    "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\weighted_machin_arithmetic_checks.cpp": "9a77892d44df3b958885a3dffa2a449ec896750dab7f3881b507cb52865e10f0",
+    "C:\\Users\\josep\\Dropbox\\Babcanec Works\\Mathematics\\BBP Algos\\validation\\weighted_machin_position_core_checks.cpp": "5d21d6ddc76ef9eb63166a588166a799459cffb904e10f1b0fb14c3902cce51d"
+  },
+  "references": {
+    "1": {
+      "N": 1,
+      "digits": "141592653589",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "2": {
+      "N": 2,
+      "digits": "415926535897",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "3": {
+      "N": 3,
+      "digits": "159265358979",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "4": {
+      "N": 4,
+      "digits": "592653589793",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "5": {
+      "N": 5,
+      "digits": "926535897932",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "6": {
+      "N": 6,
+      "digits": "265358979323",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "7": {
+      "N": 7,
+      "digits": "653589793238",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "8": {
+      "N": 8,
+      "digits": "535897932384",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "9": {
+      "N": 9,
+      "digits": "358979323846",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "10": {
+      "N": 10,
+      "digits": "589793238462",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "11": {
+      "N": 11,
+      "digits": "897932384626",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "12": {
+      "N": 12,
+      "digits": "979323846264",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "13": {
+      "N": 13,
+      "digits": "793238462643",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "14": {
+      "N": 14,
+      "digits": "932384626433",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "15": {
+      "N": 15,
+      "digits": "323846264338",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "16": {
+      "N": 16,
+      "digits": "238462643383",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "17": {
+      "N": 17,
+      "digits": "384626433832",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "18": {
+      "N": 18,
+      "digits": "846264338327",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "19": {
+      "N": 19,
+      "digits": "462643383279",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "20": {
+      "N": 20,
+      "digits": "626433832795",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "21": {
+      "N": 21,
+      "digits": "264338327950",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "22": {
+      "N": 22,
+      "digits": "643383279502",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "23": {
+      "N": 23,
+      "digits": "433832795028",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "24": {
+      "N": 24,
+      "digits": "338327950288",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "25": {
+      "N": 25,
+      "digits": "383279502884",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "26": {
+      "N": 26,
+      "digits": "832795028841",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "27": {
+      "N": 27,
+      "digits": "327950288419",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "28": {
+      "N": 28,
+      "digits": "279502884197",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "29": {
+      "N": 29,
+      "digits": "795028841971",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "30": {
+      "N": 30,
+      "digits": "950288419716",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "31": {
+      "N": 31,
+      "digits": "502884197169",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "32": {
+      "N": 32,
+      "digits": "028841971693",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "33": {
+      "N": 33,
+      "digits": "288419716939",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "34": {
+      "N": 34,
+      "digits": "884197169399",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "35": {
+      "N": 35,
+      "digits": "841971693993",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "36": {
+      "N": 36,
+      "digits": "419716939937",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "37": {
+      "N": 37,
+      "digits": "197169399375",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "38": {
+      "N": 38,
+      "digits": "971693993751",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "39": {
+      "N": 39,
+      "digits": "716939937510",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "40": {
+      "N": 40,
+      "digits": "169399375105",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "100": {
+      "N": 100,
+      "digits": "982148086513",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "997": {
+      "N": 997,
+      "digits": "198938095257",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    },
+    "10000": {
+      "N": 10000,
+      "digits": "856672279661",
+      "guard_bits": 128,
+      "method": "MPFR directed-rounding enclosure"
+    }
+  },
+  "completed_utc": "2026-10-25T03:36:55.482618+00:00"
+}
