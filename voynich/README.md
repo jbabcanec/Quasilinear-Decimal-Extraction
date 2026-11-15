@@ -295,11 +295,33 @@ For every paragraph, with its first line set aside (paragraph openings follow th
 
 What it means: the word that opens each line was chosen with the line above in view. A scribe copying a fixed text has no control over which word falls at the start of a line, and the real manuscripts show none. It is also the opposite of copying from the line above, and neither published model of the text produces it.
 
-It does not say why. Varying the openings for the look of the page, a marker system that takes turns, and two alternating kinds of line would all leave this trace.
+**Only the opening word takes turns; the rest of the line does not.** Whether a line opens with a `q` word is negatively correlated with the line below (r = −0.16, z −9.4) and positively with the line two below (+0.15). The share of `q` words, `ch`/`sh` words or `o` words in the rest of the line is positively correlated with the line below, slightly more than in shuffled order (z about +3.5), which is ordinary drift. The number of words, mean word length and the final `m` show no alternation either. So lines do not come in two alternating kinds: one word, the first, is varied against the line above.
+
+It does not say why. Varying the openings for the look of the page and a marker system that takes turns would both leave this trace.
 
 Limits: two web searches found no description of this rule, but a 2026 voynich.ninja thread on line-first glyphs could not be read from this environment, so treat novelty as "not found". This is a rule about how lines begin, not a reading of any word.
 
 Reproduce with `python3 src/exp13_line_starts.py`.
+
+## 13. A first decipherment attack (negative, standard method)
+
+Hypothesis: each Voynich word stands for one letter of a hidden Latin or Italian text, many words per letter. Engine: a hidden Markov model over letters with the language's letter statistics fixed, the word-to-letter table learned by expectation-maximisation (Knight et al. 2006), each line a separate sequence. Score: bits per word by which the true word order is explained better than the same lines shuffled.
+
+| | Gain (bits per word) | Mapping recovered |
+|---|---|---|
+| Control: Latin letters written as invented words (30 per letter) | +0.31 | 69% |
+| Control: Italian letters as invented words, read as Latin | +0.28 | 47% |
+| Control: ordinary Latin words | +0.05 | |
+| Naibbe cipher of Latin | +0.06 | |
+| Timm–Schinner generator | +0.02 | |
+| Voynich as transliterated, read as Latin / Italian | +0.03 / +0.05 | |
+| Voynich with line-start prefixes and paragraph gallows stripped | +0.03 / +0.04 | |
+
+The Voynich behaves like the texts that are not letter ciphers, and stripping the layout material changes nothing. So it is not a one-word-per-letter cipher of Latin or Italian read in word order. The engine does not break the Naibbe cipher either (one Naibbe word can carry two letters), so that proposal is not tested by this.
+
+This is a standard method giving an expected negative; it is recorded for completeness, not as a finding.
+
+Reproduce with `python3 src/exp14_decode.py`.
 
 ## What this means
 

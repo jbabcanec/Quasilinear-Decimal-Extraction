@@ -1,0 +1,67 @@
+{
+ "Control: Latin letters as invented words | read as Latin": {
+  "words": 34000,
+  "bits_true": -7.695215939751817,
+  "bits_shuffled": -8.008167547162909,
+  "gain": 0.31295160741109207,
+  "accuracy": 0.6931470588235294,
+  "sample": "pamiverae erboresqu aoquamiti orabusnuc isfarupta temprimee"
+ },
+ "Control: Italian letters as invented words | read as Latin": {
+  "words": 34000,
+  "bits_true": -7.655764153878428,
+  "bits_shuffled": -7.934400526358135,
+  "gain": 0.2786363724797072,
+  "accuracy": 0.47373529411764703,
+  "sample": "thapriiam tmutommer paveecuti ltumpatir adacaleoi lrericuli"
+ },
+ "Control: Latin words (not a letter cipher) | read as Latin": {
+  "words": 34000,
+  "bits_true": -5.377869331834502,
+  "bits_shuffled": -5.423137388301017,
+  "gain": 0.045268056466515105,
+  "sample": "?lq?????? m?????x?? i?????m?? ?s???i?em e??i????? ?u??r???i"
+ },
+ "Naibbe cipher of Latin | read as Latin": {
+  "words": 34000,
+  "bits_true": -6.50300146369036,
+  "bits_shuffled": -6.559311941579103,
+  "gain": 0.05631047788874266,
+  "sample": "t??opcmui nti?r?lir ututaeici m??iq??ri cumnuunip mlu?i??ur"
+ },
+ "Timm-Schinner generator | read as Latin": {
+  "words": 37502,
+  "bits_true": -6.521805276261394,
+  "bits_shuffled": -6.538685374869138,
+  "gain": 0.016880098607743754,
+  "sample": "?iquer?its ?pihissiul? sp?eiiees t?qu?rars ?munic ?"
+ },
+ "Voynich as transliterated | read as Latin": {
+  "words": 33528,
+  "bits_true": -6.989664830662989,
+  "bits_shuffled": -7.0174933968768425,
+  "gain": 0.0278285662138531,
+  "sample": "ei?????b?i ?auu??ee? anum?inai? ?iualu? ?le?i?e?? aliiinalnb??"
+ },
+ "Voynich with layout stripped | read as Latin": {
+  "words": 33528,
+  "bits_true": -7.068703801559188,
+  "bits_shuffled": -7.098552776262426,
+  "gain": 0.029848974703237552,
+  "sample": "iq?????p?i aroa??ss? spii?iinn? etittv? ?ts?a?t?? ntattitttu??"
+ },
+ "Voynich as transliterated | read as Italian": {
+  "words": 33528,
+  "bits_true": -6.955808829671488,
+  "bits_shuffled": -7.005325919916361,
+  "gain": 0.04951709024487272,
+  "sample": "po?????e?s ?ula??dd? oqnb?epbt? ?entrb? ?rd?o?o?? vroeentrer??"
+ },
+ "Voynich with layout stripped | read as Italian": {
+  "words": 33528,
+  "bits_true": -7.048487603923578,
+  "bits_shuffled": -7.090123207340615,
+  "gain": 0.04163560341703665,
+  "sample": "ga?????t?e srci??uu? mgtt?oaoi? emimbe? ?bu?b?n?? ibbmmbmbvt??"
+ }
+}
