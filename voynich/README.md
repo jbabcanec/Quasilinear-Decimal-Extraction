@@ -103,16 +103,16 @@ Reading the manuscript's upper limit off the calibration gives at most 0.7% of w
 
 ## 4. Control: real manuscripts
 
-Six manuscripts from `Gallicorpora/HTR-MSS-15e-Siecle` (15th-century French, line-level ground truth, commit `707a106`), main text zones only. Each word gets a synthetic box whose width is proportional to its character count, and the result goes through the same code as the Voynich pages, including the simulated wrapper and fitter on each manuscript's own words.
+Six manuscripts from `Gallicorpora/HTR-MSS-15e-Siecle` (15th-century French, line-level ground truth, commit `707a106`), main text zones only: 50 pages, 1,940 line breaks. (The dataset ships each page twice, raw and character-normalised; an earlier version of this report read both. All figures here use one copy.) Each word gets a synthetic box whose width is proportional to its character count, and the result goes through the same code as the Voynich pages, including the simulated wrapper and fitter on each manuscript's own words.
 
 | Manuscript (Gallica id) | Line breaks | Median blank | Coupling (95%) | Its own wrapper | Its own fitter | Last word vs mid-line length |
 |---|---|---|---|---|---|---|
-| btv1b100737746 | 462 | 0.27 | −0.08 (−0.23 to 0.12) | 0.37 | 0.12 | +13% |
-| btv1b55008562q | 1,046 | 0.28 | 0.07 (0.03 to 0.10) | 0.18 | 0.08 | +15% |
-| btv1b90069505 | 1,124 | 0.31 | −0.19 (−0.30 to −0.09) | 0.39 | 0.17 | +14% |
-| btv1b9009670t | 438 | 0.56 | 0.29 (0.10 to 0.55) | 0.45 | 0.11 | +26% |
-| btv1b90595325 | 394 | 0.37 | −0.44 (−0.75 to −0.15) | 0.42 | 0.19 | +21% |
-| btv1b90616967 | 416 | 0.33 | 0.09 (−0.03 to 0.18) | 0.51 | 0.23 | +18% |
+| btv1b100737746 | 231 | 0.27 | −0.08 (−0.30 to 0.14) | 0.38 | 0.12 | +13% |
+| btv1b55008562q | 523 | 0.28 | 0.07 (0.01 to 0.12) | 0.18 | 0.08 | +15% |
+| btv1b90069505 | 562 | 0.31 | −0.19 (−0.36 to −0.05) | 0.39 | 0.17 | +14% |
+| btv1b9009670t | 219 | 0.56 | 0.29 (0.01 to 0.66) | 0.45 | 0.11 | +26% |
+| btv1b90595325 | 197 | 0.37 | −0.44 (−0.93 to −0.03) | 0.42 | 0.19 | +21% |
+| btv1b90616967 | 208 | 0.33 | 0.09 (−0.10 to 0.22) | 0.52 | 0.23 | +17% |
 | **Voynich** | 3,183 | 0.13 | 0.05 (−0.03 to 0.14) | 0.48 | 0.01 | −9% |
 
 Real scribes copying real text do not break the line at the first word that fails to fit. Their line ends carry little or no trace of the next word, as in the Voynich. The coupling test separates mechanical wrapping from scribal line-filling. It does not separate a copied text from one composed on the page.
@@ -127,11 +127,11 @@ Inside a line, how one word ends predicts how the next begins. The *link* is the
 
 - **The link fades with the physical gap.** It is 0.37 bits for the most tightly spaced fifth of word pairs and 0.04 for the most widely spaced fifth. Many spaces in the transliteration are therefore not word breaks; Rozanova & Temerev (2026) reached this from the same boxes.
 - **It is zero at every physical break.** Across a drawing that interrupts a line: 0.00 (575 pairs). Across a line break: 0.00 (3,246 pairs).
-- **Real manuscripts carry on across the line break.** In the six French manuscripts the link is 0.08 to 0.15 bits inside a line and 0.19 to 0.37 across the line break. It rises because scribes split words between lines.
+- **Real manuscripts carry on across the line break.** In the six French manuscripts the link is 0.05 to 0.11 bits inside a line and 0.04 to 0.13 across the line break (pooled 0.06 and 0.07): the same on both sides.
 - **The break is not hiding a continuous text.** 53% of line-start words begin with `y`, `d` or `s`, and for three quarters of those the rest is a known word, so a line-start prefix is real. Removing it does not bring the link back, nor does using the second glyph, nor keeping only line starts without a prefix and line ends without `m`: every variant gives at most 0.01 bits, against 0.03 to 0.05 for widely spaced words inside a line.
 - **Neither published model has a link at all.** Timm–Schinner generator output: 0.00 inside a line. Naibbe cipher of Latin: 0.00.
 
-So the Voynich scribes never split a word across a line or a drawing, and nothing about the end of one stretch of writing predicts the start of the next. Real scribes of the period did both. Together with the short last words (section 4), this is how Voynich lines differ from real ones: they are filled without carrying anything over.
+So in the Voynich nothing about the end of one stretch of writing predicts the start of the next, at a line break or at a drawing. In real manuscripts the text runs on across the line break as if the break were not there. Together with the short last words (section 4), this is how Voynich lines differ from real ones: they are filled without carrying anything over.
 
 What this cannot tell apart: a text composed one line at a time, and a text whose scribes kept a strict rule of ending every line on a whole word and shortening it to fit.
 
@@ -143,12 +143,12 @@ Corpora of the same size (about 34,000 words), neighbouring words inside a line 
 
 | | Word-order strength | Repeated word triples, vs shuffled lines |
 |---|---|---|
-| Six real French manuscripts | 0.85 | ×23.5 |
-| Latin (Pliny) | 0.77 | ×13.4 |
+| Six real French manuscripts (17,000 words) | 0.85 | ×11.7 |
+| Latin (Pliny) | 0.77 | ×12.5 |
 | **Voynich** | 0.24 | ×2.7 |
 | Voynich, neighbours written far apart | 0.11 | |
 | Voynich, neighbours written close together | 0.45 | |
-| Naibbe cipher of Latin | 0.14 | ×3.3 |
+| Naibbe cipher of Latin | 0.14 | ×3.4 |
 | Timm–Schinner generator | 0.34 | ×1.9 |
 
 *Word-order strength*: for two words found next to each other, how one-sided the order is, from 0 (a coin flip) to 1 (always the same way round), corrected for chance.
@@ -171,7 +171,7 @@ A small character-level transformer (0.4M parameters, CPU-trained) was trained p
 | Naibbe cipher of Latin | +0.001 (0.000 to +0.002) |
 | Timm–Schinner generator | +0.001 (−0.002 to +0.003) |
 
-The test did not work as a measurement. Plain Latin, which certainly runs on, shows no cost, and every model predicted better with no context at all than with the true context, so the models never learned to use the preceding lines. At 34,000 words per corpus and CPU-scale training this is expected. The Voynich's zero therefore says nothing. The French value is real but small, and probably comes from words split across lines.
+The test did not work as a measurement. Plain Latin, which certainly runs on, shows no cost, and every model predicted better with no context at all than with the true context, so the models never learned to use the preceding lines. At 34,000 words per corpus and CPU-scale training this is expected. The Voynich's zero therefore says nothing. The French model was trained before a page-duplication fault in that dataset was found, so held-out pages had copies in training; its value should be disregarded.
 
 A usable version needs either GPU-scale training or a pretrained model; neither was available here. Script: `src/exp6_llm_context.py <corpus>`.
 
@@ -282,7 +282,7 @@ For every paragraph, with its first line set aside (paragraph openings follow th
 | Voynich, Currier A / B | 6.8% / 11.6% | 15.0% / 16.9% | −8.9 / −7.4 |
 | Voynich, second word of the line | 21.8% | 21.8% | 0.0 |
 | Voynich, last glyph of the line | 24.9% | 24.8% | +0.2 |
-| Six real French manuscripts | 8.0% | 8.5% | −1.1 |
+| Six real French manuscripts | 8.0% | 8.5% | −0.9 |
 | Latin (Pliny), wrapped | 7.1% | 6.8% | +0.6 |
 | Naibbe cipher of Latin, wrapped | 13.7% | 14.0% | −0.6 |
 | Timm–Schinner generator | 12.9% | 13.5% | −1.2 |
@@ -349,7 +349,7 @@ When a text simply runs out, its last line is as likely to hold one word as eigh
 | Voynich, ZL3b word counts alone (498 paragraphs, short "title" lines included) | 2.2% | 7.2% | 66% |
 | Same paragraphs re-wrapped 10–30% narrower or wider | 10–17% | 22–33% | 34–44% |
 | Same paragraphs re-wrapped at the real width by a simulated copyist | 8.7% | 17% | 51% |
-| Six real French manuscripts, lines that stop early | 14.4% | 18% | 34% |
+| Six real French manuscripts, lines that stop early (125 lines) | 14.4% | 18% | 34% |
 | Voynich, lines that stop early (same definition) | 0.3% | 3.0% | 69% |
 
 - **The short last line is missing.** Two paragraphs in 482 end on a single word. Last lines cluster around 60% of a full line.
@@ -387,7 +387,7 @@ Reproduce with `python3 src/exp15_repeats.py`.
 
 ## Limits
 
-- The control uses synthetic word boxes (width from character count) and line ends from transcription baselines, so its blanks are noisier than the Voynich's. It covers one dataset, one language, six manuscripts, taken as prose from their transcriptions.
+- The control uses synthetic word boxes (width from character count) and line ends from transcription baselines, so its blanks are noisier than the Voynich's. It covers one dataset, one language, six manuscripts and only 50 pages, taken as prose from their transcriptions.
 - A line's available right edge is inferred from neighbouring lines of the same paragraph, not observed. The simulations are measured by the same estimator.
 - Herbal pages have irregular right edges where drawings intrude, so their intervals are wide.
 - Voynich boxes are quantised to 3 px and follow one transliteration.

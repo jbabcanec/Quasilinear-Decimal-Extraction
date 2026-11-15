@@ -226,7 +226,7 @@
   "mean": 0.6083443830515746
  },
  "french_lines_stopping_early": {
-  "n": 250,
+  "n": 125,
   "one_word": 0.144,
   "up_to_two": 0.232,
   "under_30": 0.176,
@@ -239,7 +239,7 @@
    0.408,
    0.0
   ],
-  "mean": 0.6116270339771915
+  "mean": 0.6116270339771916
  },
  "voynich_lines_stopping_early": {
   "n": 956,

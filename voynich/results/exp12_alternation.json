@@ -4,31 +4,31 @@
   "sd": 0.015543751931431034
  },
  "Six real French manuscripts": {
-  "alternation": 1.2724474909958308,
-  "sd": 0.038102886274354104
+  "alternation": 1.231190636504342,
+  "sd": 0.02261846505990172
  },
  "Latin (Pliny), words": {
-  "alternation": 1.1302109148518826,
-  "sd": 0.04213100866641505
+  "alternation": 1.1171334395986823,
+  "sd": 0.022033558123958782
  },
  "Naibbe cipher of Latin": {
-  "alternation": 1.377950549496734,
-  "sd": 0.00930446732400275
+  "alternation": 1.3744620726028438,
+  "sd": 0.007892033053218924
  },
  "Timm-Schinner generator": {
-  "alternation": 1.0498234318698478,
-  "sd": 0.008251548420341247
+  "alternation": 1.0510578431688828,
+  "sd": 0.02410476949990956
  },
  "Latin, letter by letter": {
-  "alternation": 1.5415497171607628,
-  "sd": 0.004373375851809222
+  "alternation": 1.5401285603551567,
+  "sd": 0.004159971541488492
  },
  "Latin, two letters at a time": {
-  "alternation": 1.132701005553639,
-  "sd": 0.02717850392085854
+  "alternation": 1.1356857554218833,
+  "sd": 0.01994225952077923
  },
  "Voynich, words shuffled within lines": {
-  "alternation": 1.0076725315688844,
-  "sd": 0.009699305411602464
+  "alternation": 1.0181682631777984,
+  "sd": 0.018668560935609008
  }
 }

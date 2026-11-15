@@ -99,48 +99,48 @@
   ]
  },
  "Six real French manuscripts": {
-  "pairs": 29738,
-  "identical": 0.00020176205528280315,
-  "identical_shuffled": 0.00857937095074764,
-  "near": 0.014325105925079023,
-  "near_shuffled": 0.02122873091667227,
-  "ratio_identical": 0.023517115233864648,
-  "ratio_near": 0.6747980357991447,
-  "z_identical": -18.036941106163834,
-  "z_near": -10.778771772549945,
+  "pairs": 14868,
+  "identical": 0.00013451708366962604,
+  "identical_shuffled": 0.008698771410635818,
+  "near": 0.014326069410815174,
+  "near_shuffled": 0.021368038740920095,
+  "ratio_identical": 0.015463917525773195,
+  "ratio_near": 0.6704438149197356,
+  "z_identical": -10.746715201110119,
+  "z_near": -7.804383097513488,
   "by_distance": [
    {
-    "identical": 0.00020176205528280315,
-    "near": 0.014325105925079023
+    "identical": 0.00013451708366962604,
+    "near": 0.014326069410815174
    },
    {
-    "identical": 0.007767593599502874,
-    "near": 0.02807985086220289
+    "identical": 0.0077681970014759575,
+    "near": 0.028120873145342964
    },
    {
-    "identical": 0.012853470437017995,
-    "near": 0.023687109805361733
+    "identical": 0.012854650628959692,
+    "near": 0.02368928473051143
    },
    {
-    "identical": 0.013885778275475923,
-    "near": 0.020828667413213885
+    "identical": 0.013887333407996416,
+    "near": 0.02094299473625266
    },
    {
-    "identical": 0.011830102622576968,
-    "near": 0.024800456100342077
+    "identical": 0.011831789023521026,
+    "near": 0.0248039914468995
    }
   ]
  },
  "Latin: Psalms": {
   "pairs": 27037,
   "identical": 0.0023301401782742166,
-  "identical_shuffled": 0.013081456275967502,
+  "identical_shuffled": 0.013112894675198185,
   "near": 0.0055109664533787035,
-  "near_shuffled": 0.007803503840416219,
-  "ratio_identical": 0.17812544177936948,
-  "ratio_near": 0.7062169207678332,
-  "z_identical": -20.307997931261248,
-  "z_near": -4.979428801346511,
+  "near_shuffled": 0.007879942301290825,
+  "ratio_identical": 0.17769838285069572,
+  "ratio_near": 0.6993663459281858,
+  "z_identical": -18.35823752444088,
+  "z_near": -5.840108556769786,
   "by_distance": [
    {
     "identical": 0.0023301401782742166,
@@ -167,13 +167,13 @@
  "Latin: Leviticus": {
   "pairs": 12275,
   "identical": 8.146639511201629e-05,
-  "identical_shuffled": 0.005504412763068567,
+  "identical_shuffled": 0.0054378818737270875,
   "near": 0.003828920570264766,
-  "near_shuffled": 0.006587915818058384,
-  "ratio_identical": 0.01480019733596448,
-  "ratio_near": 0.5812036273701567,
-  "z_identical": -8.910296435726197,
-  "z_near": -4.238339886035413,
+  "near_shuffled": 0.006620502376103191,
+  "ratio_identical": 0.0149812734082397,
+  "ratio_near": 0.5783429040196882,
+  "z_identical": -10.630565906335587,
+  "z_near": -4.2504022206373735,
   "by_distance": [
    {
     "identical": 8.146639511201629e-05,
@@ -200,13 +200,13 @@
  "Latin: Numbers": {
   "pairs": 17211,
   "identical": 0.0,
-  "identical_shuffled": 0.007537814963298665,
+  "identical_shuffled": 0.007556214049154611,
   "near": 0.0025565045610365465,
-  "near_shuffled": 0.004776015339027367,
+  "near_shuffled": 0.004832180969534987,
   "ratio_identical": 0.0,
-  "ratio_near": 0.5352798053527981,
-  "z_identical": -10.469100833831522,
-  "z_near": -5.190677360647051,
+  "ratio_near": 0.5290581162324649,
+  "z_identical": -14.864313310180851,
+  "z_near": -6.369990720409594,
   "by_distance": [
    {
     "identical": 0.0,
@@ -233,13 +233,13 @@
  "Latin: Chronicles I": {
   "pairs": 12787,
   "identical": 0.0014858841010401188,
-  "identical_shuffled": 0.022487682802846642,
+  "identical_shuffled": 0.022525481608925733,
   "near": 0.0035191991866739655,
-  "near_shuffled": 0.005960480696540758,
-  "ratio_identical": 0.066075465136498,
-  "ratio_near": 0.5904220424229171,
-  "z_identical": -19.604409490582473,
-  "z_near": -4.146779902610018,
+  "near_shuffled": 0.005923985297567842,
+  "ratio_identical": 0.06596458743201018,
+  "ratio_near": 0.594059405940594,
+  "z_identical": -19.41417941262499,
+  "z_near": -4.217707551303212,
   "by_distance": [
    {
     "identical": 0.0014858841010401188,
@@ -266,13 +266,13 @@
  "Latin: Matthew": {
   "pairs": 14549,
   "identical": 0.002336930373221527,
-  "identical_shuffled": 0.010115242742914747,
+  "identical_shuffled": 0.010109514972392146,
   "near": 0.004123994776273283,
-  "near_shuffled": 0.008182692968588907,
-  "ratio_identical": 0.23103057757644396,
-  "ratio_near": 0.5039899202015959,
-  "z_identical": -10.143370812257015,
-  "z_near": -6.243610445841752,
+  "near_shuffled": 0.008050954246569066,
+  "ratio_identical": 0.23116147308781868,
+  "ratio_near": 0.5122367672168469,
+  "z_identical": -10.298345668869418,
+  "z_near": -5.697717662594826,
   "by_distance": [
    {
     "identical": 0.002336930373221527,
@@ -301,11 +301,11 @@
   "identical": 8.375910880308233e-05,
   "identical_shuffled": 0.006240053605829634,
   "near": 0.003517882569729458,
-  "near_shuffled": 0.005609068319513081,
+  "near_shuffled": 0.0055546248987910765,
   "ratio_identical": 0.013422818791946308,
-  "ratio_near": 0.627177700348432,
-  "z_identical": -10.811551701691165,
-  "z_near": -3.8297619068855604,
+  "ratio_near": 0.6333249560191003,
+  "z_identical": -11.78201365745309,
+  "z_near": -3.1020163281610316,
   "by_distance": [
    {
     "identical": 8.375910880308233e-05,
@@ -332,13 +332,13 @@
  "Latin: Apicius": {
   "pairs": 6873,
   "identical": 0.002036956205441583,
-  "identical_shuffled": 0.009450021824530773,
+  "identical_shuffled": 0.009292400213395412,
   "near": 0.003782918667248654,
-  "near_shuffled": 0.00647946069159513,
-  "ratio_identical": 0.21555042340261737,
-  "ratio_near": 0.5838323353293413,
-  "z_identical": -7.147460838278255,
-  "z_near": -3.1040630760508443,
+  "near_shuffled": 0.006421261942868228,
+  "ratio_identical": 0.21920668058455114,
+  "ratio_near": 0.5891238670694864,
+  "z_identical": -8.740620307921082,
+  "z_near": -3.1590555159546105,
   "by_distance": [
    {
     "identical": 0.002036956205441583,
@@ -365,13 +365,13 @@
  "Latin: Cato, On Farming": {
   "pairs": 13936,
   "identical": 0.0005022962112514351,
-  "identical_shuffled": 0.009354668962877918,
+  "identical_shuffled": 0.009314006888633755,
   "near": 0.007390929965556832,
-  "near_shuffled": 0.00867537313432836,
-  "ratio_identical": 0.05369470723600102,
-  "ratio_near": 0.8519437551695616,
-  "z_identical": -12.508876205148905,
-  "z_near": -1.7206501545770585,
+  "near_shuffled": 0.00854501530807501,
+  "ratio_identical": 0.05392912172573189,
+  "ratio_near": 0.8649405178446467,
+  "z_identical": -13.209138235401191,
+  "z_near": -1.616356454941623,
   "by_distance": [
    {
     "identical": 0.0005022962112514351,
@@ -398,13 +398,13 @@
  "Latin: Notitia Dignitatum": {
   "pairs": 8710,
   "identical": 0.0001148105625717566,
-  "identical_shuffled": 0.030897435897435897,
+  "identical_shuffled": 0.031165327210103327,
   "near": 0.0002296211251435132,
-  "near_shuffled": 0.001624569460390356,
-  "ratio_identical": 0.003715860531368056,
-  "ratio_near": 0.1413427561837456,
-  "z_identical": -18.39396206078463,
-  "z_near": -4.315271773886048,
+  "near_shuffled": 0.0015308075009567547,
+  "ratio_identical": 0.0036839196905507463,
+  "ratio_near": 0.15,
+  "z_identical": -17.84662609414718,
+  "z_near": -3.358280628608605,
   "by_distance": [
    {
     "identical": 0.0001148105625717566,
@@ -431,13 +431,13 @@
  "Latin: Hyginus": {
   "pairs": 31760,
   "identical": 0.0009760705289672544,
-  "identical_shuffled": 0.00448992443324937,
+  "identical_shuffled": 0.004426427371956339,
   "near": 0.005258186397984887,
-  "near_shuffled": 0.007097502099076406,
-  "ratio_identical": 0.2173913043478261,
-  "ratio_near": 0.7408502772643254,
-  "z_identical": -10.95874589525697,
-  "z_near": -4.8820370342124955,
+  "near_shuffled": 0.007099076406381193,
+  "ratio_identical": 0.22050978067575577,
+  "ratio_near": 0.7406859846244825,
+  "z_identical": -10.436836640242968,
+  "z_near": -4.825277537437941,
   "by_distance": [
    {
     "identical": 0.0009760705289672544,
@@ -464,13 +464,13 @@
  "Latin: Manilius": {
   "pairs": 24528,
   "identical": 0.0,
-  "identical_shuffled": 0.0026153783431180693,
+  "identical_shuffled": 0.002557621222004784,
   "near": 0.001304631441617743,
-  "near_shuffled": 0.0021703087627745164,
+  "near_shuffled": 0.002129539030223962,
   "ratio_identical": 0.0,
-  "ratio_near": 0.6011271133375078,
-  "z_identical": -9.2119571754031,
-  "z_near": -3.3567719815508883,
+  "ratio_near": 0.612635609444799,
+  "z_identical": -9.634700058894742,
+  "z_near": -3.220215794174938,
   "by_distance": [
    {
     "identical": 0.0,
@@ -497,13 +497,13 @@
  "Latin: Vergil": {
   "pairs": 53333,
   "identical": 0.00043125269532934583,
-  "identical_shuffled": 0.0022262639141494636,
+  "identical_shuffled": 0.00223001393758711,
   "near": 0.0006375039843999025,
-  "near_shuffled": 0.0014340714629466433,
-  "ratio_identical": 0.19371139809096014,
-  "ratio_near": 0.44454129439965134,
-  "z_identical": -9.279688899002155,
-  "z_near": -5.592023780195589,
+  "near_shuffled": 0.0014518840742754643,
+  "ratio_identical": 0.19338565022421525,
+  "ratio_near": 0.4390873869995695,
+  "z_identical": -9.356393912357806,
+  "z_near": -5.866572688803243,
   "by_distance": [
    {
     "identical": 0.00043125269532934583,
@@ -530,13 +530,13 @@
  "Latin: Caesar": {
   "pairs": 45779,
   "identical": 0.0,
-  "identical_shuffled": 0.0024829434165592667,
+  "identical_shuffled": 0.0024698369703721502,
   "near": 0.0021407195438956726,
-  "near_shuffled": 0.0033395953020671776,
+  "near_shuffled": 0.0033010040994051132,
   "ratio_identical": 0.0,
-  "ratio_near": 0.6410116646680476,
-  "z_identical": -11.486626346229022,
-  "z_near": -5.744829130890143,
+  "ratio_near": 0.6485055696481746,
+  "z_identical": -11.859414943732174,
+  "z_near": -5.378330383239909,
   "by_distance": [
    {
     "identical": 0.0,
@@ -563,13 +563,13 @@
  "Latin: Pliny, Natural History": {
   "pairs": 53329,
   "identical": 0.00013126066492902548,
-  "identical_shuffled": 0.00831473807246839,
+  "identical_shuffled": 0.008268171788957853,
   "near": 0.005156668979354573,
-  "near_shuffled": 0.006966816053804372,
-  "ratio_identical": 0.015786506295809057,
-  "ratio_near": 0.7401758478377893,
-  "z_identical": -23.420997578083472,
-  "z_near": -6.385860372450757,
+  "near_shuffled": 0.0070702619587841515,
+  "ratio_identical": 0.015875415784699122,
+  "ratio_near": 0.729346240551651,
+  "z_identical": -22.85562672543522,
+  "z_near": -6.3081119648640644,
   "by_distance": [
    {
     "identical": 0.00013126066492902548,
@@ -596,13 +596,13 @@
  "Latin: Gaius, Institutes": {
   "pairs": 38649,
   "identical": 2.5873890656938085e-05,
-  "identical_shuffled": 0.005854398992643191,
+  "identical_shuffled": 0.00592123987684028,
   "near": 0.004838417552847422,
   "near_shuffled": 0.006261912770489966,
-  "ratio_identical": 0.004419563936358279,
+  "ratio_identical": 0.004369674459252786,
   "ratio_near": 0.7726740582604503,
-  "z_identical": -18.51083118228963,
-  "z_near": -4.021607484953543,
+  "z_identical": -18.481430038428226,
+  "z_near": -3.7837719091715543,
   "by_distance": [
    {
     "identical": 2.5873890656938085e-05,
@@ -629,13 +629,13 @@
  "Latin: Vitruvius": {
   "pairs": 51609,
   "identical": 0.0010657055939855451,
-  "identical_shuffled": 0.005045954516977013,
+  "identical_shuffled": 0.005075665097172974,
   "near": 0.003797787207657579,
-  "near_shuffled": 0.0051408991971684526,
-  "ratio_identical": 0.21119999999999997,
-  "ratio_near": 0.7387398705948867,
-  "z_identical": -17.50888640361688,
-  "z_near": -4.298701695853757,
+  "near_shuffled": 0.005079540390242012,
+  "ratio_identical": 0.20996373353693454,
+  "ratio_near": 0.7476635514018692,
+  "z_identical": -17.472951127400616,
+  "z_near": -4.847389769732531,
   "by_distance": [
    {
     "identical": 0.0010657055939855451,
@@ -662,13 +662,13 @@
  "Latin: Isidore": {
   "pairs": 53333,
   "identical": 0.0005437533984587404,
-  "identical_shuffled": 0.006182226138913368,
+  "identical_shuffled": 0.006150350939693373,
   "near": 0.004012525078281739,
-  "near_shuffled": 0.006742542140888381,
-  "ratio_identical": 0.08795430420057626,
-  "ratio_near": 0.5951056729699666,
-  "z_identical": -22.28429413865453,
-  "z_near": -9.788064799923037,
+  "near_shuffled": 0.0068362927268295435,
+  "ratio_identical": 0.08841014176108938,
+  "ratio_near": 0.5869445968184311,
+  "z_identical": -19.981133973676222,
+  "z_near": -10.181875442092377,
   "by_distance": [
    {
     "identical": 0.0005437533984587404,
@@ -695,13 +695,13 @@
  "Latin: Frankish Annals": {
   "pairs": 19285,
   "identical": 0.0,
-  "identical_shuffled": 0.0045449831475239824,
+  "identical_shuffled": 0.0045501685247601766,
   "near": 0.003422348975887996,
-  "near_shuffled": 0.0037429781349926543,
+  "near_shuffled": 0.0037758188574885487,
   "ratio_identical": 0.0,
-  "ratio_near": 0.9143384899561302,
-  "z_identical": -11.12610409886268,
-  "z_near": -0.9302395194765161,
+  "ratio_near": 0.9063859006637675,
+  "z_identical": -11.175472883103362,
+  "z_near": -1.0656716410530882,
   "by_distance": [
    {
     "identical": 0.0,
@@ -728,13 +728,13 @@
  "Sanskrit: Rigveda hymns": {
   "pairs": 53333,
   "identical": 1.8750117188232427e-05,
-  "identical_shuffled": 0.0031222070137938364,
+  "identical_shuffled": 0.0031225195157469736,
   "near": 0.008381302383139895,
-  "near_shuffled": 0.013566959793498711,
-  "ratio_identical": 0.00600540486437794,
-  "ratio_near": 0.617773068595384,
-  "z_identical": -16.371235823963715,
-  "z_near": -12.513446345945605,
+  "near_shuffled": 0.013579459871624198,
+  "ratio_identical": 0.00600480384307446,
+  "ratio_near": 0.6172044000552308,
+  "z_identical": -14.898476758884549,
+  "z_near": -12.13403130300296,
   "by_distance": [
    {
     "identical": 1.8750117188232427e-05,
@@ -761,13 +761,13 @@
  "Sanskrit: Rigveda, word by word": {
   "pairs": 53333,
   "identical": 0.0002062512890705567,
-  "identical_shuffled": 0.006020037625235158,
+  "identical_shuffled": 0.006109413183832398,
   "near": 0.003600022500140626,
-  "near_shuffled": 0.0037937737110856945,
-  "ratio_identical": 0.03426079734219269,
-  "ratio_near": 0.9489291598023064,
-  "z_identical": -19.164681055461177,
-  "z_near": -0.8460035771677459,
+  "near_shuffled": 0.0037681485509284433,
+  "ratio_identical": 0.03375959079283888,
+  "ratio_near": 0.9553823187925029,
+  "z_identical": -20.911325220145294,
+  "z_near": -0.7147105521192169,
   "by_distance": [
    {
     "identical": 0.0002062512890705567,
@@ -794,13 +794,13 @@
  "Sanskrit: Samaveda": {
   "pairs": 20526,
   "identical": 0.0,
-  "identical_shuffled": 0.0026373055311962063,
+  "identical_shuffled": 0.0026892721426483484,
   "near": 0.011789924973204717,
-  "near_shuffled": 0.024378024619182176,
+  "near_shuffled": 0.024347981421936404,
   "ratio_identical": 0.0,
-  "ratio_near": 0.4836292175998401,
-  "z_identical": -7.962889354146205,
-  "z_near": -13.79142201788117,
+  "ratio_near": 0.4842259721203228,
+  "z_identical": -8.256912920609027,
+  "z_near": -13.04395944851801,
   "by_distance": [
    {
     "identical": 0.0,
@@ -827,13 +827,13 @@
  "Sanskrit: Atharvaveda (Paippalada)": {
   "pairs": 53333,
   "identical": 0.0008062550390939943,
-  "identical_shuffled": 0.010033187707423171,
+  "identical_shuffled": 0.010077875486721793,
   "near": 0.0035062719141994636,
-  "near_shuffled": 0.006628791429946438,
-  "ratio_identical": 0.08035881143711456,
-  "ratio_near": 0.528945879690741,
-  "z_identical": -27.002481115085057,
-  "z_near": -9.646765203539884,
+  "near_shuffled": 0.006635666472915455,
+  "ratio_identical": 0.08000248069707587,
+  "ratio_near": 0.5283978525007065,
+  "z_identical": -28.856048616789938,
+  "z_near": -10.933435102795379,
   "by_distance": [
    {
     "identical": 0.0008062550390939943,
@@ -860,13 +860,13 @@
  "Sanskrit: Mahamayuri": {
   "pairs": 8515,
   "identical": 0.07938931297709924,
-  "identical_shuffled": 0.08636523781561949,
+  "identical_shuffled": 0.08628302994715209,
   "near": 0.02160892542571932,
-  "near_shuffled": 0.016559013505578393,
-  "ratio_identical": 0.9192276312211042,
-  "ratio_near": 1.3049645390070923,
-  "z_identical": -3.5569925133462714,
-  "z_near": 5.9803029363763605,
+  "near_shuffled": 0.01673517322372284,
+  "ratio_identical": 0.9201034435824146,
+  "ratio_near": 1.2912280701754386,
+  "z_identical": -3.019295403826148,
+  "z_near": 4.954892756034799,
   "by_distance": [
    {
     "identical": 0.07938931297709924,
@@ -893,13 +893,13 @@
  "Sanskrit: Buddhist dharanis, pooled": {
   "pairs": 35294,
   "identical": 0.013571711905706352,
-  "identical_shuffled": 0.01959917644169925,
+  "identical_shuffled": 0.019799399331331104,
   "near": 0.006601688672295574,
-  "near_shuffled": 0.005829602765342551,
-  "ratio_identical": 0.6924633770239013,
-  "ratio_near": 1.1324422843256379,
-  "z_identical": -9.694812268717298,
-  "z_near": 2.632870723400502,
+  "near_shuffled": 0.005801741561360761,
+  "ratio_identical": 0.6854607899255868,
+  "ratio_near": 1.1378805144066417,
+  "z_identical": -11.466282902818481,
+  "z_near": 2.3272304765673253,
   "by_distance": [
    {
     "identical": 0.013571711905706352,
@@ -926,13 +926,13 @@
  "Sanskrit: Buddhist hymns of praise": {
   "pairs": 22507,
   "identical": 0.010307904207579864,
-  "identical_shuffled": 0.007906429110943261,
+  "identical_shuffled": 0.007545060055390174,
   "near": 0.002177100457635402,
-  "near_shuffled": 0.00231409487418729,
-  "ratio_identical": 1.3037370047766228,
-  "ratio_near": 0.9408,
-  "z_identical": 5.485660806532016,
-  "z_near": -0.5413268925262387,
+  "near_shuffled": 0.002325202529583389,
+  "ratio_identical": 1.3661792128766317,
+  "ratio_near": 0.9363057324840763,
+  "z_identical": 4.966202641288001,
+  "z_near": -0.6509445549041197,
   "by_distance": [
    {
     "identical": 0.010307904207579864,
@@ -959,13 +959,13 @@
  "Sanskrit: Ashtangahridaya": {
   "pairs": 53333,
   "identical": 0.0021375133594584966,
-  "identical_shuffled": 0.007400983756148475,
+  "identical_shuffled": 0.007464734154588466,
   "near": 0.0037125232032700203,
-  "near_shuffled": 0.005110344439652748,
-  "ratio_identical": 0.2888147616433729,
-  "ratio_near": 0.7264722069345074,
-  "z_identical": -16.612594593472792,
-  "z_near": -5.800531924832157,
+  "near_shuffled": 0.005045969037306483,
+  "ratio_identical": 0.28634822288273953,
+  "ratio_near": 0.735740385210875,
+  "z_identical": -14.931402624804614,
+  "z_near": -5.200523235156078,
   "by_distance": [
    {
     "identical": 0.0021375133594584966,
@@ -992,13 +992,13 @@
  "Sanskrit: Brihajjataka": {
   "pairs": 9257,
   "identical": 0.0009722372258831155,
-  "identical_shuffled": 0.003010334521623276,
+  "identical_shuffled": 0.002983327932015412,
   "near": 0.003240790752943718,
-  "near_shuffled": 0.002934716070721256,
-  "ratio_identical": 0.3229665071770335,
-  "ratio_near": 1.1042944785276072,
-  "z_identical": -3.8660264233519928,
-  "z_near": 0.6308422892776473,
+  "near_shuffled": 0.0028500954232832812,
+  "ratio_identical": 0.32589016294508144,
+  "ratio_near": 1.137081490840177,
+  "z_identical": -3.823840384008072,
+  "z_near": 0.8531743722160521,
   "by_distance": [
    {
     "identical": 0.0009722372258831155,
@@ -1025,13 +1025,13 @@
  "Sanskrit: Agni Purana": {
   "pairs": 53333,
   "identical": 0.0027937674610466314,
-  "identical_shuffled": 0.008567866049162808,
+  "identical_shuffled": 0.00848911555697223,
   "near": 0.021318883243020267,
-  "near_shuffled": 0.017130419565122283,
-  "ratio_identical": 0.3260750629171682,
-  "ratio_near": 1.2445044420526479,
-  "z_identical": -15.342985408198752,
-  "z_near": 7.812947916508796,
+  "near_shuffled": 0.017289795561222256,
+  "ratio_identical": 0.3290999447818885,
+  "ratio_near": 1.2330326965134564,
+  "z_identical": -16.581925845214577,
+  "z_near": 8.655533219728616,
   "by_distance": [
    {
     "identical": 0.0027937674610466314,
@@ -1058,13 +1058,13 @@
  "Sanskrit: spell strings": {
   "pairs": 4446,
   "identical": 0.17341430499325236,
-  "identical_shuffled": 0.10852826510721247,
+  "identical_shuffled": 0.10819463187884241,
   "near": 0.04768331084120558,
-  "near_shuffled": 0.03292847503373819,
-  "ratio_identical": 1.5978722669337848,
-  "ratio_near": 1.4480874316939891,
-  "z_identical": 23.17529796249174,
-  "z_near": 6.850202111875153,
+  "near_shuffled": 0.032538611485979904,
+  "ratio_identical": 1.6027995287921835,
+  "ratio_near": 1.4654377880184333,
+  "z_identical": 20.062267238511804,
+  "z_near": 7.332618547882076,
   "by_distance": [
    {
     "identical": 0.17341430499325236,
