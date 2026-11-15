@@ -246,6 +246,25 @@ Spells rhyme (the first letter is swapped), counting and grammar change the end.
 
 Reproduce with `python3 src/exp10_where_words_differ.py`.
 
+## 11. Do the words follow the pictures or the scribe?
+
+Pages grouped by scribe (hand, from ZL3b) and by what is drawn on them. Vocabulary overlap between two 250-word samples from different pages: the share of words in common, counting repeats.
+
+| Comparison, inside Currier language B | Overlap |
+|---|---|
+| Scribe 2's plant pages vs plant pages by scribes 3 and 5 (same pictures, other scribes) | 0.27 |
+| Scribe 2's plant pages vs scribe 2's bathing and text-only pages (same scribe, other pictures) | 0.22 |
+| Difference | +0.04 (95% interval +0.01 to +0.07, pages resampled) |
+| Difference with line-first and line-last words removed | +0.06 (+0.01 to +0.07) |
+
+- **Inside one spelling system, vocabulary follows the pictures more than the scribe.** Plant pages written by different scribes share more words than one scribe's plant pages share with that scribe's other pages. The same holds for each pair: scribes 2 and 3 on plants 0.28, against 0.21 and 0.22 for each scribe's plants versus his other pages.
+- **It does not carry across the two spelling systems.** Scribe 1's plant pages (language A) share the least with the other scribes' plant pages (0.16), no more than with their non-plant pages.
+- **The manner of writing does not change with the pictures.** Side-by-side identical words run at 0.4–1.2% and near-identical at 2.5–4.3% in every group.
+
+Limits: the comparison rests on 12 plant pages by scribes 3 and 5. Plant pages also sit together in the book, so the same pictures may mean the same stage of production, which this cannot separate. Topic-model studies (Sterneck, Polish & Bowern 2021; Davis) have reported that both scribe and section matter; this is a direct head-to-head of the two.
+
+Reproduce with `python3 src/exp11_sections.py`.
+
 ## What this means
 
 - The Voynich line end looks like the work of a scribe filling lines, which is what scribes of the period did with ordinary texts. It is not evidence that the text was made up on the page, and the earlier version of this report was wrong to read it that way.

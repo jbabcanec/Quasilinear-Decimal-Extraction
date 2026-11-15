@@ -1,0 +1,354 @@
+{
+ "pairs": {
+  "scribe 1, plants  vs  scribe 1, plants": {
+   "overlap": 0.27586,
+   "se": 0.0017921916750169332,
+   "kind": "same scribe, same pictures",
+   "same_language": true
+  },
+  "scribe 1, plants  vs  scribe 1, jars and plant parts": {
+   "overlap": 0.21027,
+   "se": 0.0017610842540889409,
+   "kind": "same scribe, different pictures",
+   "same_language": true
+  },
+  "scribe 1, plants  vs  scribe 2, bathing figures": {
+   "overlap": 0.11858,
+   "se": 0.0011877537623598588,
+   "kind": "different scribe, different pictures",
+   "same_language": false
+  },
+  "scribe 1, plants  vs  scribe 2, plants": {
+   "overlap": 0.15658999999999998,
+   "se": 0.001386877698284892,
+   "kind": "different scribe, same pictures",
+   "same_language": false
+  },
+  "scribe 1, plants  vs  scribe 2, text only": {
+   "overlap": 0.13404,
+   "se": 0.0011170478951235707,
+   "kind": "different scribe, different pictures",
+   "same_language": false
+  },
+  "scribe 1, plants  vs  scribe 3, plants": {
+   "overlap": 0.16415,
+   "se": 0.0011829808747397398,
+   "kind": "different scribe, same pictures",
+   "same_language": false
+  },
+  "scribe 1, plants  vs  scribe 3, stars / recipes": {
+   "overlap": 0.12155,
+   "se": 0.0012151105916746838,
+   "kind": "different scribe, different pictures",
+   "same_language": false
+  },
+  "scribe 1, plants  vs  scribe 5, plants": {
+   "overlap": 0.13269000000000003,
+   "se": 0.0009945399690309083,
+   "kind": "different scribe, same pictures",
+   "same_language": false
+  },
+  "scribe 1, jars and plant parts  vs  scribe 1, jars and plant parts": {
+   "overlap": 0.27659,
+   "se": 0.0014901777578530688,
+   "kind": "same scribe, same pictures",
+   "same_language": true
+  },
+  "scribe 1, jars and plant parts  vs  scribe 2, bathing figures": {
+   "overlap": 0.15401,
+   "se": 0.0013489995366937678,
+   "kind": "different scribe, different pictures",
+   "same_language": false
+  },
+  "scribe 1, jars and plant parts  vs  scribe 2, plants": {
+   "overlap": 0.17696999999999996,
+   "se": 0.0015059042964278972,
+   "kind": "different scribe, different pictures",
+   "same_language": false
+  },
+  "scribe 1, jars and plant parts  vs  scribe 2, text only": {
+   "overlap": 0.16012,
+   "se": 0.0013529094574286926,
+   "kind": "different scribe, different pictures",
+   "same_language": false
+  },
+  "scribe 1, jars and plant parts  vs  scribe 3, plants": {
+   "overlap": 0.16285999999999998,
+   "se": 0.0011386619340260742,
+   "kind": "different scribe, different pictures",
+   "same_language": false
+  },
+  "scribe 1, jars and plant parts  vs  scribe 3, stars / recipes": {
+   "overlap": 0.15420999999999999,
+   "se": 0.0013256280586951981,
+   "kind": "different scribe, different pictures",
+   "same_language": false
+  },
+  "scribe 1, jars and plant parts  vs  scribe 5, plants": {
+   "overlap": 0.17844,
+   "se": 0.0013132844322537292,
+   "kind": "different scribe, different pictures",
+   "same_language": false
+  },
+  "scribe 2, bathing figures  vs  scribe 2, bathing figures": {
+   "overlap": 0.34669999999999995,
+   "se": 0.0021854919354689917,
+   "kind": "same scribe, same pictures",
+   "same_language": true
+  },
+  "scribe 2, bathing figures  vs  scribe 2, plants": {
+   "overlap": 0.20969000000000002,
+   "se": 0.0015373222661498142,
+   "kind": "same scribe, different pictures",
+   "same_language": true
+  },
+  "scribe 2, bathing figures  vs  scribe 2, text only": {
+   "overlap": 0.23001000000000002,
+   "se": 0.002894166503503211,
+   "kind": "same scribe, different pictures",
+   "same_language": true
+  },
+  "scribe 2, bathing figures  vs  scribe 3, plants": {
+   "overlap": 0.22555,
+   "se": 0.0015877952481349728,
+   "kind": "different scribe, different pictures",
+   "same_language": true
+  },
+  "scribe 2, bathing figures  vs  scribe 3, stars / recipes": {
+   "overlap": 0.21282,
+   "se": 0.003049675228610417,
+   "kind": "different scribe, different pictures",
+   "same_language": true
+  },
+  "scribe 2, bathing figures  vs  scribe 5, plants": {
+   "overlap": 0.18619,
+   "se": 0.0017939090696019126,
+   "kind": "different scribe, different pictures",
+   "same_language": true
+  },
+  "scribe 2, plants  vs  scribe 2, plants": {
+   "overlap": 0.29511,
+   "se": 0.0016263824119806508,
+   "kind": "same scribe, same pictures",
+   "same_language": true
+  },
+  "scribe 2, plants  vs  scribe 2, text only": {
+   "overlap": 0.23845000000000002,
+   "se": 0.0017063099806307175,
+   "kind": "same scribe, different pictures",
+   "same_language": true
+  },
+  "scribe 2, plants  vs  scribe 3, plants": {
+   "overlap": 0.27610999999999997,
+   "se": 0.0018792205165972405,
+   "kind": "different scribe, same pictures",
+   "same_language": true
+  },
+  "scribe 2, plants  vs  scribe 3, stars / recipes": {
+   "overlap": 0.20181000000000002,
+   "se": 0.0015006364483111825,
+   "kind": "different scribe, different pictures",
+   "same_language": true
+  },
+  "scribe 2, plants  vs  scribe 5, plants": {
+   "overlap": 0.23662000000000002,
+   "se": 0.0015903581357669095,
+   "kind": "different scribe, same pictures",
+   "same_language": true
+  },
+  "scribe 2, text only  vs  scribe 2, text only": {
+   "overlap": 0.21134,
+   "se": 0.002451756717131616,
+   "kind": "same scribe, same pictures",
+   "same_language": true
+  },
+  "scribe 2, text only  vs  scribe 3, plants": {
+   "overlap": 0.2489,
+   "se": 0.0018536922614069465,
+   "kind": "different scribe, different pictures",
+   "same_language": true
+  },
+  "scribe 2, text only  vs  scribe 3, stars / recipes": {
+   "overlap": 0.21254000000000006,
+   "se": 0.002167780201035151,
+   "kind": "different scribe, different pictures",
+   "same_language": true
+  },
+  "scribe 2, text only  vs  scribe 5, plants": {
+   "overlap": 0.18999,
+   "se": 0.0015646084973564474,
+   "kind": "different scribe, different pictures",
+   "same_language": true
+  },
+  "scribe 3, plants  vs  scribe 3, plants": {
+   "overlap": 0.3114285714285714,
+   "se": 0.0013214428430754794,
+   "kind": "same scribe, same pictures",
+   "same_language": true
+  },
+  "scribe 3, plants  vs  scribe 3, stars / recipes": {
+   "overlap": 0.21572,
+   "se": 0.0018709366638130752,
+   "kind": "same scribe, different pictures",
+   "same_language": true
+  },
+  "scribe 3, plants  vs  scribe 5, plants": {
+   "overlap": 0.2146,
+   "se": 0.0017968583694882578,
+   "kind": "different scribe, same pictures",
+   "same_language": true
+  },
+  "scribe 3, stars / recipes  vs  scribe 3, stars / recipes": {
+   "overlap": 0.21878999999999998,
+   "se": 0.0026689023492814422,
+   "kind": "same scribe, same pictures",
+   "same_language": true
+  },
+  "scribe 3, stars / recipes  vs  scribe 5, plants": {
+   "overlap": 0.17936999999999997,
+   "se": 0.0015105322737366453,
+   "kind": "different scribe, different pictures",
+   "same_language": true
+  },
+  "scribe 5, plants  vs  scribe 5, plants": {
+   "overlap": 0.21960451977401133,
+   "se": 0.0008859462923007633,
+   "kind": "same scribe, same pictures",
+   "same_language": true
+  }
+ },
+ "summary": {
+  "same scribe, same pictures": {
+   "mean": 0.26942788640032284,
+   "n": 8,
+   "min": 0.21134,
+   "max": 0.34669999999999995
+  },
+  "same scribe, different pictures": {
+   "mean": 0.22082800000000002,
+   "n": 5,
+   "min": 0.20969000000000002,
+   "max": 0.23845000000000002
+  },
+  "different scribe, same pictures": {
+   "mean": 0.24244333333333334,
+   "n": 3,
+   "min": 0.2146,
+   "max": 0.27610999999999997
+  },
+  "different scribe, same pictures (different Currier language)": {
+   "mean": 0.15114333333333332,
+   "n": 3,
+   "min": 0.13269000000000003,
+   "max": 0.16415
+  },
+  "different scribe, different pictures": {
+   "mean": 0.20714625,
+   "n": 8,
+   "min": 0.17936999999999997,
+   "max": 0.2489
+  },
+  "different scribe, different pictures (different Currier language)": {
+   "mean": 0.15119777777777776,
+   "n": 9,
+   "min": 0.11858,
+   "max": 0.17844
+  }
+ },
+ "style": {
+  "scribe 1, plants": {
+   "words": 7841,
+   "language": "A",
+   "identical": 0.011463046757164403,
+   "near": 0.042986425339366516,
+   "mean_len": 4.8245121795689325,
+   "top10": 0.18569060068868767
+  },
+  "scribe 1, jars and plant parts": {
+   "words": 1908,
+   "language": "A",
+   "identical": 0.009976525821596244,
+   "near": 0.03169014084507042,
+   "mean_len": 5.011006289308176,
+   "top10": 0.16352201257861634
+  },
+  "scribe 2, bathing figures": {
+   "words": 6157,
+   "language": "B",
+   "identical": 0.012145748987854251,
+   "near": 0.03312476996687523,
+   "mean_len": 5.024362514211466,
+   "top10": 0.23794055546532403
+  },
+  "scribe 2, plants": {
+   "words": 2302,
+   "language": "B",
+   "identical": 0.008292682926829269,
+   "near": 0.03219512195121951,
+   "mean_len": 4.8375325803649005,
+   "top10": 0.18071242397914858
+  },
+  "scribe 2, text only": {
+   "words": 1735,
+   "language": "B",
+   "identical": 0.0070063694267515925,
+   "near": 0.03503184713375796,
+   "mean_len": 5.0184438040345825,
+   "top10": 0.15965417867435158
+  },
+  "scribe 3, plants": {
+   "words": 591,
+   "language": "B",
+   "identical": 0.0057251908396946565,
+   "near": 0.02480916030534351,
+   "mean_len": 4.944162436548224,
+   "top10": 0.16412859560067683
+  },
+  "scribe 3, stars / recipes": {
+   "words": 10961,
+   "language": "B",
+   "identical": 0.008227526663280853,
+   "near": 0.032300660233621124,
+   "mean_len": 5.305264118237387,
+   "top10": 0.1317398047623392
+  },
+  "scribe 5, plants": {
+   "words": 580,
+   "language": "B",
+   "identical": 0.003861003861003861,
+   "near": 0.02895752895752896,
+   "mean_len": 5.196551724137931,
+   "top10": 0.12758620689655173
+  }
+ },
+ "key_contrast": {
+  "pages": {
+   "scribe2_plants": 20,
+   "other_scribes_plants": 12,
+   "scribe2_other": 23
+  },
+  "same_pictures_other_scribes": 0.26539999999999997,
+  "same_scribe_other_pictures": 0.2244,
+  "difference": 0.04099999999999998,
+  "ci": [
+   0.006959999999999978,
+   0.07015250000000005
+  ],
+  "share_positive": 0.9866666666666667
+ },
+ "key_contrast_inner_words": {
+  "pages": {
+   "scribe2_plants": 20,
+   "other_scribes_plants": 12,
+   "scribe2_other": 23
+  },
+  "same_pictures_other_scribes": 0.29860000000000003,
+  "same_scribe_other_pictures": 0.2434,
+  "difference": 0.05520000000000003,
+  "ci": [
+   0.013389999999999996,
+   0.07370000000000003
+  ],
+  "share_positive": 0.99
+ }
+}
