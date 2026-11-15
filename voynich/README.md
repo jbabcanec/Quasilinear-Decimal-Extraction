@@ -199,6 +199,35 @@ Limits: the real texts are Latin in modern editions, and a transliterated Voynic
 
 Reproduce with `python3 src/exp8_genres.py <path to the Latin Library clone>` (`cltk/lat_text_latin_library`, commit `76229ac`).
 
+## 9. Sanskrit texts, spells and Vedic recitation
+
+The same fingerprint on Sanskrit texts from the GRETIL corpus (`tokushige-koyasan/gretil-corpus`, commit `b724739`): Rigveda hymns (running and word by word), Samaveda chant, Atharvaveda charms, Buddhist spell texts (dhāraṇī), Buddhist hymns of praise, medicine, astrology, a purāṇa. Two additions:
+
+- **Spell strings proper**: the text between the standard opening *tadyathā* and closing *svāhā* in the Buddhist spell texts (75 passages, 5,002 words), e.g. `mara māraya mardaya stambha stambhaya`, `ili melā tili melā`.
+- **Vedic recitation patterns** (krama, jaṭā, ghana), generated from the Rigveda's word-by-word text by the traditional rules, which repeat each pair of words forwards and backwards.
+
+| | Neighbours identical | Neighbours within one letter | Word order | Repeated triples vs chance |
+|---|---|---|---|---|
+| **Voynich** | 1.0% | 3.6% | 0.26 | ×4.8 |
+| Spell strings proper | 17.3% | 4.8% | 0.88 | ×2.6 |
+| Mahāmāyūrī (whole spell text) | 9.9% | 2.5% | 0.93 | ×3.3 |
+| Buddhist spell texts with their prose | 1.0% | 0.5% | 0.77 | ×18.1 |
+| Buddhist hymns of praise | 1.0% | 0.2% | 0.98 | ×11.2 |
+| Atharvaveda charms | 0.1% | 0.4% | 0.84 | ×43.9 |
+| Rigveda hymns | 0.0% | 0.8% | 0.93 | ×46.8 |
+| Recitation: jaṭā | 48.8% | 0.2% | 0.00 | ×3.2 |
+| Recitation: ghana | 30.8% | 0.3% | −0.24 | ×1.6 |
+| Eighteen Latin texts (section 8) | 0–0.3% | 0–0.7% | 0.46–0.95 | ×4.2–×51.8 |
+
+- **Spell strings are the only real text found with the Voynich's run of near-identical neighbours** (4.8% against 3.6%; every other real text is at or below 1.2%), and like the Voynich they hardly repeat phrases.
+- **They differ in the rest.** Spells mostly double a word exactly (17% against 1%), keep a firm word order, and mix very short and very long words.
+- **Recitation patterns have the Voynich's missing word order** (jaṭā 0.00, ghana −0.24) but repeat words exactly a third to half of the time.
+- No Sanskrit text type matches the whole profile. On the six-measure distance of section 8 the nearest is an astrology text at 5.1, no closer than Latin verse.
+
+Limits: transliterated Sanskrit, one corpus, and only 5,000 words of spell strings.
+
+Reproduce with `python3 src/exp9_indic.py <path to the GRETIL clone>`.
+
 ## What this means
 
 - The Voynich line end looks like the work of a scribe filling lines, which is what scribes of the period did with ordinary texts. It is not evidence that the text was made up on the page, and the earlier version of this report was wrong to read it that way.
