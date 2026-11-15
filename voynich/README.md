@@ -297,6 +297,18 @@ What it means: the word that opens each line was chosen with the line above in v
 
 **Only the opening word takes turns; the rest of the line does not.** Whether a line opens with a `q` word is negatively correlated with the line below (r = −0.16, z −9.4) and positively with the line two below (+0.15). The share of `q` words, `ch`/`sh` words or `o` words in the rest of the line is positively correlated with the line below, slightly more than in shuffled order (z about +3.5), which is ordinary drift. The number of words, mean word length and the final `m` show no alternation either. So lines do not come in two alternating kinds: one word, the first, is varied against the line above.
 
+**The rule is about the glyph actually written first.**
+
+| Line opens with | Same first glyph as the line above | Same lines, shuffled | z |
+|---|---|---|---|
+| an ordinary word (1,627 lines) | 6.3% | 14.1% | −10.5 |
+| an added `y`, `d` or `s`: the added letter (957 lines) | 15.2% | 19.2% | −4.0 |
+| an added `y`, `d` or `s`: the word underneath | 6.1% | 6.4% | −0.6 |
+| Paragraph openings on a page (573) | 32.8% | 31.8% | +0.8 |
+| Restarts after a drawing, stacked one above another (355) | 17.7% | 19.9% | −1.2 |
+
+A line that opens with an ordinary word repeats the opening above less than half as often as chance. When a `y`, `d` or `s` has been added in front, that added letter is itself varied against the line above, more weakly, and the word behind it is not constrained at all. Paragraph openings do not follow the rule, and restarts after a drawing show no clear effect. What is being varied is what the left edge of the page looks like.
+
 It does not say why. Varying the openings for the look of the page and a marker system that takes turns would both leave this trace.
 
 Limits: two web searches found no description of this rule, but a 2026 voynich.ninja thread on line-first glyphs could not be read from this environment, so treat novelty as "not found". This is a rule about how lines begin, not a reading of any word.

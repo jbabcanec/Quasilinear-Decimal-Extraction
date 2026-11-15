@@ -123,3 +123,71 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+def extensions():
+    """Where the rule applies: paragraph openers, restarts after a drawing, and lines that
+    open with an added y/d/s letter versus lines that open with an ordinary word.
+    Every null re-orders whole lines (or relabels positions), so nothing is ever compared
+    with itself."""
+    from collections import defaultdict
+    rng = np.random.default_rng(0)
+    Z = zl_paragraphs()
+    out = {}
+    by = defaultdict(list)
+    for key, lines in Z:
+        by[key[0]].append(lines[0][0])
+    out["paragraph openers on a page"] = test([v for v in by.values() if len(v) >= 2], lags=(1,), shuffles=2000)["lag1"]
+
+    seen = Counter(w for _, lines in Z for ln in lines for w in ln[1:])
+    pref = lambda w: len(w) > 2 and w[0] in "yds" and seen.get(w[1:], 0) >= 3
+    seqs = [[ln[0] for ln in lines[1:]] for _, lines in Z if len(lines) >= 3]
+
+    def rate(order_fn, keep, left, right):
+        hit = n = 0
+        for sq in seqs:
+            t = order_fn(sq)
+            for prev, cur in zip(t[:-1], t[1:]):
+                if keep(cur):
+                    n += 1; hit += left(cur) == right(prev)
+        return hit / n, n
+
+    def versus(keep, left, right=lambda w: w[0], shuffles=1000):
+        obs, n = rate(lambda sq: sq, keep, left, right)
+        null = [rate(lambda sq: list(rng.permutation(sq)), keep, left, right)[0] for _ in range(shuffles)]
+        return dict(n=n, same=obs, shuffled=float(np.mean(null)), z=float((obs - np.mean(null)) / np.std(null)))
+    out["lines opening with an ordinary word"] = versus(lambda w: not pref(w), lambda w: w[0])
+    out["lines opening with an added y/d/s: the added letter"] = versus(pref, lambda w: w[0])
+    out["lines opening with an added y/d/s: the word underneath"] = versus(pref, lambda w: w[1])
+
+    # restarts after a drawing, stacked one above the other (word boxes)
+    pt = paragraph_text(tokens()).sort_values(["folio", "line", "k"])
+    g = pt.groupby(["folio", "line"])
+    pt["gap_before"] = (pt.x0 - g.x1.shift(1)) / pt.wmed
+    S = pt[(pt.gap_before > 0.6) & (pt.k > 0)].reset_index(drop=True)
+    pairs = []
+    for f, h in S.groupby("folio"):
+        L = h[["line", "x0", "wmed"]].assign(i=h.index).to_dict("records")
+        for a in L:
+            for b in L:
+                if b["line"] == a["line"] + 1 and abs(b["x0"] - a["x0"]) < 1.5 * a["wmed"]:
+                    pairs.append((a["i"], b["i"]))
+    ia = np.array([p[0] for p in pairs]); ib = np.array([p[1] for p in pairs])
+    lab = S.word.str[0].to_numpy(); fo = S.folio.to_numpy()
+    obs = float((lab[ia] == lab[ib]).mean())
+    null = []
+    for _ in range(2000):
+        l2 = lab.copy()
+        for f in set(fo[ia]):
+            m = np.flatnonzero(fo == f); l2[m] = rng.permutation(lab[m])
+        null.append((l2[ia] == l2[ib]).mean())
+    out["restarts after a drawing, stacked"] = dict(n=len(pairs), same=obs, shuffled=float(np.mean(null)),
+                                                    z=float((obs - np.mean(null)) / np.std(null)))
+    p = ROOT / "results" / "exp13_line_starts.json"
+    d = json.load(open(p)); d["extensions"] = out; json.dump(d, open(p, "w"), indent=1)
+    for k, r in out.items():
+        print("%-56s n=%4d  same %.3f vs shuffled %.3f  (z %+.1f)" % (k, r["n"], r["same"], r["shuffled"], r["z"]))
+
+
+if __name__ == "__main__":
+    extensions()

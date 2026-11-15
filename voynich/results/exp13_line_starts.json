@@ -445,5 +445,38 @@
   "t": 0.06888544891640867,
   "c": 0.039473684210526314,
   "l": 0.01780185758513932
+ },
+ "extensions": {
+  "paragraph openers on a page": {
+   "n": 573,
+   "same": 0.32809773123909247,
+   "shuffled": 0.31826352530541013,
+   "sd": 0.012630211093767052,
+   "z": 0.7786256192135594
+  },
+  "lines opening with an ordinary word": {
+   "n": 1627,
+   "same": 0.06330669944683466,
+   "shuffled": 0.14062515236176193,
+   "z": -10.513108781243762
+  },
+  "lines opening with an added y/d/s: the added letter": {
+   "n": 957,
+   "same": 0.15151515151515152,
+   "shuffled": 0.19184144650628662,
+   "z": -4.028167066360336
+  },
+  "lines opening with an added y/d/s: the word underneath": {
+   "n": 957,
+   "same": 0.06060606060606061,
+   "shuffled": 0.06446431632680281,
+   "z": -0.5874212608276477
+  },
+  "restarts after a drawing, stacked": {
+   "n": 355,
+   "same": 0.17746478873239438,
+   "shuffled": 0.19851830985915495,
+   "z": -1.1768353415445323
+  }
  }
 }
