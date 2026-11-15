@@ -228,6 +228,24 @@ Limits: transliterated Sanskrit, one corpus, and only 5,000 words of spell strin
 
 Reproduce with `python3 src/exp9_indic.py <path to the GRETIL clone>`.
 
+## 10. Where near-identical neighbours differ
+
+For neighbouring words that differ by exactly one letter: is the letter at the start, in the middle or at the end, and is it swapped or added?
+
+| | Pairs | Start | Middle | End | Letter swapped (not added or dropped) |
+|---|---|---|---|---|---|
+| **Voynich** | 833 | 36% | 49% | 15% | 40% |
+| By chance, for words of this length | | 20% | 61% | 20% | |
+| Spell strings (Sanskrit) | 203 | 67% | 29% | 5% | 71% |
+| Eighteen Latin texts | 457 | 43% | 19% | 37% | 77% |
+| Timm–Schinner generator | 826 | 54% | 29% | 17% | 37% |
+| Naibbe cipher of Latin | 317 | 31% | 59% | 9% | 48% |
+| Counting in Roman numerals (generated) | 2,812 | 0% | 0% | 100% | 0% |
+
+Spells rhyme (the first letter is swapped), counting and grammar change the end. The Voynich does neither: its neighbours mostly gain or lose a letter, anywhere in the word, with some preference for the start. The Timm–Schinner generator changes the start more often than the manuscript does.
+
+Reproduce with `python3 src/exp10_where_words_differ.py`.
+
 ## What this means
 
 - The Voynich line end looks like the work of a scribe filling lines, which is what scribes of the period did with ordinary texts. It is not evidence that the text was made up on the page, and the earlier version of this report was wrong to read it that way.
