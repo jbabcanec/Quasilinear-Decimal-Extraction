@@ -180,8 +180,8 @@ Eighteen Latin texts of different kinds (psalms, ritual law, census lists, genea
 | | Neighbours identical | Neighbours within one letter | Word order | Repeated triples vs chance | Distance to the Voynich (six measures) |
 |---|---|---|---|---|---|
 | **Voynich** | 1.0% | 3.6% | 0.26 | ×4.8 | |
-| Eighteen real texts, range | 0–0.3% | 0–0.7% | 0.46–0.95 | ×4.2–×51.8 | 4.4–9 |
-| Psalms | 0.2% | 0.6% | 0.85 | ×15.5 | 6.4 |
+| Eighteen real texts, range | 0–0.3% | 0–0.7% | 0.46–0.95 | ×4.2–×51.8 | 4.4–8.2 |
+| Psalms | 0.2% | 0.6% | 0.85 | ×15.5 | 7.2 |
 | Apicius, cooking recipes | 0.2% | 0.4% | 0.74 | ×22.4 | 5.4 |
 | Chronicles I, genealogies | 0.3% | 0.3% | 0.68 | ×4.2 | 6.1 |
 | Vergil, epic verse | 0.0% | 0.1% | 0.46 | ×28.1 | 4.6 |
