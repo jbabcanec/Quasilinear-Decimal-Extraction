@@ -117,6 +117,24 @@ Real scribes copying real text do not break the line at the first word that fail
 
 Reproduce with `python3 control_real/control_real.py <path to the cloned dataset>`.
 
+## 5. Nothing connects words across a break
+
+Inside a line, how one word ends predicts how the next begins. The *link* is the mutual information between the last glyph of one word and the first glyph of the next, less what shuffled pairs from the same page give.
+
+![Link between consecutive words](figures/fig7_continuity.png)
+
+- **The link fades with the physical gap.** It is 0.37 bits for the most tightly spaced fifth of word pairs and 0.04 for the most widely spaced fifth. Many spaces in the transliteration are therefore not word breaks; Rozanova & Temerev (2026) reached this from the same boxes.
+- **It is zero at every physical break.** Across a drawing that interrupts a line: 0.00 (575 pairs). Across a line break: 0.00 (3,246 pairs).
+- **Real manuscripts carry on across the line break.** In the six French manuscripts the link is 0.08 to 0.15 bits inside a line and 0.19 to 0.37 across the line break. It rises because scribes split words between lines.
+- **The break is not hiding a continuous text.** 53% of line-start words begin with `y`, `d` or `s`, and for three quarters of those the rest is a known word, so a line-start prefix is real. Removing it does not bring the link back, nor does using the second glyph, nor keeping only line starts without a prefix and line ends without `m`: every variant gives at most 0.01 bits, against 0.03 to 0.05 for widely spaced words inside a line.
+- **Neither published model has a link at all.** Timm–Schinner generator output: 0.00 inside a line. Naibbe cipher of Latin: 0.00.
+
+So the Voynich scribes never split a word across a line or a drawing, and nothing about the end of one stretch of writing predicts the start of the next. Real scribes of the period did both. Together with the short last words (section 4), this is how Voynich lines differ from real ones: they are filled without carrying anything over.
+
+What this cannot tell apart: a text composed one line at a time, and a text whose scribes kept a strict rule of ending every line on a whole word and shortening it to fit.
+
+Reproduce with `python3 src/exp5_continuity.py <path to the cloned French dataset>`.
+
 ## What this means
 
 - The Voynich line end looks like the work of a scribe filling lines, which is what scribes of the period did with ordinary texts. It is not evidence that the text was made up on the page, and the earlier version of this report was wrong to read it that way.

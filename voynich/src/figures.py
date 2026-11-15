@@ -235,6 +235,43 @@ def fig_calibration(X):
     save(fig, "fig6_calibration.png")
 
 
+def fig_continuity(C):
+    v = C["voynich_by_gap"]
+    names = list(v)
+    fig, axes = plt.subplots(1, 2, figsize=(7.6, 4.3), gridspec_kw=dict(width_ratios=[7, 2.6]), sharey=True)
+    ax = axes[0]
+    x = np.arange(len(names))
+    vals = [max(v[n]["bits"], 0) for n in names]
+    ax.bar(x, vals, width=0.55, color=BLUE, linewidth=0)
+    for xi, n in zip(x, names):
+        ax.text(xi, max(v[n]["bits"], 0) + 0.008, f"{max(v[n]['bits'], 0):.2f}", ha="center", va="bottom",
+                fontsize=9.5, color=INK)
+    lab = ["tightest\ngaps", "second\nfifth", "middle\nfifth", "fourth\nfifth", "widest\ngaps",
+           "a drawing\nin the way", "a line\nbreak"]
+    ax.set_xticks(x); ax.set_xticklabels(lab)
+    ax.set_ylabel("Link between two consecutive words (bits)")
+    ax.set_title("Voynich, by the gap between the two words", loc="left", fontsize=10.5, fontweight="bold",
+                 color=INK)
+    ax.axvline(4.5, color=GRID, linewidth=1)
+    ax = axes[1]
+    fr = [C["french"][k] for k in C["french"] if k != "pooled"]
+    for xi, key in enumerate(("inside a line", "across a line break")):
+        ys = [f[key]["bits"] for f in fr]
+        ax.bar([xi], [np.median(ys)], width=0.55, color=ORANGE, linewidth=0)
+        ax.plot([xi] * len(ys), ys, "o", color=SURFACE, markersize=6.5, markeredgecolor=INK2, markeredgewidth=1)
+        ax.text(xi, max(ys) + 0.012, f"{np.median(ys):.2f}", ha="center", va="bottom", fontsize=9.5, color=INK)
+    ax.set_xticks([0, 1]); ax.set_xticklabels(["inside\na line", "a line\nbreak"])
+    ax.set_xlim(-0.6, 1.6)
+    ax.set_title("Six real manuscripts", loc="left", fontsize=10.5, fontweight="bold", color=INK)
+    for ax in axes:
+        tidy(ax)
+        ax.set_ylim(0, 0.44)
+    head(fig, "In the Voynich, nothing connects words across a break",
+         "How well one word's last glyph predicts the next word's first. Dots: individual manuscripts")
+    fig.subplots_adjust(left=0.09, right=0.985, top=0.79, bottom=0.13, wspace=0.08)
+    save(fig, "fig7_continuity.png")
+
+
 def extra_data():
     """Two light recomputations the figures need (cached in results/fig_extra.json)."""
     p = ROOT / "results" / "fig_extra.json"
@@ -282,6 +319,9 @@ def main():
     extra = extra_data()
     fig_slack(E); fig_coupling(E); fig_forest(E)
     fig_lastword(extra["lastword"]); fig_kernel(extra["kernel"]); fig_calibration(X)
+    c = ROOT / "results" / "exp5_continuity.json"
+    if c.exists():
+        fig_continuity(json.loads(c.read_text()))
 
 
 if __name__ == "__main__":
