@@ -135,6 +135,28 @@ What this cannot tell apart: a text composed one line at a time, and a text whos
 
 Reproduce with `python3 src/exp5_continuity.py <path to the cloned French dataset>`.
 
+## 6. Two more absences: word order and repeated phrases
+
+Corpora of the same size (about 34,000 words), neighbouring words inside a line only, line-first and line-last words excluded.
+
+| | Word-order strength | Repeated word triples, vs shuffled lines |
+|---|---|---|
+| Six real French manuscripts | 0.85 | ×23.5 |
+| Latin (Pliny) | 0.77 | ×13.4 |
+| **Voynich** | 0.24 | ×2.7 |
+| Voynich, neighbours written far apart | 0.11 | |
+| Voynich, neighbours written close together | 0.45 | |
+| Naibbe cipher of Latin | 0.14 | ×3.3 |
+| Timm–Schinner generator | 0.34 | ×1.9 |
+
+*Word-order strength*: for two words found next to each other, how one-sided the order is, from 0 (a coin flip) to 1 (always the same way round), corrected for chance.
+
+Real text has a firm word order and repeats its phrases. The Voynich has neither. The little order it shows sits in closely written pairs, which are often pieces of one word; between words written clearly apart it is 0.11.
+
+This does not show the text is empty. A cipher that turns each letter or pair of letters of real Latin into a "word" (Naibbe) loses both properties in the same way. It shows that Voynich words do not behave as the words of a sentence.
+
+Reproduce with `python3 src/exp7_absences.py`.
+
 ## What this means
 
 - The Voynich line end looks like the work of a scribe filling lines, which is what scribes of the period did with ordinary texts. It is not evidence that the text was made up on the page, and the earlier version of this report was wrong to read it that way.
