@@ -305,6 +305,31 @@ def fig_line_starts(R):
     save(fig, "fig8_line_starts.png")
 
 
+def fig_last_lines(R):
+    rw = R["voynich_rewrapped"]
+    xs = [100 * float(k) for k in rw]
+    ys = [100 * rw[k]["one_word"] for k in rw]
+    fig, ax = plt.subplots(figsize=(7.6, 4.6))
+    ax.plot(xs, ys, color=GREY, marker="o", markersize=7, markeredgecolor=SURFACE, markeredgewidth=1.5,
+            label="Same paragraphs re-wrapped by a simulated copyist")
+    ax.plot([0], [100 * R["voynich_as_written"]["one_word"]], "o", color=BLUE, markersize=10,
+            markeredgecolor=SURFACE, markeredgewidth=1.5, label="As written", zorder=5)
+    fr = 100 * R["french_lines_stopping_early"]["one_word"]
+    ax.axhline(fr, color=ORANGE, linewidth=2, label="Six real French manuscripts")
+    ax.annotate("as written: %.1f%%" % (100 * R["voynich_as_written"]["one_word"]), xy=(0, 0.6), xytext=(4, 2.6),
+                fontsize=9.5, color=INK, ha="left", va="center",
+                arrowprops=dict(arrowstyle="-", color=INK2, linewidth=1))
+    tidy(ax)
+    ax.set_ylim(0, 22); ax.set_xlim(-34, 34)
+    ax.set_xlabel("Line width used, relative to the real one (%)")
+    ax.set_ylabel("Paragraphs ending on a single word (%)")
+    fig.legend(loc="lower center", bbox_to_anchor=(0.5, 0.005), ncol=3, handlelength=1.6, fontsize=9)
+    head(fig, "Voynich paragraphs do not end on a stray word",
+         "Share of paragraphs whose last line holds one word, at the real line width and at others")
+    fig.subplots_adjust(left=0.09, right=0.985, top=0.855, bottom=0.21)
+    save(fig, "fig9_last_lines.png")
+
+
 def extra_data():
     """Two light recomputations the figures need (cached in results/fig_extra.json)."""
     p = ROOT / "results" / "fig_extra.json"
@@ -355,6 +380,9 @@ def main():
     c = ROOT / "results" / "exp5_continuity.json"
     if c.exists():
         fig_continuity(json.loads(c.read_text()))
+    c = ROOT / "results" / "exp16_last_lines.json"
+    if c.exists():
+        fig_last_lines(json.loads(c.read_text()))
     c = ROOT / "results" / "exp13_line_starts.json"
     if c.exists():
         fig_line_starts(json.loads(c.read_text()))

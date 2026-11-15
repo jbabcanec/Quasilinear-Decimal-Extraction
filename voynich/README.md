@@ -8,7 +8,7 @@ The first version of this report read the answer as evidence that the text was n
 
 ## Findings
 
-**Strongest result (section 12): a Voynich line avoids beginning with the same glyph as the line above it.** It happens 9.6% of the time against 16.0% for the same lines in shuffled order (2,584 line pairs, 11 standard deviations), for every scribe and section, in two independent transliterations. Real manuscripts, a cipher of Latin and the copying generator show nothing of the kind.
+**Two strongest results.** Section 14: Voynich paragraphs almost never end on a short last line (a single word 0.4% of the time, against 10–17% when the same paragraphs are re-wrapped at other widths and 14% in real manuscripts), so the amount of text was fitted to the page. Section 12, in more detail here: **a Voynich line avoids beginning with the same glyph as the line above it.** It happens 9.6% of the time against 16.0% for the same lines in shuffled order (2,584 line pairs, 11 standard deviations), for every scribe and section, in two independent transliterations. Real manuscripts, a cipher of Latin and the copying generator show nothing of the kind.
 
 1. **Voynich lines are fitted, not mechanically wrapped.** Across 3,183 line breaks, the blank at a line's end is unrelated to the width of the word that starts the next line (coupling 0.05, 95% interval −0.03 to 0.14). Mechanically wrapping the same words on the same pages gives 0.48.
 2. **Real scribes do the same.** Six French prose manuscripts of the 15th century, measured the same way, give couplings from −0.44 to +0.29, five of them at or below +0.09. Mechanical wrapping of their own words gives +0.18 to +0.51. The fitted line end is ordinary scribal practice.
@@ -309,6 +309,8 @@ What it means: the word that opens each line was chosen with the line above in v
 
 A line that opens with an ordinary word repeats the opening above less than half as often as chance. When a `y`, `d` or `s` has been added in front, that added letter is itself varied against the line above, more weakly, and the word behind it is not constrained at all. Paragraph openings do not follow the rule, and restarts after a drawing show no clear effect. What is being varied is what the left edge of the page looks like.
 
+Three further checks point the same way. Look-alike signs are avoided too: `ch` after `sh` or `sh` after `ch` occurs 4 times against 12.7 expected (z −3.1). Whole opening words that differ from the one above by a single letter elsewhere are not avoided (90 against 94 expected). And inside lines there is no such rule: a word is as likely as chance to begin like the word directly over it (contrast 0.98, 95% interval 0.95 to 1.02).
+
 It does not say why. Varying the openings for the look of the page and a marker system that takes turns would both leave this trace.
 
 Limits: two web searches found no description of this rule, but a 2026 voynich.ninja thread on line-first glyphs could not be read from this environment, so treat novelty as "not found". This is a rule about how lines begin, not a reading of any word.
@@ -334,6 +336,47 @@ The Voynich behaves like the texts that are not letter ciphers, and stripping th
 This is a standard method giving an expected negative; it is recorded for completeness, not as a finding.
 
 Reproduce with `python3 src/exp14_decode.py`.
+
+## 14. Paragraphs do not end on a short line
+
+When a text simply runs out, its last line is as likely to hold one word as eight. Measured as a share of the paragraph's normal line, for the 482 paragraphs of four or more lines:
+
+![Last lines](figures/fig9_last_lines.png)
+
+| | Last line is a single word | Under 30% of a normal line | 40–80% of a normal line |
+|---|---|---|---|
+| **Voynich as written** (word boxes) | 0.4% | 5.0% | 66% |
+| Voynich, ZL3b word counts alone (498 paragraphs, short "title" lines included) | 2.2% | 7.2% | 66% |
+| Same paragraphs re-wrapped 10–30% narrower or wider | 10–17% | 22–33% | 34–44% |
+| Same paragraphs re-wrapped at the real width by a simulated copyist | 8.7% | 17% | 51% |
+| Six real French manuscripts, lines that stop early | 14.4% | 18% | 34% |
+| Voynich, lines that stop early (same definition) | 0.3% | 3.0% | 69% |
+
+- **The short last line is missing.** Two paragraphs in 482 end on a single word. Last lines cluster around 60% of a full line.
+- **It is tied to the real layout.** Re-wrap the same words into lines a tenth narrower or wider and stray-word endings appear at the ordinary rate. Each section shows it (stars 0.0%, plants 0.9%, bathing 0.0%).
+- **It is not squeezing.** Pulling a stray word up into the line above would leave over-full last lines; 4.6% of last lines are over-full, against about 25% of short endings missing.
+- **Real manuscripts have them.** One early-stopping line in seven holds a single word.
+
+What it means: how much text a paragraph contains was matched to the lines it had to fill. Abbreviating or splitting words cannot do that; it takes adding or dropping words, or stopping where the page looks right. Together with section 12 it shows the text shaped to the page at three places: the start of each line, the end of each line, and the end of each paragraph.
+
+Limits: the simulated copyist at the real width does not reproduce the scribe's own line breaks (8.7%, not 0.4%), so the comparison rests mainly on the other widths and on the real manuscripts. The French manuscripts carry no paragraph marks, so "lines that stop early" is the nearest equivalent. One web search found no description of this; a blog post notes that 24 single-word paragraph-final lines exist, which matches the count here.
+
+Reproduce with `python3 src/exp16_last_lines.py <path to the cloned French dataset>`.
+
+## 15. Repeated neighbours are a property of the line, not of the sequence
+
+| | Same word next to itself, relative to the same line shuffled |
+|---|---|
+| 28 ordinary texts (18 Latin, French manuscripts, 9 Sanskrit) | 0.00–0.33 |
+| Naibbe cipher / Timm–Schinner generator | 0.46 / 0.68 |
+| **Voynich** | 1.07 |
+| Sanskrit spell strings | 1.60 |
+
+Every language avoids writing a word twice running. The Voynich neither avoids it nor seeks it: identical words sit side by side exactly as often as any two words of the same line would (0.97% against 0.91% shuffled), and words two, three and four apart are identical or near-identical as often as neighbours. The side-by-side repeats that sections 8 and 9 counted are therefore a matter of similar words sharing a line. Spell strings differ here: their doubling is sequential.
+
+That the Voynich repeats the previous word more than a page-shuffled version, unlike comparison texts, is reported in arXiv:2610.34499 (2026). The within-line comparison and the distance profile are the additions here.
+
+Reproduce with `python3 src/exp15_repeats.py`.
 
 ## What this means
 
