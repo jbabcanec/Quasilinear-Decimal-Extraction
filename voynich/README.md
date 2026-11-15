@@ -8,6 +8,8 @@ The first version of this report read the answer as evidence that the text was n
 
 ## Findings
 
+**Strongest result (section 12): a Voynich line avoids beginning with the same glyph as the line above it.** It happens 9.6% of the time against 16.0% for the same lines in shuffled order (2,584 line pairs, 11 standard deviations), for every scribe and section, in two independent transliterations. Real manuscripts, a cipher of Latin and the copying generator show nothing of the kind.
+
 1. **Voynich lines are fitted, not mechanically wrapped.** Across 3,183 line breaks, the blank at a line's end is unrelated to the width of the word that starts the next line (coupling 0.05, 95% interval −0.03 to 0.14). Mechanically wrapping the same words on the same pages gives 0.48.
 2. **Real scribes do the same.** Six French prose manuscripts of the 15th century, measured the same way, give couplings from −0.44 to +0.29, five of them at or below +0.09. Mechanical wrapping of their own words gives +0.18 to +0.51. The fitted line end is ordinary scribal practice.
 3. **One difference survives.** Voynich lines end on shorter-than-average words (−9%). All six real manuscripts end lines on longer-than-average words (+13% to +26%).
@@ -258,12 +260,46 @@ Pages grouped by scribe (hand, from ZL3b) and by what is drawn on them. Vocabula
 | Difference with line-first and line-last words removed | +0.06 (+0.01 to +0.07) |
 
 - **Inside one spelling system, vocabulary follows the pictures more than the scribe.** Plant pages written by different scribes share more words than one scribe's plant pages share with that scribe's other pages. The same holds for each pair: scribes 2 and 3 on plants 0.28, against 0.21 and 0.22 for each scribe's plants versus his other pages.
-- **It does not carry across the two spelling systems.** Scribe 1's plant pages (language A) share the least with the other scribes' plant pages (0.16), no more than with their non-plant pages.
+- **It weakens across the two spelling systems but does not vanish.** Scribe 1's plant pages (language A) share 0.16 with the other scribes' plant pages, against 0.12 with their bathing and star pages.
 - **The manner of writing does not change with the pictures.** Side-by-side identical words run at 0.4–1.2% and near-identical at 2.5–4.3% in every group.
 
 Limits: the comparison rests on 12 plant pages by scribes 3 and 5. Plant pages also sit together in the book, so the same pictures may mean the same stage of production, which this cannot separate. Topic-model studies (Sterneck, Polish & Bowern 2021; Davis) have reported that both scribe and section matter; this is a direct head-to-head of the two.
 
 Reproduce with `python3 src/exp11_sections.py`.
+
+## 12. A line avoids beginning like the line above
+
+For every paragraph, with its first line set aside (paragraph openings follow their own gallows rule): how often do two lines begin with the same glyph, compared with the same lines shuffled within the paragraph?
+
+![Line starts](figures/fig8_line_starts.png)
+
+| | Same opening glyph as the line above | Same lines, shuffled | z |
+|---|---|---|---|
+| **Voynich, ZL3b transliteration** | 9.6% | 16.0% | −11.4 |
+| **Voynich, word boxes (Takahashi)** | 9.3% | 16.1% | −11.1 |
+| Voynich, y/d/s line-start prefix removed | 8.9% | 13.9% | −9.7 |
+| Voynich, scribe 1 / 2 / 3 | 6.9% / 9.5% / 14.0% | 14.8% / 16.5% / 17.9% | −8.3 / −6.8 / −3.6 |
+| Voynich, Currier A / B | 6.8% / 11.6% | 15.0% / 16.9% | −8.9 / −7.4 |
+| Voynich, second word of the line | 21.8% | 21.8% | 0.0 |
+| Voynich, last glyph of the line | 24.9% | 24.8% | +0.2 |
+| Six real French manuscripts | 8.0% | 8.5% | −1.1 |
+| Latin (Pliny), wrapped | 7.1% | 6.8% | +0.6 |
+| Naibbe cipher of Latin, wrapped | 13.7% | 14.0% | −0.6 |
+| Timm–Schinner generator | 12.9% | 13.5% | −1.2 |
+
+- **The avoidance is strong and everywhere.** Four in ten of the expected repeats are missing. Every scribe, both Currier languages and every section show it.
+- **Two lines down, the opening returns**: 20.9% against 16.2% (z +6.2). Line openings alternate. One paragraph of f76r opens its lines `y q s q s q s q c q c d`.
+- **Only the opening is involved.** The second word of the line and the line's ending show nothing.
+- **It is not the line-start prefix.** With a leading `y`, `d` or `s` removed, the avoidance is as strong.
+- **Some openings are far more exclusive than others.** A line beginning with `q` is followed by another `q` line 0.22 times as often as chance and by a `ch` line 3.0 times as often; `o` after `o` is 0.27. `s` after `s` is not avoided at all (1.10).
+
+What it means: the word that opens each line was chosen with the line above in view. A scribe copying a fixed text has no control over which word falls at the start of a line, and the real manuscripts show none. It is also the opposite of copying from the line above, and neither published model of the text produces it.
+
+It does not say why. Varying the openings for the look of the page, a marker system that takes turns, and two alternating kinds of line would all leave this trace.
+
+Limits: two web searches found no description of this rule, but a 2026 voynich.ninja thread on line-first glyphs could not be read from this environment, so treat novelty as "not found". This is a rule about how lines begin, not a reading of any word.
+
+Reproduce with `python3 src/exp13_line_starts.py`.
 
 ## What this means
 

@@ -272,6 +272,39 @@ def fig_continuity(C):
     save(fig, "fig7_continuity.png")
 
 
+def fig_line_starts(R):
+    rows = [("Voynich (ZL3b transliteration)", "Voynich (ZL3b)"),
+            ("Voynich (word boxes, Takahashi)", "Voynich (word boxes, Takahashi)"),
+            ("Voynich, scribe 1", "Voynich, scribe 1"), ("Voynich, scribe 2", "Voynich, scribe 2"),
+            ("Voynich, scribe 3", "Voynich, scribe 3"),
+            ("Six real French manuscripts", "Six real French manuscripts"),
+            ("Latin, wrapped", "Latin (Pliny), wrapped"),
+            ("Naibbe cipher of Latin", "Naibbe cipher of Latin, wrapped"),
+            ("Timm-Schinner generator", "Timm-Schinner generator")]
+    fig, ax = plt.subplots(figsize=(7.6, 4.9))
+    ys = np.arange(len(rows))[::-1]
+    for (label, key), y in zip(rows, ys):
+        r = R[key]["lag1"]
+        ax.plot([100 * r["shuffled"], 100 * r["same"]], [y, y], color=GRID, linewidth=2, zorder=1)
+        ax.plot([100 * r["shuffled"]], [y], "o", color=GREY, markersize=8, markeredgecolor=SURFACE,
+                markeredgewidth=1.5, zorder=2)
+        ax.plot([100 * r["same"]], [y], "o", color=BLUE, markersize=8, markeredgecolor=SURFACE,
+                markeredgewidth=1.5, zorder=3)
+    ax.set_yticks(ys); ax.set_yticklabels([r[0] for r in rows], color=INK)
+    tidy(ax, "x")
+    ax.set_xlim(0, 20); ax.set_ylim(-0.7, len(rows) - 0.3)
+    ax.set_xlabel("Lines that begin with the same glyph as the line above (%)")
+    from matplotlib.lines import Line2D
+    fig.legend(handles=[Line2D([], [], color=BLUE, marker="o", linestyle="", markersize=7, label="As written"),
+                        Line2D([], [], color=GREY, marker="o", linestyle="", markersize=7,
+                               label="Same lines in shuffled order")],
+               loc="lower center", bbox_to_anchor=(0.5, 0.005), ncol=2, fontsize=9.5)
+    head(fig, "A Voynich line avoids beginning like the line above it",
+         "Every scribe does it; real manuscripts, a cipher and a copying generator do not")
+    fig.subplots_adjust(left=0.33, right=0.975, top=0.86, bottom=0.2)
+    save(fig, "fig8_line_starts.png")
+
+
 def extra_data():
     """Two light recomputations the figures need (cached in results/fig_extra.json)."""
     p = ROOT / "results" / "fig_extra.json"
@@ -322,6 +355,9 @@ def main():
     c = ROOT / "results" / "exp5_continuity.json"
     if c.exists():
         fig_continuity(json.loads(c.read_text()))
+    c = ROOT / "results" / "exp13_line_starts.json"
+    if c.exists():
+        fig_line_starts(json.loads(c.read_text()))
 
 
 if __name__ == "__main__":
