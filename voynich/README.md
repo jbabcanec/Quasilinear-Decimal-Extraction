@@ -157,6 +157,22 @@ This does not show the text is empty. A cipher that turns each letter or pair of
 
 Reproduce with `python3 src/exp7_absences.py`.
 
+## 7. A transformer context test (inconclusive)
+
+A small character-level transformer (0.4M parameters, CPU-trained) was trained per corpus to predict each line from the three lines before it, and tested with those lines intact, with the words inside them shuffled, replaced by other lines of the page, or removed. If a text runs on, shuffling should cost something.
+
+| | Cost of shuffling the preceding lines (bits per character, 95% interval) |
+|---|---|
+| Six real French manuscripts | +0.006 (+0.003 to +0.009) |
+| Latin (Pliny) | +0.001 (−0.001 to +0.003) |
+| Voynich | −0.002 (−0.004 to 0.000) |
+| Naibbe cipher of Latin | +0.001 (0.000 to +0.002) |
+| Timm–Schinner generator | +0.001 (−0.002 to +0.003) |
+
+The test did not work as a measurement. Plain Latin, which certainly runs on, shows no cost, and every model predicted better with no context at all than with the true context, so the models never learned to use the preceding lines. At 34,000 words per corpus and CPU-scale training this is expected. The Voynich's zero therefore says nothing. The French value is real but small, and probably comes from words split across lines.
+
+A usable version needs either GPU-scale training or a pretrained model; neither was available here. Script: `src/exp6_llm_context.py <corpus>`.
+
 ## What this means
 
 - The Voynich line end looks like the work of a scribe filling lines, which is what scribes of the period did with ordinary texts. It is not evidence that the text was made up on the page, and the earlier version of this report was wrong to read it that way.
