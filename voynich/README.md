@@ -1,16 +1,17 @@
 # Poured or fitted? Physical line-break forensics of the Voynich manuscript
 
-**The Voynich scribes did not wrap a finished text into lines. They chose what to write so that each line came out full.**
+**Voynich lines are fitted to the space, not wrapped at the first word that fails to fit. So are the lines of real 15th-century manuscripts.**
 
-This study measures the manuscript's text in pixel space, using a bounding box for every word, and asks a question that transliterations alone cannot answer: when a line ends, is that because the next word of an existing text did not fit, or because the scribe picked words to fill the space?
+This study measures the manuscript's text in pixel space, using a bounding box for every word, and asks when a line ends: because the next word of an existing text did not fit, or because the scribe filled the space?
 
-It is not a decipherment. It is a physical constraint that any decipherment has to satisfy.
+The first version of this report read the answer as evidence that the text was not copied from a finished text. A control on real manuscripts (section 4) shows that reading was wrong: scribes copying known French prose leave the same fingerprint. What is left is a description of how Voynich lines end, and one difference from the real manuscripts.
 
 ## Findings
 
-1. **Lines are fitted, not wrapped.** Across 3,183 line breaks, the blank left at a line's end is unrelated to the width of the word that starts the next line (coupling 0.05, 95% interval −0.03 to 0.14). Wrapping a finished text on the same pages gives 0.48.
-2. **The last word of each line is cut to measure.** It averages 2.8 glyphs when half a word-width of room is left and 6.1 glyphs when there is room for one and two-thirds. That is one word in eight across the manuscript.
-3. **Words are not copied from the word physically above them.** At most 0.7% of words can be such copies. The Timm–Schinner generator's own output scores about the same on this test, so this limits the naive picture of copying, not their algorithm.
+1. **Voynich lines are fitted, not mechanically wrapped.** Across 3,183 line breaks, the blank at a line's end is unrelated to the width of the word that starts the next line (coupling 0.05, 95% interval −0.03 to 0.14). Mechanically wrapping the same words on the same pages gives 0.48.
+2. **Real scribes do the same.** Six French prose manuscripts of the 15th century, measured the same way, give couplings from −0.44 to +0.29, five of them at or below +0.09. Mechanical wrapping of their own words gives +0.18 to +0.51. The fitted line end is ordinary scribal practice.
+3. **One difference survives.** Voynich lines end on shorter-than-average words (−9%). All six real manuscripts end lines on longer-than-average words (+13% to +26%).
+4. **Words are not copied from the word physically above them.** At most 0.7% of words can be such copies. The Timm–Schinner generator's own output scores about the same on this test, so this limits the naive picture of copying, not their algorithm.
 
 ## Data
 
@@ -66,6 +67,8 @@ The result holds in every section and for every hand with enough lines to measur
 
 ![Last word against the room it had](figures/fig4_lastword.png)
 
+The last word's length tracks the room left for it. This is not distinctive: the real manuscripts in section 4 show the same pattern (about 2.2 characters when room is tight, 6.5 when it is wide), and part of it is built in, because the room includes the word that was written into it.
+
 The last word's length tracks the room left for it. Its ending does not: 18% of line-final words end in the glyph `m`, against 1% elsewhere, and that share is about the same whether the room was tight or generous. The line-end mark follows the count (this is the last word); the length follows the pixels.
 
 Two long-known oddities come out of fitting without further assumptions. In the manuscript, line-first words are 9% wider than mid-line words and line-last words 10% narrower. The fitter gives +9% and −16%; the wrapper gives +10% and +1%.
@@ -96,19 +99,37 @@ The *overhead contrast* divides the overhead advantage on the two lines above by
 
 Reading the manuscript's upper limit off the calibration gives at most 0.7% of words copied from overhead, with a best estimate of 0.4%. What the manuscript does show is a diffuse effect: a word is 23% more likely than chance to resemble a word on the line above, 15% for three lines up, 6% for ten, at any horizontal offset.
 
+## 4. Control: real manuscripts
+
+Six manuscripts from `Gallicorpora/HTR-MSS-15e-Siecle` (15th-century French, line-level ground truth, commit `707a106`), main text zones only. Each word gets a synthetic box whose width is proportional to its character count, and the result goes through the same code as the Voynich pages, including the simulated wrapper and fitter on each manuscript's own words.
+
+| Manuscript (Gallica id) | Line breaks | Median blank | Coupling (95%) | Its own wrapper | Its own fitter | Last word vs mid-line length |
+|---|---|---|---|---|---|---|
+| btv1b100737746 | 462 | 0.27 | −0.08 (−0.23 to 0.12) | 0.37 | 0.12 | +13% |
+| btv1b55008562q | 1,046 | 0.28 | 0.07 (0.03 to 0.10) | 0.18 | 0.08 | +15% |
+| btv1b90069505 | 1,124 | 0.31 | −0.19 (−0.30 to −0.09) | 0.39 | 0.17 | +14% |
+| btv1b9009670t | 438 | 0.56 | 0.29 (0.10 to 0.55) | 0.45 | 0.11 | +26% |
+| btv1b90595325 | 394 | 0.37 | −0.44 (−0.75 to −0.15) | 0.42 | 0.19 | +21% |
+| btv1b90616967 | 416 | 0.33 | 0.09 (−0.03 to 0.18) | 0.51 | 0.23 | +18% |
+| **Voynich** | 3,183 | 0.13 | 0.05 (−0.03 to 0.14) | 0.48 | 0.01 | −9% |
+
+Real scribes copying real text do not break the line at the first word that fails to fit. Their line ends carry little or no trace of the next word, as in the Voynich. The coupling test separates mechanical wrapping from scribal line-filling. It does not separate a copied text from one composed on the page.
+
+Reproduce with `python3 control_real/control_real.py <path to the cloned dataset>`.
+
 ## What this means
 
-- The scribe decided what went at the end of each line while looking at the space left. A fixed sequence of these words, written out and wrapped at the margin, is not what the pages show. That applies to plain-language readings and to word-for-word ciphers alike.
-- Three accounts remain open. The text was composed on the page, line by line. Or the writing system lets the same content be written longer or shorter (abbreviation, or a cipher with optional long and short encodings) and the scribe used that freedom at line ends. Or the source was already laid out in these lines, which moves the question back one step.
-- None of this shows the text is meaningless.
-- For anyone attempting a reading: treat each line as a unit, do not read across line breaks as continuous text, and expect the last word of a line to carry layout as well as content.
+- The Voynich line end looks like the work of a scribe filling lines, which is what scribes of the period did with ordinary texts. It is not evidence that the text was made up on the page, and the earlier version of this report was wrong to read it that way.
+- The remaining difference is in how the line is filled. Real scribes end lines on long words, which is what happens when the word straddling the margin is squeezed in. Voynich scribes end lines on short words and start the next line with long ones (+9%).
+- The side-tests in sections 1 and 2 (no squeezing of the last word, no split words, no link between words across the line break) still describe the Voynich. They have not been run on a second real corpus with true word boxes, so how unusual they are is open.
+- None of this bears on whether the text is meaningful.
 
 ## Limits
 
-- No real medieval manuscript of known text was measured the same way. The wrapper and fitter are simulations. A 15th-century manuscript with word boxes is the control that would settle how real scribes behave, and it is the obvious next step.
+- The control uses synthetic word boxes (width from character count) and line ends from transcription baselines, so its blanks are noisier than the Voynich's. It covers one dataset, one language, six manuscripts, taken as prose from their transcriptions.
 - A line's available right edge is inferred from neighbouring lines of the same paragraph, not observed. The simulations are measured by the same estimator.
 - Herbal pages have irregular right edges where drawings intrude, so their intervals are wide.
-- Boxes are quantised to 3 px and follow one transliteration.
+- Voynich boxes are quantised to 3 px and follow one transliteration.
 
 ## Prior work
 
@@ -120,7 +141,7 @@ A background search (limited: voynich.ninja, arXiv and several blogs were unreac
 - `eo777/vms-spatial` and `vms-dynamic-citation` (2026): word boxes used to test self-citation with a visibility cone; its same-position test was inconclusive.
 - Rozanova & Temerev (2026), whose archive supplies the data used here, used the boxes to validate word gaps.
 
-Finding 3 therefore confirms earlier null results with a pixel measurement and adds a calibrated limit. Findings 1 and 2 were not found elsewhere. Treat that as "not found", not "proven absent".
+The overhead-copy result therefore confirms earlier null results with a pixel measurement and adds a calibrated limit. The line-break test and its control on real manuscripts were not found elsewhere. Treat that as "not found", not "proven absent".
 
 ## Reproduce
 
@@ -139,6 +160,7 @@ python3 src/figures.py
 | `src/wrap.py` | Line-end measurements and the three simulated scribes |
 | `src/pairs.py`, `src/kernel.py` | Word-pair similarity by position; overhead contrast |
 | `src/layout.py` | Synthetic pages on the real geometry |
+| `control_real/control_real.py` | The same line-end measurements on real manuscripts |
 
 ## Data credits
 
@@ -149,3 +171,4 @@ Not redistributed here; `fetch_data.sh` clones them from the archive of L. Rozan
 - Self-citation generator output: T. Timm and A. Schinner's algorithm, as archived there.
 - Naibbe cipher text: M. Greshko.
 - Latin text: Pliny, *Naturalis Historia*, Tesserae edition.
+- Control manuscripts: Gallicorpora, *Données HTR manuscrits du 15e siècle* (transcribed by N. Leroy), cloned separately.
