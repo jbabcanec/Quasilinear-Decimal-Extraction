@@ -64,7 +64,9 @@ def read_page(path: Path):
 
 def token_table(ms_dir: Path) -> pd.DataFrame:
     rows, par = [], 0
-    for page in sorted(ms_dir.glob("*.xml")):
+    # the dataset ships every page twice (raw and character-normalised); use one copy only
+    files = sorted(ms_dir.glob("*.chocomufin.xml")) or sorted(ms_dir.glob("*.xml"))
+    for page in files:
         ln = 0
         for region in read_page(page):
             par += 1
