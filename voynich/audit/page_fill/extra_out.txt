@@ -52,3 +52,11 @@
   full & H-limited 9, full & not 1, not full & H-limited 2, neither 13
 #### F. leave-one-leaf-out and leave-one-bifolio-out (25 S, P90, tol .5, like-for-like draw null)
   leave-one-leaf-out (leaf, full, obs, null, p): [('f103', 8, np.float64(0.35), np.float64(0.26), np.float64(0.167)), ('f104', 9, np.float64(0.39), np.float64(0.26), np.float64(0.05)), ('f105', 9, np.float64(0.39), np.float64(0.26), np.float64(0.049)), ('f106', 9, np.float64(0.39), np.float64(0.26), np.float64(0.048)), ('f107', 8, np.float64(0.35), np.float64(0.27), np.float64(0.172)), ('f108', 9, np.float64(0.39), np.float64(0.26), np.float64(0.068)), ('f111', 8, np.float64(0.35), np.float64(0.27), np.float64(0.183)), ('f112', 8, np.float64(0.35), np.float64(0.26), np.float64(0.166)), ('f113', 9, np.float64(0.39), np.float64(0.27), np.float64(0.061)), ('f114', 9, np.float64(0.39), np.float64(0.26), np.float64(0.057)), ('f115', 9, np.float64(0.39), np.float64(0.26), np.float64(0.051)), ('f116', 8, np.float64(0.33), np.float64(0.27), np.float64(0.225)), ('f58', 9, np.float64(0.39), np.float64(0.27), np.float64(0.077))]
+  leave-one-bifolio-out: [('H2', 9, np.float64(0.39), np.float64(0.27), np.float64(0.077)), ('T1', 7, np.float64(0.32), np.float64(0.27), np.float64(0.331)), ('T2', 9, np.float64(0.43), np.float64(0.26), np.float64(0.026)), ('T3', 9, np.float64(0.43), np.float64(0.27), np.float64(0.04)), ('T4', 9, np.float64(0.43), np.float64(0.26), np.float64(0.023)), ('T5', 6, np.float64(0.29), np.float64(0.27), np.float64(0.503)), ('T6', 8, np.float64(0.38), np.float64(0.27), np.float64(0.111))]
+  leaves with both sides: 12 ; both full 3 ; one full 3 ; none 6
+#### G. elastic line spacing (quire T)
+  lines/page: min 37 max 54 ; among the 11 frame-bottom ("full") pages: [45, 46, 47, 47, 47, 49, 50, 51, 53, 54, 54]
+  pitch/charwidth: all 1.96..2.38 ; corr with n = -0.66 | pitch/textwidth corr with n = -0.66
+  bottom-half/top-half pitch: frame-bottom pages mean 1.052 (sd 0.069) ; other pages mean 1.053 (sd 0.063)
+  last-8-lines/rest pitch:    frame-bottom pages mean 1.037 (sd 0.068) ; other pages mean 1.055 (sd 0.061)
+  quire T: px extent first-to-last line: mean 831 sd 42 (CV 5.0%) ; lines CV 9.4% ; if pitch were common, extent CV would equal lines CV
