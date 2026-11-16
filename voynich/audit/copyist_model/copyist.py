@@ -31,8 +31,10 @@ fuller line fits: the copyist never stops early just to move a word, unless he c
 the space.
 
 What he wants (costs, lexicographic in effect):
-   paragraph ending  `widow`  none | single (no one-word last line) | short (also none
-                              under 30% of a line) | shape (also prefer 40-80%)
+   paragraph ending  `widow`  none | single (no one-word last line) | two (and, less
+                              pressingly, no two-word one) | two+ (nor a last line
+                              crammed full) | short (none under 30% of a line) | shape
+                              (also prefer 40-80%)
    line openings     `avoid_repeat` > 0: do not begin a line with the glyph that begins
                               the line above;  `seek_lag2` > 0: prefer the glyph two above
    line ends         a small blank, then little squeezing/stretching, few splits, the
@@ -208,6 +210,10 @@ def lay_paragraph(P, sc: Scribe, W: float, unit: float, rng):
                 if sc.widow != "none":
                     if nwords == 1:
                         c += 1e5
+                    if sc.widow in ("two", "two+") and nwords == 2:
+                        c += 3e4
+                    if sc.widow == "two+" and N0 > 0.93 * W:
+                        c += 1e4                       # and no last line crammed full either
                     if sc.widow in ("short", "shape") and fillr < 0.30:
                         c += 3e4
                     if sc.widow == "shape":

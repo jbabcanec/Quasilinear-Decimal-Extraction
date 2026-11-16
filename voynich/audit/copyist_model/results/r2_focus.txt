@@ -1,0 +1,205 @@
+last line: one word / two or fewer (%) | last line over-full (%), full last lines denser than others (log) | line before last short (%): all paragraphs, short endings, long endings | line before last looser than the paragraph (log): short endings, long endings | slope of paragraph density on last-line fill
+                                                                1 wd   <=2 |  over  dense | short  (sh.) (long) |   loose  (long) |   slope
+VOYNICH all sections (482 par., 9 words/line)                    0.4   6.8 |   4.6 +0.006 |   7.1   14.0    5.3 |  +0.015  +0.012 |  -0.011
+                                                               n short/long endings 86/284; se: dense 0.005, loose difference 0.004, slope 0.009
+VOYNICH stars section (no drawings in the text) (124 par., 11    0.0   0.8 |   0.8 -0.002 |   0.0    0.0    0.0 |  +0.021  +0.009 |  +0.006
+                                                               n short/long endings 17/72; se: dense 0.011, loose difference 0.008, slope 0.020
+VOYNICH stars, jars and text-only pages (185 par., 11 words/li   0.0   1.6 |   3.2 +0.005 |   0.0    0.0    0.0 |  +0.019  +0.013 |  -0.002
+                                                               n short/long endings 25/113; se: dense 0.007, loose difference 0.007, slope 0.013
+VOYNICH plant pages (211 par., 7 words/line)                     0.9  12.8 |   4.7 +0.005 |  14.2   20.0   12.4 |  +0.009  +0.010 |  -0.018
+                                                               n short/long endings 55/105; se: dense 0.008, loose difference 0.006, slope 0.007
+nothing (text simply runs out)                                  13.3  25.8 |   5.9 +0.000 |   2.8    3.6    2.3 |  +0.000  +0.000 |  +0.000
+single | pull up: squeeze 5% | last 2 lines                     13.5  26.9 |   7.5 -0.007 |   1.4    2.0    0.8 |  +0.001  +0.001 |  +0.001
+single | push down: stretch 5% | last 2 lines                   12.7  25.8 |   2.8 -0.000 |   1.4    1.7    1.3 |  +0.001  -0.001 |  +0.001
+single | pull up: squeeze 8% | last 2 lines                     12.0  22.9 |  10.5 -0.013 |   0.3    0.5    0.1 |  +0.000  -0.002 |  +0.000
+single | push down: stretch 8% | last 2 lines                   12.1  25.8 |   2.1 -0.000 |   0.6    0.9    0.3 |  +0.002  -0.002 |  +0.001
+single | pull up: squeeze 10% | last 2 lines                     9.9  21.2 |  11.6 -0.019 |   0.1    0.0    0.0 |  +0.003  +0.002 |  -0.002
+single | push down: stretch 10% | last 2 lines                  11.0  25.8 |   1.9 -0.000 |   0.2    0.2    0.1 |  +0.002  -0.004 |  +0.000
+single | pull up: squeeze 12% | last 2 lines                     7.4  17.9 |  13.4 -0.025 |   0.1    0.4    0.0 |  +0.001  +0.004 |  -0.003
+single | push down: stretch 12% | last 2 lines                   9.9  25.8 |   1.8 -0.000 |   0.1    0.0    0.0 |  +0.003  -0.006 |  -0.001
+single | pull up: squeeze 15% | last 2 lines                     4.7  14.6 |  16.8 -0.036 |   0.3    0.4    0.2 |  +0.001  +0.001 |  -0.003
+single | push down: stretch 15% | last 2 lines                   8.2  25.8 |   1.7 -0.000 |   0.1    0.3    0.0 |  +0.003  -0.009 |  -0.002
+single | both: elastic 3% | last 2 lines                        13.7  26.4 |   5.1 -0.002 |   1.2    1.5    1.2 |  +0.002  -0.002 |  +0.000
+single | both: elastic 5% | last 2 lines                        11.1  25.7 |   6.6 -0.005 |   0.1    0.2    0.1 |  +0.005  -0.001 |  -0.002
+single | both: elastic 6% | last 2 lines                         9.2  24.4 |   8.3 -0.009 |   0.0    0.0    0.0 |  +0.004  +0.000 |  -0.001
+single | both: elastic 8% | last 2 lines                         6.7  22.9 |   9.0 -0.010 |   0.1    0.2    0.0 |  +0.009  -0.000 |  -0.002
+single | both: elastic 10% | last 2 lines                        3.8  21.1 |  10.7 -0.015 |   0.3    0.3    0.4 |  +0.011  -0.000 |  -0.004
+single | both: elastic last 3 words 15% | last 2 lines          11.6  25.5 |   7.0 -0.008 |   0.2    0.3    0.1 |  +0.001  -0.000 |  +0.000
+single | both: elastic last 3 words 20% | last 2 lines           9.0  24.3 |   8.4 -0.009 |   0.1    0.2    0.1 |  +0.004  -0.000 |  -0.002
+single | both: elastic last 3 words 30% | last 2 lines           3.9  21.6 |  10.5 -0.016 |   0.1    0.2    0.0 |  +0.011  -0.001 |  -0.005
+single | abbreviate: table x0.5 | last 2 lines                   9.6  23.4 |   7.4 -0.005 |   0.8    0.5    1.1 |  +0.006  -0.002 |  -0.001
+single | abbreviate: table x1.0 | last 2 lines                   5.8  20.7 |  10.2 -0.014 |   0.4    0.6    0.4 |  +0.010  -0.003 |  -0.005
+single | stop short: blank up to 2.5 words | last 2 lines        2.1  25.8 |   5.5 +0.000 |   5.3   12.8    0.9 |  +0.000  +0.000 |  +0.000
+single | stop short + elastic last 3 words 15% | last 2 lines    0.0  25.4 |   6.9 -0.006 |   3.5    8.8    0.0 |  +0.014  -0.001 |  -0.005
+single | pull up: squeeze 5% | last 3 lines                     13.1  26.9 |   7.4 -0.007 |   1.4    2.0    0.8 |  +0.001  +0.001 |  +0.001
+single | push down: stretch 5% | last 3 lines                   12.3  25.8 |   2.8 -0.000 |   1.5    2.0    1.3 |  +0.001  -0.001 |  +0.001
+single | pull up: squeeze 8% | last 3 lines                     10.5  22.3 |  10.9 -0.013 |   0.4    0.9    0.1 |  +0.000  -0.002 |  -0.002
+single | push down: stretch 8% | last 3 lines                   11.1  25.8 |   2.1 +0.000 |   0.7    1.4    0.3 |  +0.001  -0.003 |  +0.000
+single | pull up: squeeze 10% | last 3 lines                     7.3  20.1 |  12.3 -0.019 |   0.0    0.0    0.0 |  +0.007  +0.002 |  -0.002
+single | push down: stretch 10% | last 3 lines                   8.9  25.8 |   1.9 +0.000 |   0.3    0.3    0.1 |  +0.002  -0.005 |  -0.002
+single | pull up: squeeze 12% | last 3 lines                     4.7  15.5 |  15.5 -0.027 |   0.1    0.0    0.1 |  +0.005  +0.001 |  -0.003
+single | push down: stretch 12% | last 3 lines                   7.8  25.9 |   1.9 +0.000 |   0.1    0.0    0.0 |  +0.001  -0.008 |  -0.003
+single | pull up: squeeze 15% | last 3 lines                     1.5  11.4 |  19.0 -0.034 |   0.5    0.4    0.5 |  +0.005  -0.000 |  -0.009
+single | push down: stretch 15% | last 3 lines                   5.5  25.8 |   1.7 +0.000 |   0.1    0.2    0.0 |  -0.000  -0.011 |  -0.005
+single | both: elastic 3% | last 3 lines                        13.1  26.2 |   5.2 -0.002 |   1.2    1.5    1.2 |  +0.002  -0.002 |  +0.000
+single | both: elastic 5% | last 3 lines                         9.1  25.0 |   7.6 -0.006 |   0.2    0.3    0.1 |  +0.003  -0.002 |  -0.002
+single | both: elastic 6% | last 3 lines                         6.5  23.6 |   8.6 -0.008 |   0.2    0.4    0.1 |  +0.003  -0.003 |  -0.003
+single | both: elastic 8% | last 3 lines                         3.3  20.8 |  10.3 -0.007 |   0.1    0.2    0.0 |  +0.008  -0.001 |  -0.008
+single | both: elastic 10% | last 3 lines                        0.7  19.0 |  11.8 -0.012 |   0.2    0.2    0.2 |  +0.012  -0.005 |  -0.009
+single | both: elastic last 3 words 15% | last 3 lines          10.4  25.3 |   7.1 -0.007 |   0.1    0.2    0.1 |  +0.003  -0.003 |  -0.002
+single | both: elastic last 3 words 20% | last 3 lines           5.9  23.4 |   8.8 -0.008 |   0.1    0.0    0.1 |  +0.005  -0.001 |  -0.005
+single | both: elastic last 3 words 30% | last 3 lines           1.1  19.9 |  10.6 -0.011 |   0.3    0.4    0.3 |  +0.009  -0.004 |  -0.008
+single | abbreviate: table x0.5 | last 3 lines                   8.7  23.1 |   7.3 -0.005 |   0.8    0.5    1.0 |  +0.005  -0.003 |  -0.002
+single | abbreviate: table x1.0 | last 3 lines                   1.5  17.9 |  10.6 -0.008 |   0.4    0.6    0.3 |  +0.007  -0.006 |  -0.012
+single | stop short: blank up to 2.5 words | last 3 lines        0.3  25.8 |   5.4 +0.000 |   2.7    6.0    0.9 |  +0.000  +0.000 |  +0.000
+single | stop short + elastic last 3 words 15% | last 3 lines    0.0  25.2 |   7.1 -0.005 |   0.6    1.3    0.1 |  +0.009  -0.004 |  -0.008
+single | pull up: squeeze 5% | last 4 lines                     12.8  26.7 |   7.4 -0.007 |   1.3    1.8    0.7 |  +0.000  +0.001 |  +0.001
+single | push down: stretch 5% | last 4 lines                   11.7  25.8 |   2.8 -0.000 |   1.4    1.9    1.3 |  +0.001  -0.001 |  +0.000
+single | pull up: squeeze 8% | last 4 lines                      9.8  22.0 |  11.2 -0.013 |   0.3    0.5    0.1 |  -0.002  -0.002 |  -0.002
+single | push down: stretch 8% | last 4 lines                   10.1  25.8 |   2.2 -0.000 |   0.5    1.2    0.1 |  +0.001  -0.004 |  +0.000
+single | pull up: squeeze 10% | last 4 lines                     6.2  18.9 |  12.9 -0.019 |   0.1    0.2    0.0 |  +0.006  +0.002 |  -0.003
+single | push down: stretch 10% | last 4 lines                   8.1  25.7 |   2.0 -0.000 |   0.1    0.2    0.0 |  +0.001  -0.006 |  -0.002
+single | pull up: squeeze 12% | last 4 lines                     3.0  13.9 |  16.6 -0.024 |   0.1    0.0    0.1 |  +0.005  +0.002 |  -0.007
+single | push down: stretch 12% | last 4 lines                   6.7  25.7 |   2.0 -0.000 |   0.0    0.0    0.0 |  -0.000  -0.009 |  -0.004
+single | pull up: squeeze 15% | last 4 lines                     1.0  10.7 |  19.4 -0.029 |   0.4    1.0    0.1 |  +0.007  +0.002 |  -0.011
+single | push down: stretch 15% | last 4 lines                   3.9  25.8 |   1.7 +0.000 |   0.1    0.2    0.0 |  -0.002  -0.011 |  -0.006
+single | both: elastic 3% | last 4 lines                        12.4  26.2 |   5.2 -0.002 |   1.1    1.3    1.1 |  +0.001  -0.002 |  -0.001
+single | both: elastic 5% | last 4 lines                         7.7  24.7 |   7.6 -0.005 |   0.1    0.2    0.0 |  -0.000  -0.002 |  -0.004
+single | both: elastic 6% | last 4 lines                         5.0  22.9 |   8.7 -0.006 |   0.1    0.2    0.1 |  +0.001  -0.003 |  -0.006
+single | both: elastic 8% | last 4 lines                         1.7  18.8 |  10.3 -0.005 |   0.0    0.0    0.0 |  +0.004  -0.002 |  -0.010
+single | both: elastic 10% | last 4 lines                        0.3  18.0 |  10.5 -0.005 |   0.3    0.6    0.1 |  +0.004  -0.003 |  -0.012
+single | both: elastic last 3 words 15% | last 4 lines           8.9  24.9 |   7.2 -0.007 |   0.1    0.2    0.1 |  -0.001  -0.003 |  -0.003
+single | both: elastic last 3 words 20% | last 4 lines           4.0  22.7 |   8.2 -0.005 |   0.1    0.2    0.0 |  +0.004  -0.002 |  -0.007
+single | both: elastic last 3 words 30% | last 4 lines           0.3  18.3 |  10.4 -0.007 |   0.2    0.6    0.0 |  +0.006  -0.004 |  -0.010
+single | abbreviate: table x0.5 | last 4 lines                   7.8  22.4 |   7.5 -0.004 |   0.7    0.4    0.8 |  +0.002  -0.004 |  -0.004
+single | abbreviate: table x1.0 | last 4 lines                   0.8  17.0 |  10.9 -0.006 |   0.5    0.6    0.6 |  +0.007  -0.004 |  -0.011
+single | stop short: blank up to 2.5 words | last 4 lines        0.1  25.8 |   5.5 +0.000 |   2.1    4.2    0.9 |  +0.000  +0.000 |  +0.000
+single | stop short + elastic last 3 words 15% | last 4 lines    0.0  24.7 |   7.0 -0.005 |   0.3    0.6    0.0 |  +0.003  -0.004 |  -0.009
+single | pull up: squeeze 5% | whole paragraph                  12.0  26.5 |   7.4 -0.007 |   1.2    2.0    0.5 |  -0.000  +0.000 |  +0.000
+single | push down: stretch 5% | whole paragraph                11.5  25.7 |   2.8 -0.000 |   1.2    1.7    1.2 |  +0.001  -0.001 |  +0.000
+single | pull up: squeeze 8% | whole paragraph                   8.3  21.1 |  11.4 -0.013 |   0.3    0.5    0.1 |  -0.002  -0.002 |  -0.003
+single | push down: stretch 8% | whole paragraph                 8.7  25.4 |   2.1 +0.000 |   0.6    1.4    0.1 |  -0.000  -0.004 |  -0.001
+single | pull up: squeeze 10% | whole paragraph                  4.0  16.7 |  13.6 -0.017 |   0.0    0.0    0.0 |  +0.004  +0.002 |  -0.005
+single | push down: stretch 10% | whole paragraph                6.0  25.0 |   1.9 +0.001 |   0.1    0.0    0.1 |  -0.002  -0.007 |  -0.004
+single | pull up: squeeze 12% | whole paragraph                  1.4  12.2 |  16.4 -0.019 |   0.1    0.2    0.1 |  +0.005  +0.004 |  -0.010
+single | push down: stretch 12% | whole paragraph                4.1  25.0 |   1.9 +0.001 |   0.0    0.0    0.0 |  -0.005  -0.009 |  -0.006
+single | pull up: squeeze 15% | whole paragraph                  0.3  10.6 |  17.7 -0.021 |   0.4    0.7    0.2 |  +0.009  +0.004 |  -0.015
+single | push down: stretch 15% | whole paragraph                1.5  25.0 |   1.8 +0.001 |   0.1    0.2    0.0 |  -0.005  -0.012 |  -0.009
+single | both: elastic 3% | whole paragraph                     11.5  26.1 |   5.2 -0.001 |   1.0    1.1    1.1 |  +0.000  -0.002 |  -0.001
+single | both: elastic 5% | whole paragraph                      5.5  23.6 |   7.4 -0.004 |   0.2    0.3    0.1 |  -0.003  -0.002 |  -0.006
+single | both: elastic 6% | whole paragraph                      2.5  21.5 |   8.7 -0.005 |   0.0    0.0    0.0 |  -0.000  -0.003 |  -0.007
+single | both: elastic 8% | whole paragraph                      0.3  17.1 |  10.0 -0.002 |   0.2    0.4    0.1 |  +0.001  -0.001 |  -0.008
+single | both: elastic 10% | whole paragraph                     0.0  16.6 |   9.6 -0.001 |   0.2    0.0    0.3 |  +0.003  +0.001 |  -0.010
+single | both: elastic last 3 words 15% | whole paragraph        6.6  24.0 |   7.3 -0.006 |   0.1    0.2    0.1 |  -0.002  -0.003 |  -0.004
+single | both: elastic last 3 words 20% | whole paragraph        1.8  20.8 |   8.8 -0.004 |   0.1    0.2    0.0 |  +0.001  -0.001 |  -0.008
+single | both: elastic last 3 words 30% | whole paragraph        0.1  16.7 |   9.0 -0.002 |   0.3    0.4    0.3 |  +0.001  -0.001 |  -0.008
+single | abbreviate: table x0.5 | whole paragraph                5.8  21.3 |   7.6 -0.003 |   0.6    0.4    0.7 |  -0.001  -0.006 |  -0.005
+single | abbreviate: table x1.0 | whole paragraph                0.2  15.6 |   9.8 -0.002 |   0.3    0.2    0.5 |  +0.001  -0.003 |  -0.010
+single | stop short: blank up to 2.5 words | whole paragraph     0.0  25.8 |   5.2 +0.000 |   1.8    3.7    0.8 |  +0.000  +0.000 |  +0.000
+single | stop short + elastic last 3 words 15% | whole paragra   0.0  23.8 |   7.2 -0.004 |   0.0    0.0    0.0 |  +0.000  -0.004 |  -0.009
+two | pull up: squeeze 5% | last 2 lines                        13.5  26.2 |   7.5 -0.007 |   1.4    2.0    0.8 |  +0.001  +0.001 |  +0.001
+two | push down: stretch 5% | last 2 lines                      12.7  25.5 |   2.8 -0.000 |   1.4    1.7    1.3 |  +0.002  -0.001 |  +0.001
+two | pull up: squeeze 8% | last 2 lines                        12.0  22.1 |  10.5 -0.013 |   0.3    0.5    0.1 |  +0.001  -0.002 |  -0.000
+two | push down: stretch 8% | last 2 lines                      12.1  24.1 |   2.1 +0.000 |   0.6    0.9    0.3 |  +0.004  -0.002 |  +0.000
+two | pull up: squeeze 10% | last 2 lines                        9.9  20.4 |  11.6 -0.019 |   0.1    0.0    0.0 |  +0.005  +0.002 |  -0.003
+two | push down: stretch 10% | last 2 lines                     11.0  22.5 |   1.9 +0.000 |   0.2    0.2    0.1 |  +0.007  -0.004 |  -0.001
+two | pull up: squeeze 12% | last 2 lines                        7.4  16.9 |  13.5 -0.024 |   0.1    0.2    0.0 |  +0.004  +0.004 |  -0.004
+two | push down: stretch 12% | last 2 lines                      9.9  21.7 |   1.8 +0.000 |   0.1    0.0    0.0 |  +0.009  -0.006 |  -0.003
+two | pull up: squeeze 15% | last 2 lines                        4.7  13.2 |  17.0 -0.036 |   0.4    0.4    0.3 |  +0.002  +0.002 |  -0.003
+two | push down: stretch 15% | last 2 lines                      8.2  19.1 |   1.7 +0.001 |   0.1    0.3    0.0 |  +0.016  -0.009 |  -0.007
+two | both: elastic 3% | last 2 lines                           13.7  25.4 |   5.1 -0.002 |   1.2    1.5    1.2 |  +0.003  -0.002 |  +0.000
+two | both: elastic 5% | last 2 lines                           11.1  23.3 |   6.6 -0.005 |   0.1    0.2    0.1 |  +0.008  -0.001 |  -0.003
+two | both: elastic 6% | last 2 lines                            9.2  20.8 |   8.3 -0.008 |   0.0    0.0    0.0 |  +0.010  +0.000 |  -0.002
+two | both: elastic 8% | last 2 lines                            6.7  17.0 |   9.1 -0.009 |   0.2    0.5    0.0 |  +0.022  -0.000 |  -0.005
+two | both: elastic 10% | last 2 lines                           3.8  13.1 |  11.3 -0.014 |   0.3    0.4    0.4 |  +0.030  -0.001 |  -0.011
+two | both: elastic last 3 words 15% | last 2 lines             11.6  22.9 |   7.0 -0.007 |   0.2    0.3    0.1 |  +0.005  -0.000 |  -0.001
+two | both: elastic last 3 words 20% | last 2 lines              9.0  19.8 |   8.4 -0.008 |   0.1    0.2    0.1 |  +0.012  -0.000 |  -0.004
+two | both: elastic last 3 words 30% | last 2 lines              3.9  13.8 |  10.5 -0.013 |   0.1    0.3    0.0 |  +0.029  -0.001 |  -0.011
+two | abbreviate: table x0.5 | last 2 lines                      9.6  21.5 |   7.4 -0.005 |   0.8    0.5    1.1 |  +0.009  -0.002 |  -0.002
+two | abbreviate: table x1.0 | last 2 lines                      5.8  14.2 |  11.8 -0.018 |   0.6    0.5    0.7 |  +0.023  -0.003 |  -0.008
+two | stop short: blank up to 2.5 words | last 2 lines           2.1  10.6 |   5.5 +0.000 |  10.8   26.9    0.9 |  +0.000  +0.000 |  +0.000
+two | stop short + elastic last 3 words 15% | last 2 lines       0.0   3.3 |   6.9 -0.004 |  11.0   27.9    0.0 |  +0.036  -0.001 |  -0.012
+two | pull up: squeeze 5% | last 3 lines                        13.1  25.9 |   7.4 -0.007 |   1.5    2.1    0.8 |  +0.001  +0.001 |  +0.000
+two | push down: stretch 5% | last 3 lines                      12.3  25.0 |   2.8 -0.000 |   1.5    2.0    1.3 |  +0.002  -0.001 |  +0.000
+two | pull up: squeeze 8% | last 3 lines                        10.5  20.5 |  10.9 -0.013 |   0.5    1.1    0.1 |  +0.001  -0.002 |  -0.003
+two | push down: stretch 8% | last 3 lines                      11.1  22.8 |   2.1 +0.000 |   0.7    1.4    0.3 |  +0.003  -0.003 |  -0.001
+two | pull up: squeeze 10% | last 3 lines                        7.3  17.4 |  12.3 -0.020 |   0.1    0.0    0.0 |  +0.009  +0.001 |  -0.003
+two | push down: stretch 10% | last 3 lines                      8.9  20.8 |   1.9 +0.001 |   0.3    0.3    0.1 |  +0.007  -0.005 |  -0.004
+two | pull up: squeeze 12% | last 3 lines                        4.7  12.4 |  16.0 -0.026 |   0.1    0.0    0.1 |  +0.006  +0.001 |  -0.007
+two | push down: stretch 12% | last 3 lines                      7.8  19.1 |   1.9 +0.001 |   0.1    0.0    0.0 |  +0.008  -0.008 |  -0.007
+two | pull up: squeeze 15% | last 3 lines                        1.5   5.6 |  22.1 -0.039 |   0.3    0.3    0.3 |  +0.007  -0.005 |  -0.012
+two | push down: stretch 15% | last 3 lines                      5.5  14.3 |   1.7 +0.002 |   0.0    0.0    0.0 |  +0.011  -0.011 |  -0.013
+two | both: elastic 3% | last 3 lines                           13.1  24.9 |   5.2 -0.002 |   1.2    1.5    1.2 |  +0.003  -0.002 |  -0.001
+two | both: elastic 5% | last 3 lines                            9.1  20.7 |   7.6 -0.005 |   0.3    0.5    0.1 |  +0.008  -0.002 |  -0.005
+two | both: elastic 6% | last 3 lines                            6.5  17.1 |   8.6 -0.006 |   0.3    0.7    0.1 |  +0.011  -0.003 |  -0.007
+two | both: elastic 8% | last 3 lines                            3.3  11.4 |  10.8 -0.005 |   0.2    0.5    0.0 |  +0.018  -0.001 |  -0.015
+two | both: elastic 10% | last 3 lines                           0.7   4.8 |  13.9 -0.011 |   0.3    0.2    0.3 |  +0.023  -0.006 |  -0.021
+two | both: elastic last 3 words 15% | last 3 lines             10.4  20.9 |   7.1 -0.006 |   0.1    0.2    0.1 |  +0.007  -0.003 |  -0.004
+two | both: elastic last 3 words 20% | last 3 lines              5.9  16.2 |   8.9 -0.006 |   0.1    0.0    0.1 |  +0.014  -0.001 |  -0.010
+two | both: elastic last 3 words 30% | last 3 lines              1.1   6.1 |  11.9 -0.009 |   0.3    0.2    0.3 |  +0.024  -0.006 |  -0.020
+two | abbreviate: table x0.5 | last 3 lines                      8.7  20.0 |   7.3 -0.004 |   0.8    0.5    1.0 |  +0.009  -0.004 |  -0.004
+two | abbreviate: table x1.0 | last 3 lines                      1.5   6.9 |  12.8 -0.010 |   0.4    0.7    0.5 |  +0.018  -0.008 |  -0.020
+two | stop short: blank up to 2.5 words | last 3 lines           0.3   3.5 |   5.4 +0.000 |   6.3   15.6    0.9 |  +0.000  +0.000 |  +0.000
+two | stop short + elastic last 3 words 15% | last 3 lines       0.0   0.0 |   7.1 -0.001 |   2.4    5.8    0.1 |  +0.020  -0.004 |  -0.018
+two | pull up: squeeze 5% | last 4 lines                        12.8  25.5 |   7.4 -0.007 |   1.4    2.0    0.7 |  +0.001  +0.001 |  +0.000
+two | push down: stretch 5% | last 4 lines                      11.7  24.8 |   2.8 -0.000 |   1.4    1.9    1.3 |  +0.001  -0.001 |  +0.000
+two | pull up: squeeze 8% | last 4 lines                         9.8  19.7 |  11.2 -0.013 |   0.4    0.7    0.1 |  -0.001  -0.002 |  -0.003
+two | push down: stretch 8% | last 4 lines                      10.1  22.2 |   2.2 +0.000 |   0.5    1.2    0.1 |  +0.003  -0.004 |  -0.002
+two | pull up: squeeze 10% | last 4 lines                        6.2  14.8 |  13.5 -0.019 |   0.1    0.2    0.0 |  +0.009  +0.002 |  -0.006
+two | push down: stretch 10% | last 4 lines                      8.1  19.3 |   2.0 +0.001 |   0.1    0.2    0.0 |  +0.006  -0.006 |  -0.005
+two | pull up: squeeze 12% | last 4 lines                        3.0   8.4 |  18.5 -0.025 |   0.2    0.5    0.1 |  +0.006  +0.001 |  -0.010
+two | push down: stretch 12% | last 4 lines                      6.7  17.1 |   2.0 +0.002 |   0.0    0.0    0.0 |  +0.006  -0.009 |  -0.009
+two | pull up: squeeze 15% | last 4 lines                        1.0   2.6 |  25.1 -0.035 |   0.4    0.0    0.6 |  +0.011  -0.001 |  -0.019
+two | push down: stretch 15% | last 4 lines                      3.9  11.8 |   1.7 +0.003 |   0.0    0.0    0.0 |  +0.005  -0.011 |  -0.017
+two | both: elastic 3% | last 4 lines                           12.4  24.4 |   5.2 -0.001 |   1.1    1.3    1.1 |  +0.002  -0.002 |  -0.001
+two | both: elastic 5% | last 4 lines                            7.7  18.7 |   7.6 -0.004 |   0.1    0.2    0.0 |  +0.003  -0.002 |  -0.007
+two | both: elastic 6% | last 4 lines                            5.0  14.1 |   8.7 -0.004 |   0.2    0.3    0.1 |  +0.007  -0.003 |  -0.012
+two | both: elastic 8% | last 4 lines                            1.7   6.5 |  12.2 -0.003 |   0.1    0.4    0.0 |  +0.012  -0.002 |  -0.019
+two | both: elastic 10% | last 4 lines                           0.3   1.8 |  13.7 -0.004 |   0.2    0.2    0.2 |  +0.016  -0.007 |  -0.025
+two | both: elastic last 3 words 15% | last 4 lines              8.9  19.1 |   7.2 -0.005 |   0.2    0.3    0.1 |  +0.004  -0.003 |  -0.006
+two | both: elastic last 3 words 20% | last 4 lines              4.0  13.3 |   8.2 -0.003 |   0.1    0.2    0.0 |  +0.010  -0.002 |  -0.014
+two | both: elastic last 3 words 30% | last 4 lines              0.3   2.4 |  12.9 -0.004 |   0.1    0.2    0.1 |  +0.016  -0.005 |  -0.025
+two | abbreviate: table x0.5 | last 4 lines                      7.8  18.1 |   7.6 -0.003 |   0.7    0.4    0.8 |  +0.004  -0.004 |  -0.007
+two | abbreviate: table x1.0 | last 4 lines                      0.8   4.0 |  13.9 -0.004 |   0.4    0.9    0.3 |  +0.011  -0.004 |  -0.025
+two | stop short: blank up to 2.5 words | last 4 lines           0.1   0.9 |   5.5 +0.000 |   4.4   10.4    0.9 |  +0.000  +0.000 |  +0.000
+two | stop short + elastic last 3 words 15% | last 4 lines       0.0   0.0 |   7.0 -0.001 |   1.0    2.5    0.0 |  +0.011  -0.004 |  -0.020
+two | pull up: squeeze 5% | whole paragraph                     12.0  24.5 |   7.4 -0.007 |   1.2    2.0    0.5 |  +0.000  +0.000 |  -0.000
+two | push down: stretch 5% | whole paragraph                   11.5  24.1 |   2.8 -0.000 |   1.2    1.7    1.2 |  +0.001  -0.001 |  -0.000
+two | pull up: squeeze 8% | whole paragraph                      8.3  17.4 |  11.6 -0.012 |   0.3    0.8    0.1 |  -0.002  -0.001 |  -0.005
+two | push down: stretch 8% | whole paragraph                    8.7  20.1 |   2.1 +0.001 |   0.6    1.4    0.1 |  +0.001  -0.004 |  -0.004
+two | pull up: squeeze 10% | whole paragraph                     4.0  10.5 |  14.9 -0.016 |   0.0    0.0    0.0 |  +0.006  +0.002 |  -0.010
+two | push down: stretch 10% | whole paragraph                   6.0  15.7 |   1.9 +0.002 |   0.1    0.0    0.1 |  +0.001  -0.007 |  -0.009
+two | pull up: squeeze 12% | whole paragraph                     1.4   4.2 |  19.5 -0.020 |   0.1    0.0    0.1 |  +0.007  +0.003 |  -0.016
+two | push down: stretch 12% | whole paragraph                   4.1  11.9 |   1.9 +0.004 |   0.0    0.0    0.0 |  +0.000  -0.009 |  -0.014
+two | pull up: squeeze 15% | whole paragraph                     0.3   0.6 |  23.7 -0.027 |   0.3    0.3    0.3 |  +0.009  +0.002 |  -0.022
+two | push down: stretch 15% | whole paragraph                   1.5   6.0 |   1.8 +0.005 |   0.0    0.0    0.0 |  -0.002  -0.012 |  -0.023
+two | both: elastic 3% | whole paragraph                        11.5  23.4 |   5.2 -0.001 |   1.0    1.1    1.1 |  +0.001  -0.002 |  -0.002
+two | both: elastic 5% | whole paragraph                         5.5  15.5 |   7.4 -0.002 |   0.2    0.3    0.1 |  -0.000  -0.002 |  -0.011
+two | both: elastic 6% | whole paragraph                         2.5   9.7 |   8.9 -0.003 |   0.0    0.0    0.0 |  +0.004  -0.002 |  -0.015
+two | both: elastic 8% | whole paragraph                         0.3   2.2 |  12.6 +0.001 |   0.0    0.0    0.0 |  +0.006  +0.000 |  -0.024
+two | both: elastic 10% | whole paragraph                        0.0   0.1 |  12.2 +0.002 |   0.1    0.0    0.1 |  +0.008  +0.001 |  -0.023
+two | both: elastic last 3 words 15% | whole paragraph           6.6  16.1 |   7.3 -0.004 |   0.2    0.4    0.1 |  +0.001  -0.003 |  -0.009
+two | both: elastic last 3 words 20% | whole paragraph           1.8   6.8 |   9.6 -0.002 |   0.1    0.0    0.1 |  +0.005  -0.002 |  -0.018
+two | both: elastic last 3 words 30% | whole paragraph           0.1   0.4 |  12.4 +0.001 |   0.2    0.0    0.2 |  +0.008  -0.000 |  -0.025
+two | abbreviate: table x0.5 | whole paragraph                   5.8  15.1 |   8.0 -0.002 |   0.7    0.4    0.8 |  +0.002  -0.006 |  -0.009
+two | abbreviate: table x1.0 | whole paragraph                   0.2   1.3 |  13.3 -0.001 |   0.3    0.3    0.2 |  +0.004  -0.002 |  -0.025
+two | stop short: blank up to 2.5 words | whole paragraph        0.0   0.1 |   5.2 +0.000 |   3.0    6.5    0.8 |  +0.000  +0.000 |  +0.000
+two | stop short + elastic last 3 words 15% | whole paragraph    0.0   0.0 |   7.3 -0.000 |   0.1    0.3    0.0 |  +0.002  -0.004 |  -0.020
+two+ | both: elastic 6% | last 3 lines                           7.4  18.4 |   7.7 -0.006 |   0.0    0.0    0.0 |  +0.011  -0.003 |  -0.009
+two+ | both: elastic 8% | last 3 lines                           3.9  12.5 |   8.7 -0.006 |   0.2    0.5    0.1 |  +0.019  -0.006 |  -0.019
+two+ | both: elastic 10% | last 3 lines                          1.1   5.5 |  10.1 -0.009 |   0.1    0.2    0.1 |  +0.026  -0.011 |  -0.030
+two+ | both: elastic 12% | last 3 lines                          0.3   1.7 |   9.5 -0.006 |   0.4    0.8    0.2 |  +0.026  -0.016 |  -0.039
+two+ | both: elastic last 3 words 30% | last 3 lines             1.3   6.6 |   9.4 -0.006 |   0.1    0.2    0.1 |  +0.027  -0.012 |  -0.028
+two+ | abbreviate: table x1.0 | last 3 lines                     1.8   7.8 |   8.6 -0.004 |   0.4    0.8    0.2 |  +0.023  -0.009 |  -0.028
+two+ | both: elastic 6% | last 4 lines                           5.4  15.2 |   7.3 -0.004 |   0.1    0.0    0.1 |  +0.007  -0.003 |  -0.012
+two+ | both: elastic 8% | last 4 lines                           2.0   7.1 |   7.6 +0.001 |   0.1    0.2    0.1 |  +0.014  -0.006 |  -0.027
+two+ | both: elastic 10% | last 4 lines                          0.3   1.9 |   5.7 +0.009 |   0.1    0.4    0.0 |  +0.017  -0.008 |  -0.043
+two+ | both: elastic 12% | last 4 lines                          0.0   0.1 |   3.4 +0.015 |   0.3    0.6    0.2 |  +0.017  -0.011 |  -0.053
+two+ | both: elastic last 3 words 30% | last 4 lines             0.3   2.4 |   6.0 +0.005 |   0.2    0.5    0.0 |  +0.017  -0.007 |  -0.038
+two+ | abbreviate: table x1.0 | last 4 lines                     1.0   4.3 |   5.6 +0.007 |   0.3    0.8    0.1 |  +0.017  -0.007 |  -0.038
+two+ | both: elastic 6% | whole paragraph                        2.5   9.7 |   5.8 +0.000 |   0.1    0.0    0.1 |  +0.003  -0.003 |  -0.018
+two+ | both: elastic 8% | whole paragraph                        0.2   2.1 |   3.0 +0.011 |   0.0    0.0    0.0 |  +0.008  -0.001 |  -0.038
+two+ | both: elastic 10% | whole paragraph                       0.0   0.1 |   1.0 +0.017 |   0.1    0.2    0.1 |  +0.009  -0.000 |  -0.047
+two+ | both: elastic 12% | whole paragraph                       0.0   0.0 |   0.2 +0.018 |   0.4    0.8    0.2 |  +0.008  -0.002 |  -0.049
+two+ | both: elastic last 3 words 30% | whole paragraph          0.1   0.4 |   1.1 +0.016 |   0.2    0.4    0.1 |  +0.007  -0.001 |  -0.046
+two+ | abbreviate: table x1.0 | whole paragraph                  0.2   1.3 |   1.1 +0.017 |   0.3    0.6    0.1 |  +0.008  -0.001 |  -0.045

@@ -1,16 +1,37 @@
 """Three Voynich statistics on real manuscripts (HTR ground truth cloned from GitHub).
 
-Usage:  python3 -I run_all.py [--shuffles 1000] [--only <dataset substring>] [--out results]
-Writes  results.csv / results.json   one row per manuscript
+Usage:  python3 -I build_manifest.py                    labels (language, century, form) -> manifest.csv
+        python3 -I run_all.py [--shuffles 2000] [--seed 0] [--only <dataset substring>] [--out results]
+        python3 -I summarise.py                         pooled.csv, flagged.csv
+        python3 -I scan_pages.py                        pages_s1.csv (S1 page by page)
+        python3 -I check_overlap.py                     overlap.csv (pages shared between samples)
+        python3 -I verify.py                            second seed, plain-loop recomputation, Voynich check
+Writes  results.csv / results.json   one row per manuscript (or pooled sample, see manifest notes)
         pages.csv                    every XML file read, and whether it was used or why not
-        pooled.json                  pooled figures per language and form
 
-De-duplication (three passes, logged in pages.csv):
-  1. same page key inside a manuscript: the file name without the suffixes .chocomufin and
-     .mufichecker (re-exports of one page with normalised characters), and without the
-     directory when a repository ships one page as both ALTO and PAGE;
+Columns of results.csv
+  s1_lag1_* / s1_lag2_*   line-start test: n pairs, same (observed), shuffled (mean of the shuffles),
+                          z, expected (closed form).  Only lines that really stand one under the
+                          other are paired (not_adjacent = line steps left out, see mslib.order_column).
+  s2_*                    lines stopping below 90% of the way to the furthest right end of the +-3
+                          neighbouring lines: early (n), early_share, one_word, under_30; fifths;
+                          clear_* = the same below 80%.
+  s2b_* / s2b80_*         like-for-like version: short line (below 90% / below 80%) standing directly
+                          under three full lines of its column: n, one_word, under_30 (sites = lines
+                          under three full lines, short or not).
+  par_final_*             last line of each block, for datasets whose blocks are paragraphs.
+  s3_*                    identical neighbouring words: observed n, expected n when the words of each
+                          line are shuffled (closed form), ratio.
+  rhyme_*, capital_start, auto_form, overfull_share   diagnostics (verse/prose layout, transcription check).
+
+De-duplication (logged in pages.csv; see also check_overlap.py):
+  1. same page key inside a dataset: the path without the suffixes .chocomufin and .mufichecker
+     (re-exports of one page with normalised characters) and without format directories
+     (alto/, page/) when a repository ships one page as both ALTO and PAGE;
   2. same line coordinates anywhere in the run (the baselines of all main-text lines);
-  3. same main-text transcription anywhere in the run.
+  3. same main-text transcription anywhere in the run;
+  4. two samples that turned out to be the same pages transcribed twice are excluded in
+     manifest_overrides.py (form = exclude).
 """
 from __future__ import annotations
 
@@ -178,7 +199,7 @@ def read_manuscript(ds, files, seen_geom, seen_text, log):
             continue
         seen_geom[g] = seen_text[t] = str(p)
         if ds["rtl"]:                                    # mirror, so that 'right end' is where lines end
-            cols = [(z, [[r[0], -r[2], -r[1], r[3], r[4], r[5]] for r in c]) for z, c in cols]
+            cols = [(z, [[r[0], -r[2], -r[1], r[3], r[4], r[5], r[6]] for r in c]) for z, c in cols]
         log.append((ds["name"], str(p), "used", n))
         pages.append((p, image, [c for _, c in cols]))
     return pages
@@ -228,8 +249,13 @@ def measure(pages, shuffles, seed=0, paragraphs=False):
     res = dict(pages=len(pages), columns=len(cols), lines=len(lines),
                words_per_line=float(np.mean([len(w) for w in wl])) if wl else None,
                chars_per_line=float(np.mean([sum(map(len, w)) for w in wl])) if wl else None)
-    res["s1"] = M.s1([[M.first_letter(r[4]) for r in c] for c in cols], shuffles=shuffles, seed=seed)
+    res["s1"] = M.s1([[M.first_letter(r[4]) for r in c] for c in cols], [[r[6] for r in c] for c in cols],
+                     shuffles=shuffles, seed=seed)
+    res["not_adjacent"] = sum(not r[6] for c in cols for r in c[1:])     # line steps that are not true neighbours
     res["s2"] = M.s2([[(r[1], r[2], len(M.words(r[4]))) for r in c] for c in cols])
+    geo = [[(r[1], r[2], len(M.words(r[4])), r[6]) for r in c] for c in cols]
+    res["s2b"] = M.s2_after_full(geo)
+    res["s2b80"] = M.s2_after_full(geo, short=0.8)
     res["s3"] = M.s3(wl)
     res["par_final"] = par_final(cols) if paragraphs else dict(n=None, one_word=None, under_30=None)
     res["rhyme"] = M.rhyme([[last2(r[4]) for r in c] for c in cols], seed=seed)
@@ -266,7 +292,7 @@ def flat(ds, ms, meta, r):
         return d
     row = dict(dataset=ds, manuscript=ms, shelfmark=meta.get("shelfmark", ""), language=meta.get("language", ""),
                century=meta.get("century", ""), form=meta.get("form", ""), hand=meta.get("hand", ""),
-               pages=r["pages"], columns=r["columns"], lines=r["lines"],
+               pages=r["pages"], columns=r["columns"], lines=r["lines"], not_adjacent=r["not_adjacent"],
                words_per_line=r["words_per_line"])
     for lag in ("lag1", "lag2"):
         for k in ("n", "same", "shuffled", "z", "expected"):
@@ -275,6 +301,9 @@ def flat(ds, ms, meta, r):
               "clear", "clear_share", "clear_one_word"):
         row[f"s2_{k}"] = r["s2"][k]
     row["s2_fifths"] = " ".join("%.2f" % v for v in r["s2"]["fifths"]) if r["s2"]["fifths"] else ""
+    for tag in ("s2b", "s2b80"):         # short line directly under three full lines (below 90% / below 80%)
+        for k in ("sites", "n", "one_word", "one_word_n", "under_30", "under_30_n"):
+            row[f"{tag}_{k}"] = r[tag][k]
     row["s2_one_word_per_1000_lines"] = 1000 * r["s2"]["one_word_n"] / r["s2"]["lines"] if r["s2"]["lines"] else None
     for k in ("n", "one_word", "under_30"):
         row[f"par_final_{k}"] = r["par_final"][k]

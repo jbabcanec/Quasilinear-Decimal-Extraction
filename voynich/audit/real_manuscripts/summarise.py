@@ -9,6 +9,8 @@ shuffled independently.  'core' = book or autograph hands, 13th-16th century, 20
 Voynich reference (from results/exp13, exp15, exp16 of this study):
   S1 lag 1  9.6% observed, 16.0% shuffled, z -11 (2,584 pairs); lag 2  20.9% vs 16.2%, z +6
   S2 956 of 3,968 lines stop early (24%); of those 0.3% hold one word, 3.0% are under 30%
+  S2' (short line directly under three full lines) is to be compared with the same count on
+     the Voynich, which this script does not compute
   S3 1.07
 """
 from __future__ import annotations
@@ -69,6 +71,12 @@ def pool(rows):
     und = sum(int(num(r["s2_under_30_n"]) or 0) for r in rows)
     out.update(s2_lines=L, s2_early=E, s2_early_share=E / L if L else None, s2_one_word=one / E if E else None,
                s2_under_30=und / E if E else None, s2_one_word_per_1000_lines=1000 * one / L if L else None)
+    for tag in ("s2b", "s2b80"):         # short line directly under three full lines
+        n = sum(int(num(r[f"{tag}_n"]) or 0) for r in rows)
+        o = sum(int(num(r[f"{tag}_one_word_n"]) or 0) for r in rows)
+        u = sum(int(num(r[f"{tag}_under_30_n"]) or 0) for r in rows)
+        out.update({f"{tag}_n": n, f"{tag}_one_word": o / n if n else None, f"{tag}_under_30": u / n if n else None,
+                    f"{tag}_one_word_n": o, f"{tag}_manuscripts_with_any": sum(1 for r in rows if num(r[f"{tag}_n"]))})
     pf = [(int(num(r["par_final_n"])), num(r["par_final_one_word"])) for r in rows if num(r.get("par_final_n"))]
     out["par_final_n"] = sum(n for n, _ in pf) or None
     out["par_final_one_word"] = sum(n * s for n, s in pf) / sum(n for n, _ in pf) if pf else None
@@ -97,16 +105,17 @@ def main():
         w.writeheader()
         w.writerows(table)
     f3 = lambda v, p="%.3f": "  -  " if v is None else p % v  # noqa: E731
-    print("%-5s %-17s %-12s %4s %7s | S1 lag1 obs/shuf  z   [min,max] <-2 >+2 | lag2 obs/shuf  z | S2 early%% n   1w%%  <30%% 1w/1000 | S3" % (
-        "scope", "language", "form", "mss", "lines"))
+    print("%-5s %-17s %-12s %4s %7s | S1 lag1 obs/shuf  z   [min,max] <-2 >+2 | lag2 obs/shuf  z | S2 early%% n   1w%%  <30%% "
+          "| S2' n   1w%%  <30%% (below 80%%: n 1w%%) | S3" % ("scope", "language", "form", "mss", "lines"))
     for t in table:
-        print("%-5s %-17s %-12s %4d %7d | %s/%s %s [%s,%s] %2d %2d | %s/%s %s | %s %5d %s %s %s | %s (%d/%.0f)" % (
+        print("%-5s %-17s %-12s %4d %7d | %s/%s %s [%s,%s] %2d %2d | %s/%s %s | %s %5d %s %s | %5d %s %s (%5d %s) | %s (%d/%.0f)" % (
             t["scope"], t["language"][:17], t["form"][:12], t["manuscripts"], t["lines"],
             f3(t["s1_lag1_same"]), f3(t["s1_lag1_shuffled"]), f3(t["s1_lag1_z"], "%+5.1f"),
             f3(t["s1_z_min"], "%+.1f"), f3(t["s1_z_max"], "%+.1f"), t["s1_z_below_minus2"], t["s1_z_above_plus2"],
             f3(t["s1_lag2_same"]), f3(t["s1_lag2_shuffled"]), f3(t["s1_lag2_z"], "%+5.1f"),
             f3(t["s2_early_share"], "%.2f"), t["s2_early"], f3(t["s2_one_word"]), f3(t["s2_under_30"]),
-            f3(t["s2_one_word_per_1000_lines"], "%5.1f"), f3(t["s3_ratio"], "%.2f"), t["s3_identical_n"], t["s3_expected_n"]))
+            t["s2b_n"], f3(t["s2b_one_word"]), f3(t["s2b_under_30"]), t["s2b80_n"], f3(t["s2b80_one_word"]),
+            f3(t["s3_ratio"], "%.2f"), t["s3_identical_n"], t["s3_expected_n"]))
 
     # manuscripts closest to the Voynich on each statistic
     flagged = []
@@ -121,6 +130,10 @@ def main():
         if ne >= 50 and ow is not None and ow <= 0.03:
             why.append("S2: %d lines stop early (%.0f%% of lines), %.1f%% of them one word, %.1f%% under 30%%" % (
                 ne, 100 * num(r["s2_early_share"]), 100 * ow, 100 * num(r["s2_under_30"])))
+        nb, ob = int(num(r["s2b_n"]) or 0), num(r["s2b_one_word"])
+        if nb >= 30 and ob is not None and ob <= 0.03:
+            why.append("S2': %d short lines under three full lines, %.1f%% of them one word, %.1f%% under 30%%" % (
+                nb, 100 * ob, 100 * num(r["s2b_under_30"])))
         ex, ra = num(r["s3_expected_n"]) or 0, num(r["s3_ratio"])
         if ex >= 5 and ra is not None and ra >= 0.5:
             why.append("S3: ratio %.2f (%d identical neighbours, %.1f expected)" % (ra, num(r["s3_identical_n"]), ex))

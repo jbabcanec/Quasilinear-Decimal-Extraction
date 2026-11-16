@@ -1,0 +1,247 @@
+R3  line ends, no other goal            (Voynich: median blank 0.13, coupling +0.05, 95% -0.03..+0.14)
+    freedom                                             blank  coupling     cannot fit  density sd
+    none (plain wrapper)                                 0.37     +0.54            79%       0.000
+    squeeze last word 30%                                0.24     +0.31            52%       0.015
+    elastic last 3 words 5%                              0.25     +0.41            53%       0.014
+    elastic last 3 words 10%                             0.17     +0.26            30%       0.026
+    elastic last 3 words 15%                             0.13     +0.14            13%       0.034
+    elastic last 3 words 20%                             0.12     +0.07             4%       0.038
+    elastic last 3 words 30%                             0.13     +0.01             0%       0.042
+    elastic whole line 2%                                0.21     +0.41            45%       0.017
+    elastic whole line 3%                                0.17     +0.32            30%       0.025
+    elastic whole line 5%                                0.13     +0.15            11%       0.035
+    elastic whole line 8%                                0.12     +0.03             1%       0.041
+    abbreviation table x0.5, last 3 words                0.26     +0.40            54%       0.014
+    abbreviation table x1.0, last 3 words                0.18     +0.28            35%       0.027
+    abbreviation table x0.25, whole line                 0.21     +0.39            43%       0.019
+    abbreviation table x0.5, whole line                  0.15     +0.22            20%       0.033
+    abbreviation table x1.0, whole line                  0.13     +0.04             4%       0.042
+    drop <=1 letter in half the words, whole line        0.17     +0.28            28%       0.028
+    drop <=2 letters in half the words, whole line       0.14     +0.12            10%       0.039
+    drop <=2 letters in half the words, last 3           0.22     +0.34            43%       0.022
+    split words at syllables                             0.15     +0.04            51%       0.000
+    split words anywhere                                 0.08     +0.02            28%       0.000
+    line filler up to 0.5 word                           0.20     +0.38            41%       0.022
+    line filler up to 1 word                             0.13     +0.20            15%       0.039
+    abbr x0.5 + elastic 10%, last 3 words                0.14     +0.16            16%       0.034
+    abbr x0.5 + elastic 5%, last 3 words                 0.17     +0.27            32%       0.026
+    squeeze-only last 3 words 20% + filler 0.5           0.12     +0.07             7%       0.037
+
+R1  same opening glyph as the line above / shuffled, re-flow alone, Latin letters as they are   (Voynich 0.59)
+    freedom \ lines planned ahead                      1       2       3     par   | blank, coupling at look-ahead 3
+    none                                            1.03    1.03    1.03    1.03   | 0.37 +0.54
+    elastic last 3 words 10%                        0.91    0.85    0.84    0.83   | 0.16 +0.24
+    elastic last 3 words 15%                        0.87    0.70    0.67    0.63   | 0.13 +0.10
+    elastic last 3 words 20%                        0.75    0.51    0.43    0.33   | 0.12 +0.03
+    elastic last 3 words 25%                        0.53    0.23    0.17    0.11   | 0.12 +0.01
+    elastic last 3 words 30%                        0.35    0.09    0.04    0.02   | 0.12 +0.01
+    elastic whole line 2%                           0.96    0.94    0.94    0.94   | 0.21 +0.39
+    elastic whole line 3%                           0.90    0.85    0.84    0.83   | 0.16 +0.30
+    elastic whole line 5%                           0.89    0.71    0.64    0.60   | 0.13 +0.11
+    elastic whole line 6%                           0.80    0.57    0.50    0.42   | 0.12 +0.06
+    elastic whole line 8%                           0.56    0.28    0.19    0.12   | 0.12 +0.02
+    elastic whole line 10%                          0.32    0.10    0.05    0.03   | 0.12 +0.01
+    squeeze last-3 20% + filler up to 1 word        0.54    0.27    0.20    0.13   | 0.11 +0.02
+    abbr table x0.25, whole line                    0.96    0.94    0.93    0.91   | 0.21 +0.37
+    abbr table x0.5, whole line                     0.86    0.72    0.68    0.64   | 0.14 +0.18
+    abbr table x1.0, whole line                     0.43    0.20    0.16    0.12   | 0.12 +0.03
+    abbr table x1.0, last 3 words                   0.95    0.86    0.85    0.82   | 0.18 +0.26
+    abbr x0.5 + elastic 10%, last 3 words           0.85    0.72    0.66    0.62   | 0.13 +0.12
+
+R1  same opening glyph as the line above / shuffled, re-flow alone, letters merged to the Voynich's eight shares   (Voynich 0.59)
+    freedom \ lines planned ahead                      1       2       3     par   | blank, coupling at look-ahead 3
+    none                                            1.02    1.02    1.02    1.02   | 0.37 +0.54
+    elastic last 3 words 10%                        0.94    0.91    0.90    0.89   | 0.16 +0.25
+    elastic last 3 words 15%                        0.89    0.76    0.74    0.69   | 0.13 +0.11
+    elastic last 3 words 20%                        0.77    0.57    0.51    0.42   | 0.12 +0.04
+    elastic last 3 words 25%                        0.60    0.34    0.27    0.20   | 0.12 +0.01
+    elastic last 3 words 30%                        0.42    0.17    0.10    0.07   | 0.12 +0.00
+    elastic whole line 2%                           0.99    0.98    0.98    0.97   | 0.21 +0.39
+    elastic whole line 3%                           0.95    0.92    0.92    0.91   | 0.17 +0.31
+    elastic whole line 5%                           0.89    0.76    0.72    0.68   | 0.13 +0.12
+    elastic whole line 6%                           0.82    0.64    0.58    0.52   | 0.12 +0.06
+    elastic whole line 8%                           0.59    0.35    0.28    0.20   | 0.12 +0.03
+    elastic whole line 10%                          0.38    0.13    0.07    0.05   | 0.12 +0.01
+    squeeze last-3 20% + filler up to 1 word        0.60    0.34    0.28    0.19   | 0.11 +0.00
+    abbr table x0.25, whole line                    1.00    0.98    0.97    0.96   | 0.21 +0.37
+    abbr table x0.5, whole line                     0.87    0.75    0.72    0.69   | 0.14 +0.19
+    abbr table x1.0, whole line                     0.48    0.25    0.21    0.15   | 0.12 +0.02
+    abbr table x1.0, last 3 words                   0.96    0.90    0.89    0.88   | 0.18 +0.26
+    abbr x0.5 + elastic 10%, last 3 words           0.87    0.78    0.74    0.71   | 0.14 +0.13
+
+    lag 2 / lag 3 against shuffled, a by-product of the lag-1 avoidance (Voynich x1.29 / x1.07), merged letters
+    elastic last 3 words 20%                      x1.13/x1.12  x1.26/x1.19  x1.31/x1.20  x1.35/x1.22
+    elastic whole line 5%                         x1.05/x1.06  x1.13/x1.11  x1.16/x1.11  x1.20/x1.12
+    elastic whole line 8%                         x1.24/x1.19  x1.38/x1.26  x1.45/x1.27  x1.52/x1.29
+
+    R1 spelling variants alone, coarse glyphs
+      modest, look-ahead 1                                 ratio 0.94  lag2 x1.02 lag3 x1.00 | blank 0.37 coupling +0.54 | lines opening with a fragment  0%
+      modest, look-ahead 2                                 ratio 0.91  lag2 x1.03 lag3 x1.01 | blank 0.37 coupling +0.54 | lines opening with a fragment  0%
+      generous, look-ahead 1                               ratio 0.89  lag2 x1.05 lag3 x1.01 | blank 0.37 coupling +0.54 | lines opening with a fragment  0%
+      generous, look-ahead 2                               ratio 0.81  lag2 x1.10 lag3 x1.03 | blank 0.37 coupling +0.54 | lines opening with a fragment  0%
+      max, look-ahead 1                                    ratio 0.84  lag2 x1.07 lag3 x1.03 | blank 0.37 coupling +0.54 | lines opening with a fragment  0%
+      max, look-ahead 2                                    ratio 0.73  lag2 x1.13 lag3 x1.06 | blank 0.37 coupling +0.54 | lines opening with a fragment  0%
+
+    R1 word-splitting alone
+      split syllable, look-ahead 1                         ratio 1.00  lag2 x0.97 lag3 x0.92 | blank 0.15 coupling +0.04 | lines opening with a fragment 51%
+      split syllable, coarse glyphs, look-ahead 1          ratio 0.97  lag2 x0.97 lag3 x0.99 | blank 0.15 coupling +0.04 | lines opening with a fragment 51%
+      split syllable, look-ahead 3                         ratio 1.00  lag2 x0.97 lag3 x0.92 | blank 0.15 coupling +0.04 | lines opening with a fragment 51%
+      split syllable, coarse glyphs, look-ahead 3          ratio 0.97  lag2 x0.97 lag3 x0.99 | blank 0.15 coupling +0.04 | lines opening with a fragment 51%
+      split any, look-ahead 1                              ratio 0.79  lag2 x1.11 lag3 x1.06 | blank 0.11 coupling +0.02 | lines opening with a fragment 58%
+      split any, coarse glyphs, look-ahead 1               ratio 0.83  lag2 x1.09 lag3 x1.04 | blank 0.11 coupling +0.02 | lines opening with a fragment 58%
+      split any, look-ahead 3                              ratio 0.63  lag2 x1.15 lag3 x1.09 | blank 0.11 coupling +0.01 | lines opening with a fragment 58%
+      split any, coarse glyphs, look-ahead 3               ratio 0.72  lag2 x1.15 lag3 x1.05 | blank 0.11 coupling +0.01 | lines opening with a fragment 58%
+
+    R1 extra: splitting combined, coarse glyphs
+      split syllable + elastic last-3 5%, look-ahead 1     ratio 0.83  lag2 x1.11 lag3 x1.06 | blank 0.10 coupling +0.02 | lines opening with a fragment 48%
+      split syllable + elastic last-3 5%, look-ahead 3     ratio 0.65  lag2 x1.17 lag3 x1.10 | blank 0.10 coupling +0.01 | lines opening with a fragment 49%
+      split syllable + elastic last-3 10%, look-ahead 1    ratio 0.47  lag2 x1.32 lag3 x1.19 | blank 0.10 coupling +0.01 | lines opening with a fragment 44%
+      split syllable + elastic last-3 10%, look-ahead 3    ratio 0.16  lag2 x1.51 lag3 x1.23 | blank 0.10 coupling +0.00 | lines opening with a fragment 45%
+      split syllable + abbr x0.5 last-3, look-ahead 1      ratio 0.86  lag2 x1.07 lag3 x1.07 | blank 0.10 coupling +0.02 | lines opening with a fragment 49%
+      split syllable + abbr x0.5 last-3, look-ahead 3      ratio 0.70  lag2 x1.16 lag3 x1.14 | blank 0.11 coupling +0.02 | lines opening with a fragment 50%
+      split syllable + generous variants, look-ahead 1     ratio 0.89  lag2 x1.01 lag3 x1.02 | blank 0.15 coupling +0.04 | lines opening with a fragment 51%
+      split syllable + generous variants, look-ahead 3     ratio 0.85  lag2 x1.03 lag3 x1.04 | blank 0.15 coupling +0.04 | lines opening with a fragment 51%
+
+    R1 combinations, coarse glyphs
+      elastic whole 3% + modest variants, look-ahead 1     ratio 0.86  lag2 x1.06 lag3 x1.03 | blank 0.17 coupling +0.32 | lines opening with a fragment  0%
+      elastic whole 3% + modest variants, look-ahead 3     ratio 0.79  lag2 x1.09 lag3 x1.05 | blank 0.17 coupling +0.30 | lines opening with a fragment  0%
+      elastic last-3 10% + modest variants, look-ahead 1   ratio 0.86  lag2 x1.08 lag3 x1.06 | blank 0.17 coupling +0.26 | lines opening with a fragment  0%
+      elastic last-3 10% + modest variants, look-ahead 3   ratio 0.78  lag2 x1.11 lag3 x1.09 | blank 0.16 coupling +0.24 | lines opening with a fragment  0%
+      elastic last-3 10% + generous variants, look-ahead 1 ratio 0.80  lag2 x1.11 lag3 x1.08 | blank 0.17 coupling +0.26 | lines opening with a fragment  0%
+      elastic last-3 10% + generous variants, look-ahead 3 ratio 0.69  lag2 x1.16 lag3 x1.13 | blank 0.16 coupling +0.24 | lines opening with a fragment  0%
+      elastic whole 5% + lag-2 seeking, look-ahead 1       ratio 0.85  lag2 x1.17 lag3 x1.00 | blank 0.13 coupling +0.14 | lines opening with a fragment  0%
+      elastic whole 5% + lag-2 seeking, look-ahead 3       ratio 0.65  lag2 x1.41 lag3 x0.97 | blank 0.13 coupling +0.13 | lines opening with a fragment  0%
+      elastic whole 8% + lag-2 seeking, look-ahead 1       ratio 0.51  lag2 x1.61 lag3 x0.95 | blank 0.12 coupling +0.03 | lines opening with a fragment  0%
+      elastic whole 8% + lag-2 seeking, look-ahead 3       ratio 0.20  lag2 x2.15 lag3 x0.73 | blank 0.12 coupling +0.03 | lines opening with a fragment  0%
+
+    R1 extra: blank cap 0.6, coarse glyphs
+      elastic last-3 15%, look-ahead 1                     ratio 0.79  lag2 x1.12 lag3 x1.07 | blank 0.14 coupling +0.13 | lines opening with a fragment  0%
+      elastic last-3 15%, look-ahead 3                     ratio 0.56  lag2 x1.29 lag3 x1.14 | blank 0.14 coupling +0.09 | lines opening with a fragment  0%
+      elastic whole 5%, look-ahead 1                       ratio 0.78  lag2 x1.12 lag3 x1.11 | blank 0.14 coupling +0.14 | lines opening with a fragment  0%
+      elastic whole 5%, look-ahead 3                       ratio 0.52  lag2 x1.29 lag3 x1.17 | blank 0.13 coupling +0.09 | lines opening with a fragment  0%
+      elastic last-3 20%, look-ahead 1                     ratio 0.62  lag2 x1.24 lag3 x1.17 | blank 0.12 coupling +0.06 | lines opening with a fragment  0%
+      elastic last-3 20%, look-ahead 3                     ratio 0.28  lag2 x1.48 lag3 x1.23 | blank 0.12 coupling +0.03 | lines opening with a fragment  0%
+
+    R1 extra: blank cap 1.0, coarse glyphs
+      elastic last-3 15%, look-ahead 1                     ratio 0.57  lag2 x1.27 lag3 x1.10 | blank 0.14 coupling +0.11 | lines opening with a fragment  0%
+      elastic last-3 15%, look-ahead 3                     ratio 0.23  lag2 x1.51 lag3 x1.17 | blank 0.14 coupling +0.07 | lines opening with a fragment  0%
+      elastic whole 5%, look-ahead 1                       ratio 0.57  lag2 x1.25 lag3 x1.13 | blank 0.14 coupling +0.13 | lines opening with a fragment  0%
+      elastic whole 5%, look-ahead 3                       ratio 0.24  lag2 x1.49 lag3 x1.21 | blank 0.14 coupling +0.08 | lines opening with a fragment  0%
+      elastic last-3 20%, look-ahead 1                     ratio 0.39  lag2 x1.38 lag3 x1.20 | blank 0.13 coupling +0.05 | lines opening with a fragment  0%
+      elastic last-3 20%, look-ahead 3                     ratio 0.09  lag2 x1.59 lag3 x1.24 | blank 0.13 coupling +0.02 | lines opening with a fragment  0%
+
+    R1 re-flow, coarse glyphs, casting-off error sd 3%
+      elastic whole 5%, look-ahead 3                       ratio 0.77  lag2 x1.13 lag3 x1.08 | blank 0.13 coupling +0.14 | lines opening with a fragment  0%
+      elastic whole 8%, look-ahead 3                       ratio 0.37  lag2 x1.38 lag3 x1.21 | blank 0.12 coupling +0.03 | lines opening with a fragment  0%
+      elastic last-3 20%, look-ahead 3                     ratio 0.57  lag2 x1.28 lag3 x1.14 | blank 0.12 coupling +0.04 | lines opening with a fragment  0%
+      elastic whole 5%, whole paragraph                    ratio 0.76  lag2 x1.15 lag3 x1.10 | blank 0.13 coupling +0.14 | lines opening with a fragment  0%
+
+    R1 re-flow, coarse glyphs, casting-off error sd 6%
+      elastic whole 5%, look-ahead 3                       ratio 0.81  lag2 x1.08 lag3 x1.09 | blank 0.13 coupling +0.14 | lines opening with a fragment  0%
+      elastic whole 8%, look-ahead 3                       ratio 0.41  lag2 x1.37 lag3 x1.18 | blank 0.12 coupling +0.02 | lines opening with a fragment  0%
+      elastic last-3 20%, look-ahead 3                     ratio 0.66  lag2 x1.20 lag3 x1.11 | blank 0.12 coupling +0.05 | lines opening with a fragment  0%
+      elastic whole 5%, whole paragraph                    ratio 0.84  lag2 x1.08 lag3 x1.09 | blank 0.13 coupling +0.14 | lines opening with a fragment  0%
+
+R2  paragraph's last line: one word / under 30% / 40-80% / over-full, in %   (Voynich about 2 / 5.0-7.2 / 66 / 4.6; one word and two-or-fewer in detail: r2_focus.py)
+    freedom \ lines re-flowed                            no goal                last 2                last 3                last 4             paragraph
+    none                                        13.3/24.0/40/5.9      13.3/24.0/40/5.9      13.3/24.0/40/5.9      13.3/24.0/40/5.9      13.3/24.0/40/5.9
+    elastic whole line 3%                       14.3/26.3/40/5.0      14.2/26.3/40/4.6      13.3/25.8/41/4.7      12.7/24.9/41/4.8      11.5/23.9/42/5.1
+    elastic whole line 5%                       13.0/26.3/39/6.3      12.3/25.7/41/5.6       9.8/23.0/42/7.1       8.4/20.9/45/6.4       5.5/16.4/49/5.9
+    elastic whole line 8%                       12.3/25.6/39/8.4       8.2/21.4/43/8.7      4.0/14.0/50/10.7        2.3/8.6/55/8.5        0.2/2.2/71/2.8
+    elastic whole line 10%                      12.9/25.5/38/8.3      5.0/17.3/47/12.1       1.1/6.6/57/11.9        0.3/2.2/66/6.4        0.0/0.1/85/0.9
+    elastic whole line 15%                      12.8/25.5/39/8.4       0.5/5.3/56/20.9        0.0/0.1/68/5.7        0.0/0.1/83/0.3        0.0/0.0/92/0.0
+    tighten only: squeeze whole line 8%        12.3/24.3/37/10.2      12.8/24.1/39/9.2      11.5/22.8/40/9.8      10.5/21.8/41/9.8      8.3/17.9/44/10.1
+    tighten only: squeeze whole line 15%       10.0/21.0/36/12.9      5.5/15.9/44/12.2       1.7/7.0/51/15.5       1.0/3.4/57/13.3        0.3/0.7/71/4.8
+    loosen only: stretch whole line 8%          13.3/25.2/42/2.3      12.6/24.7/42/2.2      12.0/23.8/43/2.0      10.5/22.4/44/2.1       8.7/19.4/46/1.9
+    loosen only: stretch whole line 15%         13.3/25.3/42/1.7      11.0/24.5/46/1.8       7.7/19.5/50/1.7       4.6/14.2/55/1.5        1.5/5.5/67/0.9
+    elastic last 3 words 20%                    12.9/25.9/39/8.1      10.7/24.1/40/8.0       6.8/19.3/45/9.1       4.8/16.1/48/7.3        1.8/7.5/59/5.4
+    elastic last 3 words 30%                    12.6/25.3/38/8.6      5.3/19.8/47/10.4       1.4/8.1/55/11.3        0.3/3.4/65/6.9        0.1/0.6/83/1.1
+    abbr table x0.5, whole line                 11.5/24.5/39/6.8      10.8/24.0/41/6.3       9.4/22.0/42/6.5       8.7/20.7/45/6.9       5.8/15.7/48/5.8
+    abbr table x1.0, whole line                 12.7/25.1/39/8.1      7.0/18.3/47/11.5       2.0/8.6/56/10.3        1.1/4.4/62/6.1        0.2/1.2/80/1.3
+    squeeze whole line 8% + filler up to 1 word      12.4/25.7/39/8.2       7.0/21.0/45/9.1      2.1/10.4/54/10.8        0.9/5.0/62/7.0        0.1/1.0/79/1.7
+
+    R2 shape goal, casting-off error sd 0%
+      elastic whole 8%, whole paragraph              0.2 / 2.2 / 71 / 2.8
+      elastic whole 10%, last 4 lines                0.3 / 2.2 / 66 / 6.4
+      elastic whole 10%, whole paragraph             0.0 / 0.1 / 85 / 0.9
+      elastic whole 15%, last 4 lines                0.0 / 0.1 / 83 / 0.3
+      elastic last-3 30%, last 4 lines               0.3 / 3.4 / 65 / 6.9
+      abbr table x1.0 whole line, whole paragraph    0.2 / 1.2 / 80 / 1.3
+
+    R2 shape goal, casting-off error sd 3%
+      elastic whole 8%, whole paragraph              1.6 / 6.0 / 63 / 4.7
+      elastic whole 10%, last 4 lines                0.8 / 3.5 / 64 / 7.0
+      elastic whole 10%, whole paragraph             0.4 / 1.8 / 76 / 3.4
+      elastic whole 15%, last 4 lines                0.0 / 0.4 / 79 / 2.1
+      elastic last-3 30%, last 4 lines               1.4 / 6.4 / 62 / 6.5
+      abbr table x1.0 whole line, whole paragraph    0.9 / 4.1 / 70 / 4.1
+
+    R2 shape goal, casting-off error sd 6%
+      elastic whole 8%, whole paragraph              3.2 / 10.5 / 55 / 7.1
+      elastic whole 10%, last 4 lines                1.5 / 6.3 / 59 / 7.2
+      elastic whole 10%, whole paragraph             1.2 / 6.2 / 63 / 5.3
+      elastic whole 15%, last 4 lines                0.1 / 1.1 / 74 / 4.1
+      elastic last-3 30%, last 4 lines               1.5 / 8.6 / 57 / 8.0
+      abbr table x1.0 whole line, whole paragraph    2.1 / 7.1 / 61 / 5.9
+
+    R2 goal 'short', re-flow last par lines
+      none                                           13.3 / 24.0 / 40 / 5.9
+      elastic whole line 3%                          11.5 / 24.1 / 41 / 5.2
+      elastic whole line 5%                          5.5 / 16.5 / 42 / 7.4
+      elastic whole line 8%                          0.3 / 2.3 / 44 / 13.3
+      elastic whole line 10%                         0.0 / 0.1 / 44 / 13.9
+      elastic whole line 15%                         0.0 / 0.0 / 45 / 13.2
+      tighten only: squeeze whole line 8%            8.3 / 17.9 / 39 / 11.7
+      tighten only: squeeze whole line 15%           0.3 / 0.7 / 38 / 25.8
+      loosen only: stretch whole line 8%             8.7 / 19.8 / 43 / 2.1
+      loosen only: stretch whole line 15%            1.5 / 6.0 / 47 / 1.8
+      elastic last 3 words 20%                       1.8 / 7.7 / 44 / 9.5
+      elastic last 3 words 30%                       0.1 / 0.6 / 44 / 12.9
+      abbr table x0.5, whole line                    5.8 / 15.9 / 43 / 8.0
+      abbr table x1.0, whole line                    0.2 / 1.2 / 44 / 14.2
+      squeeze whole line 8% + filler up to 1 word    0.1 / 1.0 / 45 / 12.1
+
+ALL THREE at once (coarse glyphs)
+    elastic whole 8%, look-ahead 3               R1 0.041 vs 0.118 (0.35), lag2 x1.41 | R2 3.5/13.0/48/10.9 | R3 0.12 +0.02
+    elastic whole 8%, look-ahead par             R1 0.032 vs 0.118 (0.27), lag2 x1.46 | R2 0.3/2.2/63/5.6 | R3 0.12 +0.02
+    elastic whole 10%, look-ahead 3              R1 0.017 vs 0.109 (0.15), lag2 x1.56 | R2 0.9/5.5/56/13.2 | R3 0.12 +0.00
+    elastic whole 10%, look-ahead par            R1 0.008 vs 0.109 (0.07), lag2 x1.59 | R2 0.0/0.1/78/2.7 | R3 0.12 +0.02
+    abbr table x1.0 whole line, look-ahead 3     R1 0.031 vs 0.116 (0.27), lag2 x1.45 | R2 2.2/9.2/53/10.6 | R3 0.12 +0.03
+    abbr table x1.0 whole line, look-ahead par   R1 0.022 vs 0.113 (0.19), lag2 x1.52 | R2 0.2/1.2/73/3.6 | R3 0.12 +0.03
+    abbr x0.5 + elastic whole 5%, look-ahead 3   R1 0.024 vs 0.111 (0.22), lag2 x1.51 | R2 1.6/8.1/54/12.0 | R3 0.12 +0.02
+    abbr x0.5 + elastic whole 5%, look-ahead par R1 0.016 vs 0.112 (0.14), lag2 x1.55 | R2 0.0/0.7/75/4.4 | R3 0.12 +0.01
+
+ALL THREE at once (coarse glyphs, lag-2 seeking)
+    elastic whole 8%, look-ahead 3               R1 0.039 vs 0.153 (0.25), lag2 x2.06 | R2 3.7/12.5/45/10.6 | R3 0.12 +0.02
+    elastic whole 8%, look-ahead par             R1 0.032 vs 0.155 (0.20), lag2 x2.12 | R2 0.3/2.3/54/7.6 | R3 0.12 +0.03
+    elastic whole 10%, look-ahead 3              R1 0.017 vs 0.168 (0.10), lag2 x2.38 | R2 1.0/5.9/49/13.6 | R3 0.12 +0.01
+    elastic whole 10%, look-ahead par            R1 0.007 vs 0.173 (0.04), lag2 x2.53 | R2 0.0/0.1/62/5.8 | R3 0.12 +0.01
+    abbr table x1.0 whole line, look-ahead 3     R1 0.031 vs 0.165 (0.19), lag2 x2.19 | R2 1.4/8.2/49/11.6 | R3 0.12 +0.04
+    abbr table x1.0 whole line, look-ahead par   R1 0.023 vs 0.167 (0.14), lag2 x2.35 | R2 0.2/1.2/61/6.2 | R3 0.12 +0.03
+    abbr x0.5 + elastic whole 5%, look-ahead 3   R1 0.022 vs 0.162 (0.14), lag2 x2.30 | R2 1.3/8.1/49/13.1 | R3 0.12 +0.01
+    abbr x0.5 + elastic whole 5%, look-ahead par R1 0.016 vs 0.167 (0.10), lag2 x2.44 | R2 0.0/0.8/62/7.0 | R3 0.12 +0.01
+
+TRACES IN THE MANUSCRIPT
+  A. the dodged word: lift over chance at 'last word of the line' and 'second word of the line below'
+     Voynich                                                        1.00 (z -0.1)   1.03 (z +0.7)
+     no goal (elastic whole line 8%) [R1 1.04]                      1.05            1.01
+     re-flow, look-ahead 1, elastic whole line 8% [R1 0.59]         1.26            1.24
+     re-flow, look-ahead 1, elastic last-3 20%, blank cap 0.6 [R1 0 1.16            1.31
+     re-flow, look-ahead 3, elastic last-3 20% [R1 0.51]            1.14            1.14
+     re-flow, whole paragraph, elastic whole line 5% [R1 0.68]      1.09            1.07
+     spelling variants only (max), look-ahead 2 [R1 0.74]           0.99            1.02
+  B. coherent line-to-line swing of written/predicted width (elastic strategies above need 0.035-0.047)
+     Voynich, words only, within paragraph                                 0.018
+     Voynich, words only, within page                                      0.034
+     Voynich, words only, last three words of the line, within paragraph   0.035
+     Voynich, words and the gaps after them, within paragraph              0.009
+     Voynich, words and the gaps after them, within page                   0.032
+     Voynich, words and the gaps after them, last three words of the line, within paragraph 0.043
+  C. slope of paragraph density on last-line fill
+     voynich                                                                -0.0084 (se 0.0090), corr -0.04
+     sim: no goal, elastic whole line 8%                                    -0.0007 (se 0.0017), corr -0.01
+     sim: R2 goal, whole paragraph, elastic whole line 8%, casting-off erro -0.0617 (se 0.0027), corr -0.49
+     sim: R2 goal, last 4 lines, elastic whole line 10%                     -0.0811 (se 0.0032), corr -0.53
+     sim: R2 goal, last 4 lines, elastic last-3 words 30%                   -0.0756 (se 0.0031), corr -0.52
+
+REAL LATIN MANUSCRIPTS (20, 6242 lines): words abbreviated 50% (range 4-78%), letters saved about 19%, line-to-line width swing from abbreviation 1.9% (max 6.4%), breaks inside a word >= 5%, line openings: same as line above 6.9% vs 6.4% shuffled

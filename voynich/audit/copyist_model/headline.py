@@ -1,4 +1,4 @@
-"""Short tables from results/sweeps.json (run_experiments.py), results/voynich_traces.json
+"""Short tables from results/sweeps*.json (run_experiments.py), results/voynich_traces.json
 and results/real_mss.json: freedom given -> value reached, for R3, R1 and R2.
 
     python3 headline.py
@@ -19,7 +19,9 @@ def m(A, fam, lab, key):
 
 
 def main():
-    A = json.load(open(R / "sweeps.json"))
+    A = {}
+    for f in sorted(R.glob("sweeps*.json")):                 # one file per family, or sweeps.json from a full run
+        A.update(json.load(open(f)))
     print("R3  line ends, no other goal            (Voynich: median blank 0.13, coupling +0.05, 95% -0.03..+0.14)")
     print("    %-48s %8s %9s %14s %11s" % ("freedom", "blank", "coupling", "cannot fit", "density sd"))
     for lab in A["R3"]:
@@ -29,13 +31,13 @@ def main():
     looks = ["1", "2", "3", "par"]
     for title, pre in (("Latin letters as they are", "R1 re-flow alone, look-ahead "),
                        ("letters merged to the Voynich's eight shares", "R1 re-flow alone, coarse glyphs, look-ahead ")):
-        print("\nR1  same opening glyph as the line above / shuffled, re-flow alone, %s   (Voynich 0.60)" % title)
+        print("\nR1  same opening glyph as the line above / shuffled, re-flow alone, %s   (Voynich 0.59)" % title)
         print("    %-44s" % "freedom \\ lines planned ahead" + "".join("%8s" % l for l in looks) + "   | blank, coupling at look-ahead 3")
         for lab in A[pre + "1"]:
             print("    %-44s" % lab + "".join("%8.2f" % m(A, pre + l, lab, "r1_ratio") for l in looks) +
                   "   | %.2f %+.2f" % (m(A, pre + "3", lab, "r3_median"), m(A, pre + "3", lab, "r3_coupling")))
     pre = "R1 re-flow alone, coarse glyphs, look-ahead "
-    print("\n    lag 2 / lag 3 against shuffled (Voynich x1.29 / x1.07), merged letters")
+    print("\n    lag 2 / lag 3 against shuffled, a by-product of the lag-1 avoidance (Voynich x1.29 / x1.07), merged letters")
     for lab in ("elastic last 3 words 20%", "elastic whole line 5%", "elastic whole line 8%"):
         print("    %-44s" % lab + "".join("  x%.2f/x%.2f" % (m(A, pre + l, lab, "r1_lag2_ratio"), m(A, pre + l, lab, "r1_lag3_ratio")) for l in looks))
     for fam in ("R1 spelling variants alone, coarse glyphs", "R1 word-splitting alone", "R1 extra: splitting combined, coarse glyphs",
@@ -48,7 +50,7 @@ def main():
                     lab, m(A, fam, lab, "r1_ratio"), m(A, fam, lab, "r1_lag2_ratio"), m(A, fam, lab, "r1_lag3_ratio"),
                     m(A, fam, lab, "r3_median"), m(A, fam, lab, "r3_coupling"), 100 * m(A, fam, lab, "t_fragment_starts")))
 
-    print("\nR2  paragraph's last line: one word / under 30% / 40-80% / over-full, in %   (Voynich 0.4-2.2 / 5.0-7.2 / 66 / 4.6)")
+    print("\nR2  paragraph's last line: one word / under 30% / 40-80% / over-full, in %   (Voynich about 2 / 5.0-7.2 / 66 / 4.6; one word and two-or-fewer in detail: r2_focus.py)")
     hz = [("no goal", "R2 baseline (no goal)")] + [(f"last {l}", f"R2 shape goal, re-flow last {l} lines") for l in ("2", "3", "4")] + \
          [("paragraph", "R2 shape goal, re-flow last par lines")]
     print("    %-38s" % "freedom \\ lines re-flowed" + "".join("%22s" % h for h, _ in hz))

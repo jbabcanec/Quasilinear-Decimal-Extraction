@@ -26,7 +26,9 @@ This report was audited by seven independent agents told to break it (section 17
 - *Line openings take turns* (section 12). The excess two lines down is forced by the avoidance one line down and is not a separate effect.
 - *The text was not copied from a finished text* as inferred from line ends (sections 1–2), withdrawn earlier after the real-manuscript control.
 
-What the surviving results support: the opening word of each line was chosen with the line above in view, and paragraphs were ended, or their text adjusted, so as not to leave a stray word. Ordinary copied prose shows neither. Text composed as it was written, and text that is line-structured in the way verse is, both fit.
+What the surviving results support: the opening word of each line was chosen with the line above in view, and paragraphs were ended, or their text adjusted, so as not to leave a stray word. The real copied prose measured here shows neither.
+
+They do not prove the text was composed for the page. A simulated copyist of real Latin reproduces both, and the line-end behaviour, if he plans a whole paragraph ahead and may squeeze or stretch his writing by 6–8% (section 17). The manuscript's lines vary in density by only 1–2%, less than that needs, so such a copyist would have had to vary the written forms of words, as abbreviation does. Three readings remain: composed as written; line-structured like verse; or copied by scribes who planned each paragraph and adjusted word forms to fit, a habit not seen in the real manuscripts compared.
 
 ## Data
 
@@ -419,13 +421,24 @@ Reproduce with `python3 src/exp17_pages.py`.
 ## What this means
 
 - **Two places where the text answers to the page.** Which word opens a line depends on the line above, and paragraphs avoid ending on a stray word. Real copied prose does neither.
-- **That is less than the earlier version of this report claimed.** It does not show the whole text was composed for the page; the page-level evidence was an artefact. Text composed as written, and line-structured text like verse, both fit what is left.
+- **That is less than the earlier version of this report claimed.** It does not show the text was composed for the page: the page-level evidence was an artefact, and a copyist who plans a paragraph ahead and can adjust word forms by 6–8% can produce everything that is left. Text composed as written, line-structured text like verse, and such a planning copyist all fit.
 - **It does not settle whether the words mean anything.** The text also has almost no word order, few repeated phrases and no reluctance to repeat a word (sections 6 and 15).
 - **For anyone attempting a reading:** the first word of a line and the last line of a paragraph are shaped by layout. Treat them as suspect.
 
 ## 17. Audit
 
-Seven agents worked independently, each with its own code where it replicated: line starts, paragraph endings, page fill, a search for more real manuscripts, a code review, a prior-work search, and a model of what a copyist could do. Their scripts and outputs are in `audit/`. Outcomes are folded into the sections above. The real-manuscript search and the copyist model were interrupted and are not yet reported.
+Seven agents worked independently, each with its own code where it replicated: line starts, paragraph endings, page fill, a search for more real manuscripts, a code review, a prior-work search, and a model of what a copyist could do. Their scripts and outputs are in `audit/`. Outcomes are folded into the sections above. The real-manuscript search is not yet reported.
+
+**The copyist model** (`audit/copyist_model/`) lays real Latin into lines for a scribe who keeps every word. To reach the Voynich's values:
+
+| Regularity | Least freedom that reproduces it | Trace it would leave, and what the manuscript shows |
+|---|---|---|
+| Small line-end blank with no coupling | squeeze or stretch the last three words by 15–20%, or the whole line by 8% | none specific |
+| Line starts avoiding the line above | the same, plus planning ahead | with one or two lines' look-ahead the dodged word lands last in the line above or second in the line below, 14–31% more often; the manuscript shows 0% and +3% (±4). Only whole-paragraph planning escapes this |
+| Few stray-word endings | stopping the line before last early (no other freedom) | that line would be short in 11% of paragraphs; 0 of 124 in the stars section, so excluded |
+| | ±6% over the whole paragraph | writing density falling with last-line fill, slope −0.018; the manuscript gives −0.011 ± 0.009, not excluded |
+
+With ±8% and whole-paragraph planning one simulated copyist gives all three at once. Two things count against a real one: the line-start habit is not found in the real manuscripts compared, and Voynich lines vary in density by only 1–2% where the squeezing needs 3.5–4.7%.
 
 Faults the audit found in this report's own code: one-word lines lost in the box-to-transliteration join (`src/vdata.py`, the geometric line rule); a page-fill baseline measured against a different reference from the data (`src/exp17_pages.py`); real-manuscript line adjacency bridged across removed headings and multi-column zones dropped (`control_real/control_real.py`); unbalanced samples (`src/exp11_sections.py`). These scripts are left as they were so the earlier numbers can be reproduced; the corrected figures above come from `audit/`.
 

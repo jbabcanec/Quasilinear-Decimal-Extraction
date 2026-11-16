@@ -11,9 +11,13 @@ Units
 
 S1  share of line pairs (lag 1, lag 2) inside a column whose first letter is the same,
     against the same lines in shuffled order inside the column.
+    Only pairs of lines that really stand one under the other are counted (no blank
+    space, miniature or left-out heading between them).
 S2  lines that stop early (right end below 90% of the way from their own left edge to
     the furthest right end among the +-3 neighbouring lines of the column): the share
     holding exactly one word, and the share shorter than 30%.
+S2' the same two shares among short lines that stand directly under three full lines of
+    their column (s2_after_full): the visible paragraph ends of prose.
 S3  share of neighbouring words inside a line that are identical, divided by its
     expectation when the words of each line are put in random order.
 """
@@ -246,15 +250,21 @@ def split_columns(lines):
     return [lines]
 
 
-def order_column(lines):
-    """Sort top to bottom and join pieces of one written line that were segmented apart
-    (same height, side by side)."""
+NO_BREAK = re.compile(r"dropcap|drop-cap|interlin|music|margin|tironian|gloss|damage|graphic|stamp|seal"
+                      r"|decoration|quire|artefact|number", re.I)
+GAP = 1.5            # a line more than this many normal line steps below the previous one does not follow it
+
+
+def order_column(lines, breakers=()):
+    """Sort top to bottom, join pieces of one written line that were segmented apart (same
+    height, side by side), and mark true adjacency: every line gets a 7th field, True when it
+    stands directly under the previous line of the column.  It does not when the step down is
+    more than GAP normal steps (blank space, a miniature, a rubric in the line grid), or when
+    a line that was left out (heading, rubric) lies between the two."""
     lines = sorted(lines, key=lambda r: r[3])
-    if len(lines) < 3:
-        return [list(r) for r in lines]
     ys = np.array([r[3] for r in lines])
     step = float(np.median(np.diff(ys))) if len(ys) > 2 else 0.0
-    out = [list(lines[0])]
+    out = [list(lines[0][:6])] if lines else []
     for r in lines[1:]:
         p = out[-1]
         apart = min(r[2], p[2]) - max(r[1], p[1]) <= 0.1 * min(r[2] - r[1], p[2] - p[1])
@@ -262,18 +272,46 @@ def order_column(lines):
             a, b = (p, r) if p[1] <= r[1] else (r, p)
             out[-1] = [p[0], min(p[1], r[1]), max(p[2], r[2]), (p[3] + r[3]) / 2, a[4] + " " + b[4], p[5] + "|" + r[5]]
         else:
-            out.append(list(r))
+            out.append(list(r[:6]))
+    ys = [r[3] for r in out]
+    step = float(np.median(np.diff(ys))) if len(out) > 2 else 0.0
+    for i, r in enumerate(out):
+        follows = i > 0
+        if follows:
+            p = out[i - 1]
+            dy = r[3] - p[3]
+            if step > 0 and dy > GAP * step:
+                follows = False
+            else:
+                lo, hi = min(p[1], r[1]), max(p[2], r[2])
+                for bl, br, by in breakers:
+                    if p[3] + 0.2 * dy < by < r[3] - 0.2 * dy and \
+                            min(br, hi) - max(bl, lo) >= 0.3 * min(br - bl, hi - lo) > 0:
+                        follows = False
+                        break
+        r.append(follows)
     return out
 
 
 def columns_of(zones, zone_ok, line_ok, min_lines=4):
+    """-> [(zone label, column)]; a column is a list of
+    [line label, xl, xr, y, text, signature, follows the previous line]."""
+    breakers = []                        # lines left out that can stand between two lines of text
+    for zlabel, lines in zones:
+        zone_in = zone_ok(zlabel, lines)
+        for r in lines:
+            if zone_in and line_ok(r[0]):
+                continue
+            if NO_BREAK.search(zlabel or "") or NO_BREAK.search(r[0] or ""):
+                continue
+            breakers.append((r[1], r[2], r[3]))
     cols = []
     for zlabel, lines in zones:
         if not zone_ok(zlabel, lines):
             continue
         keep = [r for r in lines if line_ok(r[0])]
         for col in split_columns(keep):
-            col = order_column(col)
+            col = order_column(col, breakers)
             if len(col) >= min_lines:
                 cols.append((zlabel, col))
     return cols
@@ -344,40 +382,59 @@ def text_signature(cols) -> str:
 
 
 # --------------------------------------------------------------------------- statistics
-def s1(seqs, lags=(1, 2), shuffles=1000, seed=0):
+def s1(seqs, follows=None, lags=(1, 2), shuffles=1000, seed=0):
     """seqs: one sequence of first letters per column (reading order).
+    follows: per column, one flag per line - True when the line stands directly under the
+    previous one (see order_column).  Only pairs of lines that really are 1 (or 2) apart are
+    counted; the shuffle re-orders all lines of the column and counts at the same places.
+    Lines without a letter stay in place and match nothing.
     Columns of equal length are stacked so that every shuffle is one array operation."""
     rng = np.random.default_rng(seed)
     code: dict[str, int] = {}
-    by_len = defaultdict(list)
-    for s in seqs:
-        s = [code.setdefault(c, len(code)) for c in s if c]
-        if len(s) >= 2:
-            by_len[len(s)].append(s)
-    stacks = {n: np.array(v, dtype=np.int32) for n, v in by_len.items()}
+    by_len = defaultdict(lambda: ([], []))
+    blank = 0
+    for ci, s in enumerate(seqs):
+        if len(s) < 2:
+            continue
+        row = []
+        for c in s:
+            if c:
+                row.append(code.setdefault(c, len(code)))
+            else:
+                blank -= 1
+                row.append(blank)
+        f = list(follows[ci]) if follows is not None else [False] + [True] * (len(s) - 1)
+        by_len[len(s)][0].append(row)
+        by_len[len(s)][1].append(f[1:])
+    stacks = {n: (np.array(a, dtype=np.int32), np.array(m, dtype=bool)) for n, (a, m) in by_len.items()}
     out = {}
     for lag in lags:
-        n = sum(a.shape[0] * (L - lag) for L, a in stacks.items() if L > lag)
+        masks = {}
+        for L, (a, m) in stacks.items():
+            if L > lag:
+                k = m[:, :L - lag].copy()
+                for j in range(1, lag):
+                    k &= m[:, j:L - lag + j]
+                if k.any():
+                    masks[L] = k
+        n = sum(int(k.sum()) for k in masks.values())
         if n < 30:
             continue
-        obs = sum(int((a[:, lag:] == a[:, :-lag]).sum()) for L, a in stacks.items() if L > lag)
+        obs = sum(int(((stacks[L][0][:, lag:] == stacks[L][0][:, :-lag]) & k).sum()) for L, k in masks.items())
         exact = 0.0                      # expectation under shuffling, in closed form (check on the shuffles)
-        for L, a in stacks.items():
-            if L > lag:
-                for row in a:
-                    k = np.bincount(row)
-                    exact += (L - lag) * float((k * (k - 1)).sum()) / (L * (L - 1))
         null = np.zeros(shuffles)
-        for L, a in stacks.items():
-            if L <= lag:
-                continue
+        for L, k in masks.items():
+            a = stacks[L][0]
+            for row, kr in zip(a, k):
+                cnt = np.bincount(row[row >= 0]) if (row >= 0).any() else np.zeros(1)
+                exact += int(kr.sum()) * float((cnt * (cnt - 1)).sum()) / (L * (L - 1))
             chunk = max(1, int(2e6 // (a.size + 1)))
             done = 0
             while done < shuffles:
                 m = min(chunk, shuffles - done)
                 idx = np.argsort(rng.random((m,) + a.shape), axis=-1)
                 p = np.take_along_axis(np.broadcast_to(a, (m,) + a.shape), idx, axis=-1)
-                null[done:done + m] += (p[..., lag:] == p[..., :-lag]).sum(axis=(1, 2))
+                null[done:done + m] += ((p[..., lag:] == p[..., :-lag]) & k).sum(axis=(1, 2))
                 done += m
         sd = float(null.std())
         out[f"lag{lag}"] = dict(n=int(n), same=obs / n, shuffled=float(null.mean()) / n, sd=sd / n, expected=exact / n,
@@ -421,6 +478,36 @@ def s2(columns, half=3, early=0.9, short=0.3):
                 clear_one_word=clear_one / clear if clear else None)
 
 
+def s2_after_full(columns, run=3, full=0.9, short=0.9, tiny=0.3):
+    """The paragraph end as it can be seen without paragraph marks: a short line that stands
+    directly under `run` full lines of its column.
+    columns: lists of (xl, xr, n words, follows the previous line).
+    Margin M = furthest right end among the `run` lines above.  Those lines are full when each
+    reaches `full` of the way from its own left edge to M; the line is short when it stops
+    below `short` of the way from its own left edge to M.
+    Returns the number of such lines, and the share holding one word / stopping below `tiny`."""
+    sites = n = one = under = 0
+    for col in columns:
+        for i in range(run, len(col)):
+            if not all(col[j][3] for j in range(i - run + 1, i + 1)):
+                continue                                   # not `run` + 1 lines directly under one another
+            above = col[i - run:i]
+            m = max(r[1] for r in above)
+            if any(m <= r[0] or (r[1] - r[0]) / (m - r[0]) < full for r in above):
+                continue
+            xl, xr, nw = col[i][:3]
+            if m <= xl:
+                continue
+            sites += 1
+            fill = (xr - xl) / (m - xl)
+            if 0 < fill < short:
+                n += 1
+                one += nw == 1
+                under += fill < tiny
+    return dict(sites=sites, n=n, one_word=one / n if n else None, one_word_n=int(one),
+                under_30=under / n if n else None, under_30_n=int(under))
+
+
 def s3(lines, mc_shuffles=0, seed=0):
     """lines: lists of words.  The shuffled rate is exact: for a line of n words in which
     word w occurs c_w times, a random order has sum_w c_w(c_w-1)/n identical neighbours."""
@@ -451,5 +538,5 @@ def s3(lines, mc_shuffles=0, seed=0):
 def rhyme(cols_last2, lags=(1, 2), shuffles=200, seed=0):
     """How often lines 1 or 2 apart end on the same two letters, against shuffled order.
     Used only to tell verse from prose."""
-    r = s1(cols_last2, lags=lags, shuffles=shuffles, seed=seed)
+    r = s1(cols_last2, None, lags=lags, shuffles=shuffles, seed=seed)
     return {k: (v["same"], v["shuffled"]) for k, v in r.items()}

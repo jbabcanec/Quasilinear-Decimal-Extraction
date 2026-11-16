@@ -3,10 +3,12 @@ measures them on the Voynich (src/exp13_line_starts.py, exp16_last_lines.py, wra
 plus the traces each copying strategy would leave.
 
 Voynich values for reference:
-  R1  same opening glyph as the line above 9.6% vs 16.0% shuffled (ratio 0.60);
-      two lines down 20.9% vs 16.2% (ratio 1.29)
-  R2  last line a single word 0.4% (boxes) - 2.2% (ZL3b); under 30% of a normal line
-      5.0% - 7.2%; 40-80% of a normal line 66%; over-full 4.6%
+  R1  same opening glyph as the line above 9.6% vs 16.2% shuffled (ratio 0.59).  Two
+      lines down it is above chance (20.9% vs 16.2%); that is forced by the lag-1
+      avoidance, not a separate effect, and the simulations show the same by-product
+  R2  last line a single word about 2% (0.6-2.2% across three sources) against about 12%
+      (9-14%) for a text that simply runs out; two words or fewer 9-11% against about 24%;
+      under 30% of a normal line 5.0-7.2%; 40-80% of a normal line 66%; over-full 4.6%
   R3  median blank 0.13, middle-half spread 0.33, 90th centile 0.81;
       coupling to the next line's first word 0.05 (95% interval -0.03 to 0.14)
 """
@@ -16,8 +18,9 @@ from collections import Counter
 
 import numpy as np
 
-VOYNICH = dict(r1_ratio=0.60, r1_same=0.096, r1_shuffled=0.160, r1_lag2_ratio=1.29,
-               r2_one_word=(0.004, 0.022), r2_under30=(0.050, 0.072), r2_mid=0.66, r2_overfull=0.046,
+VOYNICH = dict(r1_ratio=0.59, r1_same=0.096, r1_shuffled=0.162, r1_lag2_ratio=1.29,
+               r2_one_word=(0.006, 0.022), r2_up_to_two=(0.09, 0.11), r2_under30=(0.050, 0.072), r2_mid=0.66,
+               r2_overfull=0.046,
                r3_median=0.133, r3_iqr=0.333, r3_p90=0.81, r3_coupling=0.05, r3_coupling_ci=(-0.03, 0.14))
 
 
@@ -48,18 +51,26 @@ def r1(layout, lags=(1, 2, 3), shuffles=200, seed=0):
 
 
 def r2(layout, min_lines=4):
-    fill, nw, tight = [], [], []
+    fill, nw, tight, pshort, padj, oadj = [], [], [], [], [], []
     for par in layout:
         if len(par) < min_lines:
             continue
         body = np.median([ln["E"] for ln in par[1:-1]])
-        last = par[-1]
+        last, pen = par[-1], par[-2]
         fill.append(last["E"] / body); nw.append(last["nwords"])
         tight.append(last["N0"] > last["W"] * 1.0001)
-    fill, nw = np.array(fill), np.array(nw)
-    return dict(n=len(fill), one_word=float((nw == 1).mean()), under_30=float((fill < 0.3).mean()),
+        pshort.append(pen["E"] < 0.9 * body)             # the line before the last stops visibly early
+        padj.append(pen["E"] / pen["N0"] - 1.0)          # ... or is written looser (+) / denser (-)
+        oadj.extend(ln["E"] / ln["N0"] - 1.0 for ln in par[1:-2])
+    fill, nw, padj, oadj = np.array(fill), np.array(nw), np.array(padj), np.array(oadj)
+    return dict(n=len(fill), one_word=float((nw == 1).mean()), up_to_two=float((nw <= 2).mean()),
+                under_30=float((fill < 0.3).mean()),
                 mid_40_80=float(((fill >= 0.4) & (fill < 0.8)).mean()), over_full=float((fill >= 1.0).mean()),
-                squeezed_last=float(np.mean(tight)), mean_fill=float(fill.mean()))
+                squeezed_last=float(np.mean(tight)), mean_fill=float(fill.mean()),
+                pen_short=float(np.mean(pshort)), pen_loose5=float((padj > 0.05).mean()),
+                pen_tight5=float((padj < -0.05).mean()), pen_adj=float(padj.mean()),
+                other_loose5=float((oadj > 0.05).mean()), other_tight5=float((oadj < -0.05).mean()),
+                other_adj=float(oadj.mean()))
 
 
 def r3(layout, unit, half=3, page=4):

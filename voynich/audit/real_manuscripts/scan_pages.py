@@ -35,7 +35,7 @@ def main():
                 continue
             for p, _, cols in R.read_manuscript(ds, files, seen_g, seen_t, []):
                 seqs = [[M.first_letter(r[4]) for r in c] for c in cols]
-                r = M.s1(seqs, shuffles=a.shuffles)
+                r = M.s1(seqs, [[x[6] for x in c] for c in cols], shuffles=a.shuffles)
                 if "lag1" not in r or r["lag1"]["n"] < a.min_pairs:
                     continue
                 first = Counter(x for s in seqs for x in s if x)
