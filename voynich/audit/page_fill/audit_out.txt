@@ -1,0 +1,18 @@
+#### A. pixel frame taken at face value; foot rule varied; like-for-like null (foot re-estimated in every simulation)
+50 S+B+T: P90 of group                                     eval 50 full 17 =  34% | shuffle:  21%+- 4% p=0.005 | shift:  22%+- 3% p=0.000 | draw:  21%+- 4% p=0.006 |
+25 S: P90 of group                                         eval 25 full 10 =  40% | shuffle:  26%+- 6% p=0.031 | shift:  26%+- 6% p=0.018 | draw:  26%+- 6% p=0.035 |
+23 quire T: P90 of group                                   eval 23 full  9 =  39% | shuffle:  27%+- 7% p=0.073 | shift:  28%+- 6% p=0.051 | draw:  27%+- 7% p=0.070 |
+30 text-only: P90 of group                                 eval 30 full 11 =  37% | shuffle:  25%+- 5% p=0.041 | shift:  25%+- 6% p=0.064 | draw:  25%+- 6% p=0.053 |
+50 S+B+T: P90 of group, tol 1.0 line                       eval 50 full 25 =  50% | shuffle:  31%+- 5% p=0.000 | shift:  31%+- 6% p=0.000 | draw:  31%+- 5% p=0.001 |
+25 S: P90 of group, tol 1.0 line                           eval 25 full 15 =  60% | shuffle:  39%+- 8% p=0.012 | shift:  39%+- 8% p=0.015 | draw:  39%+- 8% p=0.013 |
+23 quire T: P90 of group, tol 1.0 line                     eval 23 full 13 =  57% | shuffle:  40%+- 9% p=0.070 | shift:  42%+- 9% p=0.078 | draw:  40%+- 9% p=0.063 |
+30 text-only: P90 of group, tol 1.0 line                   eval 30 full 17 =  57% | shuffle:  36%+- 8% p=0.010 | shift:  37%+- 7% p=0.011 | draw:  37%+- 8% p=0.012 |
+50 S+B+T: P90 per quire (quires >=4 pages)                 eval 43 full 15 =  35% | shuffle:  24%+- 4% p=0.015 | shift:  24%+- 4% p=0.016 | draw:  24%+- 4% p=0.017 |
+25 S: P90 per quire (quires >=4 pages)                     eval 23 full  9 =  39% | shuffle:  26%+- 6% p=0.057 | shift:  26%+- 6% p=0.050 | draw:  26%+- 6% p=0.058 |
+30 text-only: P90 per quire (quires >=4 pages)             eval 23 full  9 =  39% | shuffle:  25%+- 6% p=0.041 | shift:  25%+- 6% p=0.045 | draw:  25%+- 6% p=0.046 |
+50 S+B+T: max per quire, ref page dropped                  eval 45 full  9 =  20% | shuffle:  10%+- 4% p=0.018 | shift:  10%+- 4% p=0.011 | draw:  10%+- 4% p=0.022 |
+25 S: max per quire, ref page dropped                      eval 23 full  6 =  26% | shuffle:  12%+- 6% p=0.036 | shift:  12%+- 5% p=0.010 | draw:  12%+- 6% p=0.041 |
+23 quire T: max per quire, ref page dropped                eval 22 full  5 =  23% | shuffle:  12%+- 7% p=0.110 | shift:  12%+- 7% p=0.123 | draw:  12%+- 6% p=0.097 |
+30 text-only: max per quire, ref page dropped              eval 25 full  6 =  24% | shuffle:  11%+- 6% p=0.048 | shift:  11%+- 6% p=0.044 | draw:  11%+- 6% p=0.051 |
+50 S+B+T: max per bifolio, ref page dropped                eval 35 full 11 =  31% | shuffle:  12%+- 5% p=0.001 | shift:  12%+- 7% p=0.020 | draw:  12%+- 5% p=0.002 |
+25 S: max per bifolio, ref page dropped                    eval 18 full  8 =  44% | shuffle:  16%+- 9% p=0.004 | shift:  17%+- 9% p=0.013 | draw:  16%+- 9% p=0.005 |

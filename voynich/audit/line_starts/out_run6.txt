@@ -1,0 +1,90 @@
+#### 1. transition table (adjacent non-first lines), observed / expected under within-paragraph permutation
+glyph      n   diag_obs diag_exp ratio
+  d      620       49     78.4  0.62
+  y      591       59     83.4  0.71
+  o      521       15     57.7  0.26
+  q      504       18     70.1  0.26
+  s      414       62     61.1  1.01
+  t      221        9     16.4  0.55
+  sh     186        7      9.4  0.74
+  ch     133        0      7.3  0.00
+  l       67        1      2.5  0.40
+obs/exp matrix (row = upper line, col = lower line), top glyphs:
+          d     y     o     q     s     t    sh    ch     l
+  d    0.62  0.84  0.83  1.63  1.00  1.39  1.34  0.56  1.69
+  y    1.26  0.71  1.13  0.65  0.68  0.92  1.14  1.35  1.12
+  o    0.75  1.01  0.26  1.76  1.21  1.60  0.90  0.94  1.11
+  q    0.88  1.33  1.04  0.26  1.17  0.41  1.94  2.43  1.08
+  s    0.88  1.02  0.48  1.32  1.01  1.11  0.63  0.09  1.28
+  t    0.96  1.37  1.13  0.52  1.25  0.55  0.91  0.96     .
+  sh   1.01  1.05  1.19  1.16  0.91  1.48  0.74  0.29     .
+  ch   0.90  0.81  1.28  1.06  0.83  1.91  0.29  0.00     .
+  l    0.56  1.01  1.11  0.72  0.80     .     .     .     .
+sum diag obs 223 exp 389.4 ; off-diag obs 2407 exp 2240.6
+
+#### 2. coarser classes: does avoidance extend to visually similar signs?
+class (gallows merged, benches merged)       lag1 N= 2630 obs=  9.0% exp= 15.8% ratio=0.57 z=-11.86 p_lo=0.0003 p_hi=1.0000
+  gallows lines: 293; adjacent gallows-gallows pairs: 22; same exact gallows: 11
+  gallows-vs-not as binary feature: N= 2630 obs= 83.4% exp= 84.8% ratio=0.98 z= -4.01 p_lo=0.0005 p_hi=1.0000
+
+#### 3. is the 2nd-glyph avoidance independent of the first glyph?
+  pairs 2476 ; P(2nd glyph same | 1st same)=0.394 (n=241) ; P(2nd same | 1st differ)=0.128 (n=2235)
+first word minus its first glyph, identical  lag1 N= 2486 obs=  2.0% exp=  2.4% ratio=0.82 z= -1.89 p_lo=0.0323 p_hi=0.9807
+glyphs 2-3 of first word                     lag1 N= 2339 obs=  7.8% exp= 10.1% ratio=0.77 z= -4.82 p_lo=0.0003 p_hi=1.0000
+3rd glyph of first word                      lag1 N= 2339 obs= 13.2% exp= 15.4% ratio=0.86 z= -3.93 p_lo=0.0003 p_hi=1.0000
+last glyph of first word                     lag1 N= 2637 obs= 28.1% exp= 26.9% ratio=1.05 z= +2.00 p_lo=0.9803 p_hi=0.0230
+
+#### 4. mid-line horizontal control: do neighbouring words in running text avoid the same first glyph?
+  words at distance 1 in same line (line-first word excluded), null = shuffle words in paragraph: N=26795 obs= 18.3% exp= 16.2% ratio=1.13 z= +9.91 p_lo=1.0000 p_hi=0.0033
+  line-first word vs word 2 of same line: N= 4095 obs= 11.2% exp= 16.5% ratio=0.68 z= -8.40 p_lo=0.0033 p_hi=1.0000
+  words at distance 2 in same line (line-first word excluded), null = shuffle words in paragraph: N=22758 obs= 19.6% exp= 16.2% ratio=1.21 z=+13.87 p_lo=1.0000 p_hi=0.0033
+  line-first word vs word 3 of same line: N= 4037 obs= 10.9% exp= 16.5% ratio=0.66 z= -9.85 p_lo=0.0033 p_hi=1.0000
+  last word of line -> first word of next line: N= 3369 obs= 12.1% exp= 16.5% ratio=0.73 z= -7.26 p_lo=0.0033 p_hi=1.0000
+
+#### 5. vertical test for every word position (word k of line vs word k of next line)
+  word 1 first glyph: N= 2630 obs=  9.6% exp= 16.2% ratio=0.59 z=-11.50 p_lo=0.0003 p_hi=1.0000
+  word 2 first glyph: N= 2619 obs= 22.0% exp= 21.8% ratio=1.01 z= +0.37 p_lo=0.6611 p_hi=0.3655
+  word 3 first glyph: N= 2564 obs= 20.3% exp= 20.3% ratio=1.00 z= -0.03 p_lo=0.5062 p_hi=0.5242
+  word 4 first glyph: N= 2431 obs= 20.4% exp= 19.3% ratio=1.05 z= +1.80 p_lo=0.9663 p_hi=0.0363
+  word 5 first glyph: N= 2204 obs= 19.2% exp= 18.5% ratio=1.04 z= +1.31 p_lo=0.9084 p_hi=0.1026
+  word 6 first glyph: N= 1920 obs= 18.5% exp= 18.8% ratio=0.99 z= -0.43 p_lo=0.3575 p_hi=0.6708
+  first glyph after first <-> (pseudo line start) lag1: N=  359 obs= 21.2% exp= 22.0% ratio=0.96 z= -0.50 p_lo=0.3462 p_hi=0.7091
+  first glyph after first <-> (pseudo line start) lag2: N=  245 obs= 20.4% exp= 22.1% ratio=0.92 z= -0.79 p_lo=0.2579 p_hi=0.8064
+
+#### 6. channel through the previous line's ending? expected match rate given last glyph of upper line
+/home/user/Quasilinear-Decimal-Extraction/voynich/audit/line_starts/run6_mechanism.py:132: RuntimeWarning: invalid value encountered in divide
+  p_match = (tab[lg[a], g1[a]] - (g1[a] == g1[b])) / (tab[lg[a]].sum(1) - 1)
+  pairs 2625 obs 9.6% ; expected if lower first glyph depends only on upper line's last glyph: nan%
+
+#### 7. v101 by ZL page metadata
+  v101 pages without ZL metadata: ['f101r1-r2', 'f101v2-v1']
+  v101 H=1: N= 1008 obs=  4.7% exp= 12.3% ratio=0.38 z= -8.50 p_lo=0.0003 p_hi=1.0000
+  v101 H=2: N=  844 obs=  8.3% exp= 15.1% ratio=0.55 z= -6.78 p_lo=0.0003 p_hi=1.0000
+  v101 H=3: N=  547 obs= 12.1% exp= 14.5% ratio=0.83 z= -2.46 p_lo=0.0093 p_hi=0.9950
+  v101 H=4: N=   26 obs=  3.8% exp=  5.9% ratio=0.65 z= -0.52 p_lo=0.5095 p_hi=0.8540
+  v101 H=5: N=   62 obs=  6.5% exp= 10.3% ratio=0.63 z= -1.21 p_lo=0.1813 p_hi=0.9307
+  v101 L=-: N=   36 obs=  2.8% exp=  4.3% ratio=0.65 z= -0.51 p_lo=0.5062 p_hi=0.8404
+  v101 L=A: N= 1074 obs=  4.7% exp= 12.4% ratio=0.38 z= -8.91 p_lo=0.0003 p_hi=1.0000
+  v101 L=B: N= 1385 obs=  9.8% exp= 14.6% ratio=0.67 z= -6.73 p_lo=0.0003 p_hi=1.0000
+  v101 I=B: N=  552 obs=  8.5% exp= 15.9% ratio=0.53 z= -5.71 p_lo=0.0003 p_hi=1.0000
+  v101 I=H: N= 1108 obs=  5.3% exp= 12.5% ratio=0.43 z= -8.62 p_lo=0.0003 p_hi=1.0000
+  v101 I=P: N=  130 obs=  4.6% exp=  9.7% ratio=0.48 z= -2.49 p_lo=0.0070 p_hi=0.9980
+  v101 I=S: N=  510 obs= 12.5% exp= 15.0% ratio=0.84 z= -2.47 p_lo=0.0073 p_hi=0.9967
+  v101 I=T: N=  158 obs=  6.3% exp= 12.9% ratio=0.49 z= -3.14 p_lo=0.0010 p_hi=1.0000
+  v101 quire A: N=  150 obs=  6.7% exp= 12.0% ratio=0.55 z= -2.46 p_lo=0.0070 p_hi=0.9973
+  v101 quire B: N=   99 obs= 10.1% exp= 12.9% ratio=0.78 z= -1.06 p_lo=0.1856 p_hi=0.9007
+  v101 quire C: N=  152 obs=  2.0% exp= 15.2% ratio=0.13 z= -5.15 p_lo=0.0003 p_hi=1.0000
+  v101 quire D: N=  115 obs=  5.2% exp= 13.0% ratio=0.40 z= -2.93 p_lo=0.0007 p_hi=1.0000
+  v101 quire E: N=  149 obs=  5.4% exp= 11.7% ratio=0.46 z= -2.84 p_lo=0.0017 p_hi=0.9997
+  v101 quire F: N=  126 obs=  5.6% exp= 11.7% ratio=0.48 z= -2.82 p_lo=0.0057 p_hi=0.9990
+  v101 quire G: N=  176 obs=  5.7% exp= 12.8% ratio=0.45 z= -3.18 p_lo=0.0013 p_hi=0.9997
+  v101 quire H: N=  104 obs=  6.7% exp= 14.1% ratio=0.48 z= -2.36 p_lo=0.0060 p_hi=0.9990
+  v101 quire I: N=   12 obs=  0.0% exp=  0.0% ratio=nan z=  +nan p_lo=1.0000 p_hi=1.0000
+  v101 quire J: N=   14 obs=  7.1% exp= 11.0% ratio=0.65 z= -0.51 p_lo=0.5288 p_hi=0.8301
+  v101 quire M: N=  591 obs=  8.3% exp= 15.9% ratio=0.52 z= -6.21 p_lo=0.0003 p_hi=1.0000
+  v101 quire N: N=   84 obs=  6.0% exp= 12.3% ratio=0.49 z= -2.20 p_lo=0.0160 p_hi=0.9963
+  v101 quire O: N=  103 obs=  3.9% exp=  9.3% ratio=0.42 z= -2.18 p_lo=0.0180 p_hi=0.9943
+  v101 quire Q: N=   95 obs=  6.3% exp= 10.6% ratio=0.59 z= -1.50 p_lo=0.0816 p_hi=0.9637
+  v101 quire S: N=   73 obs=  2.7% exp= 10.5% ratio=0.26 z= -2.75 p_lo=0.0027 p_hi=0.9997
+  v101 quire T: N=  444 obs= 13.5% exp= 15.0% ratio=0.90 z= -1.52 p_lo=0.0720 p_hi=0.9547
+  v101 quires with obs<exp: 15 of 16

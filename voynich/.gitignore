@@ -2,3 +2,5 @@ external/
 __pycache__/
 *.pyc
 cache/
+audit/**/*.pkl
+audit/**/__pycache__/

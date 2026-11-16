@@ -1,0 +1,4 @@
+#### 1. position-matched nulls using the exact line index
+shuffle within hand/lang/section x exact line index lag1 N= 2630 obs=  9.6% exp= 16.1% ratio=0.59 z= -9.75 p_lo=0.0003 p_hi=1.0000
+shuffle within hand/lang/section x exact line index lag2 N= 1966 obs= 21.1% exp= 16.5% ratio=1.27 z= +5.79 p_lo=1.0000 p_hi=0.0003
+... x line index(<=6) x distance-from-end(<=2) lag1 N= 2630 obs=  9.6% exp= 16.3% ratio=0.59 z= -9.82 p_lo=0.0003 p_hi=1.0000

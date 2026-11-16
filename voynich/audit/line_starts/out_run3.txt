@@ -1,0 +1,144 @@
+#### A. null variants (pairs = adjacent non-first lines in same paragraph)
+A1 shuffle within paragraph                  lag1 N= 2630 obs=  9.6% exp= 16.2% ratio=0.59 z=-11.50 p_lo=0.0003 p_hi=1.0000
+A1 shuffle within paragraph                  lag2 N= 1966 obs= 21.1% exp= 16.3% ratio=1.29 z= +6.30 p_lo=1.0000 p_hi=0.0003
+A2 shuffle within page                       lag1 N= 2630 obs=  9.6% exp= 17.8% ratio=0.54 z=-12.19 p_lo=0.0003 p_hi=1.0000
+A2 shuffle within page                       lag2 N= 1966 obs= 21.1% exp= 17.7% ratio=1.19 z= +4.12 p_lo=1.0000 p_hi=0.0003
+A3 shuffle within quire                      lag1 N= 2630 obs=  9.6% exp= 16.3% ratio=0.59 z= -9.48 p_lo=0.0003 p_hi=1.0000
+A3 shuffle within quire                      lag2 N= 1966 obs= 21.1% exp= 16.3% ratio=1.29 z= +5.90 p_lo=1.0000 p_hi=0.0003
+A4 shuffle whole MS                          lag1 N= 2630 obs=  9.6% exp= 14.9% ratio=0.64 z= -7.75 p_lo=0.0003 p_hi=1.0000
+A4 shuffle whole MS                          lag2 N= 1966 obs= 21.1% exp= 14.9% ratio=1.41 z= +7.70 p_lo=1.0000 p_hi=0.0003
+A5 shuffle within hand x lang x section      lag1 N= 2630 obs=  9.6% exp= 16.3% ratio=0.59 z= -9.72 p_lo=0.0003 p_hi=1.0000
+A5 shuffle within hand x lang x section      lag2 N= 1966 obs= 21.1% exp= 16.2% ratio=1.30 z= +5.94 p_lo=1.0000 p_hi=0.0003
+A6 shuffle within hand/lang/sect x position  lag1 N= 2630 obs=  9.6% exp= 16.2% ratio=0.59 z= -9.80 p_lo=0.0003 p_hi=1.0000
+A6 shuffle within hand/lang/sect x position  lag2 N= 1966 obs= 21.1% exp= 16.2% ratio=1.30 z= +6.07 p_lo=1.0000 p_hi=0.0003
+A7 shuffle within page x position class      lag1 N= 2630 obs=  9.6% exp= 17.6% ratio=0.54 z=-11.76 p_lo=0.0003 p_hi=1.0000
+A7 shuffle within page x position class      lag2 N= 1966 obs= 21.1% exp= 17.7% ratio=1.19 z= +4.33 p_lo=1.0000 p_hi=0.0003
+
+#### A8. paragraph definitions
+A8a page = unit, all P lines                 lag1 N= 3899 obs=  7.6% exp= 14.6% ratio=0.52 z=-13.20 p_lo=0.0003 p_hi=1.0000
+A8a page = unit, all P lines                 lag2 N= 3694 obs= 16.4% exp= 14.7% ratio=1.12 z= +3.26 p_lo=0.9997 p_hi=0.0010
+A8b page unit, first lines ineligible        lag1 N= 2630 obs=  9.6% exp= 17.8% ratio=0.54 z=-12.19 p_lo=0.0003 p_hi=1.0000
+A8b page unit, first lines ineligible        lag2 N= 2495 obs= 20.7% exp= 18.0% ratio=1.15 z= +3.81 p_lo=0.9997 p_hi=0.0007
+   prefix-defined paragraphs: 285
+A8c prefix-defined paragraphs (@,*)          lag1 N= 3558 obs=  7.9% exp= 15.4% ratio=0.51 z=-13.61 p_lo=0.0003 p_hi=1.0000
+A8c prefix-defined paragraphs (@,*)          lag2 N= 3293 obs= 17.0% exp= 15.4% ratio=1.10 z= +2.68 p_lo=0.9963 p_hi=0.0043
+
+#### B. subsets (ineligible lines keep their place; shuffle among eligible lines in paragraph)
+B1 no drawing interruption (both lines)      lag1 N= 2123 obs= 10.5% exp= 16.8% ratio=0.62 z= -9.96 p_lo=0.0003 p_hi=1.0000
+B1 no drawing interruption (both lines)      lag2 N= 1569 obs= 21.6% exp= 17.0% ratio=1.27 z= +5.60 p_lo=1.0000 p_hi=0.0003
+B2 only drawing-interrupted lines            lag1 N=  358 obs=  4.7% exp= 11.2% ratio=0.42 z= -4.78 p_lo=0.0003 p_hi=1.0000
+B2 only drawing-interrupted lines            lag2 N=  244 obs= 18.4% exp= 12.2% ratio=1.51 z= +3.28 p_lo=0.9990 p_hi=0.0020
+B3 pages without any <-> at all              lag1 N= 1497 obs= 11.7% exp= 17.4% ratio=0.67 z= -7.40 p_lo=0.0003 p_hi=1.0000
+B3 pages without any <-> at all              lag2 N= 1066 obs= 22.5% exp= 17.4% ratio=1.29 z= +4.90 p_lo=1.0000 p_hi=0.0003
+B4 exclude paragraph 2nd line                lag1 N= 1966 obs=  9.1% exp= 15.4% ratio=0.59 z= -9.48 p_lo=0.0003 p_hi=1.0000
+B4 exclude paragraph 2nd line                lag2 N= 1469 obs= 20.8% exp= 16.2% ratio=1.28 z= +5.28 p_lo=1.0000 p_hi=0.0003
+B5 exclude paragraph last line               lag1 N= 1966 obs=  9.0% exp= 16.1% ratio=0.56 z=-10.64 p_lo=0.0003 p_hi=1.0000
+B5 exclude paragraph last line               lag2 N= 1467 obs= 22.0% exp= 16.9% ratio=1.31 z= +6.03 p_lo=1.0000 p_hi=0.0003
+B6 interior lines only (no 2nd, no last)     lag1 N= 1469 obs=  8.9% exp= 16.2% ratio=0.55 z= -9.14 p_lo=0.0003 p_hi=1.0000
+B6 interior lines only (no 2nd, no last)     lag2 N= 1114 obs= 22.4% exp= 17.1% ratio=1.31 z= +5.14 p_lo=1.0000 p_hi=0.0003
+B7 P0 loci only                              lag1 N= 2479 obs=  9.2% exp= 16.0% ratio=0.57 z=-11.81 p_lo=0.0003 p_hi=1.0000
+B7 P0 loci only                              lag2 N= 1846 obs= 21.0% exp= 16.1% ratio=1.30 z= +6.36 p_lo=1.0000 p_hi=0.0003
+B8 both lines >= 6 words (comma=break)       lag1 N= 1918 obs=  9.3% exp= 15.8% ratio=0.59 z=-10.01 p_lo=0.0003 p_hi=1.0000
+B8 both lines >= 6 words (comma=break)       lag2 N= 1361 obs= 22.6% exp= 16.1% ratio=1.40 z= +7.35 p_lo=1.0000 p_hi=0.0003
+B9 both lines >= 6 words (comma not break)   lag1 N= 1816 obs=  9.5% exp= 15.9% ratio=0.60 z= -9.50 p_lo=0.0003 p_hi=1.0000
+B9 both lines >= 6 words (comma not break)   lag2 N= 1280 obs= 22.4% exp= 16.1% ratio=1.39 z= +6.88 p_lo=1.0000 p_hi=0.0003
+B9b both lines >= 8 words (comma not break)  lag1 N= 1208 obs= 10.3% exp= 16.0% ratio=0.65 z= -7.08 p_lo=0.0003 p_hi=1.0000
+B9b both lines >= 8 words (comma not break)  lag2 N=  819 obs= 23.1% exp= 16.7% ratio=1.38 z= +5.81 p_lo=1.0000 p_hi=0.0003
+B10 both lines < 6 words                     lag1 N=  282 obs= 13.5% exp= 19.0% ratio=0.71 z= -2.83 p_lo=0.0033 p_hi=0.9987
+B10 both lines < 6 words                     lag2 N=  220 obs= 18.2% exp= 18.9% ratio=0.96 z= -0.31 p_lo=0.4515 p_hi=0.6391
+B11 paragraphs with >= 9 lines               lag1 N= 1161 obs=  8.5% exp= 17.5% ratio=0.49 z= -8.92 p_lo=0.0003 p_hi=1.0000
+B11 paragraphs with >= 9 lines               lag2 N= 1059 obs= 21.9% exp= 17.5% ratio=1.25 z= +4.30 p_lo=1.0000 p_hi=0.0003
+B12 paragraphs with <= 5 lines               lag1 N=  746 obs= 11.0% exp= 15.3% ratio=0.72 z= -5.55 p_lo=0.0003 p_hi=1.0000
+B12 paragraphs with <= 5 lines               lag2 N=  338 obs= 22.5% exp= 14.8% ratio=1.52 z= +4.65 p_lo=1.0000 p_hi=0.0003
+B13 HARSH: interior,P0,no <->,>=6w, EVA      lag1 N=  816 obs=  9.2% exp= 16.9% ratio=0.55 z= -7.09 p_lo=0.0003 p_hi=1.0000
+B13 HARSH: interior,P0,no <->,>=6w, EVA      lag2 N=  601 obs= 25.5% exp= 17.9% ratio=1.42 z= +5.41 p_lo=1.0000 p_hi=0.0003
+B13 HARSH, bench signs                       lag1 N=  816 obs=  8.2% exp= 15.3% ratio=0.54 z= -6.84 p_lo=0.0003 p_hi=1.0000
+B13 HARSH, bench signs                       lag2 N=  601 obs= 23.3% exp= 16.2% ratio=1.44 z= +5.39 p_lo=1.0000 p_hi=0.0003
+B13 HARSH, bench, page-shuffle null          lag1 N=  816 obs=  8.2% exp= 16.4% ratio=0.50 z= -6.99 p_lo=0.0003 p_hi=1.0000
+B13 HARSH, bench, page-shuffle null          lag2 N=  601 obs= 23.3% exp= 16.7% ratio=1.39 z= +4.73 p_lo=1.0000 p_hi=0.0003
+B14 HARSH + page has no <-> at all           lag1 N=  616 obs=  8.8% exp= 15.7% ratio=0.56 z= -5.80 p_lo=0.0003 p_hi=1.0000
+B14 HARSH + page has no <-> at all           lag2 N=  456 obs= 23.7% exp= 16.5% ratio=1.44 z= +4.65 p_lo=1.0000 p_hi=0.0003
+
+#### C. strata
+C hand=1                                     lag1 N= 1020 obs=  6.8% exp= 14.9% ratio=0.46 z= -8.85 p_lo=0.0003 p_hi=1.0000
+C hand=1                                     lag2 N=  796 obs= 18.3% exp= 15.3% ratio=1.20 z= +2.60 p_lo=0.9943 p_hi=0.0077
+C hand=2                                     lag1 N=  897 obs=  9.6% exp= 17.0% ratio=0.56 z= -7.20 p_lo=0.0003 p_hi=1.0000
+C hand=2                                     lag2 N=  740 obs= 23.0% exp= 17.2% ratio=1.34 z= +4.92 p_lo=1.0000 p_hi=0.0003
+C hand=3                                     lag1 N=  612 obs= 14.4% exp= 17.8% ratio=0.81 z= -3.17 p_lo=0.0013 p_hi=0.9993
+C hand=3                                     lag2 N=  363 obs= 23.4% exp= 17.6% ratio=1.33 z= +3.30 p_lo=0.9990 p_hi=0.0013
+C hand=4                                     lag1 N=   39 obs= 10.3% exp= 11.5% ratio=0.89 z= -0.37 p_lo=0.5182 p_hi=0.7634
+C hand=4                                     lag2 N=   21 obs= 19.0% exp= 12.6% ratio=1.51 z= +1.05 p_lo=0.9207 p_hi=0.2329
+C hand=5                                     lag1 N=   62 obs=  8.1% exp= 12.2% ratio=0.66 z= -1.17 p_lo=0.1806 p_hi=0.9217
+C hand=5                                     lag2 N=   46 obs= 19.6% exp= 12.1% ratio=1.61 z= +1.58 p_lo=0.9603 p_hi=0.0910
+C Currier lang=-                             lag1 N=   38 obs=  7.9% exp= 10.1% ratio=0.79 z= -0.64 p_lo=0.4092 p_hi=0.8654
+C Currier lang=-                             lag2 N=   20 obs= 20.0% exp= 11.5% ratio=1.73 z= +1.38 p_lo=0.9583 p_hi=0.1616
+C Currier lang=A                             lag1 N= 1086 obs=  6.7% exp= 14.9% ratio=0.45 z= -9.09 p_lo=0.0003 p_hi=1.0000
+C Currier lang=A                             lag2 N=  855 obs= 18.9% exp= 15.4% ratio=1.23 z= +3.17 p_lo=0.9990 p_hi=0.0020
+C Currier lang=B                             lag1 N= 1506 obs= 11.7% exp= 17.2% ratio=0.68 z= -7.38 p_lo=0.0003 p_hi=1.0000
+C Currier lang=B                             lag2 N= 1091 obs= 22.7% exp= 17.2% ratio=1.32 z= +5.62 p_lo=1.0000 p_hi=0.0003
+C section=A                                  lag1 N=   19 obs=  5.3% exp=  5.3% ratio=1.00 z=  +nan p_lo=1.0000 p_hi=1.0000
+C section=A                                  lag2 N=    7 obs=  0.0% exp=  0.0% ratio=nan z=  +nan p_lo=1.0000 p_hi=1.0000
+C section=B                                  lag1 N=  560 obs=  9.5% exp= 18.3% ratio=0.52 z= -6.47 p_lo=0.0003 p_hi=1.0000
+C section=B                                  lag2 N=  478 obs= 25.5% exp= 18.5% ratio=1.38 z= +4.62 p_lo=1.0000 p_hi=0.0003
+C section=C                                  lag1 N=   61 obs= 16.4% exp= 17.3% ratio=0.95 z= -0.26 p_lo=0.5105 p_hi=0.6704
+C section=C                                  lag2 N=   44 obs= 18.2% exp= 16.6% ratio=1.09 z= +0.33 p_lo=0.7131 p_hi=0.4588
+C section=H                                  lag1 N= 1113 obs=  6.8% exp= 14.6% ratio=0.47 z= -8.73 p_lo=0.0003 p_hi=1.0000
+C section=H                                  lag2 N=  870 obs= 17.9% exp= 15.0% ratio=1.19 z= +2.62 p_lo=0.9960 p_hi=0.0053
+C section=P                                  lag1 N=  136 obs=  5.9% exp= 12.7% ratio=0.46 z= -3.15 p_lo=0.0017 p_hi=1.0000
+C section=P                                  lag2 N=   93 obs= 19.4% exp= 12.9% ratio=1.49 z= +2.19 p_lo=0.9890 p_hi=0.0243
+C section=S                                  lag1 N=  579 obs= 15.0% exp= 18.3% ratio=0.82 z= -2.98 p_lo=0.0017 p_hi=0.9987
+C section=S                                  lag2 N=  341 obs= 24.0% exp= 18.2% ratio=1.32 z= +3.09 p_lo=0.9990 p_hi=0.0020
+C section=T                                  lag1 N=  162 obs= 10.5% exp= 15.9% ratio=0.66 z= -2.29 p_lo=0.0130 p_hi=0.9940
+C section=T                                  lag2 N=  133 obs= 21.1% exp= 15.7% ratio=1.34 z= +1.93 p_lo=0.9800 p_hi=0.0373
+C Currier hand($C)=-                         lag1 N=  639 obs= 12.7% exp= 17.0% ratio=0.74 z= -4.04 p_lo=0.0003 p_hi=1.0000
+C Currier hand($C)=-                         lag2 N=  412 obs= 23.5% exp= 17.2% ratio=1.37 z= +3.88 p_lo=1.0000 p_hi=0.0003
+C Currier hand($C)=1                         lag1 N=  778 obs=  6.9% exp= 15.2% ratio=0.46 z= -7.54 p_lo=0.0003 p_hi=1.0000
+C Currier hand($C)=1                         lag2 N=  611 obs= 18.8% exp= 15.8% ratio=1.19 z= +2.27 p_lo=0.9893 p_hi=0.0163
+C Currier hand($C)=2                         lag1 N=  802 obs=  9.4% exp= 17.2% ratio=0.54 z= -7.15 p_lo=0.0003 p_hi=1.0000
+C Currier hand($C)=2                         lag2 N=  668 obs= 24.0% exp= 17.6% ratio=1.36 z= +4.95 p_lo=1.0000 p_hi=0.0003
+C Currier hand($C)=3                         lag1 N=  127 obs=  9.4% exp= 14.1% ratio=0.67 z= -1.96 p_lo=0.0327 p_hi=0.9897
+C Currier hand($C)=3                         lag2 N=   97 obs= 14.4% exp= 12.9% ratio=1.12 z= +0.50 p_lo=0.7541 p_hi=0.3645
+C Currier hand($C)=4                         lag1 N=  105 obs=  6.7% exp= 14.0% ratio=0.47 z= -2.38 p_lo=0.0107 p_hi=0.9953
+C Currier hand($C)=4                         lag2 N=   91 obs= 15.4% exp= 14.2% ratio=1.09 z= +0.36 p_lo=0.7178 p_hi=0.3979
+C Currier hand($C)=5                         lag1 N=   35 obs=  5.7% exp= 11.1% ratio=0.51 z= -1.43 p_lo=0.1440 p_hi=0.9787
+C Currier hand($C)=5                         lag2 N=   23 obs= 13.0% exp=  8.7% ratio=1.50 z= +0.74 p_lo=0.8590 p_hi=0.3312
+C Currier hand($C)=X                         lag1 N=  109 obs= 18.3% exp= 18.6% ratio=0.99 z= -0.11 p_lo=0.5288 p_hi=0.6485
+C Currier hand($C)=X                         lag2 N=   45 obs= 17.8% exp= 16.3% ratio=1.09 z= +0.28 p_lo=0.6914 p_hi=0.4542
+C Currier hand($C)=Y                         lag1 N=   35 obs=  2.9% exp=  9.7% ratio=0.29 z= -1.97 p_lo=0.0490 p_hi=1.0000
+C Currier hand($C)=Y                         lag2 N=   19 obs= 15.8% exp=  9.3% ratio=1.70 z= +1.11 p_lo=0.9374 p_hi=0.2386
+
+#### C2. per quire (lag 1 only)
+  quire A  N= 153 obs= 16 exp=  23.0  rate= 10.5% vs  15.0%  z=-2.02
+  quire B  N=  99 obs= 12 exp=  15.1  rate= 12.1% vs  15.2%  z=-1.08
+  quire C  N= 152 obs=  6 exp=  25.4  rate=  3.9% vs  16.7%  z=-4.75
+  quire D  N= 116 obs=  7 exp=  15.9  rate=  6.0% vs  13.7%  z=-2.74
+  quire E  N= 149 obs= 10 exp=  20.3  rate=  6.7% vs  13.6%  z=-2.88
+  quire F  N= 129 obs= 10 exp=  17.3  rate=  7.8% vs  13.4%  z=-2.41
+  quire G  N= 176 obs= 11 exp=  28.4  rate=  6.2% vs  16.1%  z=-3.97
+  quire H  N= 104 obs=  8 exp=  16.1  rate=  7.7% vs  15.5%  z=-2.38
+  quire I  N=  22 obs=  2 exp=   1.7  rate=  9.1% vs   7.6%  z=+0.71
+  quire J  N=  14 obs=  1 exp=   2.2  rate=  7.1% vs  15.4%  z=-1.00
+  quire M  N= 599 obs= 57 exp= 109.9  rate=  9.5% vs  18.4%  z=-6.67
+  quire N  N= 127 obs= 12 exp=  17.8  rate=  9.4% vs  14.1%  z=-1.96
+  quire O  N= 101 obs=  8 exp=  13.9  rate=  7.9% vs  13.8%  z=-2.08
+  quire Q  N=  95 obs=  6 exp=  12.5  rate=  6.3% vs  13.2%  z=-2.26
+  quire S  N=  81 obs=  3 exp=  10.6  rate=  3.7% vs  13.1%  z=-3.43
+  quire T  N= 513 obs= 83 exp=  95.5  rate= 16.2% vs  18.6%  z=-2.13
+  quires with obs<exp: 15 of 16
+
+#### C3. per page sign test (lag 1)
+  pages (>=5 pairs) with obs<exp: 143, obs>exp: 29, equal: 13
+
+#### D. by position of the pair inside the paragraph (pair = lines li, li+1)
+  upper line index  2- 2: N=  664 obs= 11.1% exp= 15.7% ratio=0.71 z= -4.07 p_lo=0.0003 p_hi=1.0000
+  upper line index  3- 3: N=  499 obs=  9.0% exp= 15.4% ratio=0.59 z= -4.32 p_lo=0.0003 p_hi=1.0000
+  upper line index  4- 4: N=  355 obs= 10.7% exp= 15.4% ratio=0.69 z= -2.58 p_lo=0.0070 p_hi=0.9957
+  upper line index  5- 6: N=  434 obs=  8.8% exp= 16.1% ratio=0.54 z= -4.31 p_lo=0.0003 p_hi=1.0000
+  upper line index  7- 9: N=  318 obs=  6.3% exp= 17.0% ratio=0.37 z= -5.20 p_lo=0.0003 p_hi=1.0000
+  upper line index 10-99: N=  360 obs= 10.3% exp= 18.4% ratio=0.56 z= -4.12 p_lo=0.0003 p_hi=1.0000
+  pair ending in paragraph-last line:   N=  664 obs= 11.3% exp= 15.7% ratio=0.72 z= -4.01 p_lo=0.0003 p_hi=1.0000
+  pair not involving last line:         N= 1966 obs=  9.0% exp= 16.3% ratio=0.55 z=-10.09 p_lo=0.0003 p_hi=1.0000
+
+#### H. alternative readings: take 2nd alternative in [a:b]
+H alt reading 2                              lag1 N= 2633 obs=  9.6% exp= 16.2% ratio=0.59 z=-11.37 p_lo=0.0003 p_hi=1.0000
+H alt reading 2                              lag2 N= 1967 obs= 21.3% exp= 16.5% ratio=1.29 z= +6.57 p_lo=1.0000 p_hi=0.0003

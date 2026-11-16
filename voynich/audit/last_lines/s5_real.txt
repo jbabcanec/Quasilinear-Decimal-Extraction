@@ -1,0 +1,36 @@
+lines 5552 MSS 11 pages 85
+                lines    wpl  fullshare  early
+ms                                            
+btv1b100737746    240  10.18       0.99   0.01
+btv1b10549431k    700   5.57       0.67   0.18
+btv1b55008562q    543   7.25       0.99   0.00
+btv1b60001038     269   6.24       0.57   0.25
+btv1b84260029    1407   6.33       0.98   0.01
+btv1b8448964p     312   6.37       0.54   0.32
+btv1b90069505     582   8.35       0.96   0.03
+btv1b90076543     851   6.15       0.97   0.02
+btv1b9009670t     228   7.82       0.85   0.14
+btv1b90595325     202  13.18       0.94   0.06
+btv1b90616967     218   5.50       0.87   0.05
+
+NAIVE: all lines with right extent < 0.9: n=644 single-word=4.3%  <=2=8.4%
+   and starting at left margin: n=615 single=4.2% <=2=7.8%
+   by MS: {'btv1b100737746': {'n': 3, 'single': 0.0}, 'btv1b10549431k': {'n': 232, 'single': 0.0}, 'btv1b55008562q': {'n': 7, 'single': 14.3}, 'btv1b60001038': {'n': 108, 'single': 0.9}, 'btv1b84260029': {'n': 23, 'single': 17.4}, 'btv1b8448964p': {'n': 122, 'single': 0.0}, 'btv1b90069505': {'n': 23, 'single': 21.7}, 'btv1b90076543': {'n': 23, 'single': 21.7}, 'btv1b9009670t': {'n': 34, 'single': 17.6}, 'btv1b90595325': {'n': 12, 'single': 16.7}, 'btv1b90616967': {'n': 28, 'single': 7.1}}
+
+NAIVE: all lines with right extent < 0.85: n=401 single-word=7.0%  <=2=13.5%
+   and starting at left margin: n=378 single=6.9% <=2=12.7%
+   by MS: {'btv1b100737746': {'n': 3, 'single': 0.0}, 'btv1b10549431k': {'n': 126, 'single': 0.0}, 'btv1b55008562q': {'n': 2, 'single': 50.0}, 'btv1b60001038': {'n': 61, 'single': 1.6}, 'btv1b84260029': {'n': 12, 'single': 33.3}, 'btv1b8448964p': {'n': 83, 'single': 0.0}, 'btv1b90069505': {'n': 17, 'single': 29.4}, 'btv1b90076543': {'n': 19, 'single': 26.3}, 'btv1b9009670t': {'n': 32, 'single': 18.8}, 'btv1b90595325': {'n': 12, 'single': 16.7}, 'btv1b90616967': {'n': 11, 'single': 18.2}}
+
+NAIVE: all lines with right extent < 0.75: n=188 single-word=14.9%  <=2=28.7%
+   and starting at left margin: n=173 single=15.0% <=2=27.7%
+   by MS: {'btv1b100737746': {'n': 3, 'single': 0.0}, 'btv1b10549431k': {'n': 21, 'single': 0.0}, 'btv1b55008562q': {'n': 2, 'single': 50.0}, 'btv1b60001038': {'n': 23, 'single': 4.3}, 'btv1b84260029': {'n': 11, 'single': 36.4}, 'btv1b8448964p': {'n': 34, 'single': 0.0}, 'btv1b90069505': {'n': 16, 'single': 31.2}, 'btv1b90076543': {'n': 16, 'single': 31.2}, 'btv1b9009670t': {'n': 29, 'single': 20.7}, 'btv1b90595325': {'n': 11, 'single': 18.2}, 'btv1b90616967': {'n': 7, 'single': 28.6}}
+
+STRICT prose paragraph ends: block >=75% full lines, line r<thr, starts at left, preceded by 3 full lines
+prose lines 4284 full-line words mean 7.49 median 7.0
+ thr=0.9: n=90 single=16 (17.8%) <=2=28 (31.1%) | null single=15.3 [9,23] <=2=30.8 [22,39]  median r=0.58 MSS=9
+ thr=0.85: n=69 single=16 (23.2%) <=2=28 (40.6%) | null single=12.9 [7,19] <=2=25.6 [17,33]  median r=0.48 MSS=9
+   r hist [np.int64(7), np.int64(19), np.int64(22), np.int64(14), np.int64(7)]
+   last-line word counts [(1, 16), (2, 12), (3, 11), (4, 11), (5, 8), (6, 6), (7, 2), (10, 1), (11, 1), (12, 1)]
+   by MS {'btv1b100737746': {'n': 3, 'single': 0, 'le2': 0}, 'btv1b10549431k': {'n': 3, 'single': 0, 'le2': 0}, 'btv1b55008562q': {'n': 2, 'single': 1, 'le2': 1}, 'btv1b84260029': {'n': 11, 'single': 4, 'le2': 7}, 'btv1b90069505': {'n': 13, 'single': 4, 'le2': 4}, 'btv1b90076543': {'n': 16, 'single': 3, 'le2': 8}, 'btv1b9009670t': {'n': 6, 'single': 2, 'le2': 3}, 'btv1b90595325': {'n': 11, 'single': 1, 'le2': 2}, 'btv1b90616967': {'n': 4, 'single': 1, 'le2': 3}}
+   examples of single-word ends: ['prosperite', 'amen.', 'souloit', 'mande.', 'contree.', 'sserent', 'tenus', 'orsson', 'drechier', 'gloire..', 'siecle..', 'mie..']
+ thr=0.75: n=59 single=16 (27.1%) <=2=28 (47.5%) | null single=12.9 [7,19] <=2=25.6 [18,33]  median r=0.44 MSS=8

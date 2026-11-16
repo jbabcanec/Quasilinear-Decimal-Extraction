@@ -1,0 +1,70 @@
+candidate lines with 3 preceding P-lines: 3299 with prev 3 full: 1786
+thr=0.9: early-stopping lines n=469  single-box=2 (0.4%)  <=2=28 (6.0%)  ZL-single=3  marked <$> by ZL=85%  median r=0.61
+thr=0.85: early-stopping lines n=425  single-box=2 (0.5%)  <=2=27 (6.4%)  ZL-single=3  marked <$> by ZL=89%  median r=0.59
+   r hist [np.int64(2), np.int64(54), np.int64(160), np.int64(177), np.int64(32)]
+   box-count dist [(1, 2), (2, 25), (3, 53), (4, 74), (5, 77), (6, 65), (7, 71), (8, 31), (9, 15), (10, 7), (11, 3), (12, 1), (16, 1)]
+   not marked as paragraph end: 47  of which single-box 0  <=2 2
+      page num typ         r  nb  zc    cut                                       raw
+1      f1r   5  P0  0.617021   6   5  False        sair,y.chear.cthaiin.cphar.cfhaiin
+16     f1r  20  P0  0.481081   5   5  False                 shok.chor.chey.dain.ckhey
+23     f1r  27  P0  0.550000   5   5  False               ?eo?.chol.chok.choty.chotey
+65     f3v   5  P0  0.769231   5   5  False         ychear.otchal.cho,r.char.ckh[a:y]
+82     f4r  11  P0  0.848101   3   3  False                  qotchoiin.she[o:a]r.qoty
+83     f4r  12  P0  0.810811   3   3  False                       soiin.chaiin.chaiin
+104    f6r   5  P0  0.807018   6   6   True  t[a:o]r.okoiin.shees.ytaly.cthaiin<->oda
+106    f6r   7  P0  0.773723   7   7  False         daiin.qodaiin.cho.s.chol.okaiin.s
+110    f6r  11  P0  0.796296   4   4  False                  ychar.olchaj.ol.chokaiin
+112    f6r  13  P0  0.816092   3   3  False                  qocthol.[y:q]odaiin.cthy
+148    f8r   7  P0  0.478261   4   4  False                   choto.kchoan.choor.dain
+153    f8r  12  P0  0.616279   3   3   True            qo,chodaiin.shotokody<->chotol
+161    f8r  20  P0  0.564972   5   6   True            or.cho,kesey.shey.o.kal<->chal
+188    f9v   8  P0  0.680473   5   5   True           soiin.daiin.qokcho.rokyd<->daly
+190    f9v  10  P0  0.600000   5   5  False                   oty.kchol.chol.chy.kyty
+279   f16v  11  P0  0.507463   3   3  False                     okytaiin.chkchy.saiin
+316   f18r   9  P0  0.664122   4   4  False               chol.chcthal.okshal.chykald
+330   f19r   5  P0  0.833333   6   5  False               otchy.tchy.qoky.daiin.@243;
+337   f19r  12  P0  0.780000   4   4  False                 ykchor.chor.daiin.daiinol
+364   f20v   8  P0  0.687500   8   8  False        shain.choraly.sho.ar.chy.daiin.d.s
+378   f21v   5  P0  0.783626   9   8  False  osho.deey.ctho.l.sho,cthy.daiin.dait.oky
+454   f25r   6  P0  0.248588   2   2  False                             okal.chotaiin
+479   f27r  10  P0  0.732394   7   7  False             qotchey.shes.s.y.chy.tchey.dy
+525   f30v   4  P0  0.756757   6   6  False   otchey.daiin.chor.checkhy.qotchod.daiin
+543   f31r  14  P0  0.800000   5   5  False           saii[s:r].or.chedy.daiin.okeedy
+580   f33r   6  P0  0.798883   8   8  False  yteey.shody.kchedy,dy.chekar.okaiin.okai
+588   f33v  10  P0  0.588542   7   7  False  lcho,ar.or.chey.lodaiin.o,or.okeedy.okal
+612   f35r   6  P0  0.640351   4   4  False                   schaiin.char.chan.daiin
+627   f35v   9  P0  0.769231   5   3  False               qokchaiin.cho.ksho,l,choiin
+644   f36r   8  P0  0.408537   4   4  False                    ytchor.cthol.chaiin.yd
+679   f37v  18  P0  0.560000   2   3  False                     oyteey.daiin.daiinody
+784   f42v  15  P0  0.344262   3   3  False                          chokey.chol.okey
+859   f46v   7  P0  0.465000   7   5  False       dchedy.cheeky.dam,ched.lchedy.chedy
+948   f51v   8  P0  0.590361   5   5  False  olkeeody.qokal.qodaiin.{ykh}or.[{ofa}:{y
+982   f53v  10  P0  0.566434   3   3  False                   ychocthy.qodal.shodaiin
+1002  f54v  11  P0  0.571429   3   3  False                        oaiin.qockhy.qokam
+1028  f56r   5  P0  0.532051   4   4  False                 chochor.cho.chodaly.daiin
+1035  f56r  12  P0  0.620370   4   4  False                     sh.cho.kchey.qokokchy
+1044  f56v   5  P0  0.582090   4   4  False                 qoteees.sho.kcheey.s,aiin
+1424  f78r  16  P0  0.606897   6   6  False            qokol.oted.okain.ched.ar.alory
+   single-box rows:
+     page num typ         r  nb  zc  pend          raw
+170   f8v  11  P0  0.138122   1   1  True    sorain<$>
+674  f37v  13  P0  0.324675   1   1  True  sotoiiin<$>
+thr=0.75: early-stopping lines n=354  single-box=2 (0.6%)  <=2=27 (7.6%)  ZL-single=3  marked <$> by ZL=91%  median r=0.55
+lines starting far right of margin (s>0.3) after 3 full lines: 16
+       page num typ         s         r  nb   pend                                      raw
+349    f19v  14  Pr  0.486239  0.981651   2   True                  otchol,cheaiin.cthol<$>
+445    f24v  10  P0  0.338235  1.029412   3  False                  okoeor.ctheod.choy.keol
+482    f27r  13  Pc  0.485714  0.790476   1   True                         o[t:k]chodeey<$>
+545    f31r  16  Pc  0.353659  0.817073   2   True                         oteor.aiicthy<$>
+563    f32r  13  P0  0.326087  1.652174   5  False                otcho,rol.dain.daiin.cthy
+755    f42r   6  Pc  0.357798  0.724771   2   True                    dorain.[{ih}:ch]ar<$>
+764    f42r  15  Pr  0.320513  0.807692   3   True                 pchody.otshey.dodaiin<$>
+772    f42r  23  Pr  0.410853  1.000000   3   True                 okchol,shol.kolschees<$>
+889    f48r   8  Pr  0.424084  1.026178   7  False  otchdain.shol.oteol.oteoly.ykeey.dam,dr
+1120   f58v  22  Pc  0.353261  0.706522   3   True                   okar.sheey.shekealy<$>
+1262   f75r  50  Pb  0.350000  1.000000   1  False                                    ychty
+1705   f82r  19  Pr  0.531646  1.050633   5   True         okain.char.okain.qokeedy.lchy<$>
+1944  f86v4   9  Pc  0.358382  0.601156   4   True                       dar.oleey.ol.yy<$>
+2022  f86v5  39  Pr  0.440217  0.972826   5   True          yteody.chedy.qoteey.octhy.dy<$>
+2120  f90r1   9  Pr  0.491620  0.944134   4   True            ykodar.qoekchy.shokol.okam<$>
+2808  f108v  53  Pr  0.534091  0.909091   4   True            olchar.ol,chedy.lshy.otedy<$>

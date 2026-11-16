@@ -1,0 +1,31 @@
+page alignment status: {'count_mismatch': 12, 'ok': 149, 'mixed': 62, 'nobox': 4}
+P lines with geometry: 2834 of 4117
+Takahashi first glyph == ZL first glyph on aligned lines: 98.9%
+
+== ZL test restricted to geometrically aligned pages ==
+G0 ZL glyphs, aligned pages                  lag1 N= 1756 obs=  9.5% exp= 15.8% ratio=0.60 z= -8.99 p_lo=0.0003 p_hi=1.0000
+G0 ZL glyphs, aligned pages                  lag2 N= 1270 obs= 19.9% exp= 15.8% ratio=1.26 z= +4.40 p_lo=1.0000 p_hi=0.0003
+== third transliteration (Takahashi first word of box-line), same pages ==
+G1 Takahashi glyphs, aligned pages           lag1 N= 1758 obs=  9.6% exp= 15.9% ratio=0.61 z= -9.09 p_lo=0.0003 p_hi=1.0000
+G1 Takahashi glyphs, aligned pages           lag2 N= 1271 obs= 19.8% exp= 15.9% ratio=1.25 z= +4.24 p_lo=1.0000 p_hi=0.0003
+
+== geometry of consecutive lines inside paragraphs (lines li>=2 and their predecessor) ==
+pairs with geometry: 1758
+normalised line step dy/median(page): quantiles [0.16 0.62 0.73 0.87 0.99 1.06 1.2  1.36 1.52]
+pairs with dy<=0 (next line not lower): 0
+pairs with step <0.5 or >1.6 of page median: 4
+dx (indent change, px) quantiles [-51.  -15.   -9.   -3.    0.    3.    9.   83.6 369. ]
+pairs with |dx|>30px: 29  >60px: 23
+indent residual autocorrelation lag 1: r=+0.043 (n=1758)
+indent residual autocorrelation lag 2: r=+0.107 (n=1271)
+line length (chars, para-centred, last line excl.) autocorr lag 1: r=+0.641 (n=1970)
+line length (chars, para-centred, last line excl.) autocorr lag 2: r=+0.369 (n=1471)
+line length (chars, para-centred, last line excl.) autocorr lag 3: r=+0.109 (n=1116)
+
+== ZL test on pairs with clean geometry: step within 0.6-1.5 of page median and |indent change|<=15px ==
+clean pairs      : N= 1698 obs=  9.5% exp= 15.9% ratio=0.60 z= -8.78 p_lo=0.0003 p_hi=1.0000
+irregular pairs  : N=   58 obs=  8.6% exp= 14.7% ratio=0.59 z= -1.40 p_lo=0.1113 p_hi=0.9550
+no-geometry pairs: N=  874 obs=  9.7% exp= 16.9% ratio=0.58 z= -6.88 p_lo=0.0003 p_hi=1.0000
+both lines start within 20px of page left margin: N= 1499 obs=  9.0% exp= 15.4% ratio=0.58 z= -8.42 p_lo=0.0003 p_hi=1.0000
+
+non-aligned pages (78): f1r:count_mismatch(24 box vs 28 zl), f2r:mixed, f8r:count_mismatch(18 box vs 21 zl), f11v:mixed, f17r:mixed, f25r:count_mismatch(6 box vs 7 zl), f41v:mixed, f42v:count_mismatch(15 box vs 16 zl), f46v:count_mismatch(12 box vs 13 zl), f49v:mixed, f57v:mixed, f65r:mixed, f66r:mixed, f67r1:mixed, f67r2:mixed, f67v2:mixed, f67v1:mixed, f68r1:mixed, f68r2:mixed, f68r3:mixed, f68v3:mixed, f68v2:mixed, f68v1:mixed, f69r:mixed, f69v:mixed, f70r1:mixed, f70r2:mixed, f70v2:mixed, f70v1:mixed, f71r:mixed, f71v:mixed, f72r1:mixed, f72r2:mixed, f72r3:mixed, f72v3:mixed, f72v2:mixed, f72v1:mixed, f73r:mixed, f73v:mixed, f75r:count_mismatch(51 box vs 53 zl), f75v:mixed, f76r:mixed, f76v:count_mismatch(42 box vs 41 zl), f77r:mixed, f77v:mixed, f78r:mixed, f80r:mixed, f81v:mixed, f82r:mixed, f82v:mixed, f83r:mixed, f83v:mixed, f84r:mixed, f84v:count_mismatch(46 box vs 51 zl), f85r2:mixed, fRos:nobox, f86v4:mixed, f86v6:count_mismatch(46 box vs 45 zl), f86v3:count_mismatch(94 box vs 36 zl), f88r:mixed

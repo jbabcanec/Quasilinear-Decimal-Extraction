@@ -1,0 +1,30 @@
+OBS mode=A min4: n=499 singles=10 <=2=54  share(1..12)=[0.02, 0.088, 0.136, 0.176, 0.166, 0.154, 0.102, 0.072, 0.042, 0.026, 0.01, 0.0]
+     obs ratio hist share [0.014 0.138 0.349 0.311 0.112 0.062 0.014]
+N1 min4 pool=own cond=actual: n~499  singles exp=48.8 [38,61] (9.8%)  <=2 exp=100.8 [86,117] (20.2%)  min singles over sims=33  ratio hist share=[0.089 0.177 0.258 0.243 0.133 0.082 0.017]
+     last-wc share (1..12): [0.098, 0.104, 0.119, 0.141, 0.14, 0.125, 0.104, 0.075, 0.049, 0.023, 0.011, 0.005]
+N1 min4 pool=own cond=sim: n~509  singles exp=54.6 [41,68] (10.7%)  <=2 exp=110.3 [94,127] (21.7%)  min singles over sims=32  ratio hist share=[0.096 0.181 0.257 0.238 0.133 0.08  0.016]
+     last-wc share (1..12): [0.107, 0.11, 0.117, 0.138, 0.138, 0.123, 0.103, 0.074, 0.048, 0.022, 0.011, 0.004]
+N1 min4 pool=page cond=actual: n~499  singles exp=58.1 [45,72] (11.6%)  <=2 exp=118.7 [102,135] (23.8%)  min singles over sims=38  ratio hist share=[0.111 0.205 0.208 0.209 0.132 0.104 0.03 ]
+     last-wc share (1..12): [0.116, 0.121, 0.125, 0.126, 0.122, 0.106, 0.093, 0.074, 0.053, 0.032, 0.018, 0.007]
+N1 min4 pool=page cond=sim: n~517  singles exp=67.7 [54,83] (13.1%)  <=2 exp=134.6 [118,153] (26.0%)  min singles over sims=46  ratio hist share=[0.126 0.217 0.206 0.204 0.125 0.095 0.027]
+     last-wc share (1..12): [0.131, 0.129, 0.13, 0.126, 0.119, 0.102, 0.087, 0.069, 0.05, 0.029, 0.015, 0.006]
+OBS mode=A min3: n=667 singles=12 <=2=61  share(1..12)=[0.018, 0.073, 0.126, 0.162, 0.169, 0.153, 0.109, 0.082, 0.051, 0.033, 0.012, 0.0]
+     obs ratio hist share [0.013 0.133 0.325 0.322 0.126 0.064 0.015]
+N1 min3 pool=own cond=actual: n~667  singles exp=56.6 [43,70] (8.5%)  <=2 exp=119.1 [102,137] (17.9%)  min singles over sims=34  ratio hist share=[0.077 0.171 0.261 0.258 0.144 0.074 0.015]
+     last-wc share (1..12): [0.085, 0.094, 0.111, 0.134, 0.149, 0.127, 0.108, 0.084, 0.054, 0.03, 0.012, 0.004]
+N1 min3 pool=own cond=sim: n~674  singles exp=62.1 [50,75] (9.2%)  <=2 exp=127.9 [111,144] (19.0%)  min singles over sims=44  ratio hist share=[0.082 0.174 0.258 0.259 0.143 0.071 0.014]
+     last-wc share (1..12): [0.092, 0.098, 0.11, 0.132, 0.147, 0.128, 0.107, 0.082, 0.053, 0.029, 0.011, 0.004]
+N1 min3 pool=page cond=actual: n~667  singles exp=73.0 [58,90] (11.0%)  <=2 exp=150.4 [128,172] (22.5%)  min singles over sims=50  ratio hist share=[0.109 0.203 0.212 0.211 0.136 0.1   0.029]
+     last-wc share (1..12): [0.11, 0.116, 0.122, 0.124, 0.119, 0.106, 0.094, 0.077, 0.057, 0.036, 0.021, 0.009]
+N1 min3 pool=page cond=sim: n~667  singles exp=78.2 [62,94] (11.7%)  <=2 exp=158.0 [136,177] (23.7%)  min singles over sims=53  ratio hist share=[0.115 0.208 0.211 0.213 0.133 0.096 0.025]
+     last-wc share (1..12): [0.117, 0.12, 0.123, 0.122, 0.12, 0.105, 0.094, 0.076, 0.055, 0.035, 0.018, 0.007]
+N2 phase jitter +-2 min4: singles exp=46.2 [35,58]  <=2 exp=98.4 [83,114]
+N2 phase jitter +-4 min4: singles exp=63.0 [49,77]  <=2 exp=126.8 [108,145]
+Traceback (most recent call last):
+  File "/home/user/Quasilinear-Decimal-Extraction/voynich/audit/last_lines/s3_null.py", line 105, in <module>
+    phase(4, J)
+    ~~~~~^^^^^^
+  File "/home/user/Quasilinear-Decimal-Extraction/voynich/audit/last_lines/s3_null.py", line 97, in phase
+    o += last == 1; t += last <= 2
+                         ^^^^^^^^^
+TypeError: '<=' not supported between instances of 'NoneType' and 'int'

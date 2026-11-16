@@ -1,0 +1,149 @@
+what follows a paragraph-end locus:
+   ('+', 'P0', True) 460
+   (page end) 179
+   ('@', 'Lc', False) 24
+   ('@', 'Pb', True) 16
+   ('*', 'P0', True) 13
+   ('@', 'Lt', False) 8
+   ('+', 'L0', False) 7
+   ('@', 'Cc', False) 6
+   ('@', 'Ln', False) 6
+   ('@', 'L0', False) 3
+   ('@', 'Lf', False) 3
+   ('@', 'Lx', False) 2
+   ('+', 'P1', True) 2
+   ('*', 'L0', False) 2
+   ('@', 'Pb', False) 2
+   ('@', 'P1', True) 2
+   ('@', 'P0', True) 2
+   ('@', 'Lp', False) 1
+   ('@', 'Ls', False) 1
+   ('@', 'Ro', False) 1
+
+non-paragraph-start loci directly after a <$>:  66
+   f2r.13 (5w) -> 14,@Lp (1w): ytoail
+   f17r.12 (2w) -> 13,@Lx (2w): oteeeon.oiil
+   f49v.26 (5w) -> 27,*L0 (1w): @140;
+   f49v.34 (4w) -> 35,*L0 (1w): @192;
+   f66r.81 (5w) -> 82,@Lx (3w): otcheo,daiin.chty.ykees,cheg
+   f67r1.4 (9w) -> 5,@Cc (37w): <!00:00>soairol.shdy.chokeody.ykeedal.ol.oteodaiin
+   f67r2.14 (3w) -> 15,+L0 (1w): dolchsody
+   f67r2.21 (3w) -> 22,+L0 (1w): okal
+   f67r2.27 (3w) -> 28,+L0 (2w): okain.a[m:g]
+   f67r2.30 (2w) -> 31,+L0 (1w): opcholdy
+   f67r2.33 (3w) -> 34,+L0 (2w): ofar.oeoldan
+   f67r2.36 (3w) -> 37,+L0 (1w): ytoaiin
+   f67r2.46 (2w) -> 47,+L0 (1w): yfain
+   f67r2.51 (1w) -> 52,@Ls (1w): qotoear
+   f67v2.10 (5w) -> 11,@Ro (2w): dcheeor.ochepalain
+   f68r1.4 (2w) -> 5,@Pb (1w): yky
+   f68r2.5 (5w) -> 6,@Cc (8w): <!09:30>okeo.ok[a:?]r.ok[y:o].okozy.okaesy.qokool.
+   f68v3.4 (3w) -> 5,@Cc (52w): <!08:30>oky.otol.ees.choty.cheda[s:r].otchdy.s.ar.
+   f68v2.5 (8w) -> 6,@Cc (32w): <!10:30>okeadaiin.ykeeody.shsdy.shyokeey.dalches.o
+   f69r.4 (7w) -> 5,@L0 (3w): oteos.ch[o:?]p.otaike
+   f70r2.14 (5w) -> 15,@Cc (33w): <!10:00>sal.air.am.shedy.chokal.cho{ikh}y.shokeey.
+   f75v.17 (8w) -> 18,@Ln (1w): okshy
+   f75v.49 (6w) -> 50,@Lt (2w): otal.opal
+   f77r.48 (2w) -> 49,@Ln (1w): otchdy
+   f77v.42 (6w) -> 43,@Ln (1w): saroral
+   f78r.43 (4w) -> 44,@Lt (1w): <!18>dar,alo{ifh}y
+   f81v.27 (7w) -> 28,@Lt (2w): otain.olkal
+   f82r.9 (6w) -> 10,@Lt (1w): orolda[ir:in]
+   f82r.33 (5w) -> 34,@Ln (1w): okor
+   f82v.38 (4w) -> 39,@Ln (1w): olkeedy
+   f83r.44 (2w) -> 45,@Lt (1w): chtorol
+   f83r.49 (3w) -> 50,@Lt (1w): sasoldal
+   f83v.8 (5w) -> 9,@Lt (1w): ololary
+   f83v.33 (4w) -> 34,@Ln (1w): okchdy
+   f84r.46 (6w) -> 47,@Lt (1w): <!33>otaly
+   f84v.41 (5w) -> 42,@Pb (1w): okar
+   f85r2.23 (5w) -> 24,@Cc (13w): <!09:30>okees.ochar.oted[o:a]r.ochedy.otody.olched
+   fRos.40 (3w) -> 41,@L0 (1w): <!7:3>o[s:r]al
+   fRos.145 (2w) -> 146,@L0 (1w): <!I>dor
+   f88r.11 (7w) -> 12,@Lc (1w): otaldy
+   f88r.22 (6w) -> 23,@Lc (1w): ofyskydal
+   f88v.10 (3w) -> 11,@Lc (1w): otoram
+   f88v.26 (4w) -> 27,@Lc (1w): daramdal
+   f89r1.10 (10w) -> 11,@Lc (1w): ykyd
+   f89r1.23 (6w) -> 24,@Lc (1w): ykocfhy
+   f89r2.8 (13w) -> 9,@Lc (1w): otold[:y]
+   f89r2.15 (8w) -> 16,@Lc (1w): korainy
+   f89r2.28 (10w) -> 29,@Lc (1w): okain
+   f89v2.10 (11w) -> 11,@Lc (1w): otory
+   f89v2.22 (11w) -> 23,@Lc (1w): <!58a>opaloiiry
+   f89v1.20 (5w) -> 21,@Lc (1w): koeeorain
+   f99r.18 (10w) -> 19,@Lc (1w): <!80a>oparal
+   f99r.31 (6w) -> 32,@Lc (1w): <!87a>tsholdy
+   f99r.44 (10w) -> 45,@Lc (1w): <!94a>yteoldy
+   f99v.13 (5w) -> 14,@Lc (1w): <!103a>okoldody
+   f99v.24 (5w) -> 25,@Lc (1w): <!109a>darolaly
+   f99v.35 (5w) -> 36,@Lc (1w): <!114a>oralas
+   f99v.43 (1w) -> 44,@Lf (1w): <!114b>koleearol
+   f100r.15 (7w) -> 16,@Lf (1w): <!126/1st half>okeeos
+   f102r1.6 (4w) -> 7,@Lc (1w): <!202a>okolaly
+   f102r1.11 (7w) -> 12,@Lc (1w): <!203a>ddardsh
+   f102r2.6 (8w) -> 7,@Lc (1w): ok[?:o]rolda
+   f102r2.12 (8w) -> 13,@Lc (1w): loeekadag<!top word>
+   f102r2.20 (6w) -> 21,@Lf (1w): <!212>koldarod
+   f102v2.23 (6w) -> 24,@Lc (1w): <!229a>okolky
+   f102v1.14 (5w) -> 15,@Lc (1w): <!239a>d?indy
+
+P-loci outside paragraph markers: [('line_outside_para', 'f68r1', '5', 'Pb'), ('line_outside_para', 'f68r1', '6', 'Pb'), ('line_outside_para', 'f68r1', '7', 'Pb'), ('line_outside_para', 'f84v', '42', 'Pb'), ('line_outside_para', 'f84v', '43', 'Pb'), ('line_outside_para', 'f84v', '44', 'Pb'), ('line_outside_para', 'f84v', '45', 'Pb'), ('line_outside_para', 'f84v', '46', 'Pb'), ('line_outside_para', 'f84v', '47', 'Pb'), ('line_outside_para', 'f84v', '48', 'Pb'), ('line_outside_para', 'f84v', '49', 'Pb'), ('line_outside_para', 'f84v', '50', 'Pb'), ('line_outside_para', 'f84v', '51', 'Pb')]
+
+Pt/Pc/Pr lines: word counts Counter({('Pc', 2): 7, ('Pc', 4): 5, ('Pt', 2): 4, ('Pr', 5): 4, ('Pt', 1): 3, ('Pr', 2): 3, ('Pr', 4): 3, ('Pt', 3): 2, ('Pc', 3): 2, ('Pc', 1): 1, ('Pc', 5): 1, ('Pr', 3): 1, ('Pt', 5): 1, ('Pr', 6): 1, ('Pc', 8): 1})
+Pt/Pc/Pr without <$>: [('f46v', '8', 'Pt'), ('f48r', '8', 'Pr')]
+paragraph-final loci by position code: Counter({'+': 726, '=': 13, '*': 1})
+
+all single-word P-type loci: 28
+   ('f1r', '6', '=Pt', True, False, 'ydaraishy')
+   ('f1r', '28', '=Pt', True, False, 'dchaiin')
+   ('f8r', '13', '=Pt', True, False, 'okokchodg')
+   ('f8v', '11', '+P0', True, False, 'sorain')
+   ('f27r', '13', '+Pc', True, False, 'otchodeey')
+   ('f37v', '13', '+P0', True, False, 'sotoiiin')
+   ('f67r2', '25', '+Pb', True, False, 'ydam')
+   ('f67r2', '51', '+Pb', True, False, 'dadaiin')
+   ('f68r1', '5', '@Pb', False, False, 'yky')
+   ('f68r1', '6', '+Pb', False, False, 'dary')
+   ('f68r1', '7', '+Pb', False, False, 'chkchykoly')
+   ('f75r', '50', '+Pb', False, False, 'ychty')
+   ('f75r', '51', '+Pb', False, False, 'saino')
+   ('f75r', '52', '+Pb', False, False, 'saldy')
+   ('f75r', '53', '+Pb', True, False, 'dainy')
+   ('f84v', '42', '@Pb', False, False, 'okar')
+   ('f84v', '43', '+Pb', False, False, 'ydairol')
+   ('f84v', '44', '+Pb', False, False, 'ychckhy')
+   ('f84v', '45', '+Pb', False, False, 'dshedy')
+   ('f84v', '46', '@Pb', False, False, 'okchdy')
+   ('f84v', '47', '+Pb', False, False, 'solchey')
+   ('f84v', '48', '+Pb', False, False, 'dair,oldy')
+   ('f84v', '49', '+Pb', False, False, 'darchy')
+   ('f84v', '50', '+Pb', False, False, 'ycthy')
+   ('f84v', '51', '+Pb', False, False, 'ochedy')
+   ('f85r2', '6', '+Pb', True, False, 'roseer')
+   ('f99v', '43', '+P0', True, False, 'ychol,olkeeoldy')
+   ('f114r', '3', '+P0', True, False, 'ycheod')
+
+paragraph loci whose boxes contain an x-reset (word lower-left of previous word inside same locus):
+   f19r.5 P0 pend=False boxes=6 zlwords=5 tail_after_reset=1 : ['y']
+   f24v.9 P0 pend=False boxes=5 zlwords=5 tail_after_reset=1 : ['okoeos']
+   f32r.12 P0 pend=False boxes=3 zlwords=2 tail_after_reset=1 : ['otcho']
+   f39v.3 P0 pend=False boxes=11 zlwords=9 tail_after_reset=1 : ['y']
+   f40v.2 P0 pend=False boxes=5 zlwords=4 tail_after_reset=1 : ['s']
+   f41r.9 P0 pend=False boxes=11 zlwords=10 tail_after_reset=1 : ['s']
+   f67r2.36 Pb pend=True boxes=3 zlwords=3 tail_after_reset=2 : ['daiin', 'or']
+   f86v4.7 P0 pend=False boxes=12 zlwords=9 tail_after_reset=1 : ['dain']
+   f86v3.4 Pb pend=False boxes=9 zlwords=9 tail_after_reset=1 : ['ysheey']
+   f89r2.14 P0 pend=False boxes=19 zlwords=18 tail_after_reset=1 : ['ycheo']
+   f89r2.15 P0 pend=True boxes=11 zlwords=8 tail_after_reset=1 : ['korain']
+   f89v1.19 P0 pend=False boxes=11 zlwords=10 tail_after_reset=1 : ['sol']
+   f90v1.5 P0 pend=False boxes=12 zlwords=10 tail_after_reset=2 : ['shctheo', 'ror']
+   f95v2.2 P0 pend=False boxes=12 zlwords=11 tail_after_reset=1 : ['arcsy']
+   f99v.42 P0 pend=False boxes=9 zlwords=8 tail_after_reset=1 : ['ychol']
+   f102r2.20 P0 pend=True boxes=10 zlwords=6 tail_after_reset=3 : ['dedloy', 'osal', 'ralr']
+   f104r.28 P0 pend=False boxes=13 zlwords=12 tail_after_reset=1 : ['ysheo']
+   f106v.20 P0 pend=False boxes=10 zlwords=9 tail_after_reset=1 : ['ycheo']
+   f108v.8 P0 pend=False boxes=11 zlwords=10 tail_after_reset=1 : ['qokeeo']
+   f111v.11 P0 pend=False boxes=11 zlwords=10 tail_after_reset=1 : ['qear']
+   f113v.6 P0 pend=True boxes=5 zlwords=4 tail_after_reset=1 : ['fcheshd']
+loci with internal reset 30 / 4043  among paragraph-final loci 4 / 713
