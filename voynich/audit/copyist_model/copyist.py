@@ -265,7 +265,8 @@ def lay_paragraph(P, sc: Scribe, W: float, unit: float, rng):
         k2 = b - 1
         while k2 > a and not WI[k2]:
             k2 -= 1
-        lines.append(dict(a=a, b=b, glyph=glyph_written, default_glyph=G[a], frag=not WI[a],
+        wg = [glyph_written] + [G[j] for j in range(a + 1, b) if WI[j]]   # first glyph of each word
+        lines.append(dict(a=a, b=b, glyph=glyph_written, default_glyph=G[a], frag=not WI[a], wg=wg,
                           first_len=first_len, second=second, last=G[k2] if k2 > a else "",
                           nwords=WID[b - 1] - WID[a] + 1, N0=N0, lo=lo, hi=hi, E=E, final=final,
                           split_end=(not final) and (not WI[b]), W=W))

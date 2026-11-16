@@ -67,11 +67,11 @@ DEFAULTS = {                       # dataset: (language, century, form, hand)
     "LiDi-Ligorio": ("Italian", "16", "list", "autograph"),
     "Eutyches": ("Latin", "9", "mixed", "book"),
     "CarolineMinuscule": ("Latin", "", "prose", "book"),
-    "BDD-Burchard": ("Latin", "11", "exclude", "book"),
+    "Koenigsfelden": ("", "", "documentary", "documentary"),
+    "CREMMA-MSS-16": ("French", "16", "documentary", "documentary"),
     "iForal": ("Latin/Portuguese", "", "documentary", "documentary"),
     "GasparoSardi": ("Latin", "16", "list", "autograph"),
     "BibliaArabica": ("Arabic", "", "prose", "book"),
-    "Tarima-Arabic": ("Arabic", "", "prose", ""),
 }
 
 README = {                          # dataset: README with a table whose rows name data/<folder>
@@ -176,6 +176,11 @@ def main():
         for ms in sorted(R.manuscripts(ds)):
             rec = dict(dataset=ds["name"], manuscript=ms, shelfmark="", language=lang, century=cent,
                        form=form, hand=hand, note="", label_source="dataset default")
+            if ds["name"] == "Koenigsfelden":            # manuscript id is "<language> <n>th c. <kind>"
+                m = re.match(r"(\w+) (\d+)th c\. (\w+)", ms)
+                rec.update(language=m.group(1), century=m.group(2),
+                           shelfmark="Aarau, Staatsarchiv, Koenigsfelden %s (pooled)" % m.group(3),
+                           note="pooled by language and century; every block is one charter or entry")
             t = from_readme(tables, ds["name"], ms)
             if ds["name"] == "CREMMA-Medieval-LAT" and ms in lat:
                 t = lat[ms]
@@ -185,6 +190,10 @@ def main():
                 rec["form"] = t.get("type") or rec["form"]
                 rec["note"] = t.get("content", "")
                 rec["label_source"] = "repository README"
+            auto = prev.get((ds["name"], ms), {}).get("auto_form", "")
+            if not rec["form"] and auto in ("prose", "verse"):
+                rec["form"] = auto                      # no catalogue label: layout class of the lines
+                rec["label_source"] += " + layout classifier (form)"
             o = OVERRIDE.get((ds["name"], ms))
             if o:
                 rec.update(o)

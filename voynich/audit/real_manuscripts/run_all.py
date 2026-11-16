@@ -38,6 +38,7 @@ def D(name, root, **kw):
     kw.setdefault("rtl", False)
     kw.setdefault("prefer", ())         # path substrings preferred when one page has several files
     kw.setdefault("exclude", ())        # path substrings to leave out entirely
+    kw.setdefault("paragraphs", False)  # every block is one paragraph (charters, entries)
     return dict(name=name, root=H / root, **kw)
 
 
@@ -60,7 +61,7 @@ DATASETS = [
     D("CIHAM-Liber", "CIHAM-HTR/Liber/data"),
     D("DecameronFR", "PSL-Chartes-HTR-Students/TNAH-2021-DecameronFR/veriteTerrain", ms="one", unlabelled=True),
     D("GrandesChroniques", "malamatenia/palaeographic-variability-analysis-grandes-chroniques-fr-2813/data/raw_ground_truth/annotations", ms="one"),
-    D("Torino-L-II-14", "RESCAPE-Biblissima/Torino_L-II-14/data/transcriptions", ms=r"^(IT-TON_MSL_II_14_Tome_\d+)", prefer=("/alto/",)),
+    D("Torino-L-II-14", "RESCAPE-Biblissima/Torino_L-II-14/data/transcriptions", ms=r"^(IT-TO\d+_MSL_II_14_Tome_\d+)", prefer=("/alto/",)),
     D("FoNDUE-LA-MSS-MA", "FoNDUE-HTR/FONDUE-LA-MSS-MA/data", unlabelled=True),
     D("ParisBible", "parisbible/ground_truth/PBP 1.0/ALTO", ms="one", unlabelled=True),
     D("Vienna-2023-Latin", "HTR-School-Vienna/2023--late-medieval-latin", ms="one", unlabelled=True),
@@ -73,17 +74,30 @@ DATASETS = [
     D("Vienna-2025-Hebrew", "HTR-School-Vienna/2025-hebrew", ms="one", unlabelled=False, rtl=True),
     D("Vienna-2024-Syriac", "HTR-School-Vienna/2024--Syriac", ms="one", rtl=True),
     D("Vienna-2025-Syriac", "HTR-School-Vienna/2025-syriac", ms="one", rtl=True, prefer=("/alto/",)),
-    D("LiDi-Ligorio", "Giorgiaagostini/LiDi1.0-project/Data/Ground Truth", ms="one", unlabelled=True, prefer=("/page/",)),
+    D("LiDi-Ligorio", "Giorgiaagostini/LiDi1.0-project/Data/Ground Truth", ms="one", unlabelled=True, prefer=("/page/",), paragraphs=True),
     D("Eutyches", "malamatenia/Eutyches", ms="top", exclude=("XML-XSLT", "kraken-YALTAi")),
     D("CarolineMinuscule", "rescribe/carolineminuscule-groundtruth", ms="one"),
-    D("BDD-Burchard", "michaelscho/bdd-segmentation-data/transkribus", unlabelled=True),
-    D("iForal", "Arch-W/iForal-Dataset/data", ms="one", unlabelled=True),
+    D("iForal", "Arch-W/iForal-Dataset/data", ms="one", unlabelled=True, paragraphs=True),
+    D("Koenigsfelden", "Staatsarchiv-Aargau/koenigsfelden-data/data/docs", ms="koenigsfelden", paragraphs=True),
+    D("CREMMA-MSS-16", "HTR-United/CREMMA-MSS-16/data", ms="one"),
     D("GasparoSardi", "PaulineJac/GasparoSardiToponomasia/HTR/Data", ms="one"),
     D("BibliaArabica", "biblia-arabica/academies/htr/ground-truth", ms="top", rtl=True, unlabelled=True, prefer=("/alto/",)),
-    D("Tarima-Arabic", "calfa-co/tarima/page/mss", ms=r"^(.*?)_[^_]*\.xml$", rtl=True),
 ]
 
 
+REJECTED = {      # looked at and not used
+    "michaelscho/bdd-segmentation-data": "layout only: 1 of 3,538 pages carries a transcription",
+    "calfa-co/tarima": "Maghrebi Arabic, 16th-19th c., items undated, all but one under 200 lines",
+    "calfa-co/datalab-dulaurier": "19th-century scholar's copies (Armenian)",
+    "biblia-arabica/academies (htr/transcriptions)": "model output, not ground truth; only htr/ground-truth is read",
+    "DenisaFB/ERC-Philiumm-data-annotation-and-HTR": "17th-century scientific drafts with formula zones",
+    "Ioannes-Sapidus-1490-1561/HTR": "printed books",
+    "PSL-Chartes-HTR-Students/HN2021-ChateauChavigny": "253 lines of a 16th-century inventory, no zone labels",
+    "HTR-United/CREMMA-MSS-15, HTR-United/cremma-medieval-occ, vivianpl/hpgtr, crlsrmrlsz/paleo-ocr, "
+    "CIHAM-HTR/SEHM_HTR_2024, Didip-eu/*": "no ALTO/PAGE files in the repository",
+    "HTR-School-Vienna/2023--byzantine-greek, *--carolingian-latin": "TEI or text only, no line coordinates",
+    "HTR-School-Vienna/2024--medieval-czech, Gallicorpora/HTR-incunable-*, HTR-imprime-*": "printed books",
+}
 FORMAT_DIR = {"alto", "page", "pagexml", "xml"}
 
 
@@ -107,12 +121,18 @@ def manuscripts(ds):
             key = ds["name"]
         elif ds["ms"] == "top":
             key = rel.parts[0] if len(rel.parts) > 1 else ds["name"]
+        elif ds["ms"] == "koenigsfelden":                # pooled by language, century and kind of record
+            h = M.tei_header(p)
+            if h is None or h[1] is None or not h[0]:
+                continue
+            lang = {"Frühneuhochdeutsch": "German", "Latein": "Latin"}.get(h[0], h[0])
+            key = "%s %dth c. %s" % (lang, (h[1] - 1) // 100 + 1, "charters" if p.name.startswith("U-") else "records")
         elif ds["ms"] == "dir":
             key = str(rel.parent) if len(rel.parts) > 1 else ds["name"]
         else:
             m = re.match(ds["ms"], p.name)
             key = m.group(1).strip() if m else ds["name"]
-        out[key].append(p)
+        out[re.sub(r"^Under Review - ", "", key)].append(p)   # same codex, pages not yet signed off
     return out
 
 
@@ -182,7 +202,23 @@ def overfull(cols, factor=1.8, min_chars=10):
     return bad / n if n else None
 
 
-def measure(pages, shuffles, seed=0):
+def par_final(cols, half=3):
+    """Datasets whose blocks are paragraphs (one charter, one entry): the last line of each."""
+    n = one = short = 0
+    for c in cols:
+        if len(c) < 4:
+            continue
+        xl, xr, nw = c[-1][1], c[-1][2], len(M.words(c[-1][4]))
+        m1 = max(r[2] for r in c[-1 - half:-1])
+        if m1 <= xl:
+            continue
+        n += 1
+        one += nw == 1
+        short += (xr - xl) / (m1 - xl) < 0.3
+    return dict(n=n, one_word=one / n if n else None, under_30=short / n if n else None)
+
+
+def measure(pages, shuffles, seed=0, paragraphs=False):
     cols = [c for _, _, pc in pages for c in pc]
     lines = [r for c in cols for r in c]
     wl = [M.words(r[4]) for r in lines]
@@ -192,6 +228,7 @@ def measure(pages, shuffles, seed=0):
     res["s1"] = M.s1([[M.first_letter(r[4]) for r in c] for c in cols], shuffles=shuffles, seed=seed)
     res["s2"] = M.s2([[(r[1], r[2], len(M.words(r[4]))) for r in c] for c in cols])
     res["s3"] = M.s3(wl)
+    res["par_final"] = par_final(cols) if paragraphs else dict(n=None, one_word=None, under_30=None)
     res["rhyme"] = M.rhyme([[last2(r[4]) for r in c] for c in cols], seed=seed)
     res["capital_start"] = float(np.mean([(M.first_letter(r[4]) != "" and next(
         (ch for ch in r[4] if M.is_sign(ch)), "a").isupper()) for r in lines])) if lines else None
@@ -233,6 +270,9 @@ def flat(ds, ms, meta, r):
             row[f"s1_{lag}_{k}"] = g(r, "s1", lag, k)
     for k in ("lines", "early", "early_share", "one_word", "one_word_n", "under_30", "under_30_n"):
         row[f"s2_{k}"] = r["s2"][k]
+    row["s2_one_word_per_1000_lines"] = 1000 * r["s2"]["one_word_n"] / r["s2"]["lines"] if r["s2"]["lines"] else None
+    for k in ("n", "one_word", "under_30"):
+        row[f"par_final_{k}"] = r["par_final"][k]
     for k in ("pairs", "identical_n", "expected_n", "ratio"):
         row[f"s3_{k}"] = r["s3"][k]
     row["rhyme_lag1"], row["rhyme_lag1_shuffled"] = g(r, "rhyme", "lag1") or (None, None)
@@ -278,7 +318,7 @@ def main():
             pages = read_manuscript(ds, files, seen_geom, seen_text, log)
             if not pages:
                 continue
-            r = measure(pages, a.shuffles, a.seed)
+            r = measure(pages, a.shuffles, a.seed, ds["paragraphs"])
             full[f"{ds['name']} | {ms}"] = r | {"meta": meta}
             rows.append(flat(ds["name"], ms, meta, r))
             store[(ds["name"], ms)] = pages

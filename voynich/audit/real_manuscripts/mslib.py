@@ -60,6 +60,9 @@ def parse(path: Path):
         return ("alto",) + _alto(root)
     if kind == "PcGts":
         return ("page",) + _page(root)
+    if kind == "TEI":
+        got = _tei(root)
+        return ("tei",) + got if got[1] else None
     return None
 
 
@@ -158,6 +161,72 @@ def _page(root):
     return image, zones
 
 
+TEI_SKIP = {"expan", "reg", "note", "corr", "figure", "fw"}     # editorial layers: keep what is on the page
+
+
+def _tei(root):
+    """TEI transcriptions exported from Transkribus (Koenigsfelden): every <lb facs="#id"/> opens
+    a line whose outline is the <zone xml:id="id"> of the facsimile; a <p facs="#region"> without
+    @rend or @type is a block of main text (dorsal notes and marginal numbers carry one)."""
+    xid = "{http://www.w3.org/XML/1998/namespace}id"
+    zone = {z.get(xid): nums(z.get("points")) for z in root.iter() if local(z) == "zone" and z.get(xid)}
+    zones = []
+    for body in root.iter():
+        if local(body) != "body":
+            continue
+        for par in body.iter():
+            if local(par) != "p" or not par.get("facs"):
+                continue
+            label = "MainZone" if not (par.get("rend") or par.get("type")) else "MarginTextZone:" + (
+                par.get("rend") or par.get("type"))
+            lines: list[list] = []
+
+            def add(t):
+                if t and lines:
+                    lines[-1][1].append(t)
+
+            def walk(el, skip):
+                if local(el) == "lb" and not skip:
+                    lines.append([(el.get("facs") or "").lstrip("#"), []])
+                if not skip:
+                    add(el.text)
+                for ch in el:
+                    walk(ch, skip or local(ch) in TEI_SKIP)
+                    if not skip:
+                        add(ch.tail)
+            walk(par, False)
+            out = []
+            for zid, parts in lines:
+                text = re.sub(r"\s+", " ", "".join(parts)).strip()
+                g = _geom([], zone.get(zid, []))
+                if g is None or not text:
+                    continue
+                xs, ys = zone[zid][0::2], zone[zid][1::2]
+                out.append(("DefaultLine", min(xs), max(xs), float(np.mean(ys)), text,
+                            " ".join("%g" % v for v in zone[zid])))
+            zones.append((label, out))
+    return "", zones
+
+
+def tei_header(path: Path):
+    """-> (language, year) of a Koenigsfelden TEI file, or None."""
+    try:
+        root = etree.parse(str(path), etree.XMLParser(**PARSER)).getroot()
+    except Exception:
+        return None
+    lang, year = "", None
+    for el in root.iter():
+        k = local(el)
+        if k == "textLang" and not lang:
+            lang = (el.text or "").strip()
+        elif k == "origDate" and year is None:
+            m = re.search(r"\d{4}", el.get("when") or el.get("notBefore") or el.get("from") or el.text or "")
+            year = int(m.group(0)) if m else None
+        elif k == "body":
+            break
+    return lang, year
+
+
 # ------------------------------------------------------------------------------ columns
 def split_columns(lines):
     """One block -> list of columns.  A block is cut where the left edges jump by more than
@@ -237,22 +306,25 @@ KEEP = {"⁊", "&"}                       # the Tironian et and the ampersand ar
 
 
 def is_sign(c: str) -> bool:
+    """Letters, numerals, private-use (MUFI) characters, and the two signs for 'et'.
+    Punctuation, paragraph marks and other symbols are not signs."""
     k = unicodedata.category(c)
-    return c in KEEP or k[0] in "LN" or k in ("Co", "So", "Sm")
+    return c in KEEP or k[0] in "LN" or k == "Co"
 
 
 def first_letter(text: str) -> str:
-    """First letter of the line, lower-cased, without diacritics; leading punctuation skipped."""
+    """First letter of the line: lower-cased (long s = s), diacritics and abbreviation marks
+    dropped, leading punctuation skipped."""
     for c in unicodedata.normalize("NFD", text):
         if is_sign(c):
-            return c.lower()
+            return c.casefold()[:1]
     return ""
 
 
 def words(text: str) -> list[str]:
     """Words of a line: lower-cased, punctuation removed, abbreviation marks kept."""
     out = []
-    for tok in unicodedata.normalize("NFC", text).lower().split():
+    for tok in unicodedata.normalize("NFC", text).casefold().split():
         w = "".join(c for c in tok if is_sign(c) or unicodedata.category(c)[0] == "M")
         if w:
             out.append(w)

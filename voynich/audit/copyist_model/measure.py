@@ -135,6 +135,55 @@ def traces(layout):
                 fragment_starts=frag / max(n1, 1), words_per_line=float(np.mean(wpl)) if wpl else np.nan)
 
 
+def displacement_profile(paras, shuffles=300, seed=0, min_words=5):
+    """Where do the missing line-opening repeats go?
+
+    `paras`: paragraphs as lists of lines, each line the list of its words' first glyphs,
+    paragraph-first line already removed.  A copyist who dodges a repeat by moving the line
+    break by one word leaves the dodged word either as the LAST word of the line above
+    (line squeezed) or as the SECOND word of the line below (line above ended early).  So
+    relative to the opening glyph g of line i, this reports how often the same glyph opens
+      - the last / 2nd-last / 3rd-last word of line i itself, and
+      - the 2nd / 3rd / 4th word of line i+1 (and, for reference, its 1st = R1 itself),
+    each against the same statistic with the opening glyph taken from another line of the
+    paragraph (exact expectation; sd from shuffles).  Lines of fewer than `min_words` words
+    are skipped so the positions never coincide."""
+    rng = np.random.default_rng(seed)
+    paras = [p for p in paras if len(p) >= 2]
+    spec = [("same line, last word", 0, -1), ("same line, 2nd-last word", 0, -2),
+            ("same line, 3rd-last word", 0, -3), ("line below, 1st word (R1)", 1, 0),
+            ("line below, 2nd word", 1, 1), ("line below, 3rd word", 1, 2), ("line below, 4th word", 1, 3)]
+    out = {}
+    for name, dl, pos in spec:
+        obs = n = 0; exp = 0.0; null = np.zeros(shuffles)
+        for p in paras:
+            first = [ln[0] for ln in p]
+            cnt = Counter(first)
+            tg, src = [], []                           # target glyph, index of the line whose opening it is tested against
+            for i in range(len(p) - dl):
+                t = p[i + dl]
+                if len(t) < min_words and pos != 0:
+                    continue
+                tg.append(t[pos]); src.append((i, i + dl))
+            if not tg:
+                continue
+            m = len(p)
+            for g, (i, t) in zip(tg, src):
+                obs += g == first[i]; n += 1
+                # expectation: opening glyph of a random line other than the target's own line
+                exp += (cnt[g] - (first[t] == g)) / (m - 1)
+            fa = np.array([hash(x) for x in first]); ga = np.array([hash(x) for x in tg])
+            ti = np.array([t for _, t in src])
+            for s in range(shuffles):
+                # opening glyph of a random OTHER line of the paragraph
+                j = (ti + rng.integers(1, m, len(ti))) % m
+                null[s] += (fa[j] == ga).sum()
+        sd = float(null.std()) or 1.0
+        out[name] = dict(n=n, rate=obs / max(n, 1), expected=exp / max(n, 1),
+                         lift=obs / exp if exp else np.nan, z=(obs - exp) / sd)
+    return out
+
+
 def summary(layout, unit):
     a, b, c, t = r1(layout), r2(layout), r3(layout, unit), traces(layout)
     out = dict(r1_same=a["lag1"]["same"], r1_shuffled=a["lag1"]["shuffled"], r1_ratio=a["lag1"]["ratio"],

@@ -151,6 +151,33 @@ def jobs_for(family):
             for L, ln in ((3, "3"), (None, "par")):
                 add(f"R2 shape goal, NATURAL paragraphs, re-flow last {ln} lines", lab,
                     dict(kw, lookahead=L, widow="shape"), texts=("caesar", "pliny", "recipes"), mode="natural")
+    if family in ("extra", "all"):
+        # word-splitting combined with a little elasticity (the usual pairing in Latin books)
+        for lab, kw in (("split syllable + elastic last-3 5%", dict(split="syllable", **el(.05))),
+                        ("split syllable + elastic last-3 10%", dict(split="syllable", **el(.10))),
+                        ("split syllable + abbr x0.5 last-3", dict(split="syllable", abbr=.5)),
+                        ("split syllable + generous variants", dict(split="syllable", variants="generous"))):
+            add("R1 extra: baseline (no goal)", lab, kw)
+            add("R1 extra: baseline (no goal), coarse", lab, dict(kw, coarse_glyphs=True))
+            for L, ln in (LOOK[0], LOOK[2]):
+                add("R1 extra: splitting combined", f"{lab}, look-ahead {ln}",
+                    dict(kw, lookahead=L, avoid_repeat=1000))
+                add("R1 extra: splitting combined, coarse glyphs", f"{lab}, look-ahead {ln}",
+                    dict(kw, lookahead=L, avoid_repeat=1000, coarse_glyphs=True))
+        # how much does the result depend on the cap on deliberate blanks?
+        for cap in (0.0, 0.3, 0.6, 1.0, 1.5):
+            for lab, kw in (("elastic last-3 15%", el(.15)), ("elastic whole 5%", el(.05, None)),
+                            ("elastic last-3 20%", el(.20))):
+                for L, ln in (LOOK[0], LOOK[2]):
+                    add(f"R1 extra: blank cap {cap}, coarse glyphs", f"{lab}, look-ahead {ln}",
+                        dict(kw, lookahead=L, avoid_repeat=1000, blank_cap=cap, coarse_glyphs=True))
+        # paragraphs as they stand in the files (longer than the Voynich's)
+        for lab, kw in (("elastic whole 5%", el(.05, None)), ("elastic whole 8%", el(.08, None)),
+                        ("elastic last-3 20%", el(.20))):
+            for L, ln in (LOOK[0], LOOK[2]):
+                add("R1 extra: NATURAL paragraphs, coarse glyphs", f"{lab}, look-ahead {ln}",
+                    dict(kw, lookahead=L, avoid_repeat=1000, coarse_glyphs=True),
+                    texts=("caesar", "pliny", "recipes"), mode="natural")
     if family in ("all3", "all"):
         for lab, kw in (("elastic whole 8%", el(.08, None)), ("elastic whole 10%", el(.10, None)),
                         ("abbr table x1.0 whole line", dict(abbr=1.0, zone=None)),

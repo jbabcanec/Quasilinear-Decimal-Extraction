@@ -1,0 +1,26 @@
+manuscript_a,manuscript_b,identical_lines,same_image_names,shared_word_triples,share_of_smaller_sample
+Gallicorpora-MSS-15 | btv1b60001038,Gallicorpora-MSS-15 | btv1b8448964p,13,0,50,0.087
+Torino-L-II-14 | IT-TO0265_MSL_II_14_Tome_01,Torino-L-II-14 | IT-TO0265_MSL_II_14_Tome_02,6,0,151,0.016
+"Vienna-2025-Latin | 06_-_KNM,_sign__VIII_F_49_-_Winter_School","Vienna-2025-Latin | 17_-_BSB,_Clm__476_-_Winter_School",1,0,673,0.217
+Koenigsfelden | German 14th c. charters,Koenigsfelden | German 14th c. records,1,0,1916,0.122
+Koenigsfelden | Latin 13th c. records,Koenigsfelden | Latin 14th c. records,1,0,30,0.101
+CREMMA-Medieval-LAT | LaurentianusPluteus33.31,CREMMA-Medieval-LAT | LaurentianusPluteus39.34,1,0,27,0.068
+HTRomance-French | bnf-fr-17229,HTRomance-French | bnf-fr-23117,1,0,60,0.058
+Eutyches | BambergMsc30,Eutyches | Lat7499,0,0,1440,0.197
+"Vienna-2025-Latin | 17_-_BSB,_Clm__476_-_Winter_School","Vienna-2025-Latin | 19_-_Praha,_NKP,_sign__I_D_10_-_Winter_School",0,0,215,0.172
+Koenigsfelden | German 15th c. charters,Koenigsfelden | German 15th c. records,0,0,409,0.138
+Eutyches | Lat7499,Eutyches | VLO41,0,0,895,0.125
+Eutyches | BambergMsc30,Eutyches | VLO41,0,0,860,0.12
+"Vienna-2025-Latin | 06_-_KNM,_sign__VIII_F_49_-_Winter_School","Vienna-2025-Latin | 19_-_Praha,_NKP,_sign__I_D_10_-_Winter_School",0,0,133,0.106
+Koenigsfelden | German 14th c. charters,Koenigsfelden | German 15th c. records,0,0,310,0.105
+HTRogene-Latin | le-havre-332,HTRogene-Latin | saint-omer-716,0,0,128,0.098
+HTRogene-Latin | gratz-universitatsbibliothek-1265,HTRogene-Latin | paris-bibliotheque-nationale-de-france-ms-latin-15168,0,0,210,0.095
+Koenigsfelden | German 15th c. charters,Koenigsfelden | Latin 15th c. charters,0,0,838,0.071
+Koenigsfelden | Latin 14th c. records,Koenigsfelden | Latin 15th c. records,0,0,214,0.066
+Koenigsfelden | Latin 14th c. charters,Koenigsfelden | Latin 15th c. records,0,0,199,0.062
+Koenigsfelden | German 14th c. records,Koenigsfelden | German 15th c. charters,0,0,916,0.058
+Vienna-2025-German | OeStA_HHStA_Große Korrespondenz_K_33.1_Buch 1662-1665,Vienna-2025-German | OeStA_HHStA_Große Korrespondenz_K_33.1_Buch 1666-1667,0,0,116,0.058
+Koenigsfelden | Latin 14th c. charters,Koenigsfelden | Latin 14th c. records,0,0,383,0.057
+CREMMA-Medieval-LAT | BGO-511,HTRogene-Latin | gent-bhsl-hs-0011,0,0,2,0.054
+Koenigsfelden | German 14th c. records,Koenigsfelden | German 15th c. records,0,0,160,0.054
+CREMMA-Medieval | bnf_fr_17229-saintLambert,CREMMA-Medieval | bnf_fr_411-saintLambert,0,0,16,0.052

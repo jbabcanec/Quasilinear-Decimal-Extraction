@@ -1,0 +1,23 @@
+64 layouts ...
+
+== ALL THREE at once (coarse glyphs)
+  elastic whole 8%, look-ahead 3                 same 0.041 vs shuffled 0.118 ratio 0.35 [0.31-0.41] | lag2 0.167 (x1.41) lag3 0.151 (x1.26) | R3 med 0.12 cpl +0.02 | last-word 0.173 2nd-word-below 0.178 | dens sd 0.046 var  0% frag  0% | R2 one 0.035 <30% 0.130 mid 0.48 over 0.109
+  elastic whole 8%, look-ahead par               same 0.032 vs shuffled 0.118 ratio 0.27 [0.22-0.33] | lag2 0.174 (x1.46) lag3 0.156 (x1.29) | R3 med 0.12 cpl +0.02 | last-word 0.178 2nd-word-below 0.177 | dens sd 0.047 var  0% frag  0% | R2 one 0.003 <30% 0.022 mid 0.63 over 0.056
+  elastic whole 10%, look-ahead 3                same 0.017 vs shuffled 0.109 ratio 0.15 [0.11-0.19] | lag2 0.173 (x1.56) lag3 0.142 (x1.26) | R3 med 0.12 cpl +0.00 | last-word 0.180 2nd-word-below 0.176 | dens sd 0.052 var  0% frag  0% | R2 one 0.009 <30% 0.055 mid 0.56 over 0.132
+  elastic whole 10%, look-ahead par              same 0.008 vs shuffled 0.109 ratio 0.07 [0.05-0.11] | lag2 0.176 (x1.59) lag3 0.150 (x1.33) | R3 med 0.12 cpl +0.02 | last-word 0.179 2nd-word-below 0.178 | dens sd 0.054 var  0% frag  0% | R2 one 0.000 <30% 0.001 mid 0.78 over 0.027
+  abbr table x1.0 whole line, look-ahead 3       same 0.031 vs shuffled 0.116 ratio 0.27 [0.18-0.39] | lag2 0.171 (x1.45) lag3 0.152 (x1.27) | R3 med 0.12 cpl +0.03 | last-word 0.180 2nd-word-below 0.189 | dens sd 0.051 var  0% frag  0% | R2 one 0.022 <30% 0.092 mid 0.53 over 0.106
+  abbr table x1.0 whole line, look-ahead par     same 0.022 vs shuffled 0.113 ratio 0.19 [0.11-0.36] | lag2 0.174 (x1.52) lag3 0.149 (x1.28) | R3 med 0.12 cpl +0.03 | last-word 0.178 2nd-word-below 0.177 | dens sd 0.054 var  0% frag  0% | R2 one 0.002 <30% 0.012 mid 0.73 over 0.036
+  abbr x0.5 + elastic whole 5%, look-ahead 3     same 0.024 vs shuffled 0.111 ratio 0.22 [0.18-0.29] | lag2 0.170 (x1.51) lag3 0.142 (x1.24) | R3 med 0.12 cpl +0.02 | last-word 0.180 2nd-word-below 0.182 | dens sd 0.050 var  0% frag  0% | R2 one 0.016 <30% 0.081 mid 0.54 over 0.120
+  abbr x0.5 + elastic whole 5%, look-ahead par   same 0.016 vs shuffled 0.112 ratio 0.14 [0.09-0.26] | lag2 0.175 (x1.55) lag3 0.145 (x1.26) | R3 med 0.12 cpl +0.01 | last-word 0.174 2nd-word-below 0.175 | dens sd 0.053 var  0% frag  0% | R2 one 0.000 <30% 0.007 mid 0.75 over 0.044
+
+== ALL THREE at once (coarse glyphs, lag-2 seeking)
+  elastic whole 8%, look-ahead 3                 same 0.039 vs shuffled 0.153 ratio 0.25 [0.22-0.31] | lag2 0.316 (x2.06) lag3 0.119 (x0.77) | R3 med 0.12 cpl +0.02 | last-word 0.189 2nd-word-below 0.186 | dens sd 0.049 var  0% frag  0% | R2 one 0.037 <30% 0.125 mid 0.45 over 0.106
+  elastic whole 8%, look-ahead par               same 0.032 vs shuffled 0.155 ratio 0.20 [0.16-0.25] | lag2 0.329 (x2.12) lag3 0.116 (x0.74) | R3 med 0.12 cpl +0.03 | last-word 0.186 2nd-word-below 0.182 | dens sd 0.050 var  0% frag  0% | R2 one 0.003 <30% 0.023 mid 0.54 over 0.076
+  elastic whole 10%, look-ahead 3                same 0.017 vs shuffled 0.168 ratio 0.10 [0.06-0.13] | lag2 0.402 (x2.38) lag3 0.093 (x0.55) | R3 med 0.12 cpl +0.01 | last-word 0.196 2nd-word-below 0.193 | dens sd 0.059 var  0% frag  0% | R2 one 0.010 <30% 0.059 mid 0.49 over 0.136
+  elastic whole 10%, look-ahead par              same 0.007 vs shuffled 0.173 ratio 0.04 [0.03-0.07] | lag2 0.440 (x2.53) lag3 0.076 (x0.43) | R3 med 0.12 cpl +0.01 | last-word 0.194 2nd-word-below 0.194 | dens sd 0.060 var  0% frag  0% | R2 one 0.000 <30% 0.001 mid 0.62 over 0.058
+  abbr table x1.0 whole line, look-ahead 3       same 0.031 vs shuffled 0.165 ratio 0.19 [0.14-0.30] | lag2 0.362 (x2.19) lag3 0.109 (x0.66) | R3 med 0.12 cpl +0.04 | last-word 0.187 2nd-word-below 0.193 | dens sd 0.058 var  0% frag  0% | R2 one 0.014 <30% 0.082 mid 0.49 over 0.116
+  abbr table x1.0 whole line, look-ahead par     same 0.023 vs shuffled 0.167 ratio 0.14 [0.07-0.28] | lag2 0.396 (x2.35) lag3 0.091 (x0.55) | R3 med 0.12 cpl +0.03 | last-word 0.185 2nd-word-below 0.188 | dens sd 0.060 var  0% frag  0% | R2 one 0.002 <30% 0.012 mid 0.61 over 0.062
+  abbr x0.5 + elastic whole 5%, look-ahead 3     same 0.022 vs shuffled 0.162 ratio 0.14 [0.11-0.19] | lag2 0.375 (x2.30) lag3 0.096 (x0.59) | R3 med 0.12 cpl +0.01 | last-word 0.188 2nd-word-below 0.198 | dens sd 0.057 var  0% frag  0% | R2 one 0.013 <30% 0.081 mid 0.49 over 0.131
+  abbr x0.5 + elastic whole 5%, look-ahead par   same 0.016 vs shuffled 0.167 ratio 0.10 [0.06-0.18] | lag2 0.411 (x2.44) lag3 0.081 (x0.48) | R3 med 0.12 cpl +0.01 | last-word 0.182 2nd-word-below 0.189 | dens sd 0.058 var  0% frag  0% | R2 one 0.000 <30% 0.008 mid 0.62 over 0.070
+
+written /home/user/Quasilinear-Decimal-Extraction/voynich/audit/copyist_model/results/sweeps_all3.json
