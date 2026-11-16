@@ -3,7 +3,7 @@ layout regularities?  Lays real Latin texts out with copyist.Scribe under graded
 and measures R1-R3 as the manuscript study does.
 
     python3 run_experiments.py            # all sweeps -> results/sweeps.json, prints tables
-    python3 run_experiments.py r1         # one family: r3 | r1 | r2 | all3
+    python3 run_experiments.py r1         # one family: r3 | r1 | r2 | extra | noise | all3
 
 Every row is the mean over the texts in TEXT_SET (paragraphs cut at sentence ends to 4-8
 lines, 25,000 words each); [lo-hi] is the range across texts for the headline number.
@@ -74,10 +74,12 @@ FREEDOMS_R3 = [
 FREEDOMS_R1 = [
     ("none", {}),
     ("elastic last 3 words 10%", el(.10)), ("elastic last 3 words 15%", el(.15)),
-    ("elastic last 3 words 20%", el(.20)), ("elastic last 3 words 30%", el(.30)),
+    ("elastic last 3 words 20%", el(.20)), ("elastic last 3 words 25%", el(.25)),
+    ("elastic last 3 words 30%", el(.30)),
     ("elastic whole line 2%", el(.02, None)), ("elastic whole line 3%", el(.03, None)),
-    ("elastic whole line 5%", el(.05, None)), ("elastic whole line 8%", el(.08, None)),
-    ("elastic whole line 10%", el(.10, None)),
+    ("elastic whole line 5%", el(.05, None)), ("elastic whole line 6%", el(.06, None)),
+    ("elastic whole line 8%", el(.08, None)), ("elastic whole line 10%", el(.10, None)),
+    ("squeeze last-3 20% + filler up to 1 word", dict(filler=1.0, **el(0, 3, sq=.2, st=0))),
     ("abbr table x0.25, whole line", dict(abbr=.25, zone=None)),
     ("abbr table x0.5, whole line", dict(abbr=.5, zone=None)),
     ("abbr table x1.0, whole line", dict(abbr=1.0, zone=None)),
@@ -98,6 +100,7 @@ FREEDOMS_R2 = [
     ("elastic last 3 words 20%", el(.20)), ("elastic last 3 words 30%", el(.30)),
     ("abbr table x0.5, whole line", dict(abbr=.5, zone=None)),
     ("abbr table x1.0, whole line", dict(abbr=1.0, zone=None)),
+    ("squeeze whole line 8% + filler up to 1 word", dict(filler=1.0, **el(0, None, sq=.08, st=0))),
 ]
 
 
@@ -114,7 +117,7 @@ def jobs_for(family):
             add("R1 baseline (no goal), coarse", lab, dict(kw, coarse_glyphs=True))
             for L, ln in LOOK:
                 add(f"R1 re-flow alone, look-ahead {ln}", lab, dict(kw, lookahead=L, avoid_repeat=1000))
-                if ln in ("1", "3", "par"):
+                if True:
                     add(f"R1 re-flow alone, coarse glyphs, look-ahead {ln}", lab,
                         dict(kw, lookahead=L, avoid_repeat=1000, coarse_glyphs=True))
         for lev in ("modest", "generous", "max"):
@@ -178,6 +181,23 @@ def jobs_for(family):
                 add("R1 extra: NATURAL paragraphs, coarse glyphs", f"{lab}, look-ahead {ln}",
                     dict(kw, lookahead=L, avoid_repeat=1000, coarse_glyphs=True),
                     texts=("caesar", "pliny", "recipes"), mode="natural")
+    if family in ("noise", "all"):
+        # imperfect casting-off: the scribe misjudges how the lines below will fall
+        for noise in (0.0, 0.03, 0.06):
+            for lab, kw, L in (("elastic whole 8%, whole paragraph", el(.08, None), None),
+                               ("elastic whole 10%, last 4 lines", el(.10, None), 4),
+                               ("elastic whole 10%, whole paragraph", el(.10, None), None),
+                               ("elastic whole 15%, last 4 lines", el(.15, None), 4),
+                               ("elastic last-3 30%, last 4 lines", el(.30), 4),
+                               ("abbr table x1.0 whole line, whole paragraph", dict(abbr=1.0, zone=None), None)):
+                add(f"R2 shape goal, casting-off error sd {noise:.0%}", lab,
+                    dict(kw, lookahead=L, widow="shape", plan_noise=noise))
+            for lab, kw, L in (("elastic whole 5%, look-ahead 3", el(.05, None), 3),
+                               ("elastic whole 8%, look-ahead 3", el(.08, None), 3),
+                               ("elastic last-3 20%, look-ahead 3", el(.20), 3),
+                               ("elastic whole 5%, whole paragraph", el(.05, None), None)):
+                add(f"R1 re-flow, coarse glyphs, casting-off error sd {noise:.0%}", lab,
+                    dict(kw, lookahead=L, avoid_repeat=1000, coarse_glyphs=True, plan_noise=noise))
     if family in ("all3", "all"):
         for lab, kw in (("elastic whole 8%", el(.08, None)), ("elastic whole 10%", el(.10, None)),
                         ("abbr table x1.0 whole line", dict(abbr=1.0, zone=None)),

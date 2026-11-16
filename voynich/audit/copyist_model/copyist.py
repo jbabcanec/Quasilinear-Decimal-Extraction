@@ -38,6 +38,10 @@ What he wants (costs, lexicographic in effect):
    line ends         a small blank, then little squeezing/stretching, few splits, the
                      default spelling.
 
+Planning is perfect unless `plan_noise` > 0: then, each time a line is begun, the widths
+of all lines below it are misjudged by a common factor (sd `plan_noise`), while the line
+in hand is judged exactly.
+
 Execution.  A line that can reach the margin is ended at W - u, u exponential with mean
 `jitter` word widths (clipped to [lo, hi]); this is the ragged right edge of real writing.
 `jitter` is the one noise parameter; 0.28 makes a scribe with ample freedom show the
@@ -81,6 +85,7 @@ class Scribe:
     blank_cap: float = 0.3
     jitter: float = 0.28
     coarse_glyphs: bool = False            # merge letters into 8 classes with the Voynich's shares
+    plan_noise: float = 0.0                # sd of the scribe's error in judging how lines below will fall
     split_cost: float = 2.0
     variant_cost: float = 1.0
 
@@ -168,17 +173,24 @@ def lay_paragraph(P, sc: Scribe, W: float, unit: float, rng):
     w_rep, w_lag2 = sc.avoid_repeat, sc.seek_lag2
     use_glyphs = w_rep > 0 or w_lag2 > 0
     max_shrink = 1.0 - sc.squeeze
+    noisy = sc.plan_noise > 0
 
-    def candidates(a):
-        """[(b, cost, final)] admissible ends of a line starting at atom a."""
-        if a in cand_memo:
-            return cand_memo[a]
+    eta = [0.0]                                        # this step's mis-estimate of lines not yet begun
+
+    def candidates(a, future=False):
+        """[(b, cost, final)] admissible ends of a line starting at atom a.  The line being
+        written is judged exactly; lines further down are judged with every width off by
+        the same factor 1 + eta (imperfect casting-off), redrawn at each line."""
+        if (a, future) in cand_memo:
+            return cand_memo[(a, future)]
+        f = 1.0 + eta[0] if future else 1.0
         out, b = [], a + 1
         while b <= n:
             N0, lo, hi = line(a, b)
+            N0, lo, hi = N0 * f, lo * f, hi * f
             if lo <= W + 1e-9:
                 out.append((b, N0, lo, hi))
-            elif (N0 * max_shrink - (P["cs"][b] - P["cs"][a])) > W:
+            elif (N0 * max_shrink - f * (P["cs"][b] - P["cs"][a])) > W:
                 break
             b += 1
         if not out:                                    # a single over-long atom: take it anyway
@@ -208,23 +220,23 @@ def lay_paragraph(P, sc: Scribe, W: float, unit: float, rng):
                     continue
                 c = 100.0 * blank + 100.0 * abs(E - N0) / W + (0.0 if WI[b] else sc.split_cost)
                 res.append((b, c, False))
-        cand_memo[a] = res
+        cand_memo[(a, future)] = res
         return res
 
     def glyph_options(b):
         return ((G[b], 0.0),) + tuple((g, sc.variant_cost) for g in VAR[b])
 
-    def V(a, gc, gp, depth):
+    def V(a, gc, gp, depth, future=False):
         """Least cost of finishing from a line that starts at atom a with glyph gc (line
         above: gp), looking `depth` lines ahead.  Returns (cost, b, next glyph)."""
         if depth == 0:
             return 0.0, None, None
         nd = depth - 1 if depth > 0 else -1            # depth -1 = to the end of the paragraph
-        key = (a, gc, gp, depth)
+        key = (a, gc, gp, depth, future)
         if key in memo:
             return memo[key]
         best = (BIG, None, None)
-        for b, c, final in candidates(a):
+        for b, c, final in candidates(a, future):
             if final:
                 if c < best[0]:
                     best = (c, b, None)
@@ -232,11 +244,11 @@ def lay_paragraph(P, sc: Scribe, W: float, unit: float, rng):
             if use_glyphs:
                 for gn, vc in glyph_options(b):
                     t = c + vc + (w_rep if gn == gc else 0.0) - (w_lag2 if gn == gp else 0.0)
-                    t += V(b, gn, gc, nd)[0]
+                    t += V(b, gn, gc, nd, noisy)[0]
                     if t < best[0]:
                         best = (t, b, gn)
             else:
-                t = c + V(b, None, None, nd)[0]
+                t = c + V(b, None, None, nd, noisy)[0]
                 if t < best[0]:
                     best = (t, b, G[b])
         memo[key] = best
@@ -248,6 +260,11 @@ def lay_paragraph(P, sc: Scribe, W: float, unit: float, rng):
     gp = None
     glyph_written = G[0]
     while a < n:
+        if noisy:
+            eta[0] = rng.normal(0.0, sc.plan_noise)
+            memo.clear()
+            for k in [k for k in cand_memo if k[1]]:
+                del cand_memo[k]
         _, b, gn = V(a, gc, gp, depth)
         N0, lo, hi = line(a, b)
         final = b == n

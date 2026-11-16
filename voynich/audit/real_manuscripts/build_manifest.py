@@ -178,9 +178,15 @@ def main():
                        form=form, hand=hand, note="", label_source="dataset default")
             if ds["name"] == "Koenigsfelden":            # manuscript id is "<language> <n>th c. <kind>"
                 m = re.match(r"(\w+) (\d+)th c\. (\w+)", ms)
-                rec.update(language=m.group(1), century=m.group(2),
-                           shelfmark="Aarau, Staatsarchiv, Koenigsfelden %s (pooled)" % m.group(3),
-                           note="pooled by language and century; every block is one charter or entry")
+                if m:
+                    rec.update(language=m.group(1), century=m.group(2),
+                               shelfmark="Aarau, Staatsarchiv, Koenigsfelden %s (pooled)" % m.group(3),
+                               note="pooled by language and century; every block is one charter or entry")
+                else:                                    # a single long document: "U-17_0954 (German, 1530)"
+                    m = re.match(r"(\S+) \((\w+), (\d+)\)", ms)
+                    rec.update(language=m.group(2), century=str((int(m.group(3)) - 1) // 100 + 1),
+                               shelfmark="Aarau, Staatsarchiv, " + m.group(1).replace("U-17_", "U.17/").replace("AA_", "AA/"),
+                               note="single document of 200+ lines, dated %s" % m.group(3))
             t = from_readme(tables, ds["name"], ms)
             if ds["name"] == "CREMMA-Medieval-LAT" and ms in lat:
                 t = lat[ms]

@@ -323,7 +323,7 @@ Vienna-2025-Latin,Chronicle_of_Dalimil_-_NKP_XII_E_17,Prague NKP XII E 17,Latin,
 Vienna-2025-Latin,Cosmas_of_Prague_-_A3a_-_ÖNB_508_-_Winter_School,ÖNB Cod. 508,Latin,,prose,book,Cosmas of Prague,checked by hand
 Vienna-2024-German,DOD_51276,ÖNB Cod. 3064 (matched by content),German,15,prose,book,"technical prose (gauging, gunnery)",checked by hand
 Vienna-2024-German,DTL_7978199,ÖNB Cod. 2875 (matched by content),German,15,prose,book,"theological miscellany c. 1400, narrow columns",checked by hand
-Vienna-2024-German,DTL_9133478,ÖNB Cod. 2780 (matched by content),German,15,mixed,book,law book (1423): chapter lists and short articles,checked by hand
+Vienna-2024-German,DTL_9133478,ÖNB Cod. 2780 (matched by content),German,15,list,book,"law book (1423): the transcribed pages are lists of chapter titles, one title per line",checked by hand
 Vienna-2024-German,Renner Cod. 2810,ÖNB Cod. 2810,German,15,verse,book,"Hugo von Trimberg, Der Renner (1410)",checked by hand
 Vienna-2024-German,enikel weltchronik,ÖNB Cod. 2921,German,14,verse,book,"Jans Enikel, Weltchronik (1397)",checked by hand
 Vienna-2025-German,OOeLA_HA_Steyr_Schachtel_1232_Fasz_21,,German,17,documentary,documentary,,dataset default
@@ -341,6 +341,13 @@ Eutyches,Lat7499,,Latin,9,mixed,book,,dataset default
 Eutyches,VLO41,,Latin,9,mixed,book,,dataset default
 CarolineMinuscule,CarolineMinuscule,17 pages of 14 BSB manuscripts (pooled),Latin,9-12,prose,book,"pooled sample, not one manuscript",checked by hand
 iForal,iForal,Portuguese forais (pooled),Latin/Portuguese,13-15,documentary,documentary,"municipal charters, pooled",checked by hand
+Koenigsfelden,"AA_0428_0057c (Latin, 1317)","Aarau, Staatsarchiv, AA/0428_0057c",Latin,14,documentary,documentary,"single document of 200+ lines, dated 1317",dataset default
+Koenigsfelden,"AA_0428_0069c (German, 1321)","Aarau, Staatsarchiv, AA/0428_0069c",German,14,documentary,documentary,"single document of 200+ lines, dated 1321",dataset default
+Koenigsfelden,"AA_0428_0073e (Latin, 1321)","Aarau, Staatsarchiv, AA/0428_0073e",Latin,14,documentary,documentary,"single document of 200+ lines, dated 1321",dataset default
+Koenigsfelden,"AA_0428_0102d (German, 1330)","Aarau, Staatsarchiv, AA/0428_0102d",German,14,documentary,documentary,"single document of 200+ lines, dated 1330",dataset default
+Koenigsfelden,"AA_0428_0152_alt (German, 1335)","Aarau, Staatsarchiv, AA/0428_0152_alt",German,14,documentary,documentary,"single document of 200+ lines, dated 1335",dataset default
+Koenigsfelden,"AA_0428_Inhaltsverzeichnis_der_Urkundenabschriften_ueber_den_Klosterbesitz (German, 1335)","Aarau, Staatsarchiv, AA/0428_Inhaltsverzeichnis_der_Urkundenabschriften_ueber_den_Klosterbesitz",German,14,documentary,documentary,"single document of 200+ lines, dated 1335",dataset default
+Koenigsfelden,"AA_0429_0740b (Latin, 1467)","Aarau, Staatsarchiv, AA/0429_0740b",Latin,15,documentary,documentary,"single document of 200+ lines, dated 1467",dataset default
 Koenigsfelden,German 14th c. charters,"Aarau, Staatsarchiv, Koenigsfelden charters (pooled)",German,14,documentary,documentary,pooled by language and century; every block is one charter or entry,dataset default
 Koenigsfelden,German 14th c. records,"Aarau, Staatsarchiv, Koenigsfelden records (pooled)",German,14,documentary,documentary,pooled by language and century; every block is one charter or entry,dataset default
 Koenigsfelden,German 15th c. charters,"Aarau, Staatsarchiv, Koenigsfelden charters (pooled)",German,15,documentary,documentary,pooled by language and century; every block is one charter or entry,dataset default
@@ -355,6 +362,14 @@ Koenigsfelden,Latin 15th c. charters,"Aarau, Staatsarchiv, Koenigsfelden charter
 Koenigsfelden,Latin 15th c. records,"Aarau, Staatsarchiv, Koenigsfelden records (pooled)",Latin,15,documentary,documentary,pooled by language and century; every block is one charter or entry,dataset default
 Koenigsfelden,Latin 16th c. charters,"Aarau, Staatsarchiv, Koenigsfelden charters (pooled)",Latin,16,documentary,documentary,pooled by language and century; every block is one charter or entry,dataset default
 Koenigsfelden,Latin 17th c. charters,"Aarau, Staatsarchiv, Koenigsfelden charters (pooled)",Latin,17,documentary,documentary,pooled by language and century; every block is one charter or entry,dataset default
+Koenigsfelden,"U-17_0831 (German, 1494)","Aarau, Staatsarchiv, U.17/0831",German,15,documentary,documentary,"single document of 200+ lines, dated 1494",dataset default
+Koenigsfelden,"U-17_0849 (German, 1500)","Aarau, Staatsarchiv, U.17/0849",German,15,documentary,documentary,"single document of 200+ lines, dated 1500",dataset default
+Koenigsfelden,"U-17_0852 (German, 1550)","Aarau, Staatsarchiv, U.17/0852",German,16,documentary,documentary,"single document of 200+ lines, dated 1550",dataset default
+Koenigsfelden,"U-17_0910 (German, 1518)","Aarau, Staatsarchiv, U.17/0910",German,16,documentary,documentary,"single document of 200+ lines, dated 1518",dataset default
+Koenigsfelden,"U-17_0954 (German, 1557)","Aarau, Staatsarchiv, U.17/0954",German,16,documentary,documentary,"single document of 200+ lines, dated 1557",dataset default
+Koenigsfelden,"U-17_0955 (German, 1557)","Aarau, Staatsarchiv, U.17/0955",German,16,documentary,documentary,"single document of 200+ lines, dated 1557",dataset default
+Koenigsfelden,"U-17_0956 (German, 1564)","Aarau, Staatsarchiv, U.17/0956",German,16,documentary,documentary,"single document of 200+ lines, dated 1564",dataset default
+Koenigsfelden,"U-17_0970 (German, 1595)","Aarau, Staatsarchiv, U.17/0970",German,16,documentary,documentary,"single document of 200+ lines, dated 1595",dataset default
 CREMMA-MSS-16,CREMMA-MSS-16,9 pages of 16th-century French documents (pooled),French,16,documentary,documentary,,checked by hand
 GasparoSardi,GasparoSardi,"Bern, Burgerbibl. Cod. 174",Latin,16,list,autograph,"Gasparo Sardi, Toponomasia: alphabetical dictionary of place names",checked by hand
 BibliaArabica,OxfordLaudOr258,"Oxford, Bodl. Laud Or. 258",Arabic,,prose,book,"right-to-left, geometry mirrored",checked by hand

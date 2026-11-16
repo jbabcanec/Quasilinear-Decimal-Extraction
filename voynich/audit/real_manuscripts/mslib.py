@@ -361,6 +361,12 @@ def s1(seqs, lags=(1, 2), shuffles=1000, seed=0):
         if n < 30:
             continue
         obs = sum(int((a[:, lag:] == a[:, :-lag]).sum()) for L, a in stacks.items() if L > lag)
+        exact = 0.0                      # expectation under shuffling, in closed form (check on the shuffles)
+        for L, a in stacks.items():
+            if L > lag:
+                for row in a:
+                    k = np.bincount(row)
+                    exact += (L - lag) * float((k * (k - 1)).sum()) / (L * (L - 1))
         null = np.zeros(shuffles)
         for L, a in stacks.items():
             if L <= lag:
@@ -374,15 +380,18 @@ def s1(seqs, lags=(1, 2), shuffles=1000, seed=0):
                 null[done:done + m] += (p[..., lag:] == p[..., :-lag]).sum(axis=(1, 2))
                 done += m
         sd = float(null.std())
-        out[f"lag{lag}"] = dict(n=int(n), same=obs / n, shuffled=float(null.mean()) / n, sd=sd / n,
+        out[f"lag{lag}"] = dict(n=int(n), same=obs / n, shuffled=float(null.mean()) / n, sd=sd / n, expected=exact / n,
                                 z=float((obs - null.mean()) / sd) if sd > 0 else float("nan"))
     return out
 
 
 def s2(columns, half=3, early=0.9, short=0.3):
-    """columns: lists of (xl, xr, n words).  Returns counts over lines that stop early."""
-    n_lines = n_early = one = under = two = 0
-    fills = []
+    """columns: lists of (xl, xr, n words).  Returns counts over lines that stop early.
+    `fifths`: how far the early lines run (below 20%, 20-40, 40-60, 60-80, 80-90% of the way).
+    `clear_*`: the same count restricted to lines that stop below 80%, which leaves out the
+    ordinary unevenness of a right margin that was not justified."""
+    n_lines = n_early = one = under = two = clear = clear_one = 0
+    hist = [0, 0, 0, 0, 0]
     for col in columns:
         xr = np.array([r[1] for r in col], float)
         for i, (xl, e, nw) in enumerate(col):
@@ -399,11 +408,17 @@ def s2(columns, half=3, early=0.9, short=0.3):
                 one += nw == 1
                 two += nw <= 2
                 under += fill < short
-                fills.append(fill)
+                hist[min(4, int(fill / 0.2))] += 1
+                if fill < 0.8:
+                    clear += 1
+                    clear_one += nw == 1
     return dict(lines=n_lines, early=n_early, early_share=n_early / n_lines if n_lines else None,
                 one_word=one / n_early if n_early else None, one_word_n=int(one),
                 up_to_two=two / n_early if n_early else None,
-                under_30=under / n_early if n_early else None, under_30_n=int(under))
+                under_30=under / n_early if n_early else None, under_30_n=int(under),
+                fifths=[round(h / n_early, 4) for h in hist] if n_early else None,
+                clear=clear, clear_share=clear / n_lines if n_lines else None,
+                clear_one_word=clear_one / clear if clear else None)
 
 
 def s3(lines, mc_shuffles=0, seed=0):

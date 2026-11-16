@@ -127,6 +127,9 @@ def manuscripts(ds):
                 continue
             lang = {"Frühneuhochdeutsch": "German", "Latein": "Latin"}.get(h[0], h[0])
             key = "%s %dth c. %s" % (lang, (h[1] - 1) // 100 + 1, "charters" if p.name.startswith("U-") else "records")
+            got = M.parse(p)                             # a long document (register, inventory) stands alone
+            if got and sum(len(z[1]) for z in got[2] if z[0] == "MainZone") >= 200:
+                key = "%s (%s, %d)" % (p.name[:-4], lang, h[1])
         elif ds["ms"] == "dir":
             key = str(rel.parent) if len(rel.parts) > 1 else ds["name"]
         else:
@@ -266,10 +269,12 @@ def flat(ds, ms, meta, r):
                pages=r["pages"], columns=r["columns"], lines=r["lines"],
                words_per_line=r["words_per_line"])
     for lag in ("lag1", "lag2"):
-        for k in ("n", "same", "shuffled", "z"):
+        for k in ("n", "same", "shuffled", "z", "expected"):
             row[f"s1_{lag}_{k}"] = g(r, "s1", lag, k)
-    for k in ("lines", "early", "early_share", "one_word", "one_word_n", "under_30", "under_30_n"):
+    for k in ("lines", "early", "early_share", "one_word", "one_word_n", "under_30", "under_30_n",
+              "clear", "clear_share", "clear_one_word"):
         row[f"s2_{k}"] = r["s2"][k]
+    row["s2_fifths"] = " ".join("%.2f" % v for v in r["s2"]["fifths"]) if r["s2"]["fifths"] else ""
     row["s2_one_word_per_1000_lines"] = 1000 * r["s2"]["one_word_n"] / r["s2"]["lines"] if r["s2"]["lines"] else None
     for k in ("n", "one_word", "under_30"):
         row[f"par_final_{k}"] = r["par_final"][k]

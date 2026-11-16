@@ -8,23 +8,25 @@ The first version of this report read the answer as evidence that the text was n
 
 ## Findings
 
-**The Voynich text was fitted to the page at every level, in ways scribes copying real texts do not do.**
+This report was audited by seven independent agents told to break it (section 17). Three of its earlier claims did not survive and are marked withdrawn. What stands:
 
-| Level | What the Voynich does | Real manuscripts or a simulated copyist | Section |
-|---|---|---|---|
-| Start of a line (rule published by Q. Quadrada, Oct 2026; replicated here) | avoids opening like the line above: 9.6% against 16.0% | 8.0% against 8.5% | 12 |
-| End of a line | ends on a short word (−9%) with nothing carried over | end on a long word (+13% to +26%); the text runs on | 4, 5 |
-| End of a paragraph | a single stray word 0.4% of the time | 14% in real manuscripts; 10–17% when re-wrapped | 14 |
-| End of a page | never mid-paragraph (204 of 206 pages), yet the foot of the page is within half a line of full on 38% of text pages | packing the same whole paragraphs leaves that on 16% | 16 |
+| Result | Status after audit | Whose |
+|---|---|---|
+| A line avoids opening with the same glyph as the line above: 9.6% against 16.2% shuffled; 7.5% against 13.5% in a second transliteration | Replicated on three transliterations, survives every control. Strong for hands 1 and 2, weak for hand 3. | Published first by Q. Quadrada (Oct 2026) as "vertical dissimilation"; replicated here |
+| Paragraphs rarely end on a short last line: a single word about 2% of the time (0.6–2.2% across three sources) against about 12% (9–14%) for a text that simply runs out | Replicated independently. 3 to 6 times rarer than chance; about 2 times for two words or fewer. | No earlier statement found in about 130 searches |
+| Like for like against real prose manuscripts (a short line after three full ones): Voynich 0.5% (2 of 425), French prose 23% (16 of 69) | Small baseline; verse manuscripts also give about 0% | Not found elsewhere |
+| Voynich line ends are not mechanically wrapped: coupling 0.02–0.05 against 0.44–0.50 for a simulated wrapper | Robust | The short last word and the absence of squeezing are in Quadrada's rulebook |
+| Real scribes also fill their lines | Holds, but the gap to their own simulated wrapping is modest (+0.05 to +0.13 against +0.14 to +0.25) and rests on 50 pages | |
+| Words are not copied from the word overhead: at most 0.7% | Stands; confirms earlier nulls | Bound is new |
 
-A copyist can tidy a line end by abbreviating or splitting a word. No copyist can choose which word opens a line, how much text is left for a paragraph's last line, or how many lines a paragraph needs for the page to come out full. All three were controlled here.
+**Withdrawn**
 
-**Results in more detail.** Section 14: Voynich paragraphs almost never end on a short last line (a single word 0.4% of the time, against 10–17% when the same paragraphs are re-wrapped at other widths and 14% in real manuscripts), so the amount of text was fitted to the page. Section 12, in more detail here: **a Voynich line avoids beginning with the same glyph as the line above it.** It happens 9.6% of the time against 16.0% for the same lines in shuffled order (2,584 line pairs, 11 standard deviations), for every scribe and section, in two independent transliterations. Real manuscripts, a cipher of Latin and the copying generator show nothing of the kind.
+- *Pages are fuller than packing whole paragraphs allows* (section 16). An artefact: the page images are content crops scaled to a common size, so "the foot of the page" was the bottom of the image. Frame-independent measures show nothing.
+- *Vocabulary follows the pictures more than the scribe* (section 11). The samples were unbalanced; with equal pages per sample the difference is +0.02 (−0.03 to +0.05).
+- *Line openings take turns* (section 12). The excess two lines down is forced by the avoidance one line down and is not a separate effect.
+- *The text was not copied from a finished text* as inferred from line ends (sections 1–2), withdrawn earlier after the real-manuscript control.
 
-1. **Voynich lines are fitted, not mechanically wrapped.** Across 3,183 line breaks, the blank at a line's end is unrelated to the width of the word that starts the next line (coupling 0.05, 95% interval −0.03 to 0.14). Mechanically wrapping the same words on the same pages gives 0.48.
-2. **Real scribes do the same.** Six French prose manuscripts of the 15th century, measured the same way, give couplings from −0.44 to +0.29, five of them at or below +0.09. Mechanical wrapping of their own words gives +0.18 to +0.51. The fitted line end is ordinary scribal practice.
-3. **One difference survives.** Voynich lines end on shorter-than-average words (−9%). All six real manuscripts end lines on longer-than-average words (+13% to +26%).
-4. **Words are not copied from the word physically above them.** At most 0.7% of words can be such copies. The Timm–Schinner generator's own output scores about the same on this test, so this limits the naive picture of copying, not their algorithm.
+What the surviving results support: the opening word of each line was chosen with the line above in view, and paragraphs were ended, or their text adjusted, so as not to leave a stray word. Ordinary copied prose shows neither. Text composed as it was written, and text that is line-structured in the way verse is, both fit.
 
 ## Data
 
@@ -261,6 +263,8 @@ Reproduce with `python3 src/exp10_where_words_differ.py`.
 
 ## 11. Do the words follow the pictures or the scribe?
 
+**Withdrawn.** A 250-word sample is about three plant pages but one bathing page. With three pages per sample the difference is +0.02 (−0.03 to +0.05). The original text is kept below for the record.
+
 Pages grouped by scribe (hand, from ZL3b) and by what is drawn on them. Vocabulary overlap between two 250-word samples from different pages: the share of words in common, counting repeats.
 
 | Comparison, inside Currier language B | Overlap |
@@ -350,6 +354,8 @@ Reproduce with `python3 src/exp14_decode.py`.
 
 ## 14. Paragraphs do not end on a short line
 
+**Corrected after audit.** The 0.4% below is too low: the join between word boxes and transliteration dropped 19 of 23 one-word lines. Independent recounts give a single-word last line in 2.0% of paragraphs (ZL3b, 10 of 499), 0.6% (v101, 3 of 484) and 1.2–1.8% (word boxes, join fixed), and 3.0% if every doubtful case is counted. A text that simply runs out gives 58 of 499 (45–72), about 12%. Last lines of two words or fewer: 9–11% against about 24%. The effect holds in each large section (plants 4 of 212 against 29 expected, bathing 1 of 78 against 10, stars 0 of 125 against 11) and is weak for the two-word version on plant pages. Like for like against real prose (a short line after three full ones): Voynich 2 of 425, French prose 16 of 69. Verse manuscripts give about 0%, so line-structured text fits as well as text composed for the page. No sign was found of penultimate lines being shortened or last lines over-filled.
+
 When a text simply runs out, its last line is as likely to hold one word as eight. Measured as a share of the paragraph's normal line, for the 482 paragraphs of four or more lines:
 
 ![Last lines](figures/fig9_last_lines.png)
@@ -378,7 +384,8 @@ Reproduce with `python3 src/exp16_last_lines.py <path to the cloned French datas
 
 | | Same word next to itself, relative to the same line shuffled |
 |---|---|
-| 28 ordinary texts (18 Latin, French manuscripts, 9 Sanskrit) | 0.00–0.33 |
+| 25 ordinary texts (18 Latin, French manuscripts, 6 Sanskrit) | 0.00–0.33 |
+| 3 Buddhist ritual texts (spell text, spell collection, hymns of praise) | 0.69–1.37 |
 | Naibbe cipher / Timm–Schinner generator | 0.46 / 0.68 |
 | **Voynich** | 1.07 |
 | Sanskrit spell strings | 1.60 |
@@ -390,6 +397,8 @@ That the Voynich repeats the previous word more than a page-shuffled version, un
 Reproduce with `python3 src/exp15_repeats.py`.
 
 ## 16. Whole pages
+
+**The page-fill result below is withdrawn.** The word-box coordinates come from page images cropped to their content and scaled into a common frame; no box on 223 pages lies below y = 903 and 21 of 23 quire-20 pages start at y = 0. "At the foot" therefore meant only that the text block was tall for its width: 11 of the 12 "full" stars pages bottom out at the frame edge. Frame-independent measures show nothing (lines per page: 13% full against 26% expected; height over own text width: 20% against 25%). Recto and verso of a leaf agree on 11 of 12 leaves, so pages are not independent, and a scribe who stops when the next entry will not fit produces the same pile-up without adjusting anything. What stands is the known fact that no paragraph runs over a page break (205 of 207 pages; the two exceptions end in unmarked one-word blocks).
 
 **No paragraph runs over a page break.** In ZL3b, the last text line of the page ends a paragraph on 204 of 206 pages (plants 128 of 128, stars / recipes 25 of 25, bathing 18 of 19, text only 6 of 6, jars 16 of 16). If the text simply ran on, a page break would land on a paragraph end 12–25% of the time. That each page is self-contained has been remarked before.
 
@@ -409,10 +418,16 @@ Reproduce with `python3 src/exp17_pages.py`.
 
 ## What this means
 
-- **The text was made for these pages.** Which word opens a line, how much text closes a paragraph and how many lines fill a page were all under the writer's control. Real scribes copying real texts control none of these, and the six real manuscripts measured here show none of them.
-- **That rules out one thing and leaves two.** Ruled out: a finished text, in plain language or cipher, copied out with ordinary line, paragraph and page breaks. Left open: a text composed directly onto the page, and a fair copy of a draft that already had exactly this layout, which only moves the composing back one step.
-- **It does not settle whether the words mean anything.** Someone can compose meaningful text to fit a page, as in a verse collection or a book of set-piece entries. But the text also has almost no word order, no repeated phrases, and no reluctance to repeat a word (sections 6 and 15), which no text type among the 28 real ones measured shares.
-- **For anyone attempting a reading:** the first word of every line, the last word of every line and the last line of every paragraph are shaped by layout. Treat them as suspect, and do not read across line breaks.
+- **Two places where the text answers to the page.** Which word opens a line depends on the line above, and paragraphs avoid ending on a stray word. Real copied prose does neither.
+- **That is less than the earlier version of this report claimed.** It does not show the whole text was composed for the page; the page-level evidence was an artefact. Text composed as written, and line-structured text like verse, both fit what is left.
+- **It does not settle whether the words mean anything.** The text also has almost no word order, few repeated phrases and no reluctance to repeat a word (sections 6 and 15).
+- **For anyone attempting a reading:** the first word of a line and the last line of a paragraph are shaped by layout. Treat them as suspect.
+
+## 17. Audit
+
+Seven agents worked independently, each with its own code where it replicated: line starts, paragraph endings, page fill, a search for more real manuscripts, a code review, a prior-work search, and a model of what a copyist could do. Their scripts and outputs are in `audit/`. Outcomes are folded into the sections above. The real-manuscript search and the copyist model were interrupted and are not yet reported.
+
+Faults the audit found in this report's own code: one-word lines lost in the box-to-transliteration join (`src/vdata.py`, the geometric line rule); a page-fill baseline measured against a different reference from the data (`src/exp17_pages.py`); real-manuscript line adjacency bridged across removed headings and multi-column zones dropped (`control_real/control_real.py`); unbalanced samples (`src/exp11_sections.py`). These scripts are left as they were so the earlier numbers can be reproduced; the corrected figures above come from `audit/`.
 
 ## Limits
 

@@ -180,7 +180,8 @@ O(V5, "Cosmas_of_Prague_-_A3a_-_ÖNB_508_-_Winter_School", "ÖNB Cod. 508", "pro
 VG = "Vienna-2024-German"            # README names five ÖNB codices; file prefixes matched to them by content
 O(VG, "DOD_51276", "ÖNB Cod. 3064 (matched by content)", "prose", "15", note="technical prose (gauging, gunnery)")
 O(VG, "DTL_7978199", "ÖNB Cod. 2875 (matched by content)", "prose", "15", note="theological miscellany c. 1400, narrow columns")
-O(VG, "DTL_9133478", "ÖNB Cod. 2780 (matched by content)", "mixed", "15", note="law book (1423): chapter lists and short articles")
+O(VG, "DTL_9133478", "ÖNB Cod. 2780 (matched by content)", "list", "15",
+  note="law book (1423): the transcribed pages are lists of chapter titles, one title per line")
 O(VG, "Renner Cod. 2810", "ÖNB Cod. 2810", "verse", "15", note="Hugo von Trimberg, Der Renner (1410)")
 O(VG, "enikel weltchronik", "ÖNB Cod. 2921", "verse", "14", note="Jans Enikel, Weltchronik (1397)")
 

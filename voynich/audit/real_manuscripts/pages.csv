@@ -1860,11 +1860,11 @@ HTRomance-Occitan,/home/user/HTRomance-Project/medieval-occitan/data/paris-bnf-f
 HTRomance-Occitan,/home/user/HTRomance-Project/medieval-occitan/data/paris-bnf-fr-854/btv1b8419245d_f147.xml,used,95
 HTRomance-Occitan,/home/user/HTRomance-Project/medieval-occitan/data/paris-bnf-fr-854/btv1b8419245d_f148.xml,used,94
 HTRomance-Occitan,/home/user/HTRomance-Project/medieval-occitan/data/paris-bnf-fr-854/btv1b8419245d_f149.xml,used,91
-HTRomance-Occitan,/home/user/HTRomance-Project/medieval-occitan/data/paris-bnf-naf-4232/btv1b53000321m_f160.xml,used,25
-HTRomance-Occitan,/home/user/HTRomance-Project/medieval-occitan/data/paris-bnf-naf-4232/btv1b53000321m_f161.xml,used,29
-HTRomance-Occitan,/home/user/HTRomance-Project/medieval-occitan/data/paris-bnf-naf-4232/btv1b53000321m_f162.xml,used,28
-HTRomance-Occitan,/home/user/HTRomance-Project/medieval-occitan/data/paris-bnf-naf-4232/btv1b53000321m_f163.xml,used,33
-HTRomance-Occitan,/home/user/HTRomance-Project/medieval-occitan/data/paris-bnf-naf-4232/btv1b53000321m_f164.xml,used,31
+HTRomance-Occitan,/home/user/HTRomance-Project/medieval-occitan/data/paris-bnf-naf-4232/btv1b53000321m_f160.xml,manuscript excluded: duplicate: pages also in Gatmuza-Occitan bnf_naf_4232 (114 lines in common),0
+HTRomance-Occitan,/home/user/HTRomance-Project/medieval-occitan/data/paris-bnf-naf-4232/btv1b53000321m_f161.xml,manuscript excluded: duplicate: pages also in Gatmuza-Occitan bnf_naf_4232 (114 lines in common),0
+HTRomance-Occitan,/home/user/HTRomance-Project/medieval-occitan/data/paris-bnf-naf-4232/btv1b53000321m_f162.xml,manuscript excluded: duplicate: pages also in Gatmuza-Occitan bnf_naf_4232 (114 lines in common),0
+HTRomance-Occitan,/home/user/HTRomance-Project/medieval-occitan/data/paris-bnf-naf-4232/btv1b53000321m_f163.xml,manuscript excluded: duplicate: pages also in Gatmuza-Occitan bnf_naf_4232 (114 lines in common),0
+HTRomance-Occitan,/home/user/HTRomance-Project/medieval-occitan/data/paris-bnf-naf-4232/btv1b53000321m_f164.xml,manuscript excluded: duplicate: pages also in Gatmuza-Occitan bnf_naf_4232 (114 lines in common),0
 HTRogene-French,/home/user/HTRogene/french/data/angers-am-cc03/f6.large.xml,duplicate: same page key as f6.large.chocomufin.xml,0
 HTRogene-French,/home/user/HTRogene/french/data/angers-am-cc03/f6.large.chocomufin.xml,used,57
 HTRogene-French,/home/user/HTRogene/french/data/angers-am-cc03/f7.large.xml,duplicate: same page key as f7.large.chocomufin.xml,0
@@ -3308,11 +3308,11 @@ CIHAM-Fabliaux,/home/user/CIHAM-HTR/Fabliaux/data/bern_354/e-codices_bbb-0354_14
 CIHAM-Fabliaux,/home/user/CIHAM-HTR/Fabliaux/data/bern_354/e-codices_bbb-0354_147v_max.mufichecker.xml,used,58
 CIHAM-Fabliaux,/home/user/CIHAM-HTR/Fabliaux/data/bern_354/e-codices_bbb-0354_148r_max.mufichecker.xml,used,58
 CIHAM-Fabliaux,/home/user/CIHAM-HTR/Fabliaux/data/bern_354/e-codices_bbb-0354_148v_max.mufichecker.xml,used,60
-CIHAM-Fabliaux,/home/user/CIHAM-HTR/Fabliaux/data/bnf_Mazzarine_1553/btv1b8454669r_f1015.mufichecker.xml,used,100
-CIHAM-Fabliaux,/home/user/CIHAM-HTR/Fabliaux/data/bnf_Mazzarine_1553/btv1b8454669r_f1016.mufichecker.xml,used,100
-CIHAM-Fabliaux,/home/user/CIHAM-HTR/Fabliaux/data/bnf_Mazzarine_1553/btv1b8454669r_f1017.mufichecker.xml,no main-text column of 4+ lines,0
-CIHAM-Fabliaux,/home/user/CIHAM-HTR/Fabliaux/data/bnf_Mazzarine_1553/btv1b8454669r_f1018.mufichecker.xml,no main-text column of 4+ lines,0
-CIHAM-Fabliaux,/home/user/CIHAM-HTR/Fabliaux/data/bnf_Mazzarine_1553/btv1b8454669r_f1019.mufichecker.xml,used,100
+CIHAM-Fabliaux,/home/user/CIHAM-HTR/Fabliaux/data/bnf_Mazzarine_1553/btv1b8454669r_f1015.mufichecker.xml,"manuscript excluded: duplicate: 281 of its 300 lines are the pages of HTRomance-French bnf-fr-1553 (BnF fr. 1553), transcribed a second time",0
+CIHAM-Fabliaux,/home/user/CIHAM-HTR/Fabliaux/data/bnf_Mazzarine_1553/btv1b8454669r_f1016.mufichecker.xml,"manuscript excluded: duplicate: 281 of its 300 lines are the pages of HTRomance-French bnf-fr-1553 (BnF fr. 1553), transcribed a second time",0
+CIHAM-Fabliaux,/home/user/CIHAM-HTR/Fabliaux/data/bnf_Mazzarine_1553/btv1b8454669r_f1017.mufichecker.xml,"manuscript excluded: duplicate: 281 of its 300 lines are the pages of HTRomance-French bnf-fr-1553 (BnF fr. 1553), transcribed a second time",0
+CIHAM-Fabliaux,/home/user/CIHAM-HTR/Fabliaux/data/bnf_Mazzarine_1553/btv1b8454669r_f1018.mufichecker.xml,"manuscript excluded: duplicate: 281 of its 300 lines are the pages of HTRomance-French bnf-fr-1553 (BnF fr. 1553), transcribed a second time",0
+CIHAM-Fabliaux,/home/user/CIHAM-HTR/Fabliaux/data/bnf_Mazzarine_1553/btv1b8454669r_f1019.mufichecker.xml,"manuscript excluded: duplicate: 281 of its 300 lines are the pages of HTRomance-French bnf-fr-1553 (BnF fr. 1553), transcribed a second time",0
 CIHAM-Fabliaux,/home/user/CIHAM-HTR/Fabliaux/data/bnf_fr_1593/Français_1593__btv1b6000803p_307.mufichecker.xml,used,82
 CIHAM-Fabliaux,/home/user/CIHAM-HTR/Fabliaux/data/bnf_fr_1593/Français_1593__btv1b6000803p_308.mufichecker.xml,used,78
 CIHAM-Fabliaux,/home/user/CIHAM-HTR/Fabliaux/data/bnf_fr_1593/Français_1593__btv1b6000803p_309.mufichecker.xml,used,82
@@ -6337,6 +6337,13 @@ iForal,/home/user/Arch-W/iForal-Dataset/data/foral_de_valhelhas_1222/2.xml,used,
 iForal,/home/user/Arch-W/iForal-Dataset/data/foral_de_vila_franca_1217/1.xml,used,17
 iForal,/home/user/Arch-W/iForal-Dataset/data/foral_de_vila_franca_1222/1.xml,used,84
 iForal,/home/user/Arch-W/iForal-Dataset/data/foral_de_vila_franca_1222/2.xml,used,78
+Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0057c.xml,used,194
+Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0069c.xml,used,201
+Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0073e.xml,used,292
+Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0102d.xml,used,254
+Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0152_alt.xml,used,287
+Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_Inhaltsverzeichnis_der_Urkundenabschriften_ueber_den_Klosterbesitz.xml,used,629
+Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0429_0740b.xml,used,202
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0004.xml,used,64
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0005.xml,used,98
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0007_01.xml,used,23
@@ -6791,7 +6798,6 @@ Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_042
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0065.xml,used,4
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0066a.xml,used,11
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0069a.xml,used,42
-Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0069c.xml,used,201
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0070.xml,used,6
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0071.xml,no main-text column of 4+ lines,0
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0072.xml,no main-text column of 4+ lines,0
@@ -6830,7 +6836,6 @@ Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_042
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0102a.xml,used,66
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0102b.xml,used,48
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0102c.xml,used,24
-Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0102d.xml,used,254
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0103.xml,used,7
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0104.xml,no main-text column of 4+ lines,0
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0104a.xml,used,16
@@ -6871,7 +6876,6 @@ Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_042
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0151.xml,no main-text column of 4+ lines,0
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0151a.xml,used,72
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0152.xml,no main-text column of 4+ lines,0
-Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0152_alt.xml,used,287
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0152a.xml,used,17
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0152b.xml,used,71
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0152c.xml,used,18
@@ -6889,7 +6893,6 @@ Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_042
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_Inhaltsverzeichnis_der_Abschriften_von_Pfandbriefen.xml,used,35
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_Inhaltsverzeichnis_der_Urkunden_ueber_herrschaftliche_Jahrzeitstiftungen.xml,used,133
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_Inhaltsverzeichnis_der_Urkunden_von_Schenkungen_anderer_Personen.xml,used,17
-Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_Inhaltsverzeichnis_der_Urkundenabschriften_ueber_den_Klosterbesitz.xml,used,629
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_L_096r.xml,no main-text column of 4+ lines,0
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_L_123r.xml,no main-text column of 4+ lines,0
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428a_0020a.xml,no main-text column of 4+ lines,0
@@ -7394,7 +7397,6 @@ Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0828_02.xml,used,25
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0829.xml,used,46
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0830.xml,used,17
-Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0831.xml,used,297
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0832.xml,used,12
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0833.xml,used,30
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0834.xml,used,14
@@ -7408,7 +7410,6 @@ Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0846.xml,used,17
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0847.xml,used,29
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0848.xml,used,137
-Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0849.xml,used,224
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0850.xml,used,17
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0851_01.xml,used,21
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0851_02.xml,used,38
@@ -7464,7 +7465,6 @@ Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_042
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0429_0843.xml,no main-text column of 4+ lines,0
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0429_L_088r.xml,no main-text column of 4+ lines,0
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0429_L_154r.xml,no main-text column of 4+ lines,0
-Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0852.xml,used,282
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0853a.xml,used,156
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0853b.xml,used,24
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0853c.xml,used,103
@@ -7532,7 +7532,6 @@ Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0908.xml,used,43
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0909.xml,used,54
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0909a.xml,used,28
-Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0910.xml,used,248
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0911.xml,used,97
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0912.xml,used,37
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0913.xml,used,12
@@ -7625,9 +7624,6 @@ Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0951.xml,used,18
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0952.xml,used,14
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0953.xml,used,11
-Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0954.xml,used,556
-Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0955.xml,used,251
-Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0956.xml,used,207
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0957.xml,used,35
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0957a.xml,used,41
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0958.xml,used,44
@@ -7646,7 +7642,6 @@ Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0968a.xml,used,20
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0968b.xml,used,17
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0969.xml,used,19
-Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0970.xml,used,340
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0970a.xml,used,59
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0970b.xml,used,26
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0971.xml,used,39
@@ -7743,7 +7738,6 @@ Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_042
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0046.xml,no main-text column of 4+ lines,0
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0053a.xml,used,136
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0056.xml,no main-text column of 4+ lines,0
-Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0057c.xml,used,194
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0057d.xml,used,116
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0059b.xml,no main-text column of 4+ lines,0
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0060a.xml,used,97
@@ -7755,7 +7749,6 @@ Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_042
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0066.xml,used,4
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0073b.xml,used,74
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0073c.xml,used,28
-Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0073e.xml,used,292
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0074d.xml,used,143
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0074g.xml,no main-text column of 4+ lines,0
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0428_0077b.xml,used,142
@@ -7863,7 +7856,6 @@ Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_042
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0429_0569.xml,no main-text column of 4+ lines,0
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0429_0581a.xml,no main-text column of 4+ lines,0
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0429_0729.xml,no main-text column of 4+ lines,0
-Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0429_0740b.xml,used,202
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0429_0805a.xml,used,67
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0429_0807a.xml,used,135
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/AA_0429_0807c.xml,used,73
@@ -7872,6 +7864,14 @@ Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0939a.xml,used,29
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0940.xml,used,22
 Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0978.xml,used,44
+Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0831.xml,used,297
+Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0849.xml,used,224
+Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0852.xml,used,282
+Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0910.xml,used,248
+Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0954.xml,used,556
+Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0955.xml,used,251
+Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0956.xml,used,207
+Koenigsfelden,/home/user/Staatsarchiv-Aargau/koenigsfelden-data/data/docs/U-17_0970.xml,used,340
 CREMMA-MSS-16,/home/user/HTR-United/CREMMA-MSS-16/data/recueil-de-lettres-originales/f132.xml,used,20
 CREMMA-MSS-16,/home/user/HTR-United/CREMMA-MSS-16/data/recueil-de-lettres-originales/f141.xml,used,20
 CREMMA-MSS-16,/home/user/HTR-United/CREMMA-MSS-16/data/recueil-de-lettres-originales/f165.xml,used,24
