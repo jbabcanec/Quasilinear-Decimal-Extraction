@@ -1,0 +1,41 @@
+P lines in marked paragraphs: 4117 paragraphs: 740
+non-first lines: 3377 unknown first glyph: 6
+
+== BASE: first line excluded, EVA first char, within-paragraph shuffle ==
+ZL eva, excl line1                 lag1 N= 2630 obs=  9.6% exp= 16.2% ratio=0.59 z=-11.38 p_lo=0.0002 p_hi=1.0000
+ZL eva, excl line1                 lag2 N= 1966 obs= 21.1% exp= 16.3% ratio=1.29 z= +6.47 p_lo=1.0000 p_hi=0.0002
+ZL eva, excl line1                 lag3 N= 1467 obs= 18.0% exp= 16.7% ratio=1.08 z= +1.50 p_lo=0.9368 p_hi=0.0737
+ZL eva, excl line1                 lag4 N= 1112 obs= 20.0% exp= 17.1% ratio=1.17 z= +2.73 p_lo=0.9960 p_hi=0.0050
+ZL eva, excl line1                 lag5 N=  855 obs= 17.8% exp= 17.5% ratio=1.02 z= +0.26 p_lo=0.6336 p_hi=0.4016
+ZL eva, excl line1                 lag6 N=  678 obs= 20.2% exp= 17.7% ratio=1.14 z= +1.82 p_lo=0.9685 p_hi=0.0405
+
+== ch/sh/cth/ckh/cph/cfh as single signs ==
+ZL bench, excl line1               lag1 N= 2630 obs=  8.5% exp= 14.8% ratio=0.57 z=-11.35 p_lo=0.0002 p_hi=1.0000
+ZL bench, excl line1               lag2 N= 1966 obs= 19.4% exp= 14.9% ratio=1.30 z= +6.42 p_lo=1.0000 p_hi=0.0002
+ZL bench, excl line1               lag3 N= 1467 obs= 17.0% exp= 15.2% ratio=1.12 z= +2.20 p_lo=0.9883 p_hi=0.0152
+ZL bench, excl line1               lag4 N= 1112 obs= 17.9% exp= 15.5% ratio=1.16 z= +2.39 p_lo=0.9900 p_hi=0.0127
+ZL bench, excl line1               lag5 N=  855 obs= 16.4% exp= 15.8% ratio=1.04 z= +0.50 p_lo=0.7128 p_hi=0.3202
+ZL bench, excl line1               lag6 N=  678 obs= 18.3% exp= 15.9% ratio=1.15 z= +1.78 p_lo=0.9668 p_hi=0.0407
+
+== also qo as single sign ==
+ZL bench+qo, excl line1            lag1 N= 2630 obs=  8.4% exp= 14.7% ratio=0.57 z=-11.28 p_lo=0.0002 p_hi=1.0000
+ZL bench+qo, excl line1            lag2 N= 1966 obs= 19.2% exp= 14.8% ratio=1.30 z= +6.31 p_lo=1.0000 p_hi=0.0002
+
+== first line included ==
+ZL eva, incl line1                 lag1 N= 3367 obs=  8.0% exp= 12.3% ratio=0.66 z= -9.05 p_lo=0.0002 p_hi=1.0000
+ZL eva, incl line1                 lag2 N= 2632 obs= 17.1% exp= 12.9% ratio=1.32 z= +7.29 p_lo=1.0000 p_hi=0.0002
+
+== negative controls: second word first glyph, third word, last glyph, last word first glyph, 2nd glyph of first word ==
+2nd word first glyph               lag1 N= 2619 obs= 22.0% exp= 21.8% ratio=1.01 z= +0.36 p_lo=0.6591 p_hi=0.3632
+2nd word first glyph               lag2 N= 1955 obs= 21.2% exp= 21.7% ratio=0.98 z= -0.74 p_lo=0.2424 p_hi=0.7761
+2nd word (comma not a break)       lag1 N= 2619 obs= 22.4% exp= 21.9% ratio=1.02 z= +0.80 p_lo=0.8020 p_hi=0.2179
+2nd word (comma not a break)       lag2 N= 1956 obs= 21.5% exp= 22.3% ratio=0.96 z= -1.07 p_lo=0.1555 p_hi=0.8578
+3rd word first glyph               lag1 N= 2564 obs= 20.3% exp= 20.3% ratio=1.00 z= -0.03 p_lo=0.5016 p_hi=0.5279
+3rd word first glyph               lag2 N= 1908 obs= 21.0% exp= 20.4% ratio=1.03 z= +0.74 p_lo=0.7683 p_hi=0.2532
+line-last glyph                    lag1 N= 2624 obs= 24.8% exp= 24.7% ratio=1.00 z= +0.13 p_lo=0.5689 p_hi=0.4634
+line-last glyph                    lag2 N= 1961 obs= 24.6% exp= 24.8% ratio=0.99 z= -0.30 p_lo=0.3864 p_hi=0.6401
+last word first glyph              lag1 N= 2634 obs= 19.4% exp= 18.5% ratio=1.05 z= +1.56 p_lo=0.9443 p_hi=0.0627
+last word first glyph              lag2 N= 1968 obs= 17.7% exp= 18.4% ratio=0.96 z= -0.98 p_lo=0.1802 p_hi=0.8380
+2nd glyph of first word            lag1 N= 2482 obs= 15.4% exp= 18.6% ratio=0.83 z= -5.56 p_lo=0.0002 p_hi=1.0000
+2nd glyph of first word            lag2 N= 1857 obs= 21.5% exp= 19.3% ratio=1.11 z= +2.97 p_lo=0.9995 p_hi=0.0012
+whole first word                   lag1 N= 2637 obs=  0.6% exp=  0.9% ratio=0.60 z= -2.48 p_lo=0.0070 p_hi=0.9963

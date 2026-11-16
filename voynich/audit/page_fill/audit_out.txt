@@ -16,3 +16,35 @@
 30 text-only: max per quire, ref page dropped              eval 25 full  6 =  24% | shuffle:  11%+- 6% p=0.048 | shift:  11%+- 6% p=0.044 | draw:  11%+- 6% p=0.051 |
 50 S+B+T: max per bifolio, ref page dropped                eval 35 full 11 =  31% | shuffle:  12%+- 5% p=0.001 | shift:  12%+- 7% p=0.020 | draw:  12%+- 5% p=0.002 |
 25 S: max per bifolio, ref page dropped                    eval 18 full  8 =  44% | shuffle:  16%+- 9% p=0.004 | shift:  17%+- 9% p=0.013 | draw:  16%+- 9% p=0.005 |
+23 quire T: max per bifolio, ref page dropped              eval 17 full  7 =  41% | shuffle:  17%+- 9% p=0.014 | shift:  18%+-10% p=0.032 | draw:  17%+- 9% p=0.013 |
+30 text-only: max per bifolio, ref page dropped            eval 20 full  8 =  40% | shuffle:  14%+- 8% p=0.004 | shift:  15%+- 8% p=0.008 | draw:  15%+- 8% p=0.005 |
+50 S+B+T: max of the two pages of a leaf, ref dropped      eval 23 full  9 =  39% | shuffle:  11%+- 6% p=0.000 | shift:  14%+- 9% p=0.011 | draw:  11%+- 6% p=0.000 |
+25 S: max of the two pages of a leaf, ref dropped          eval 12 full  6 =  50% | shuffle:  17%+-11% p=0.009 | shift:  20%+-12% p=0.006 | draw:  17%+-11% p=0.009 |
+23 quire T: max of the two pages of a leaf, ref dropped    eval 11 full  5 =  45% | shuffle:  18%+-11% p=0.031 | shift:  23%+-13% p=0.079 | draw:  18%+-11% p=0.034 |
+30 text-only: max of the two pages of a leaf, ref dropped  eval 13 full  6 =  46% | shuffle:  15%+-10% p=0.008 | shift:  19%+-11% p=0.037 | draw:  15%+-10% p=0.009 |
+#### B. ZL3b line counts only (no pixels)
+50 S+B+T: lines, P90 per quire                             eval 43 full  6 =  14% | shuffle:  23%+- 6% p=1.000 | shift:  21%+- 4% p=1.000 | draw:  24%+- 6% p=1.000 |
+25 S: lines, P90 per quire                                 eval 23 full  3 =  13% | shuffle:  26%+- 8% p=1.000 | shift:  23%+- 5% p=1.000 | draw:  26%+- 9% p=1.000 |
+23 quire T: lines, P90 per quire                           eval 23 full  3 =  13% | shuffle:  28%+- 9% p=1.000 | shift:  25%+- 5% p=1.000 | draw:  28%+- 9% p=1.000 |
+30 text-only: lines, P90 per quire                         eval 23 full  3 =  13% | shuffle:  25%+- 8% p=1.000 | shift:  22%+- 9% p=1.000 | draw:  25%+- 9% p=1.000 |
+50 S+B+T: lines, max per bifolio, ref dropped              eval 35 full  3 =   9% | shuffle:  13%+- 6% p=0.844 | shift:  12%+- 5% p=0.830 | draw:  13%+- 6% p=0.833 |
+25 S: lines, max per bifolio, ref dropped                  eval 18 full  2 =  11% | shuffle:  18%+- 9% p=0.848 | shift:  15%+- 8% p=0.823 | draw:  18%+- 9% p=0.848 |
+23 quire T: lines, max per bifolio, ref dropped            eval 17 full  2 =  12% | shuffle:  19%+-10% p=0.846 | shift:  19%+- 9% p=0.890 | draw:  19%+-10% p=0.855 |
+30 text-only: lines, max per bifolio, ref dropped          eval 20 full  2 =  10% | shuffle:  16%+- 9% p=0.854 | shift:  17%+- 8% p=0.904 | draw:  17%+- 9% p=0.859 |
+50 S+B+T: lines, max per leaf, ref dropped                 eval 23 full  2 =   9% | shuffle:  12%+- 7% p=0.799 | shift:  12%+- 6% p=0.784 | draw:  12%+- 7% p=0.801 |
+25 S: lines, max per leaf, ref dropped                     eval 12 full  2 =  17% | shuffle:  18%+-11% p=0.680 | shift:  18%+-11% p=0.664 | draw:  18%+-11% p=0.672 |
+23 quire T: lines, max per leaf, ref dropped               eval 11 full  2 =  18% | shuffle:  20%+-12% p=0.674 | shift:  20%+-13% p=0.655 | draw:  20%+-12% p=0.670 |
+30 text-only: lines, max per leaf, ref dropped             eval 13 full  2 =  15% | shuffle:  16%+-10% p=0.662 | shift:  15%+-10% p=0.603 | draw:  16%+-10% p=0.657 |
+#### C. scale-free rulers (text height in units of own text width W / own char width cw)
+25 S: H/W, P90 of group                                    eval 25 full  5 =  20% | shuffle:  25%+- 6% p=0.897 | shift:  24%+- 6% p=0.882 | draw:  25%+- 6% p=0.897 |
+25 S: H/W, max per leaf, ref dropped                       eval 12 full  2 =  17% | shuffle:  17%+-11% p=0.613 | shift:  17%+-12% p=0.556 | draw:  17%+-11% p=0.616 |
+25 S: H/cw, P90 of group                                   eval 25 full  3 =  12% | shuffle:  27%+- 7% p=1.000 | shift:  28%+- 7% p=1.000 | draw:  27%+- 7% p=1.000 |
+25 S: H/cw, max per leaf, ref dropped                      eval 12 full  1 =   8% | shuffle:  16%+-10% p=0.891 | shift:  13%+-10% p=0.796 | draw:  16%+-11% p=0.886 |
+23 quire T: H/W, P90 of group                              eval 23 full  5 =  22% | shuffle:  26%+- 6% p=0.858 | shift:  25%+- 6% p=0.761 | draw:  26%+- 7% p=0.846 |
+23 quire T: H/W, max per leaf, ref dropped                 eval 11 full  2 =  18% | shuffle:  18%+-12% p=0.597 | shift:  16%+-11% p=0.576 | draw:  18%+-12% p=0.614 |
+23 quire T: H/cw, P90 of group                             eval 23 full  3 =  13% | shuffle:  26%+- 7% p=1.000 | shift:  26%+- 8% p=1.000 | draw:  26%+- 7% p=1.000 |
+23 quire T: H/cw, max per leaf, ref dropped                eval 11 full  1 =   9% | shuffle:  17%+-11% p=0.885 | shift:  17%+- 9% p=0.937 | draw:  17%+-11% p=0.873 |
+30 text-only: H/W, P90 of group                            eval 30 full  5 =  17% | shuffle:  24%+- 6% p=0.969 | shift:  23%+- 5% p=0.985 | draw:  24%+- 6% p=0.961 |
+30 text-only: H/W, max per leaf, ref dropped               eval 13 full  3 =  23% | shuffle:  15%+-10% p=0.312 | shift:  17%+-10% p=0.376 | draw:  15%+-10% p=0.312 |
+30 text-only: H/cw, P90 of group                           eval 30 full  4 =  13% | shuffle:  23%+- 6% p=1.000 | shift:  23%+- 6% p=1.000 | draw:  24%+- 6% p=1.000 |
+30 text-only: H/cw, max per leaf, ref dropped              eval 13 full  1 =   8% | shuffle:  15%+-10% p=0.882 | shift:  13%+- 8% p=0.853 | draw:  15%+-10% p=0.874 |

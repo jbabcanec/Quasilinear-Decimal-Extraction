@@ -139,6 +139,9 @@ def read_manuscript(ds, files, seen_geom, seen_text, log):
             continue
         kind, image, zones = got
         cols = M.columns_of(zones, zone_ok, line_ok)
+        if ds["unlabelled"] and len(cols) > 1:           # no zone labels: drop narrow side blocks
+            wid = [float(np.median([r[2] - r[1] for r in c])) for _, c in cols]
+            cols = [zc for zc, w in zip(cols, wid) if zc[0] or w >= 0.5 * max(wid)]
         n = sum(len(c) for _, c in cols)
         if n == 0:
             log.append((ds["name"], str(p), "no main-text column of 4+ lines", 0))

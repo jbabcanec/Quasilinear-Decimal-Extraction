@@ -1,0 +1,365 @@
+dataset,manuscript,shelfmark,language,century,form,hand,note,label_source
+Gallicorpora-MSS-15,Gallicorpora-MSS-15,,French,15,,book,,dataset default
+Gallicorpora-MSS-15,btv1b100737746,,French,15,,book,,dataset default
+Gallicorpora-MSS-15,btv1b10549431k,,French,15,,book,,dataset default
+Gallicorpora-MSS-15,btv1b55008562q,,French,15,,book,,dataset default
+Gallicorpora-MSS-15,btv1b60001038,,French,15,,book,,dataset default
+Gallicorpora-MSS-15,btv1b84260029,,French,15,,book,,dataset default
+Gallicorpora-MSS-15,btv1b8448964p,,French,15,,book,,dataset default
+Gallicorpora-MSS-15,btv1b90069505,,French,15,,book,,dataset default
+Gallicorpora-MSS-15,btv1b90076543,,French,15,,book,,dataset default
+Gallicorpora-MSS-15,btv1b9009670t,,French,15,,book,,dataset default
+Gallicorpora-MSS-15,btv1b90595325,,French,15,,book,,dataset default
+Gallicorpora-MSS-15,btv1b90616967,,French,15,,book,,dataset default
+CREMMA-Medieval,bnf_arsenal_3516-imageDuMonde,,French,,,book,,dataset default
+CREMMA-Medieval,bnf_fr_13496-saintJerome,,French,,,book,,dataset default
+CREMMA-Medieval,bnf_fr_17229-saintLambert,,French,,,book,,dataset default
+CREMMA-Medieval,bnf_fr_1728,,French,,,book,,dataset default
+CREMMA-Medieval,bnf_fr_22549-septSages,,French,,,book,,dataset default
+CREMMA-Medieval,bnf_fr_24428-bestiaire,,French,,,book,,dataset default
+CREMMA-Medieval,bnf_fr_411-saintLambert,,French,,,book,,dataset default
+CREMMA-Medieval,bnf_fr_412-wauchier,,French,,,book,,dataset default
+CREMMA-Medieval,bnf_fr_844-manuscritDuRoi,,French,,,book,,dataset default
+CREMMA-Medieval,bodmer_168-otinel,,French,,,book,,dataset default
+CREMMA-Medieval,kbr_9232-examensMoraux,,French,,,book,,dataset default
+CREMMA-Medieval,pennsylvania_660-pelerinageMademoiselleSapience,,French,,,book,,dataset default
+CREMMA-Medieval,pennsylvania_codex_909-eneide,,French,,,book,,dataset default
+CREMMA-Medieval,vaticane_reg_lat_1616-otinel,,French,,,book,,dataset default
+CREMMA-Medieval-LAT,Arras-861,"Arras. Médiathèque municipale, Ms. 861",Latin,14,,book,"Seneca, Ad Lucilium, 121-122",repository README
+CREMMA-Medieval-LAT,BGO-511,"Berlin, Germ. Oct. 511",Latin,15,,book,Psalm. 6,repository README
+CREMMA-Medieval-LAT,BIS-193,"Paris. Bibliothèque interuniversitaire de la Sorbonne, MSVC 193",Latin,14,,book,"Adam Wodeham, Ordinatio, Liber IV, Quaestio 6.",repository README
+CREMMA-Medieval-LAT,CCCC-MSS-165,"Cambridge. Corpus Christi College, Parker Library MS 165",Latin,16,,book,"Peter Abelard, Sic et non",repository README
+CREMMA-Medieval-LAT,CCCC-MSS-236,"Cambridge. Corpus Christi College, Parker Library MS 236",Latin,13,,book,"Martial, Book 1: pr, 3, 4, 6, 15, 8-10, 13-14, 16, 19-20, 18, 21-25, 28, 33-34, ",repository README
+CREMMA-Medieval-LAT,CLM13027,"Munich. Bayerische Staatsbibliothek, Clm 13027",Latin,13,,book,"Liber minor de Coitu. Galien, De Crisibus",repository README
+CREMMA-Medieval-LAT,Egerton821,"London. BL, Egerton MS 821",Latin,12,,book,54v-56r: Sortes sanctorum. f. 56r: A prayer-charm for a wounded animal. ff. 56r:,repository README
+CREMMA-Medieval-LAT,H318,"Montpellier, Bibliothèque interuniversitaire. Section Médecine, H 318",Latin,12,,book,"Anonyme, De urinis, Recettes, Constantinus, Libert de coitu, Bartholomeus Salern",repository README
+CREMMA-Medieval-LAT,Latin16195,"Paris. BnF, Latin 16195",Latin,13,,book,Questiones De Coitu,repository README
+CREMMA-Medieval-LAT,Latin6395,"Paris. BnF, Latin 6395",Latin,14,,book,"Seneca, Medea, 284-",repository README
+CREMMA-Medieval-LAT,Latin8236,"Paris. BnF, Latin 8236",Latin,15,,book,"Prudentius, 3.1-3.2, 3.16-3.17, 4.4-4.5; Tibullus, 3.7.74-3.7.114, 3.7.199-3.9.3",repository README
+CREMMA-Medieval-LAT,LaurentianusPluteus33.31,"Florence. Biblioteca Medicea Laurenziana, Plut., 33.31",Latin,14,,book,"Priapea, 12-45",repository README
+CREMMA-Medieval-LAT,LaurentianusPluteus39.34,"Florence. Biblioteca Medicea Laurenziana, Plut., 39.34",Latin,15,,book,"Priapea, 01-16",repository README
+CREMMA-Medieval-LAT,LaurentianusPluteus53.08,"Florence. Biblioteca Medicea Laurenziana, Plut., 53.08",Latin,15,,book,"Donat, In Phormionem Terenti commentum",repository README
+CREMMA-Medieval-LAT,LaurentianusPluteus53.09,"Florence. Biblioteca Medicea Laurenziana, Plut., 53.09",Latin,15,,book,"Donat, In Phormionem Terenti commentum",repository README
+CREMMA-Medieval-LAT,Mazarine915,"Paris. Bibliothèque Mazarine, Ms 915",Latin,14,,book,"Adam Wodeham, Ordinatio",repository README
+CREMMA-Medieval-LAT,PalLat373,"Vatican. Biblioteca apostolica vaticana, Pal.lat.373",Latin,15,,book,"Plaoul, De Fide, Lectio 1-2",repository README
+CREMMA-Medieval-LAT,Phi_10a135,"Philadelphia, College of Physicians 10a. 135",Latin,14,,book,Tractatus de Sterilitate,repository README
+CREMMA-Medieval-LAT,SBB_PK_Hdschr25,"Berlin, Stundenbuch, Hdschr. 25",Latin,15,,book,Book of Hours,repository README
+CREMMA-Medieval-LAT,UBL758,"Leipzig, Universitätsbibliothek Leipzig, Ms 758",Latin,14,,book,In annuntiatione Mariae,repository README
+CREMMA-Medieval-LAT,WettF0015,"Aarau. Aargauer Kantonsbibliothek, MsWettF 15",Latin,13,,book,"Rothwell, Commentarius in libros Sententiarum",repository README
+HTRomance-French,bnf-arsenal-ms-3346,"BnF, Arsenal, ms. 3346",French,15,prose,book,Garin le lorrain,repository README
+HTRomance-French,bnf-arsenal-ms-3350,"BnF, Arsenal, ms. 3350",French,15,,book,,repository README
+HTRomance-French,bnf-arsenal-ms-3525,"BnF, Arsenal, ms. 3525",French,14,verse,book,Dit des trois Dames de Paris,repository README
+HTRomance-French,bnf-fr-104,"BnF, fr. 104",French,13,prose,book,Roman de Tristan,repository README
+HTRomance-French,bnf-fr-11610,"BnF, fr. 11610",French,15,prose,book,Roman du comte d’Artois.,repository README
+HTRomance-French,bnf-fr-12554,"BnF, fr. 12554",French,14,prose,book,roman,repository README
+HTRomance-French,bnf-fr-12558,"BnF, fr. 12558",French,14,verse,book,Chevalier du cygne,repository README
+HTRomance-French,bnf-fr-12581,"BnF, fr. 12581",French,13,verse,book,Li Fabliaus des Treces,repository README
+HTRomance-French,bnf-fr-12603,"BnF, fr. 12603",French,13,verse,book,Fierabras,repository README
+HTRomance-French,bnf-fr-12615,"BnF, fr. 12615",French,13,verse,book,chansonnier de Noailles _ Chanson d'amour d'Adam le bossu,repository README
+HTRomance-French,bnf-fr-13568,"BnF, fr. 13568",French,14,,book,Mémoires de saint Louis,repository README
+HTRomance-French,bnf-fr-1357,"BnF, fr. 1357",French,15,prose,book,"Simon de Phares, Recueil des plus celebres astrologues",repository README
+HTRomance-French,bnf-fr-1443,"BnF, fr. 1443",French,13,verse,book,Garin le Loherain,repository README
+HTRomance-French,bnf-fr-1450,"BnF, fr. 1450",French,13,verse,book,Roman de Troie,repository README
+HTRomance-French,bnf-fr-1553,"BnF, fr. 1553",French,13,verse,book,Le Meunier d'Arleux,repository README
+HTRomance-French,bnf-fr-1635,"BnF, fr. 1635",French,13,verse,book,Testament de l'âne,repository README
+HTRomance-French,bnf-fr-1669,"BnF, fr. 1669",French,13,prose,book,roman,repository README
+HTRomance-French,bnf-fr-17229,"BnF, fr. 17229",French,13,prose,book,Legendier,repository README
+HTRomance-French,bnf-fr-1881,"BnF, fr. 1881",French,16,verse,book,Vie de saint Alexis,repository README
+HTRomance-French,bnf-fr-19152,"BnF, fr. 19152",French,13,verse,book,C'est li Romanz des Braies,repository README
+HTRomance-French,bnf-fr-20050,"BnF, fr. 20050",French,13,verse,book,Le chansonnier de saint Germain,repository README
+HTRomance-French,bnf-fr-2168,"BnF, fr. 2168",French,13,verse,book,Le sacristain,repository README
+HTRomance-French,bnf-fr-2173,"BnF, fr. 2173",French,13,verse,book,La Mal Honte,repository README
+HTRomance-French,bnf-fr-23117,"BnF, fr. 23117",French,13,prose,book,Vie de saint Martin,repository README
+HTRomance-French,bnf-fr-2701,"BnF, fr. 2701",French,15,prose,book,Epitre de Juvénal des ursins,repository README
+HTRomance-French,bnf-fr-5024,"BnF, fr. 5024",French,14,prose,book,Le formulaire d'Odart Morchesne,repository README
+HTRomance-French,bnf-fr-574,"BnF, fr. 574",French,14,,book,Image du monde,repository README
+HTRomance-French,bnf-fr-619,"BnF, fr. 619",French,14,prose,book,"Gaston Phébus, Livre de chasse",repository README
+HTRomance-French,bnf-fr-6447,"BnF, fr. 6447",French,13,prose,book,Vie de saint Martin,repository README
+HTRomance-French,bnf-fr-747,"BnF, fr. 747",French,13,prose,book,Estoire du Roman del Saint Graal,repository README
+HTRomance-French,bnf-fr-840,"BnF, fr. 840",French,14,,book,Art de Dictier,repository README
+HTRomance-French,bnf-naf-10039,"BnF, NAF 10039",French,13,verse,book,Roman d'Aspremont,repository README
+HTRomance-French,bnf-naf-23686,"BnF, NAF 23686",French,13,prose,book,Vie de saint Alexis,repository README
+HTRomance-Latin,bnf-arsenal-ms-1046,"BnF, Arsenal, ms. 1046",Latin,15,,book,"Ovide, Les Métamorphoses",repository README
+HTRomance-Latin,bnf-lat-10996,"BnF, lat. 10996",Latin,13,prose,book,Chartularium Abbatiæ Beatæ Mariæ,repository README
+HTRomance-Latin,bnf-lat-12270,"BnF, lat. 12270",Latin,12,,book,,repository README
+HTRomance-Latin,bnf-lat-12449,"BnF, lat. 12449",Latin,12,,book,,repository README
+HTRomance-Latin,bnf-lat-130,"BnF, lat. 130",Latin,12,mixed,book,"Gregorius Magnus, Homiliae in Ezechielem, 2, HOMILIA II",repository README
+HTRomance-Latin,bnf-lat-13388,"BnF, lat. 13388",Latin,9,,book,,repository README
+HTRomance-Latin,bnf-lat-14137,"BnF, lat. 14137",Latin,14,verse,book,Catull.,repository README
+HTRomance-Latin,bnf-lat-14354,"BnF, lat. 14354",Latin,13,prose,book,Collatio Alexandri et Dindimi,repository README
+HTRomance-Latin,bnf-lat-14650,"BnF, lat. 14650",Latin,15,,book,Vita Gengulfi,repository README
+HTRomance-Latin,bnf-lat-15176,"BnF, lat. 15176",Latin,11,,book,,repository README
+HTRomance-Latin,bnf-lat-16085,"BnF, lat. 16085",Latin,13,prose,book,"Arist. Latin. - Metaphysica I, 3sqq",repository README
+HTRomance-Latin,bnf-lat-16204,"BnF, lat. 16204",Latin,13,prose,book,"Albumasar, Tractatus revolutione annorum mundi (De Experimentis); Albumasar, Flores",repository README
+HTRomance-Latin,bnf-lat-16657,"BnF, lat. 16657",Latin,13,prose,book,Almagesti Minor,repository README
+HTRomance-Latin,bnf-lat-17901,"BnF, lat. 17901",Latin,11,,book,,repository README
+HTRomance-Latin,bnf-lat-17903,"BnF, lat. 17903",Latin,13,mixed,book,Flor. Gall.,repository README
+HTRomance-Latin,bnf-lat-5657,"BnF, lat. 5657",Latin,13,prose,book,"Charte de Renaud Musavène (f42v); Don d'une maison par Mathieu II (f36v); Philippe de Beaumont & Don de la mairie de Champagne par Jehan (f37r); Don d'Hémery Aladent (fin), (?), Bouchard VI de Montmorency (46v); Le Culte de Saint Guillaume établi à Pontoise, Concession par l'abbé de S. Denis du fief de Teleuse (f47r);",repository README
+HTRomance-Latin,bnf-lat-6337,"BnF, lat. 6337",Latin,16,,book,,repository README
+HTRomance-Latin,bnf-lat-7720,"BnF, lat. 7720",Latin,14,prose,book,"Quintilien, Inst. 11.2.44 seq",repository README
+HTRomance-Latin,bnf-lat-8001,"BnF, lat. 8001",Latin,13,verse,book,"Ovid. met. XI, 671sqq",repository README
+HTRomance-Latin,bnf-lat-9768,"BnF, lat. 9768",Latin,10,prose,book,"Historiarum Libri Quatuor, Nithard",repository README
+HTRomance-Latin,bnf-nal-1909,"BnF, NAL 1909",Latin,16,verse,book,Carmina Varia (?),repository README
+HTRomance-Latin,bnf-nal-632,"BnF, NAL 632",Latin,15,,book,,repository README
+HTRomance-Latin,bnf-nal-730,"BnF, NAL 730",Latin,14,,book,,repository README
+HTRomance-Latin,bnf-nal-775,"BnF, NAL 775",Latin,14,prose,book,"Legenda aurea, De sancto Petro martyre, De sancto Philippo apostolo, De sancto Iacobo apostolo",repository README
+HTRomance-Latin,bnf-smith-lesouëf-11,"BnF, Smith-Lesouëf 11",Latin,15,,book,,repository README
+HTRomance-Latin,bnf-smith-lesouëf-12,"BnF, Smith-Lesouëf 12",Latin,15,,book,,repository README
+HTRomance-Latin,bnf-smith-lesouëf-16,"BnF, Smith-Lesouëf 16",Latin,16,,book,,repository README
+HTRomance-Italian,bnf-it-1534,"BnF, it. 1534",Italian,16,verse,book,"G.B. Strozzi, Rime",repository README
+HTRomance-Italian,bnf-it-434,"BnF, it. 434",Italian,14,prose,book,"Marco Polo, Il Milione",repository README
+HTRomance-Italian,bnf-it-481,"BnF, it. 481",Italian,14,prose,book,"Boccaccio, Filocolo",repository README
+HTRomance-Italian,bnf-it-583,"BnF, it. 583",Italian,15,verse,book,"Boccaccio, Teseida",repository README
+HTRomance-Italian,bnf-it-590,"BnF, it. 590",Italian,14,prose,book,"Virgilio, Eneide (volgarizzamento)",repository README
+HTRomance-Italian,bnf-it-594,"BnF, it. 594",Italian,15,verse,book,El Sinibaldo,repository README
+HTRomance-Italian,bnf-it-70,"BnF, it. 70",Italian,15,verse,book,"Dante, La divina commedia",repository README
+HTRomance-Italian,bnf-it-783,"BnF, it. 783",Italian,14,prose,book,"Dandolo, Cronica",repository README
+HTRomance-Italian,bnf-it-79,"BnF, it. 79",Italian,14,verse,book,"Dante, La divina commedia",repository README
+HTRomance-Italian,bnf-it-820,"BnF, it. 820",Italian,16,prose,book,Vita di Cola di Rienzo (et alia),repository README
+HTRomance-Italian,bnf-it-912,"BnF, it. 912",Italian,14,prose,book,Cataloghi di prezzi delle merci,repository README
+HTRomance-Spain,bnf-esp-110,"BnF, esp. 110",Spanish,15,prose,book,Suma de los reyes de España,repository README
+HTRomance-Spain,bnf-esp-225,"BnF, esp. 225",Spanish,16,verse,book,Chansonnier catalan,repository README
+HTRomance-Spain,bnf-esp-229,"BnF, esp. 229",Spanish,15,mixed,book,Laberinto de Fortuna et gloses,repository README
+HTRomance-Spain,bnf-esp-256,"BnF, esp. 256",Spanish,13,prose,book,Fuero Juzgo,repository README
+HTRomance-Spain,bnf-esp-285,"BnF, esp. 285",Spanish,15,prose,book,El linaje donde bienen fijos e fijas de don fray Fernand Perez de Ayala,repository README
+HTRomance-Spain,bnf-esp-36,"BnF, esp. 36",Spanish,14,prose,book,Libro del caballero Zifar,repository README
+HTRomance-Spain,bnf-esp-368,"BnF, esp. 368",Spanish,16,prose,book,Dialogos de los grados de perfecion..,repository README
+HTRomance-Spain,bnf-esp-44,"BnF, esp. 44",Spanish,14,prose,book,Légende dorée,repository README
+HTRomance-Spain,bnf-esp-440,"BnF, esp. 440",Spanish,14,prose,book,Siete Partidas,repository README
+HTRomance-Spain,bnf-esp-480,"BnF, esp. 480",Spanish,13,prose,book,Documents relatifs à l'hôpital de Burgos,repository README
+HTRomance-Spain,bnf-esp-533,"BnF, esp. 533",Spanish,15,prose,book,Bursario,repository README
+HTRomance-Spain,bnf-esp-548,"BnF, esp. 548",Spanish,16,prose,book,Ordonnances des consuls de la mer,repository README
+HTRomance-Spain,bnf-esp-563,"BnF, esp. 563",Spanish,14,prose,book,Canon d'Avicenne,repository README
+HTRomance-Spain,bnf-esp-65,"BnF, esp. 65",Spanish,14,prose,book,Fors de Navarre,repository README
+HTRomance-Spain,bnf-esp-98,"BnF, esp. 98",Spanish,15,prose,book,Ordinacions fetes per lo molt alt senyor en P[ere],repository README
+HTRomance-Occitan,paris-bnf-fr-14771,,Occitan,,,book,,dataset default
+HTRomance-Occitan,paris-bnf-fr-19960,,Occitan,,,book,,dataset default
+HTRomance-Occitan,paris-bnf-fr-25425,,Occitan,,,book,,dataset default
+HTRomance-Occitan,paris-bnf-fr-5728,,Occitan,,,book,,dataset default
+HTRomance-Occitan,paris-bnf-fr-854,,Occitan,,,book,,dataset default
+HTRomance-Occitan,paris-bnf-naf-4232,,Occitan,,,book,,dataset default
+HTRogene-French,angers-am-cc03,,French,,,book,,dataset default
+HTRogene-French,bordeaux-bm-731,,French,,,book,,dataset default
+HTRogene-French,caen-ad14-g006,,French,,,book,,dataset default
+HTRogene-French,dijon-ad21-b11691,,French,,,book,,dataset default
+HTRogene-French,nantes-ad44-2mi31r1b1,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-arsenal-3325,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-103,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-1069,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-110,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-1155,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-12563,"Paris, BnF, fr. 12563",French,15,verse,book,Narratives,repository README
+HTRogene-French,paris-bnf-fr-12575,"Paris, BnF, fr. 12575",French,15,verse,book,Narratives,repository README
+HTRogene-French,paris-bnf-fr-135,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-141,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-146,"Paris, BnF, fr. 146",French,14,verse,book,Narratives,repository README
+HTRogene-French,paris-bnf-fr-155,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-159,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-160,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-161-162,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-163,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-167,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-168,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-17001,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-172-173,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-175,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-176,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-181,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-184,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-193,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-2,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-210,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-211,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-213,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-247,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-269-272,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-277-278,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-280,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-29,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-290,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-308-311,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-317,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-33,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-331,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-345-346,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-347,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-356-357,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-358-363,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-36-37,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-364,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-418,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-424,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-436,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-443,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-449,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-450,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-5,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-50-51,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-69,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-fr-8,,French,,,book,,dataset default
+HTRogene-French,paris-bnf-naf-4503,"Paris, BnF, NAF 4503",French,12,verse,book,Narratives,repository README
+HTRogene-Latin,angers-archives-departementales-de-maine-et-loire-h-039-2-n-176-177,"Angers, Archives départementales de Maine-et-Loire - H(039) 2 n° 176-177",Latin,11,prose,book,Documents of practice,repository README
+HTRogene-Latin,angers-archives-departementales-de-maine-et-loire-h-045-1-ndeg-4,"Angers, Archives départementales de Maine-et-Loire - H(045) 1 n° 4",Latin,11,prose,book,Documents of practice,repository README
+HTRogene-Latin,auxerre-archives-departementales-de-l-yonne-h-2404,"Auxerre, Archives départementales de l'Yonne - H 2404",Latin,13,prose,book,Documents of practice,repository README
+HTRogene-Latin,besancon-bibliotheque-diocesaine-par-03,"Besançon, Bibliothèque diocésaine - Par. 03",Latin,12,prose,book,Documents of practice,repository README
+HTRogene-Latin,bruges-403,"Bruges. Bibliothèque publique, Ms. 403",Latin,12,prose,book,Narratives,repository README
+HTRogene-Latin,cambridge-corpus-christi-college-ms-29,"Cambridge, Corpus Christi College, MS 29",Latin,13,prose,book,Narratives,repository README
+HTRogene-Latin,gent-bhsl-hs-0011,"Ghent, UL, HS.0011",Latin,16,prose,book,Treatises,repository README
+HTRogene-Latin,gratz-universitatsbibliothek-1265,,Latin,,,book,,dataset default
+HTRogene-Latin,laval-archives-de-la-mayenne-H-154,"Laval, Archives de la Mayenne, H 154",Latin,12,prose,book,Documents of practice,repository README
+HTRogene-Latin,le-havre-332,"Le Havre, Bm 332",Latin,11,prose,book,Narratives,repository README
+HTRogene-Latin,liege-archives-de-l-etat-t51-12,"Liege, Archives de l'État, T51.12",Latin,12,prose,book,Documents of practice,repository README
+HTRogene-Latin,liege-archives-de-l-etat-t51-13,"Liege, Archives de l'État, T51.13",Latin,12,prose,book,Documents of practice,repository README
+HTRogene-Latin,liege-archives-de-l-etat-t51-14,"Liege, Archives de l'État, T51.14",Latin,12,prose,book,Documents of practice,repository README
+HTRogene-Latin,montigny-le-bretonneux-archives-departementales-des-yvelines-45h8-17,,Latin,,,book,,dataset default
+HTRogene-Latin,montigny-le-bretonneux-archives-departementales-des-yvelines-45h8-8,,Latin,,,book,,dataset default
+HTRogene-Latin,nice-am-aa-1-04,"Nice, AM, AA 1/04",Latin,13,prose,book,Documents of practice,repository README
+HTRogene-Latin,paris-bibliotheque-de-l-ecole-nationale-superieure-des-beaux-arts-mn-mas-38,"Paris, Bibliothèque de l'Ecole nationale supérieure des Beaux-Arts - Mn.Mas 38",Latin,12,prose,book,Documents of practice,repository README
+HTRogene-Latin,paris-bibliotheque-nationale-de-france-lat-17226,,Latin,,,book,,dataset default
+HTRogene-Latin,paris-bibliotheque-nationale-de-france-ms-latin-15168,,Latin,,,book,,dataset default
+HTRogene-Latin,paris-bibliotheque-nationale-de-france-smith-lesouef-35,,Latin,,,book,,dataset default
+HTRogene-Latin,paris-biu-sante-5119,"Paris, BIU Santé, Médecine, 5119",Latin,15,prose,book,Treatises,repository README
+HTRogene-Latin,paris-bnf-fr-442,"Paris, BnF, fr. 442",Latin,15,prose,book,Narratives,repository README
+HTRogene-Latin,pierrefitte-sur-seine-archives-nationales-de-france-ll-106b,,Latin,,,book,,dataset default
+HTRogene-Latin,pierrefitte-sur-seine-archives-nationales-de-france-ll-108a,,Latin,,,book,,dataset default
+HTRogene-Latin,pierrefitte-sur-seine-archives-nationales-de-france-ll-108b,,Latin,,,book,,dataset default
+HTRogene-Latin,pierrefitte-sur-seine-archives-nationales-de-france-ll-110,,Latin,,,book,,dataset default
+HTRogene-Latin,pierrefitte-sur-seine-archives-nationales-de-france-ll-125,,Latin,,,book,,dataset default
+HTRogene-Latin,saint-omer-716,"Saint-Omer, BM 716, Tome 7",Latin,13,prose,book,Narratives,repository README
+HTRogene-Latin,saint-omer-764,"Saint-Omer, BM 764",Latin,9,prose,book,Narratives,repository README
+HTRogene-Latin,semur-1,"Semur-en-Auxois, Bibliothèque municipale, Ms. 1",Latin,11,prose,book,Narratives,repository README
+HTRogene-Italian,cambridge-harvard-typ-316,"Cambridge. Harvard University Library, MS Typ 316",Italian,15,prose,book,Treatises,repository README
+HTRogene-Italian,firenze-bncf-palatino-343,"Firenze, BNCF, Palatino 343",Italian,15,verse,book,Narratives,repository README
+HTRogene-Italian,oxford-bodleian-canon-ital-160,"Oxford, Bodleian Library MS. Canon. Ital. 160",Italian,15,verse,book,Poetry,repository README
+HTRogene-Italian,oxford-bodleian-canon-ital-260,"Oxford, Bodleian Library, MS. Canon. Ital. 260",Italian,15,prose,book,Treatises,repository README
+HTRogene-Italian,oxford-bodleian-canon-ital-49,"Oxford, Bodleian Library MS. Canon. Ital. 49",Italian,15,verse,book,Narratives,repository README
+HTRogene-Italian,oxford-bodleian-digby-94,"Oxford, Bodleian Library, MS. Digby 94",Italian,15,verse,book,Narratives,repository README
+HTRogene-Italian,paris-bnf-italien-1019,"Paris, BnF, it. 1019",Italian,15,verse,book,Poetry,repository README
+HTRogene-Italian,paris-bnf-italien-1729,"Paris, BnF, it. 1729",Italian,16,prose,book,Espistolary,repository README
+HTRogene-Italian,rouen-leber-1158,"Rouen, Bibliothèque Municipale, Ms. Leber 1158",Italian,15,prose,book,Treatises,repository README
+HTRogene-Italian,strasbourg-bnu-1-808,"Strasbourg, Bibliothèque nationale et universitaire, Ms.1.808",Italian,15,verse,book,Narratives,repository README
+HTRogene-Spanish,aca-general-n8,,Spanish,,,book,,dataset default
+HTRogene-Spanish,barcelona-ahcb-deliberationes-1-b-ii-014,,Spanish,,,book,,dataset default
+HTRogene-Spanish,bav-reg-lat-1184,,Spanish,,,book,,dataset default
+HTRogene-Spanish,bav-reg-lat-37,,Spanish,,,book,,dataset default
+HTRogene-Spanish,bc-ms-289,,Spanish,,,book,,dataset default
+HTRogene-Spanish,bne-mss-17799,,Spanish,,,book,,dataset default
+HTRogene-Spanish,paris-bnf-esp-12,,Spanish,,,book,,dataset default
+HTRogene-Spanish,paris-bnf-esp-161,"Paris, BnF, esp. 161",Spanish,16,prose,book,Espistolary,repository README
+HTRogene-Spanish,paris-bnf-esp-206,,Spanish,,,book,,dataset default
+HTRogene-Spanish,paris-bnf-esp-212,,Spanish,,,book,,dataset default
+HTRogene-Spanish,paris-bnf-esp-260,,Spanish,,,book,,dataset default
+HTRogene-Spanish,paris-bnf-esp-286,"Paris, BnF, esp. 286",Spanish,15,prose,book,Treatises,repository README
+HTRogene-Spanish,paris-bnf-esp-305,"Paris, BnF, esp. 305",Spanish,15,mixed,book,Poetry,repository README
+HTRogene-Spanish,paris-bnf-esp-325,"Paris, BnF, esp. 325",Spanish,16,prose,book,Espistolary,repository README
+HTRogene-Spanish,paris-bnf-esp-327,,Spanish,,,book,,dataset default
+HTRogene-Spanish,paris-bnf-esp-33,"Paris, BnF, esp. 33",Spanish,14,prose,book,Treatises,repository README
+HTRogene-Spanish,paris-bnf-esp-37,"Paris, BnF, esp. 37",Spanish,16,verse,book,Poetry,repository README
+HTRogene-Spanish,paris-bnf-esp-43,"Paris, BnF, esp. 43",Spanish,14,verse,book,Treatises,repository README
+HTRogene-Spanish,paris-bnf-esp-458,"Paris, BnF, esp. 458",Spanish,15,prose,book,Treatises,repository README
+HTRogene-Spanish,paris-bnf-esp-479,,Spanish,,,book,,dataset default
+HTRogene-Spanish,paris-bnf-esp-524,,Spanish,,,book,,dataset default
+HTRogene-Spanish,paris-bnf-esp-547,,Spanish,,,book,,dataset default
+HTRogene-Spanish,rbme-b-iv-30,,Spanish,,,book,,dataset default
+HTRogene-Spanish,rbme-i-i-6,,Spanish,,,book,,dataset default
+HTRogene-Spanish,rbme-iii-10-2o,,Spanish,,,book,,dataset default
+HTRogene-Spanish,rbme-p-iii-21,,Spanish,,,book,,dataset default
+HTRogene-Spanish,rbme-t-i-6,,Spanish,,,book,,dataset default
+HTRogene-Spanish,rbme-y-iii-21,,Spanish,,,book,,dataset default
+HTRogene-Spanish,rbme-z-iii-6,,Spanish,,,book,,dataset default
+HTRogene-Spanish,tarragona-ms-87-3,,Spanish,,,book,,dataset default
+HTRogene-Occitan,additional-10323,,Occitan,,,book,,dataset default
+HTRogene-Occitan,additional-21218,,Occitan,,,book,,dataset default
+HTRogene-Occitan,carcassonne-34,,Occitan,,,book,,dataset default
+HTRogene-Occitan,london-bl-harley-3041,"London, British Library, Harley MS 3041",Occitan,14,prose,book,Narratives,repository README
+HTRogene-Occitan,london-bl-harley-7403,"London, British Library, Harley MS 7403",Occitan,14,verse,book,Poetry,repository README
+HTRogene-Occitan,paris-bfn-fr-5072,,Occitan,,,book,,dataset default
+HTRogene-Occitan,paris-bnf-arsenal-6355,,Occitan,,,book,,dataset default
+HTRogene-Occitan,paris-bnf-fr-1049,,Occitan,,,book,,dataset default
+HTRogene-Occitan,paris-bnf-fr-1158,,Occitan,,,book,,dataset default
+HTRogene-Occitan,paris-bnf-fr-13503,,Occitan,,,book,,dataset default
+HTRogene-Occitan,paris-bnf-fr-13504,,Occitan,,,book,,dataset default
+HTRogene-Occitan,paris-bnf-fr-13509,,Occitan,,,book,,dataset default
+HTRogene-Occitan,paris-bnf-fr-1601,,Occitan,,,book,,dataset default
+HTRogene-Occitan,paris-bnf-fr-2232,,Occitan,,,book,,dataset default
+HTRogene-Occitan,paris-bnf-fr-25425,,Occitan,,,book,,dataset default
+HTRogene-Occitan,paris-bnf-naf-11151,,Occitan,,,book,,dataset default
+HTRogene-Occitan,paris-bnf-naf-11180,,Occitan,,,book,,dataset default
+HTRogene-Occitan,paris-bnf-naf-6195,,Occitan,,,book,,dataset default
+HTRogene-Occitan,toulouse-2883-4,,Occitan,,,book,,dataset default
+Gatmuza-Occitan,Carcassonne_bm_34_flamenca,,Occitan,,,book,,dataset default
+Gatmuza-Occitan,bnf_fr_12472_chansonnier_f,,Occitan,,,book,,dataset default
+Gatmuza-Occitan,bnf_fr_1592_chansonnier_b,,Occitan,,,book,,dataset default
+Gatmuza-Occitan,bnf_fr_2164_jaufre,,Occitan,,,book,,dataset default
+Gatmuza-Occitan,bnf_fr_2180_girart_de_rossilhon,,Occitan,,,book,,dataset default
+Gatmuza-Occitan,bnf_naf_4232_passion_didot_daurel,,Occitan,,,book,,dataset default
+Gatmuza-Occitan,montpellier_aa9_petit_thalamus,,Occitan,,,book,,dataset default
+CIHAM-Fabliaux,bern_354,,French,,verse,book,,dataset default
+CIHAM-Fabliaux,bnf_Mazzarine_1553,,French,,verse,book,,dataset default
+CIHAM-Fabliaux,bnf_fr_1593,,French,,verse,book,,dataset default
+CIHAM-Fabliaux,bnf_fr_25545,,French,,verse,book,,dataset default
+CIHAM-Fabliaux,bnf_fr_837,,French,,verse,book,,dataset default
+CIHAM-Liber,BnF_Naf_27401,,French,,prose,book,,dataset default
+CIHAM-Liber,BnF_fr_263,,French,,prose,book,,dataset default
+CIHAM-Liber,Lisboa_bibl_nac_134,,French,,prose,book,,dataset default
+CIHAM-Liber,Lisboa_bibl_nac_135,,French,,prose,book,,dataset default
+DecameronFR,DecameronFR,,French,15,prose,book,,dataset default
+GrandesChroniques,GrandesChroniques,,French,14,prose,book,,dataset default
+Torino-L-II-14,Torino-L-II-14,,French,14,verse,book,,dataset default
+FoNDUE-LA-MSS-MA,BnF_lat_7558,,Latin,,,book,,dataset default
+ParisBible,ParisBible,,Latin,13,prose,book,,dataset default
+Vienna-2023-Latin,Vienna-2023-Latin,,Latin,15,prose,book,,dataset default
+Vienna-2024-Latin,ONB_4135,,Latin,15,prose,book,,dataset default
+Vienna-2024-Latin,ONB_4680,,Latin,15,prose,book,,dataset default
+Vienna-2025-Latin,"02_-_Praha,_NKP,_I_C_24_-_Winter_School",,Latin,,prose,book,,dataset default
+Vienna-2025-Latin,"06_-_KNM,_sign__VIII_F_49_-_Winter_School",,Latin,,prose,book,,dataset default
+Vienna-2025-Latin,"17_-_BSB,_Clm__476_-_Winter_School",,Latin,,prose,book,,dataset default
+Vienna-2025-Latin,"19_-_Praha,_NKP,_sign__I_D_10_-_Winter_School",,Latin,,prose,book,,dataset default
+Vienna-2025-Latin,"Aeneas_Silvius_Piccolomini_-_Wien,_Österreichische_Nationalbibliothek,_Cod__3445_-_75-196",,Latin,,prose,book,,dataset default
+Vienna-2025-Latin,Chronicle_of_Dalimil_-_NKP_XII_E_17,,Latin,,prose,book,,dataset default
+Vienna-2025-Latin,Cosmas_of_Prague_-_A3a_-_ÖNB_508_-_Winter_School,,Latin,,prose,book,,dataset default
+Vienna-2025-Latin,"Under Review - Aeneas_Silvius_Piccolomini_-_Wien,_Österreichische_Nationalbibliothek,_Cod__3445_-_75-196",,Latin,,prose,book,,dataset default
+Vienna-2024-German,DOD_51276,,German,15,,book,,dataset default
+Vienna-2024-German,DTL_7978199,,German,15,,book,,dataset default
+Vienna-2024-German,DTL_9133478,,German,15,,book,,dataset default
+Vienna-2024-German,Renner Cod. 2810,,German,15,,book,,dataset default
+Vienna-2024-German,enikel weltchronik,,German,15,,book,,dataset default
+Vienna-2025-German,OOeLA_HA_Steyr_Schachtel_1232_Fasz_21,,German,17,documentary,documentary,,dataset default
+Vienna-2025-German,OeStA_HHStA_Große Korrespondenz_K_33.1_Buch 1662-1665,,German,17,documentary,documentary,,dataset default
+Vienna-2025-German,OeStA_HHStA_Große Korrespondenz_K_33.1_Buch 1666-1667,,German,17,documentary,documentary,,dataset default
+Vienna-2023-Czech,Vienna-2023-Czech,,Czech,15,prose,book,,dataset default
+Vienna-2025-Czech,Vienna-2025-Czech,,Czech,15,prose,book,,dataset default
+Vienna-2025-Hebrew,Vienna-2025-Hebrew,,Hebrew,,prose,book,,dataset default
+Vienna-2024-Syriac,Vienna-2024-Syriac,,Syriac,16,prose,book,,dataset default
+Vienna-2025-Syriac,Vienna-2025-Syriac,,Syriac,,prose,book,,dataset default
+LiDi-Ligorio,LiDi-Ligorio,,Italian,16,list,autograph,,dataset default
+Eutyches,BambergMsc30,,Latin,9,mixed,book,,dataset default
+Eutyches,Lat14087,,Latin,9,mixed,book,,dataset default
+Eutyches,Lat7499,,Latin,9,mixed,book,,dataset default
+Eutyches,VLO41,,Latin,9,mixed,book,,dataset default
+CarolineMinuscule,CarolineMinuscule,,Latin,,prose,book,,dataset default
+BDD-Burchard,B,,Latin,11,exclude,book,,dataset default
+BDD-Burchard,E,,Latin,11,exclude,book,,dataset default
+BDD-Burchard,F,,Latin,11,exclude,book,,dataset default
+BDD-Burchard,K,,Latin,11,exclude,book,,dataset default
+BDD-Burchard,M1,,Latin,11,exclude,book,,dataset default
+BDD-Burchard,M2,,Latin,11,exclude,book,,dataset default
+BDD-Burchard,V,,Latin,11,exclude,book,,dataset default
+iForal,iForal,,Latin/Portuguese,,documentary,documentary,,dataset default
+GasparoSardi,GasparoSardi,,Latin,16,list,autograph,,dataset default
+BibliaArabica,OxfordLaudOr258,,Arabic,,prose,book,,dataset default
+Tarima-Arabic,BULAC_MS_ARA_410,,Arabic,,prose,,,dataset default
+Tarima-Arabic,BULAC_MS_ARA_427,,Arabic,,prose,,,dataset default
+Tarima-Arabic,BULAC_MS_ARA_436C,,Arabic,,prose,,,dataset default
+Tarima-Arabic,BULAC_MS_ARA_453,,Arabic,,prose,,,dataset default
+Tarima-Arabic,BULAC_MS_ARA_794,,Arabic,,prose,,,dataset default
+Tarima-Arabic,BnF-2297_btv1b11001977p,,Arabic,,prose,,,dataset default
+Tarima-Arabic,BnF-4617_btv1b10030580s,,Arabic,,prose,,,dataset default
+Tarima-Arabic,BnF-6898_btv1b10030178f,,Arabic,,prose,,,dataset default
+Tarima-Arabic,BnF-7024_btv1b10031132f,,Arabic,,prose,,,dataset default
+Tarima-Arabic,BnF-7214_btv1b10031231c,,Arabic,,prose,,,dataset default
+Tarima-Arabic,MMSH_IREMAM_ARA_MS_011,,Arabic,,prose,,,dataset default
+Tarima-Arabic,MMSH_MS_050,,Arabic,,prose,,,dataset default
+Tarima-Arabic,MMSH_MS_051_1,,Arabic,,prose,,,dataset default
+Tarima-Arabic,MMSH_MS_051_2,,Arabic,,prose,,,dataset default
+Tarima-Arabic,MMSH_MS_056,,Arabic,,prose,,,dataset default

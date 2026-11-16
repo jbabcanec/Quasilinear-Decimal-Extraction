@@ -12,14 +12,14 @@ The first version of this report read the answer as evidence that the text was n
 
 | Level | What the Voynich does | Real manuscripts or a simulated copyist | Section |
 |---|---|---|---|
-| Start of a line | avoids opening like the line above: 9.6% against 16.0% | 8.0% against 8.5% | 12 |
+| Start of a line (rule published by Q. Quadrada, Oct 2026; replicated here) | avoids opening like the line above: 9.6% against 16.0% | 8.0% against 8.5% | 12 |
 | End of a line | ends on a short word (−9%) with nothing carried over | end on a long word (+13% to +26%); the text runs on | 4, 5 |
 | End of a paragraph | a single stray word 0.4% of the time | 14% in real manuscripts; 10–17% when re-wrapped | 14 |
 | End of a page | never mid-paragraph (204 of 206 pages), yet the foot of the page is within half a line of full on 38% of text pages | packing the same whole paragraphs leaves that on 16% | 16 |
 
 A copyist can tidy a line end by abbreviating or splitting a word. No copyist can choose which word opens a line, how much text is left for a paragraph's last line, or how many lines a paragraph needs for the page to come out full. All three were controlled here.
 
-**Two strongest results.** Section 14: Voynich paragraphs almost never end on a short last line (a single word 0.4% of the time, against 10–17% when the same paragraphs are re-wrapped at other widths and 14% in real manuscripts), so the amount of text was fitted to the page. Section 12, in more detail here: **a Voynich line avoids beginning with the same glyph as the line above it.** It happens 9.6% of the time against 16.0% for the same lines in shuffled order (2,584 line pairs, 11 standard deviations), for every scribe and section, in two independent transliterations. Real manuscripts, a cipher of Latin and the copying generator show nothing of the kind.
+**Results in more detail.** Section 14: Voynich paragraphs almost never end on a short last line (a single word 0.4% of the time, against 10–17% when the same paragraphs are re-wrapped at other widths and 14% in real manuscripts), so the amount of text was fitted to the page. Section 12, in more detail here: **a Voynich line avoids beginning with the same glyph as the line above it.** It happens 9.6% of the time against 16.0% for the same lines in shuffled order (2,584 line pairs, 11 standard deviations), for every scribe and section, in two independent transliterations. Real manuscripts, a cipher of Latin and the copying generator show nothing of the kind.
 
 1. **Voynich lines are fitted, not mechanically wrapped.** Across 3,183 line breaks, the blank at a line's end is unrelated to the width of the word that starts the next line (coupling 0.05, 95% interval −0.03 to 0.14). Mechanically wrapping the same words on the same pages gives 0.48.
 2. **Real scribes do the same.** Six French prose manuscripts of the 15th century, measured the same way, give couplings from −0.44 to +0.29, five of them at or below +0.09. Mechanical wrapping of their own words gives +0.18 to +0.51. The fitted line end is ordinary scribal practice.
@@ -324,7 +324,7 @@ Three further checks point the same way. Look-alike signs are avoided too: `ch` 
 
 It does not say why. Varying the openings for the look of the page and a marker system that takes turns would both leave this trace.
 
-Limits: two web searches found no description of this rule, but a 2026 voynich.ninja thread on line-first glyphs could not be read from this environment, so treat novelty as "not found". This is a rule about how lines begin, not a reading of any word.
+**This rule is not new.** Quim Quadrada published it on 18 October 2026 as "vertical dissimilation" (rule R4.5 of [`quimqu/voynich-scribe`](https://github.com/quimqu/voynich-scribe/blob/HEAD/RULES.md), announced on voynich.ninja): 8.8% against 14.7%, ratio 0.60, z −10. The same rulebook already states that only the first glyph is involved (R9.3, R14.4), that paragraph openings are exempt (R5.3), and that the return two lines down is mostly a mechanical by-product of the avoidance (R4.6: 1.11 under a null that imposes it, not the raw 1.3). Earlier partial observations: tavie's 2024 "vertical impact effect" (`o` under `o`, `q` under `q` avoided) and a 2025 voynich.ninja thread (`d` under `d` at 0.52 of chance). The measurement here is an independent replication on two transliterations. What this section may add is the comparison with real manuscripts and the split between ordinary-word openings, added letters and the word underneath; those have not been checked against that project's full notes.
 
 Reproduce with `python3 src/exp13_line_starts.py`.
 
