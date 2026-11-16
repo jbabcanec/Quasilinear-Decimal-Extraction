@@ -14,7 +14,9 @@ This report was audited by seven independent agents told to break it (section 17
 |---|---|---|
 | A line avoids opening with the same glyph as the line above: 9.6% against 16.2% shuffled; 7.5% against 13.5% in a second transliteration | Replicated on three transliterations, survives every control. Strong for hands 1 and 2, weak for hand 3. | Published first by Q. Quadrada (Oct 2026) as "vertical dissimilation"; replicated here |
 | Paragraphs rarely end on a short last line: a single word about 2% of the time (0.6–2.2% across three sources) against about 12% (9–14%) for a text that simply runs out | Replicated independently. 3 to 6 times rarer than chance; about 2 times for two words or fewer. | No earlier statement found in about 130 searches |
-| Like for like against real prose manuscripts (a short line after three full ones): Voynich 0.5% (2 of 425), French prose 23% (16 of 69) | Small baseline; verse manuscripts also give about 0% | Not found elsewhere |
+| Like for like against real manuscripts (a short line after three full ones holds one word): Voynich 0.5% (2 of 425); 83 prose manuscripts 8.4% (1,832 cases); 49 verse manuscripts 0.8% | Holds against prose. Verse and one chapter-title list match the Voynich | Not found elsewhere |
+| Across 367 real manuscripts and samples in 12 languages, line-start avoidance is absent from prose (83 manuscripts, 7.9% against 7.5% shuffled) and verse (49), and present in itemised lists (four, e.g. 6.0% against 11.7%) | New context for the rule in the first row | Comparison not found elsewhere |
+| A word follows itself as often as chance in the Voynich (ratio 1.07); real manuscripts give a median of 0.06 and at most 0.54 over 207, except a table of dice-lot numerals at 1.02 | Stands | The page-shuffled version is in arXiv:2610.34499; the within-line version and the manuscript comparison are additions |
 | Voynich line ends are not mechanically wrapped: coupling 0.02–0.05 against 0.44–0.50 for a simulated wrapper | Robust | The short last word and the absence of squeezing are in Quadrada's rulebook |
 | Real scribes also fill their lines | Holds, but the gap to their own simulated wrapping is modest (+0.05 to +0.13 against +0.14 to +0.25) and rests on 50 pages | |
 | Words are not copied from the word overhead: at most 0.7% | Stands; confirms earlier nulls | Bound is new |
@@ -27,6 +29,8 @@ This report was audited by seven independent agents told to break it (section 17
 - *The text was not copied from a finished text* as inferred from line ends (sections 1–2), withdrawn earlier after the real-manuscript control.
 
 What the surviving results support: the opening word of each line was chosen with the line above in view, and paragraphs were ended, or their text adjusted, so as not to leave a stray word. The real copied prose measured here shows neither.
+
+Across 367 real manuscripts the same measures separate continuous prose from itemised lists, verse and number tables, and the Voynich falls with the second group on all three.
 
 They do not prove the text was composed for the page. A simulated copyist of real Latin reproduces both, and the line-end behaviour, if he plans a whole paragraph ahead and may squeeze or stretch his writing by 6–8% (section 17). The manuscript's lines vary in density by only 1–2%, less than that needs, so such a copyist would have had to vary the written forms of words, as abbreviation does. Three readings remain: composed as written; line-structured like verse; or copied by scribes who planned each paragraph and adjusted word forms to fit, a habit not seen in the real manuscripts compared.
 
@@ -427,7 +431,23 @@ Reproduce with `python3 src/exp17_pages.py`.
 
 ## 17. Audit
 
-Seven agents worked independently, each with its own code where it replicated: line starts, paragraph endings, page fill, a search for more real manuscripts, a code review, a prior-work search, and a model of what a copyist could do. Their scripts and outputs are in `audit/`. Outcomes are folded into the sections above. The real-manuscript search is not yet reported.
+Seven agents worked independently, each with its own code where it replicated: line starts, paragraph endings, page fill, a search for more real manuscripts, a code review, a prior-work search, and a model of what a copyist could do. Their scripts and outputs are in `audit/`. Outcomes are folded into the sections above.
+
+**The wider real-manuscript comparison** (`audit/real_manuscripts/`, `results.csv`): 39 public ground-truth datasets, 367 manuscripts or samples, 273,453 lines, 12 languages, duplicated pages removed. Book hands of the 13th to 16th centuries with 200 or more lines:
+
+| | Manuscripts | Lines | Same first letter as the line above, observed / shuffled | One-word share of short lines under three full ones | Word followed by itself, relative to chance |
+|---|---|---|---|---|---|
+| Prose, 9 languages | 83 | 101,076 | 7.9% / 7.5% (z +4.7) | 8.4% (1,832 cases) | 0.10 |
+| Verse, 6 languages | 49 | 64,001 | 8.3% / 8.5% (z −1.1) | 0.8% (4,807) | 0.09 |
+| Chapter table, BnF fr. 1419 | 1 | 228 | 6.2% / 11.7% (z −3.0) | | 0.00 |
+| Inventory, Königsfelden U.17/0954 | 1 | 556 | 6.0% / 11.7% (z −4.7) | 3.3% (30) | 0.20 |
+| **Voynich** | | 3,968 | 9.6% / 16.0% (z −11.5) | 0.5% (425) | 1.07 |
+
+- No prose or verse manuscript shows line-start avoidance. Itemised lists do, where each entry opens with a set word and runs over one to three lines: four lists reach the Voynich's size of effect.
+- One-word endings: prose 8.4%, lowest single manuscript 3.0%; verse about 0.8%; one chapter-title list 0.4%.
+- No manuscript approaches the Voynich's neutral repetition except a table of numerals for casting lots by dice (1.02).
+
+On each of the three measures the Voynich sits with lists, verse and number tables, and apart from continuous prose. Labels of form (prose, verse, list) are the agent's own, many samples are three to ten pages, and paragraph-first lines could not be excluded for the real manuscripts as they were for the Voynich.
 
 **The copyist model** (`audit/copyist_model/`) lays real Latin into lines for a scribe who keeps every word. To reach the Voynich's values:
 
