@@ -8,6 +8,17 @@ The first version of this report read the answer as evidence that the text was n
 
 ## Findings
 
+**The Voynich text was fitted to the page at every level, in ways scribes copying real texts do not do.**
+
+| Level | What the Voynich does | Real manuscripts or a simulated copyist | Section |
+|---|---|---|---|
+| Start of a line | avoids opening like the line above: 9.6% against 16.0% | 8.0% against 8.5% | 12 |
+| End of a line | ends on a short word (−9%) with nothing carried over | end on a long word (+13% to +26%); the text runs on | 4, 5 |
+| End of a paragraph | a single stray word 0.4% of the time | 14% in real manuscripts; 10–17% when re-wrapped | 14 |
+| End of a page | never mid-paragraph (204 of 206 pages), yet the foot of the page is within half a line of full on 38% of text pages | packing the same whole paragraphs leaves that on 16% | 16 |
+
+A copyist can tidy a line end by abbreviating or splitting a word. No copyist can choose which word opens a line, how much text is left for a paragraph's last line, or how many lines a paragraph needs for the page to come out full. All three were controlled here.
+
 **Two strongest results.** Section 14: Voynich paragraphs almost never end on a short last line (a single word 0.4% of the time, against 10–17% when the same paragraphs are re-wrapped at other widths and 14% in real manuscripts), so the amount of text was fitted to the page. Section 12, in more detail here: **a Voynich line avoids beginning with the same glyph as the line above it.** It happens 9.6% of the time against 16.0% for the same lines in shuffled order (2,584 line pairs, 11 standard deviations), for every scribe and section, in two independent transliterations. Real manuscripts, a cipher of Latin and the copying generator show nothing of the kind.
 
 1. **Voynich lines are fitted, not mechanically wrapped.** Across 3,183 line breaks, the blank at a line's end is unrelated to the width of the word that starts the next line (coupling 0.05, 95% interval −0.03 to 0.14). Mechanically wrapping the same words on the same pages gives 0.48.
@@ -378,12 +389,30 @@ That the Voynich repeats the previous word more than a page-shuffled version, un
 
 Reproduce with `python3 src/exp15_repeats.py`.
 
+## 16. Whole pages
+
+**No paragraph runs over a page break.** In ZL3b, the last text line of the page ends a paragraph on 204 of 206 pages (plants 128 of 128, stars / recipes 25 of 25, bathing 18 of 19, text only 6 of 6, jars 16 of 16). If the text simply ran on, a page break would land on a paragraph end 12–25% of the time. That each page is self-contained has been remarked before.
+
+**Yet the pages are full.** A scribe who will not split a paragraph, and cannot change its length, must leave part of a paragraph's height blank at the foot of most pages. On the 50 text-heavy pages (word boxes):
+
+| | Pages | Blank at the foot, median | Foot within half a line of full | Same paragraphs packed in shuffled order | p |
+|---|---|---|---|---|---|
+| Stars / recipes | 25 | 0.8 lines | 48% | 20% ± 8 | 0.003 |
+| Bathing and text-only | 25 | 2.4 lines | 28% | 10% ± 6 | 0.007 |
+| All text-heavy pages | 50 | 1.0 lines | 38% | 15% ± 5 | < 0.0003 |
+
+Paragraphs average four to eight lines, yet the text stops within a line of the foot on half the pages. The lengths of the paragraphs on a page add up to the page.
+
+Limits: the foot of the page is taken as the level reached by the fullest pages of the group, so pages of unequal size or with drawings at the foot add noise; 50 pages. This is the weakest of the four levels.
+
+Reproduce with `python3 src/exp17_pages.py`.
+
 ## What this means
 
-- The Voynich line end looks like the work of a scribe filling lines, which is what scribes of the period did with ordinary texts. It is not evidence that the text was made up on the page, and the earlier version of this report was wrong to read it that way.
-- The remaining difference is in how the line is filled. Real scribes end lines on long words, which is what happens when the word straddling the margin is squeezed in. Voynich scribes end lines on short words and start the next line with long ones (+9%).
-- The side-tests in sections 1 and 2 (no squeezing of the last word, no split words, no link between words across the line break) still describe the Voynich. They have not been run on a second real corpus with true word boxes, so how unusual they are is open.
-- None of this bears on whether the text is meaningful.
+- **The text was made for these pages.** Which word opens a line, how much text closes a paragraph and how many lines fill a page were all under the writer's control. Real scribes copying real texts control none of these, and the six real manuscripts measured here show none of them.
+- **That rules out one thing and leaves two.** Ruled out: a finished text, in plain language or cipher, copied out with ordinary line, paragraph and page breaks. Left open: a text composed directly onto the page, and a fair copy of a draft that already had exactly this layout, which only moves the composing back one step.
+- **It does not settle whether the words mean anything.** Someone can compose meaningful text to fit a page, as in a verse collection or a book of set-piece entries. But the text also has almost no word order, no repeated phrases, and no reluctance to repeat a word (sections 6 and 15), which no text type among the 28 real ones measured shares.
+- **For anyone attempting a reading:** the first word of every line, the last word of every line and the last line of every paragraph are shaped by layout. Treat them as suspect, and do not read across line breaks.
 
 ## Limits
 

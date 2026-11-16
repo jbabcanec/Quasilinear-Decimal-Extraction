@@ -1,0 +1,68 @@
+{
+ "page_breaks": {
+  "plants": {
+   "pages": 128,
+   "pages_ending_on_a_paragraph_end": 128,
+   "expected_share_if_text_ran_on": 0.15360696517412936
+  },
+  "stars / recipes": {
+   "pages": 25,
+   "pages_ending_on_a_paragraph_end": 25,
+   "expected_share_if_text_ran_on": 0.2508591065292096
+  },
+  "bathing": {
+   "pages": 19,
+   "pages_ending_on_a_paragraph_end": 18,
+   "expected_share_if_text_ran_on": 0.11700680272108843
+  },
+  "text only": {
+   "pages": 6,
+   "pages_ending_on_a_paragraph_end": 6,
+   "expected_share_if_text_ran_on": 0.1313559322033898
+  },
+  "jars": {
+   "pages": 16,
+   "pages_ending_on_a_paragraph_end": 16,
+   "expected_share_if_text_ran_on": 0.19642857142857142
+  }
+ },
+ "page_breaks_all": {
+  "pages": 206,
+  "ending_on_a_paragraph_end": 204
+ },
+ "page_fill": {
+  "stars / recipes": {
+   "pages": 25,
+   "paragraphs": 292,
+   "lines_per_paragraph": 3.923505143745221,
+   "blank_median": 0.8371177471177463,
+   "under_half_a_line": 0.48,
+   "packed_blank_median": 1.6979677855582638,
+   "packed_under_half_a_line": 0.20369541666666668,
+   "packed_under_half_a_line_sd": 0.08113153847024357,
+   "p": 0.0025
+  },
+  "bathing and text-only": {
+   "pages": 25,
+   "paragraphs": 122,
+   "lines_per_paragraph": 8.190775195324548,
+   "blank_median": 2.3879458909074507,
+   "under_half_a_line": 0.28,
+   "packed_blank_median": 4.222557423979541,
+   "packed_under_half_a_line": 0.09774791666666667,
+   "packed_under_half_a_line_sd": 0.05865193644235031,
+   "p": 0.00675
+  },
+  "all text-heavy pages": {
+   "pages": 50,
+   "paragraphs": 414,
+   "lines_per_paragraph": 5.1761044365350735,
+   "blank_median": 1.0233416841542506,
+   "under_half_a_line": 0.38,
+   "packed_blank_median": 2.4717163828524797,
+   "packed_under_half_a_line": 0.15313408163265307,
+   "packed_under_half_a_line_sd": 0.05098428131198503,
+   "p": 0.0
+  }
+ }
+}
