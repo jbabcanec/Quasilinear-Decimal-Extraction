@@ -1,0 +1,54 @@
+#### D. foot quantile x tolerance scan, pixel frame at face value, like-for-like null (draw mode)
+25 S: P75, tol 0.5                                         eval 25 full 13 =  52% | draw:  41%+- 6% p=0.066 |
+25 S: P75, tol 1.0                                         eval 25 full 16 =  64% | draw:  52%+- 8% p=0.109 |
+25 S: P80, tol 0.5                                         eval 25 full 12 =  48% | draw:  36%+- 6% p=0.054 |
+25 S: P80, tol 1.0                                         eval 25 full 15 =  60% | draw:  48%+- 8% p=0.119 |
+25 S: P85, tol 0.5                                         eval 25 full 10 =  40% | draw:  31%+- 6% p=0.125 |
+25 S: P85, tol 1.0                                         eval 25 full 15 =  60% | draw:  43%+- 8% p=0.038 |
+25 S: P90, tol 0.5                                         eval 25 full 10 =  40% | draw:  26%+- 6% p=0.032 |
+25 S: P90, tol 1.0                                         eval 25 full 15 =  60% | draw:  39%+- 8% p=0.015 |
+25 S: P95, tol 0.5                                         eval 25 full  8 =  32% | draw:  22%+- 6% p=0.095 |
+25 S: P95, tol 1.0                                         eval 25 full 15 =  60% | draw:  34%+- 8% p=0.003 |
+25 S: P100, tol 0.5                                        eval 25 full  6 =  24% | draw:  15%+- 6% p=0.116 |
+25 S: P100, tol 1.0                                        eval 25 full 13 =  52% | draw:  29%+- 9% p=0.011 |
+50 SBT: P75, tol 0.5                                       eval 50 full 23 =  46% | draw:  36%+- 4% p=0.017 |
+50 SBT: P75, tol 1.0                                       eval 50 full 26 =  52% | draw:  45%+- 5% p=0.118 |
+50 SBT: P80, tol 0.5                                       eval 50 full 22 =  44% | draw:  31%+- 4% p=0.005 |
+50 SBT: P80, tol 1.0                                       eval 50 full 25 =  50% | draw:  40%+- 5% p=0.053 |
+50 SBT: P85, tol 0.5                                       eval 50 full 19 =  38% | draw:  26%+- 4% p=0.006 |
+50 SBT: P85, tol 1.0                                       eval 50 full 25 =  50% | draw:  36%+- 6% p=0.012 |
+50 SBT: P90, tol 0.5                                       eval 50 full 17 =  34% | draw:  21%+- 4% p=0.007 |
+50 SBT: P90, tol 1.0                                       eval 50 full 25 =  50% | draw:  31%+- 6% p=0.001 |
+50 SBT: P95, tol 0.5                                       eval 50 full 13 =  26% | draw:  17%+- 4% p=0.037 |
+50 SBT: P95, tol 1.0                                       eval 50 full 24 =  48% | draw:  26%+- 5% p=0.001 |
+50 SBT: P100, tol 0.5                                      eval 50 full  5 =  10% | draw:  11%+- 4% p=0.687 |
+50 SBT: P100, tol 1.0                                      eval 50 full 18 =  36% | draw:  21%+- 6% p=0.012 |
+#### E. which pages are "full" (P90 of 25 S pages, tol 0.5) and frame status
+  f58r   gap  0.92 lines      frame-limit --  box_ymax 885 box_xmax 627 n=41 bif=2
+  f58v   gap  0.89 lines      frame-limit --  box_ymax 885 box_xmax 618 n=39 bif=2
+  f103r  gap  0.35 lines FULL frame-limit H-  box_ymax 897 box_xmax 624 n=54 bif=1
+  f103v  gap  0.50 lines FULL frame-limit H-  box_ymax 903 box_xmax 627 n=46 bif=1
+  f104r  gap  4.56 lines      frame-limit -W  box_ymax 825 box_xmax 639 n=45 bif=2
+  f104v  gap  1.64 lines      frame-limit -W  box_ymax 870 box_xmax 639 n=44 bif=2
+  f105r  gap  5.85 lines      frame-limit -W  box_ymax 786 box_xmax 636 n=37 bif=3
+  f105v  gap  4.31 lines      frame-limit -W  box_ymax 819 box_xmax 639 n=38 bif=3
+  f106r  gap  0.67 lines      frame-limit HW  box_ymax 900 box_xmax 633 n=47 bif=4
+  f106v  gap -0.02 lines FULL frame-limit H-  box_ymax 903 box_xmax 612 n=47 bif=4
+  f107r  gap  0.38 lines FULL frame-limit --  box_ymax 891 box_xmax 609 n=51 bif=5
+  f107v  gap  0.61 lines      frame-limit H-  box_ymax 903 box_xmax 627 n=49 bif=5
+  f108r  gap  0.72 lines      frame-limit -W  box_ymax 885 box_xmax 639 n=50 bif=6
+  f108v  gap -0.20 lines FULL frame-limit HW  box_ymax 903 box_xmax 639 n=53 bif=6
+  f111r  gap -0.06 lines FULL frame-limit H-  box_ymax 900 box_xmax 624 n=54 bif=6
+  f111v  gap  0.20 lines FULL frame-limit H-  box_ymax 903 box_xmax 627 n=51 bif=6
+  f112r  gap  0.02 lines FULL frame-limit HW  box_ymax 900 box_xmax 633 n=45 bif=5
+  f112v  gap  0.47 lines FULL frame-limit H-  box_ymax 900 box_xmax 621 n=47 bif=5
+  f113r  gap  1.46 lines      frame-limit --  box_ymax 879 box_xmax 609 n=51 bif=4
+  f113v  gap  1.32 lines      frame-limit -W  box_ymax 882 box_xmax 636 n=49 bif=4
+  f114r  gap  2.20 lines      frame-limit -W  box_ymax 864 box_xmax 639 n=45 bif=3
+  f114v  gap  2.90 lines      frame-limit -W  box_ymax 843 box_xmax 636 n=41 bif=3
+  f115r  gap  1.45 lines      frame-limit -W  box_ymax 879 box_xmax 639 n=45 bif=2
+  f115v  gap  3.55 lines      frame-limit -W  box_ymax 837 box_xmax 639 n=45 bif=2
+  f116r  gap  0.15 lines FULL frame-limit H-  box_ymax 900 box_xmax 603 n=50 bif=1
+  full & H-limited 9, full & not 1, not full & H-limited 2, neither 13
+#### F. leave-one-leaf-out and leave-one-bifolio-out (25 S, P90, tol .5, like-for-like draw null)
+  leave-one-leaf-out (leaf, full, obs, null, p): [('f103', 8, np.float64(0.35), np.float64(0.26), np.float64(0.167)), ('f104', 9, np.float64(0.39), np.float64(0.26), np.float64(0.05)), ('f105', 9, np.float64(0.39), np.float64(0.26), np.float64(0.049)), ('f106', 9, np.float64(0.39), np.float64(0.26), np.float64(0.048)), ('f107', 8, np.float64(0.35), np.float64(0.27), np.float64(0.172)), ('f108', 9, np.float64(0.39), np.float64(0.26), np.float64(0.068)), ('f111', 8, np.float64(0.35), np.float64(0.27), np.float64(0.183)), ('f112', 8, np.float64(0.35), np.float64(0.26), np.float64(0.166)), ('f113', 9, np.float64(0.39), np.float64(0.27), np.float64(0.061)), ('f114', 9, np.float64(0.39), np.float64(0.26), np.float64(0.057)), ('f115', 9, np.float64(0.39), np.float64(0.26), np.float64(0.051)), ('f116', 8, np.float64(0.33), np.float64(0.27), np.float64(0.225)), ('f58', 9, np.float64(0.39), np.float64(0.27), np.float64(0.077))]

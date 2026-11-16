@@ -1,0 +1,20 @@
+v101 numeric-locus lines 3978 paragraphs 745
+non-first lines 3233
+
+== v101: first line excluded, first v101 char, within-paragraph shuffle ==
+v101, excl line1                   lag1 N= 2495 obs=  7.5% exp= 13.5% ratio=0.56 z=-11.04 p_lo=0.0002 p_hi=1.0000
+v101, excl line1                   lag2 N= 1834 obs= 18.3% exp= 13.8% ratio=1.32 z= +6.33 p_lo=1.0000 p_hi=0.0002
+v101, excl line1                   lag3 N= 1350 obs= 15.9% exp= 14.2% ratio=1.12 z= +1.99 p_lo=0.9780 p_hi=0.0287
+v101, excl line1                   lag4 N= 1015 obs= 17.4% exp= 14.4% ratio=1.21 z= +2.98 p_lo=0.9983 p_hi=0.0027
+v101, excl line1                   lag5 N=  771 obs= 14.4% exp= 14.9% ratio=0.97 z= -0.39 p_lo=0.3554 p_hi=0.6853
+v101, excl line1                   lag6 N=  606 obs= 17.8% exp= 15.1% ratio=1.18 z= +2.01 p_lo=0.9805 p_hi=0.0260
+
+== v101 first line included ==
+v101, incl line1                   lag1 N= 3233 obs=  6.3% exp= 10.2% ratio=0.62 z= -8.72 p_lo=0.0002 p_hi=1.0000
+v101, incl line1                   lag2 N= 2495 obs= 14.5% exp= 10.8% ratio=1.35 z= +6.92 p_lo=1.0000 p_hi=0.0002
+
+== v101 negative controls ==
+v101 2nd word first glyph          lag1 N= 2491 obs= 16.4% exp= 16.5% ratio=0.99 z= -0.16 p_lo=0.4504 p_hi=0.5776
+v101 2nd word first glyph          lag2 N= 1831 obs= 15.7% exp= 16.3% ratio=0.96 z= -0.87 p_lo=0.1992 p_hi=0.8195
+v101 line-last glyph               lag1 N= 2369 obs= 23.1% exp= 23.5% ratio=0.98 z= -0.61 p_lo=0.2877 p_hi=0.7383
+v101 line-last glyph               lag2 N= 1751 obs= 23.5% exp= 23.4% ratio=1.00 z= +0.13 p_lo=0.5724 p_hi=0.4554
