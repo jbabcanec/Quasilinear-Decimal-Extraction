@@ -422,6 +422,26 @@ Limits: the foot of the page is taken as the level reached by the fullest pages 
 
 Reproduce with `python3 src/exp17_pages.py`.
 
+## 18. A judge for real against fake
+
+A classifier is trained to tell real Voynich lines from the lines of a candidate fake, and scored on pages it has not seen (0.5 = cannot tell, 1.0 = always tells). Features are runs of one to four glyphs, with the line's start and end marked.
+
+| Fake | Whole lines | First and last word removed |
+|---|---|---|
+| Real Voynich against other real pages (the floor) | 0.58 | 0.57 |
+| Real words, shuffled inside each line | 0.86 | 0.73 |
+| Real words, shuffled across the page | 0.88 | 0.76 |
+| Naibbe cipher of Latin | 0.99 | 0.98 |
+| Timm–Schinner generator | 1.00 | 1.00 |
+
+- Both published ways of producing Voynich-like text are told apart almost every time, mainly by which glyph sequences occur inside words (`hdy`, `eedy`, `och` too common in the generator; `re`, `le`, `hai` in the cipher) and, for the cipher, by the missing link between a word ending in `y` and the next beginning with `q`.
+- Reshuffling the manuscript's own words is a far better fake. What still gives it away is the line edges (`m` at the end, `p`, `y`, `t` at the start) and that same word-to-word link.
+- So the order of words inside a line does carry something a judge can learn (0.73 against a floor of 0.57), even though it is not word order in the sense of section 6.
+
+This is the first round of a loop: add a rule to the fake, retrain the judge, see what it catches next. A fake that reaches the floor shows a way the text could have been made, not that it was made that way. Not checked against prior work; fitted-generator comparisons exist (arXiv:2610.34499; Schwartz).
+
+Reproduce with `python3 src/exp18_judge.py` (needs scikit-learn).
+
 ## What this means
 
 - **Two places where the text answers to the page.** Which word opens a line depends on the line above, and paragraphs avoid ending on a stray word. Real copied prose does neither.

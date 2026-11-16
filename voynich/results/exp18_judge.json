@@ -1,0 +1,202 @@
+{
+ "Real Voynich, other half (sanity: should be 0.5)": {
+  "whole": {
+   "auc": 0.57838071314567,
+   "marks_of_real": [
+    "'okal'",
+    "'kche'",
+    "'qoka'",
+    "'okor'",
+    "'y yk'",
+    "'^ol'"
+   ],
+   "marks_of_fake": [
+    "'^sai'",
+    "'ain '",
+    "'edai'",
+    "'eda'",
+    "'dain'",
+    "'ain'"
+   ]
+  },
+  "inside": {
+   "auc": 0.5688069171301935,
+   "marks_of_real": [
+    "'qoka'",
+    "'okal'",
+    "'kche'",
+    "'dy d'",
+    "'al q'",
+    "' ked'"
+   ],
+   "marks_of_fake": [
+    "'edai'",
+    "'eda'",
+    "'ain'",
+    "' ain'",
+    "' shc'",
+    "'shc'"
+   ]
+  }
+ },
+ "Voynich, words shuffled inside each line": {
+  "whole": {
+   "auc": 0.8561189209769833,
+   "marks_of_real": [
+    "'m$'",
+    "'^p'",
+    "'am$'",
+    "'^y'",
+    "'r a'",
+    "'^t'"
+   ],
+   "marks_of_fake": [
+    "'^c'",
+    "'y a'",
+    "'^ch'",
+    "'m '",
+    "'edy$'",
+    "'^a'"
+   ]
+  },
+  "inside": {
+   "auc": 0.7342953615139014,
+   "marks_of_real": [
+    "'r a'",
+    "'dy q'",
+    "'s a'",
+    "'r ai'",
+    "'ey k'",
+    "'y q'"
+   ],
+   "marks_of_fake": [
+    "'y a'",
+    "'y sh'",
+    "'m'",
+    "'m '",
+    "' p'",
+    "'y ai'"
+   ]
+  }
+ },
+ "Voynich, words shuffled across the page": {
+  "whole": {
+   "auc": 0.8841370355878586,
+   "marks_of_real": [
+    "'^p'",
+    "'m$'",
+    "'dy q'",
+    "'^y'",
+    "'am$'",
+    "'^t'"
+   ],
+   "marks_of_fake": [
+    "'^c'",
+    "'y a'",
+    "'^ch'",
+    "'m '",
+    "'^a'",
+    "' p'"
+   ]
+  },
+  "inside": {
+   "auc": 0.758480702351702,
+   "marks_of_real": [
+    "'dy q'",
+    "'r a'",
+    "'s a'",
+    "'y q'",
+    "'y qo'",
+    "'ar a'"
+   ],
+   "marks_of_fake": [
+    "'y a'",
+    "'y sh'",
+    "'m'",
+    "'y ai'",
+    "'n k'",
+    "'in k'"
+   ]
+  }
+ },
+ "Timm-Schinner generator": {
+  "whole": {
+   "auc": 0.9990097885127479,
+   "marks_of_real": [
+    "'ey'",
+    "'he'",
+    "'ey '",
+    "'od'",
+    "'eo'",
+    "'she'"
+   ],
+   "marks_of_fake": [
+    "'hd'",
+    "'hdy'",
+    "'hal'",
+    "'och'",
+    "'eed'",
+    "'eedy'"
+   ]
+  },
+  "inside": {
+   "auc": 0.9963294460019994,
+   "marks_of_real": [
+    "'ey'",
+    "'he'",
+    "'od'",
+    "'s '",
+    "'ey '",
+    "'she'"
+   ],
+   "marks_of_fake": [
+    "'hd'",
+    "'hdy'",
+    "'och'",
+    "'hal'",
+    "'eed'",
+    "'eedy'"
+   ]
+  }
+ },
+ "Naibbe cipher of Latin": {
+  "whole": {
+   "auc": 0.9934155389038946,
+   "marks_of_real": [
+    "'dy q'",
+    "'oda'",
+    "'m$'",
+    "'^p'",
+    "'y q'",
+    "'y qo'"
+   ],
+   "marks_of_fake": [
+    "'re'",
+    "'m '",
+    "'le'",
+    "'y a'",
+    "'ed'",
+    "'hai'"
+   ]
+  },
+  "inside": {
+   "auc": 0.9788121326925653,
+   "marks_of_real": [
+    "'dy q'",
+    "'oda'",
+    "'ek'",
+    "'r a'",
+    "'y q'",
+    "'hy'"
+   ],
+   "marks_of_fake": [
+    "'re'",
+    "'le'",
+    "'y a'",
+    "'ed'",
+    "'m '",
+    "'m'"
+   ]
+  }
+ }
+}
